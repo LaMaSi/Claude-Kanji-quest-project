@@ -1,0 +1,573 @@
+[
+ {
+  "id": "p_dem_wa_N",
+  "ch": "1",
+  "title": "A は B です",
+  "explain": "は markiert das Thema, です schließt höflich ab. Es gibt keinen Artikel.",
+  "jp": "<a> は <b> です。",
+  "de": "[a] ist [b.nom.indef].",
+  "fills": [
+   {
+    "a": "kore",
+    "b": "ringo"
+   },
+   {
+    "a": "sore",
+    "b": "pan"
+   },
+   {
+    "a": "are",
+    "b": "mise"
+   },
+   {
+    "a": "kore",
+    "b": "mizu"
+   },
+   {
+    "a": "are",
+    "b": "mura"
+   },
+   {
+    "a": "sore",
+    "b": "ocha"
+   },
+   {
+    "a": "kore",
+    "b": "okane"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "dem"
+   },
+   "b": {
+    "pos": "noun"
+   }
+  }
+ },
+ {
+  "id": "p_dem_nan",
+  "ch": "1",
+  "title": "A は 何ですか",
+  "explain": "Frage nach einer Sache. Vor です wird 何 als なん gelesen. ですか: か macht aus dem Satz eine Frage.",
+  "jp": "<a> は {何|なん} です か。",
+  "de": "Was ist [a]?",
+  "fills": [
+   {
+    "a": "kore"
+   },
+   {
+    "a": "sore"
+   },
+   {
+    "a": "are"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "dem"
+   }
+  }
+ },
+ {
+  "id": "p_N_ikura",
+  "ch": "1",
+  "title": "N は いくらですか",
+  "explain": "いくら fragt nach dem Preis.",
+  "jp": "<a> は いくら です か。",
+  "de": "Wie viel kostet [a.nom.def]?",
+  "fills": [
+   {
+    "a": "ringo"
+   },
+   {
+    "a": "pan"
+   },
+   {
+    "a": "kusuri"
+   },
+   {
+    "a": "ocha"
+   },
+   {
+    "a": "mizu"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "food",
+     "drink",
+     "item"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_N_yen",
+  "ch": "1",
+  "title": "N は 〜円です",
+  "explain": "Preis nennen. Die Zahl steht vor 円.",
+  "jp": "<a> は <n.yen> です。",
+  "de": "[a.nom.def] kostet [n] Yen.",
+  "fills": [
+   {
+    "a": "ringo",
+    "n": 50
+   },
+   {
+    "a": "pan",
+    "n": 80
+   },
+   {
+    "a": "kusuri",
+    "n": 150
+   },
+   {
+    "a": "ocha",
+    "n": 10
+   },
+   {
+    "a": "tamago",
+    "n": 30
+   },
+   {
+    "a": "niku",
+    "n": 300
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "food",
+     "drink",
+     "item"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_N_doko",
+  "ch": "1",
+  "title": "N は どこですか",
+  "explain": "どこ fragt nach dem Ort.",
+  "jp": "<a> は どこ です か。",
+  "de": "Wo ist [a.nom.def]?",
+  "fills": [
+   {
+    "a": "mise"
+   },
+   {
+    "a": "sakaba"
+   },
+   {
+    "a": "ie"
+   },
+   {
+    "a": "obaasan"
+   },
+   {
+    "a": "tenshu"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun"
+   }
+  }
+ },
+ {
+  "id": "p_N_wo_kudasai",
+  "ch": "2",
+  "title": "N を ください",
+  "explain": "を markiert das Objekt. 〜を ください = „〜, bitte“.",
+  "jp": "<a> を ください。",
+  "de": "[a.acc.indef], bitte.",
+  "fills": [
+   {
+    "a": "ringo"
+   },
+   {
+    "a": "pan"
+   },
+   {
+    "a": "mizu"
+   },
+   {
+    "a": "ocha"
+   },
+   {
+    "a": "kusuri"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "food",
+     "drink",
+     "item"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_N_count_kudasai",
+  "ch": "2",
+  "title": "N を 〜つ ください",
+  "explain": "Gegenstände zählt man mit ひとつ, ふたつ, みっつ …. Die Zahl steht nach を.",
+  "jp": "<a> を <n.count> ください。",
+  "de": "[n.word] [a.pl], bitte.",
+  "fills": [
+   {
+    "a": "ringo",
+    "n": 3
+   },
+   {
+    "a": "pan",
+    "n": 2
+   },
+   {
+    "a": "tamago",
+    "n": 6
+   },
+   {
+    "a": "ringo",
+    "n": 5
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "hasPl": true,
+    "notMass": true
+   }
+  }
+ },
+ {
+  "id": "p_N_wo_V",
+  "ch": "2",
+  "title": "N を 〜ます",
+  "explain": "Verb mit höflicher ます-Form. Das Subjekt wird oft weggelassen; im Deutschen ergänzen wir „ich“.",
+  "jp": "<a> を <v.masu>。",
+  "de": "Ich [v.1sg] [a.acc.indef].",
+  "fills": [
+   {
+    "a": "ringo",
+    "v": "taberu"
+   },
+   {
+    "a": "pan",
+    "v": "taberu"
+   },
+   {
+    "a": "niku",
+    "v": "taberu"
+   },
+   {
+    "a": "mizu",
+    "v": "nomu"
+   },
+   {
+    "a": "ocha",
+    "v": "nomu"
+   },
+   {
+    "a": "sake",
+    "v": "nomu"
+   },
+   {
+    "a": "pan",
+    "v": "kau"
+   },
+   {
+    "a": "kusuri",
+    "v": "kau"
+   },
+   {
+    "a": "ringo",
+    "v": "kau"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun"
+   },
+   "v": {
+    "pos": "verb"
+   }
+  },
+  "objOf": [
+   [
+    "a",
+    "v"
+   ]
+  ]
+ },
+ {
+  "id": "p_N_wa_adj",
+  "ch": "2",
+  "title": "N は 〜い です",
+  "explain": "い-Adjektive stehen vor です.",
+  "jp": "<a> は <b> です。",
+  "de": "[a.nom.def] ist [b].",
+  "fills": [
+   {
+    "a": "ringo",
+    "b": "oishii"
+   },
+   {
+    "a": "ocha",
+    "b": "oishii"
+   },
+   {
+    "a": "kusuri",
+    "b": "takai"
+   },
+   {
+    "a": "pan",
+    "b": "yasui"
+   },
+   {
+    "a": "okami",
+    "b": "ookii"
+   },
+   {
+    "a": "inu",
+    "b": "chiisai"
+   },
+   {
+    "a": "mura",
+    "b": "chiisai"
+   },
+   {
+    "a": "okami",
+    "b": "kowai"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun"
+   },
+   "b": {
+    "pos": "adj"
+   }
+  }
+ },
+ {
+  "id": "p_ni_N_ga_aru",
+  "ch": "3",
+  "title": "〜に N が あります",
+  "explain": "Ort + に + Ding + が + あります: „Es gibt …“. あります für unbelebte Dinge.",
+  "jp": "<a> に <b> が あります。",
+  "de": "[a.in.def] gibt es [b.acc.indef].",
+  "fills": [
+   {
+    "a": "mise",
+    "b": "kusuri"
+   },
+   {
+    "a": "sakaba",
+    "b": "sake"
+   },
+   {
+    "a": "mori",
+    "b": "michi"
+   },
+   {
+    "a": "mura",
+    "b": "mise"
+   },
+   {
+    "a": "mura",
+    "b": "sakaba"
+   },
+   {
+    "a": "mura",
+    "b": "shiro"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "place"
+    ]
+   },
+   "b": {
+    "pos": "noun",
+    "notTags": [
+     "animate"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_ni_N_ga_iru",
+  "ch": "3",
+  "title": "〜に N が います",
+  "explain": "Wie あります, aber für Lebewesen.",
+  "jp": "<a> に <b> が います。",
+  "de": "[a.in.def] gibt es [b.acc.indef].",
+  "fills": [
+   {
+    "a": "mori",
+    "b": "okami"
+   },
+   {
+    "a": "mura",
+    "b": "kodomo"
+   },
+   {
+    "a": "sakaba",
+    "b": "kariudo"
+   },
+   {
+    "a": "mura",
+    "b": "neko"
+   },
+   {
+    "a": "mori",
+    "b": "kuma"
+   },
+   {
+    "a": "mise",
+    "b": "tenshu"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "place"
+    ]
+   },
+   "b": {
+    "pos": "noun",
+    "tagsAny": [
+     "animate"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_place_he_iku",
+  "ch": "3",
+  "title": "〜へ いきます",
+  "explain": "へ zeigt die Richtung und wird „e“ gesprochen.",
+  "jp": "<a> へ <v.masu>。",
+  "de": "Ich gehe [a.into.def].",
+  "fills": [
+   {
+    "a": "mise",
+    "v": "iku"
+   },
+   {
+    "a": "sakaba",
+    "v": "iku"
+   },
+   {
+    "a": "mura",
+    "v": "iku"
+   },
+   {
+    "a": "mori",
+    "v": "iku"
+   },
+   {
+    "a": "shiro",
+    "v": "iku"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "place"
+    ]
+   },
+   "v": {
+    "pos": "verb",
+    "id": "iku"
+   }
+  }
+ },
+ {
+  "id": "p_N_ga_kowai",
+  "ch": "3",
+  "title": "N が こわいです",
+  "explain": "Angst haben vor: Das, wovor man Angst hat, steht mit が.",
+  "jp": "<a> が <w:kowai> です。",
+  "de": "Ich habe Angst vor [a.dat.def].",
+  "fills": [
+   {
+    "a": "okami"
+   },
+   {
+    "a": "kuma"
+   },
+   {
+    "a": "inu"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "animal"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_N_wo_miru",
+  "ch": "3",
+  "title": "N を みます",
+  "explain": "見ます: sehen.",
+  "jp": "<a> を <v.masu>。",
+  "de": "Ich sehe [a.acc.indef].",
+  "fills": [
+   {
+    "a": "okami",
+    "v": "miru"
+   },
+   {
+    "a": "kuma",
+    "v": "miru"
+   },
+   {
+    "a": "kitsune",
+    "v": "miru"
+   },
+   {
+    "a": "tori",
+    "v": "miru"
+   },
+   {
+    "a": "shiro",
+    "v": "miru"
+   },
+   {
+    "a": "yama",
+    "v": "miru"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun"
+   },
+   "v": {
+    "pos": "verb",
+    "id": "miru"
+   }
+  },
+  "objOf": [
+   [
+    "a",
+    "v"
+   ]
+  ]
+ }
+]

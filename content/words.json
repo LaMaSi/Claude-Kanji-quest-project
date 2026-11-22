@@ -1,0 +1,954 @@
+[
+ {
+  "id": "konbanwa",
+  "pos": "expr",
+  "jp": "こんばんは",
+  "de": "Guten Abend",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "hai",
+  "pos": "expr",
+  "jp": "はい",
+  "de": "ja",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "iie",
+  "pos": "expr",
+  "jp": "いいえ",
+  "de": "nein",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "sumimasen",
+  "pos": "expr",
+  "jp": "すみません",
+  "de": "Entschuldigung",
+  "ch": 1,
+  "note": "Auch: Danke (für Mühe). Hier: um Aufmerksamkeit bitten.",
+  "status": "draft"
+ },
+ {
+  "id": "arigatou",
+  "pos": "expr",
+  "jp": "ありがとう",
+  "de": "danke",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "arigatou_gozaimasu",
+  "pos": "expr",
+  "jp": "ありがとう ございます",
+  "de": "vielen Dank",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "hajimemashite",
+  "pos": "expr",
+  "jp": "はじめまして",
+  "de": "Freut mich (beim ersten Treffen)",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "irasshaimase",
+  "pos": "expr",
+  "jp": "いらっしゃいませ",
+  "de": "Herzlich willkommen (im Geschäft)",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "douzo",
+  "pos": "expr",
+  "jp": "どうぞ",
+  "de": "Bitte sehr (beim Anbieten)",
+  "ch": 1,
+  "status": "draft"
+ },
+ {
+  "id": "watashi",
+  "pos": "pron",
+  "jp": "{私|わたし}",
+  "de": "ich",
+  "ch": 1,
+  "kanjiCommon": true,
+  "deSent": "ich",
+  "status": "draft"
+ },
+ {
+  "id": "anata",
+  "pos": "pron",
+  "jp": "あなた",
+  "de": "du",
+  "ch": 1,
+  "deSent": "du",
+  "note": "Im Spiel duzen wir. Im echten Japanisch benutzt man あなた selten; meist den Namen.",
+  "status": "draft"
+ },
+ {
+  "id": "kore",
+  "pos": "dem",
+  "jp": "これ",
+  "de": "das hier (nahe bei mir)",
+  "ch": 1,
+  "deSent": "das hier",
+  "status": "draft"
+ },
+ {
+  "id": "sore",
+  "pos": "dem",
+  "jp": "それ",
+  "de": "das da (nahe bei dir)",
+  "ch": 1,
+  "deSent": "das da",
+  "status": "draft"
+ },
+ {
+  "id": "are",
+  "pos": "dem",
+  "jp": "あれ",
+  "de": "das dort (weit von uns beiden)",
+  "ch": 1,
+  "deSent": "das dort",
+  "status": "draft"
+ },
+ {
+  "id": "nani",
+  "pos": "q",
+  "jp": "{何|なに}",
+  "de": "was",
+  "ch": 1,
+  "kanjiCommon": true,
+  "deSent": "was",
+  "note": "Vor です wird 何 als なん gelesen: 何ですか = なんですか.",
+  "status": "draft"
+ },
+ {
+  "id": "doko",
+  "pos": "q",
+  "jp": "どこ",
+  "de": "wo",
+  "ch": 1,
+  "deSent": "wo",
+  "status": "draft"
+ },
+ {
+  "id": "ikura",
+  "pos": "q",
+  "jp": "いくら",
+  "de": "wie viel (kostet es)",
+  "ch": 1,
+  "deSent": "wie viel",
+  "status": "draft"
+ },
+ {
+  "id": "en",
+  "pos": "noun",
+  "jp": "{円|えん}",
+  "de": "Yen",
+  "gender": "f",
+  "ch": 1,
+  "tags": [
+   "money"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "note": "Währung. Im Spiel: Münzen.",
+  "status": "draft"
+ },
+ {
+  "id": "hito",
+  "pos": "noun",
+  "jp": "{人|ひと}",
+  "de": "Mensch",
+  "gender": "m",
+  "ch": 1,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "kanjiCommon": true,
+  "pl": "Menschen",
+  "status": "draft",
+  "weak": true
+ },
+ {
+  "id": "obaasan",
+  "pos": "noun",
+  "jp": "おばあさん",
+  "de": "alte Frau",
+  "gender": "f",
+  "ch": 1,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "note": "Auch: Großmutter. Hier: ältere Frau.",
+  "status": "draft"
+ },
+ {
+  "id": "tenshu",
+  "pos": "noun",
+  "jp": "{店主|てんしゅ}",
+  "de": "Ladenbesitzer",
+  "gender": "m",
+  "ch": 1,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "kanjiCommon": false,
+  "pl": "Ladenbesitzer",
+  "status": "draft"
+ },
+ {
+  "id": "mura",
+  "pos": "noun",
+  "jp": "{村|むら}",
+  "de": "Dorf",
+  "gender": "n",
+  "ch": 1,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Dörfer",
+  "status": "draft"
+ },
+ {
+  "id": "mise",
+  "pos": "noun",
+  "jp": "{店|みせ}",
+  "de": "Laden",
+  "gender": "m",
+  "ch": 1,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Läden",
+  "status": "draft"
+ },
+ {
+  "id": "ie",
+  "pos": "noun",
+  "jp": "{家|いえ}",
+  "de": "Haus",
+  "gender": "n",
+  "ch": 1,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Häuser",
+  "status": "draft"
+ },
+ {
+  "id": "sakaba",
+  "pos": "noun",
+  "jp": "{酒場|さかば}",
+  "de": "Taverne",
+  "gender": "f",
+  "ch": 1,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": false,
+  "pl": "Tavernen",
+  "status": "draft"
+ },
+ {
+  "id": "ringo",
+  "pos": "noun",
+  "jp": "りんご",
+  "de": "Apfel",
+  "gender": "m",
+  "ch": 1,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "pl": "Äpfel",
+  "note": "Meist in Kana geschrieben (林檎 ist selten).",
+  "status": "draft"
+ },
+ {
+  "id": "pan",
+  "pos": "noun",
+  "jp": "パン",
+  "de": "Brot",
+  "gender": "n",
+  "ch": 1,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "pl": "Brote",
+  "note": "Lehnwort aus dem Portugiesischen (pão).",
+  "status": "draft"
+ },
+ {
+  "id": "mizu",
+  "pos": "noun",
+  "jp": "{水|みず}",
+  "de": "Wasser",
+  "gender": "n",
+  "ch": 1,
+  "tags": [
+   "drink"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "status": "draft"
+ },
+ {
+  "id": "ocha",
+  "pos": "noun",
+  "jp": "お{茶|ちゃ}",
+  "de": "Tee",
+  "gender": "m",
+  "ch": 1,
+  "tags": [
+   "drink"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "note": "Grüner Tee; お ist ein höfliches Präfix.",
+  "status": "draft"
+ },
+ {
+  "id": "okane",
+  "pos": "noun",
+  "jp": "お{金|かね}",
+  "de": "Geld",
+  "gender": "n",
+  "ch": 1,
+  "tags": [
+   "money"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "status": "draft"
+ },
+ {
+  "id": "onegaishimasu",
+  "pos": "expr",
+  "jp": "お{願|ねが}いします",
+  "de": "Bitte (ich bitte darum)",
+  "ch": 2,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "kudasai",
+  "pos": "expr",
+  "jp": "ください",
+  "de": "bitte (gib mir)",
+  "ch": 2,
+  "status": "draft"
+ },
+ {
+  "id": "wakarimashita",
+  "pos": "expr",
+  "jp": "わかりました",
+  "de": "Verstanden",
+  "ch": 2,
+  "status": "draft"
+ },
+ {
+  "id": "wakarimasen",
+  "pos": "expr",
+  "jp": "わかりません",
+  "de": "Ich verstehe nicht",
+  "ch": 2,
+  "status": "draft"
+ },
+ {
+  "id": "gomennasai",
+  "pos": "expr",
+  "jp": "ごめんなさい",
+  "de": "Es tut mir leid",
+  "ch": 2,
+  "status": "draft"
+ },
+ {
+  "id": "ikutsu",
+  "pos": "q",
+  "jp": "いくつ",
+  "de": "wie viele",
+  "ch": 2,
+  "deSent": "wie viele",
+  "status": "draft"
+ },
+ {
+  "id": "okamisan",
+  "pos": "noun",
+  "jp": "おかみさん",
+  "de": "Wirtin",
+  "gender": "f",
+  "ch": 2,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "pl": "Wirtinnen",
+  "status": "draft"
+ },
+ {
+  "id": "ojiisan",
+  "pos": "noun",
+  "jp": "おじいさん",
+  "de": "alter Mann",
+  "gender": "m",
+  "ch": 2,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "note": "Auch: Großvater. Hier: älterer Mann.",
+  "status": "draft"
+ },
+ {
+  "id": "kodomo",
+  "pos": "noun",
+  "jp": "{子供|こども}",
+  "de": "Kind",
+  "gender": "n",
+  "ch": 2,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "kanjiCommon": true,
+  "pl": "Kinder",
+  "status": "draft"
+ },
+ {
+  "id": "sake",
+  "pos": "noun",
+  "jp": "お{酒|さけ}",
+  "de": "Sake",
+  "gender": "m",
+  "ch": 2,
+  "tags": [
+   "drink"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "note": "お酒 heißt allgemein Alkohol; 日本酒 ist der Reiswein.",
+  "status": "draft"
+ },
+ {
+  "id": "niku",
+  "pos": "noun",
+  "jp": "{肉|にく}",
+  "de": "Fleisch",
+  "gender": "n",
+  "ch": 2,
+  "tags": [
+   "food"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "status": "draft"
+ },
+ {
+  "id": "tamago",
+  "pos": "noun",
+  "jp": "{卵|たまご}",
+  "de": "Ei",
+  "gender": "n",
+  "ch": 2,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "kanjiCommon": true,
+  "pl": "Eier",
+  "status": "draft"
+ },
+ {
+  "id": "sakana",
+  "pos": "noun",
+  "jp": "{魚|さかな}",
+  "de": "Fisch",
+  "gender": "m",
+  "ch": 2,
+  "tags": [
+   "food"
+  ],
+  "kanjiCommon": true,
+  "pl": "Fische",
+  "status": "draft"
+ },
+ {
+  "id": "kusuri",
+  "pos": "noun",
+  "jp": "{薬|くすり}",
+  "de": "Medizin",
+  "gender": "f",
+  "ch": 2,
+  "tags": [
+   "item"
+  ],
+  "kanjiCommon": true,
+  "mass": true,
+  "status": "draft"
+ },
+ {
+  "id": "taberu",
+  "pos": "verb",
+  "jp": "{食|た}べる",
+  "masu": "{食|た}べます",
+  "de": "essen",
+  "de1": "esse",
+  "ch": 2,
+  "kanjiCommon": true,
+  "objects": [
+   "food"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "nomu",
+  "pos": "verb",
+  "jp": "{飲|の}む",
+  "masu": "{飲|の}みます",
+  "de": "trinken",
+  "de1": "trinke",
+  "ch": 2,
+  "kanjiCommon": true,
+  "objects": [
+   "drink"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "kau",
+  "pos": "verb",
+  "jp": "{買|か}う",
+  "masu": "{買|か}います",
+  "de": "kaufen",
+  "de1": "kaufe",
+  "ch": 2,
+  "kanjiCommon": true,
+  "objects": [
+   "food",
+   "drink",
+   "item"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "oishii",
+  "pos": "adj",
+  "jp": "おいしい",
+  "de": "lecker",
+  "ch": 2,
+  "note": "Kanji 美味しい ist selten.",
+  "status": "draft"
+ },
+ {
+  "id": "takai",
+  "pos": "adj",
+  "jp": "{高|たか}い",
+  "de": "teuer",
+  "ch": 2,
+  "kanjiCommon": true,
+  "note": "Heißt auch: hoch.",
+  "status": "draft"
+ },
+ {
+  "id": "yasui",
+  "pos": "adj",
+  "jp": "{安|やす}い",
+  "de": "billig",
+  "ch": 2,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "ii",
+  "pos": "adj",
+  "jp": "いい",
+  "de": "gut",
+  "ch": 2,
+  "note": "Kann auch よい geschrieben werden; いい ist üblicher.",
+  "status": "draft"
+ },
+ {
+  "id": "oyasumi",
+  "pos": "expr",
+  "jp": "おやすみなさい",
+  "de": "Gute Nacht",
+  "ch": 3,
+  "status": "draft"
+ },
+ {
+  "id": "dare",
+  "pos": "q",
+  "jp": "{誰|だれ}",
+  "de": "wer",
+  "ch": 3,
+  "kanjiCommon": true,
+  "deSent": "wer",
+  "status": "draft"
+ },
+ {
+  "id": "itsu",
+  "pos": "q",
+  "jp": "いつ",
+  "de": "wann",
+  "ch": 3,
+  "deSent": "wann",
+  "status": "draft"
+ },
+ {
+  "id": "kariudo",
+  "pos": "noun",
+  "jp": "{狩人|かりゅうど}",
+  "de": "Jäger",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "person"
+  ],
+  "kanjiCommon": false,
+  "pl": "Jäger",
+  "status": "draft",
+  "note": "Auch gelesen: かりうど (seltener). Alternative Berufsbezeichnung: 猟師 (りょうし)."
+ },
+ {
+  "id": "okami",
+  "pos": "noun",
+  "jp": "{狼|おおかみ}",
+  "de": "Wolf",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": false,
+  "pl": "Wölfe",
+  "status": "draft"
+ },
+ {
+  "id": "inu",
+  "pos": "noun",
+  "jp": "{犬|いぬ}",
+  "de": "Hund",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": true,
+  "pl": "Hunde",
+  "status": "draft"
+ },
+ {
+  "id": "neko",
+  "pos": "noun",
+  "jp": "{猫|ねこ}",
+  "de": "Katze",
+  "gender": "f",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": true,
+  "pl": "Katzen",
+  "status": "draft"
+ },
+ {
+  "id": "tori",
+  "pos": "noun",
+  "jp": "{鳥|とり}",
+  "de": "Vogel",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": true,
+  "pl": "Vögel",
+  "status": "draft"
+ },
+ {
+  "id": "uma",
+  "pos": "noun",
+  "jp": "{馬|うま}",
+  "de": "Pferd",
+  "gender": "n",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": true,
+  "pl": "Pferde",
+  "status": "draft"
+ },
+ {
+  "id": "kuma",
+  "pos": "noun",
+  "jp": "{熊|くま}",
+  "de": "Bär",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": false,
+  "pl": "Bären",
+  "status": "draft",
+  "weak": true
+ },
+ {
+  "id": "kitsune",
+  "pos": "noun",
+  "jp": "{狐|きつね}",
+  "de": "Fuchs",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": false,
+  "pl": "Füchse",
+  "note": "Im japanischen Volksglauben auch ein Yokai.",
+  "status": "draft"
+ },
+ {
+  "id": "ushi",
+  "pos": "noun",
+  "jp": "{牛|うし}",
+  "de": "Kuh",
+  "gender": "f",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": true,
+  "pl": "Kühe",
+  "status": "draft"
+ },
+ {
+  "id": "buta",
+  "pos": "noun",
+  "jp": "{豚|ぶた}",
+  "de": "Schwein",
+  "gender": "n",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "kanjiCommon": false,
+  "pl": "Schweine",
+  "status": "draft"
+ },
+ {
+  "id": "yama",
+  "pos": "noun",
+  "jp": "{山|やま}",
+  "de": "Berg",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Berge",
+  "status": "draft"
+ },
+ {
+  "id": "kawa",
+  "pos": "noun",
+  "jp": "{川|かわ}",
+  "de": "Fluss",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Flüsse",
+  "status": "draft"
+ },
+ {
+  "id": "mori",
+  "pos": "noun",
+  "jp": "{森|もり}",
+  "de": "Wald",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Wälder",
+  "status": "draft"
+ },
+ {
+  "id": "michi",
+  "pos": "noun",
+  "jp": "{道|みち}",
+  "de": "Weg",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Wege",
+  "status": "draft"
+ },
+ {
+  "id": "shiro",
+  "pos": "noun",
+  "jp": "{城|しろ}",
+  "de": "Burg",
+  "gender": "f",
+  "ch": 3,
+  "tags": [
+   "place"
+  ],
+  "kanjiCommon": true,
+  "pl": "Burgen",
+  "status": "draft"
+ },
+ {
+  "id": "iku",
+  "pos": "verb",
+  "jp": "{行|い}く",
+  "masu": "{行|い}きます",
+  "de": "gehen",
+  "de1": "gehe",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "kuru",
+  "pos": "verb",
+  "jp": "{来|く}る",
+  "masu": "{来|き}ます",
+  "de": "kommen",
+  "de1": "komme",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "miru",
+  "pos": "verb",
+  "jp": "{見|み}る",
+  "masu": "{見|み}ます",
+  "de": "sehen",
+  "de1": "sehe",
+  "ch": 3,
+  "kanjiCommon": true,
+  "objects": [
+   "animal",
+   "place"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "hanasu",
+  "pos": "verb",
+  "jp": "{話|はな}す",
+  "masu": "{話|はな}します",
+  "de": "sprechen",
+  "de1": "spreche",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "neru",
+  "pos": "verb",
+  "jp": "{寝|ね}る",
+  "masu": "{寝|ね}ます",
+  "de": "schlafen",
+  "de1": "schlafe",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "aru",
+  "pos": "verb",
+  "jp": "ある",
+  "masu": "あります",
+  "de": "es gibt / sich befinden (Dinge)",
+  "de1": "gibt",
+  "ch": 3,
+  "note": "Für unbelebte Dinge. Für Lebewesen: いる.",
+  "status": "draft"
+ },
+ {
+  "id": "iru",
+  "pos": "verb",
+  "jp": "いる",
+  "masu": "います",
+  "de": "es gibt / sich befinden (Lebewesen)",
+  "de1": "gibt",
+  "ch": 3,
+  "note": "Für Lebewesen. Für unbelebte Dinge: ある.",
+  "status": "draft"
+ },
+ {
+  "id": "ookii",
+  "pos": "adj",
+  "jp": "{大|おお}きい",
+  "de": "groß",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "chiisai",
+  "pos": "adj",
+  "jp": "{小|ちい}さい",
+  "de": "klein",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ },
+ {
+  "id": "kowai",
+  "pos": "adj",
+  "jp": "{怖|こわ}い",
+  "de": "furchteinflößend",
+  "ch": 3,
+  "kanjiCommon": false,
+  "note": "Mit が: 〜が こわい = Angst vor 〜 haben.",
+  "status": "draft"
+ },
+ {
+  "id": "warui",
+  "pos": "adj",
+  "jp": "{悪|わる}い",
+  "de": "schlecht",
+  "ch": 3,
+  "kanjiCommon": true,
+  "status": "draft"
+ }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "wolfsdorf-content-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only tooling (content validation). The app itself has no dependencies.",
+  "scripts": { "validate": "node tools/validate.mjs", "review": "node tools/make-review.mjs" },
+  "devDependencies": { "kuromoji": "0.1.2", "wanakana": "5.3.1" }
+}

@@ -1,0 +1,1144 @@
+[
+ {
+  "id": "p_dem_wa_N#1",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "これ は りんご です。",
+  "jpFull": "これ は りんご です。",
+  "romaji": "kore wa ringo desu.",
+  "kana": "これ は りんご です。",
+  "de": "Das hier ist ein Apfel.",
+  "words": [
+   "kore",
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#2",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "それ は パン です。",
+  "jpFull": "それ は パン です。",
+  "romaji": "sore wa pan desu.",
+  "kana": "それ は パン です。",
+  "de": "Das da ist ein Brot.",
+  "words": [
+   "sore",
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#3",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "あれ は {店|みせ} です。",
+  "jpFull": "あれ は {店|みせ} です。",
+  "romaji": "are wa mise desu.",
+  "kana": "あれ は みせ です。",
+  "de": "Das dort ist ein Laden.",
+  "words": [
+   "are",
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#4",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "これ は {水|みず} です。",
+  "jpFull": "これ は {水|みず} です。",
+  "romaji": "kore wa mizu desu.",
+  "kana": "これ は みず です。",
+  "de": "Das hier ist Wasser.",
+  "words": [
+   "kore",
+   "mizu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#5",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "あれ は {村|むら} です。",
+  "jpFull": "あれ は {村|むら} です。",
+  "romaji": "are wa mura desu.",
+  "kana": "あれ は むら です。",
+  "de": "Das dort ist ein Dorf.",
+  "words": [
+   "are",
+   "mura"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#6",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "それ は お{茶|ちゃ} です。",
+  "jpFull": "それ は お{茶|ちゃ} です。",
+  "romaji": "sore wa ocha desu.",
+  "kana": "それ は おちゃ です。",
+  "de": "Das da ist Tee.",
+  "words": [
+   "sore",
+   "ocha"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_wa_N#7",
+  "pattern": "p_dem_wa_N",
+  "ch": 1,
+  "jp": "これ は お{金|かね} です。",
+  "jpFull": "これ は お{金|かね} です。",
+  "romaji": "kore wa okane desu.",
+  "kana": "これ は おかね です。",
+  "de": "Das hier ist Geld.",
+  "words": [
+   "kore",
+   "okane"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_nan#1",
+  "pattern": "p_dem_nan",
+  "ch": 1,
+  "jp": "これ は {何|なん} です か。",
+  "jpFull": "これ は {何|なん} です か。",
+  "romaji": "kore wa nan desu ka.",
+  "kana": "これ は なん です か。",
+  "de": "Was ist das hier?",
+  "words": [
+   "kore"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_nan#2",
+  "pattern": "p_dem_nan",
+  "ch": 1,
+  "jp": "それ は {何|なん} です か。",
+  "jpFull": "それ は {何|なん} です か。",
+  "romaji": "sore wa nan desu ka.",
+  "kana": "それ は なん です か。",
+  "de": "Was ist das da?",
+  "words": [
+   "sore"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dem_nan#3",
+  "pattern": "p_dem_nan",
+  "ch": 1,
+  "jp": "あれ は {何|なん} です か。",
+  "jpFull": "あれ は {何|なん} です か。",
+  "romaji": "are wa nan desu ka.",
+  "kana": "あれ は なん です か。",
+  "de": "Was ist das dort?",
+  "words": [
+   "are"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ikura#1",
+  "pattern": "p_N_ikura",
+  "ch": 1,
+  "jp": "りんご は いくら です か。",
+  "jpFull": "りんご は いくら です か。",
+  "romaji": "ringo wa ikura desu ka.",
+  "kana": "りんご は いくら です か。",
+  "de": "Wie viel kostet der Apfel?",
+  "words": [
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ikura#2",
+  "pattern": "p_N_ikura",
+  "ch": 1,
+  "jp": "パン は いくら です か。",
+  "jpFull": "パン は いくら です か。",
+  "romaji": "pan wa ikura desu ka.",
+  "kana": "パン は いくら です か。",
+  "de": "Wie viel kostet das Brot?",
+  "words": [
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ikura#3",
+  "pattern": "p_N_ikura",
+  "ch": 2,
+  "jp": "{薬|くすり} は いくら です か。",
+  "jpFull": "{薬|くすり} は いくら です か。",
+  "romaji": "kusuri wa ikura desu ka.",
+  "kana": "くすり は いくら です か。",
+  "de": "Wie viel kostet die Medizin?",
+  "words": [
+   "kusuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ikura#4",
+  "pattern": "p_N_ikura",
+  "ch": 1,
+  "jp": "お{茶|ちゃ} は いくら です か。",
+  "jpFull": "お{茶|ちゃ} は いくら です か。",
+  "romaji": "ocha wa ikura desu ka.",
+  "kana": "おちゃ は いくら です か。",
+  "de": "Wie viel kostet der Tee?",
+  "words": [
+   "ocha"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ikura#5",
+  "pattern": "p_N_ikura",
+  "ch": 1,
+  "jp": "{水|みず} は いくら です か。",
+  "jpFull": "{水|みず} は いくら です か。",
+  "romaji": "mizu wa ikura desu ka.",
+  "kana": "みず は いくら です か。",
+  "de": "Wie viel kostet das Wasser?",
+  "words": [
+   "mizu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#1",
+  "pattern": "p_N_yen",
+  "ch": 1,
+  "jp": "りんご は {五十|ごじゅう}{円|えん} です。",
+  "jpFull": "りんご は {五十|ごじゅう}{円|えん} です。",
+  "romaji": "ringo wa gojuuen desu.",
+  "kana": "りんご は ごじゅうえん です。",
+  "de": "Der Apfel kostet 50 Yen.",
+  "words": [
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#2",
+  "pattern": "p_N_yen",
+  "ch": 1,
+  "jp": "パン は {八十|はちじゅう}{円|えん} です。",
+  "jpFull": "パン は {八十|はちじゅう}{円|えん} です。",
+  "romaji": "pan wa hachijuuen desu.",
+  "kana": "パン は はちじゅうえん です。",
+  "de": "Das Brot kostet 80 Yen.",
+  "words": [
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#3",
+  "pattern": "p_N_yen",
+  "ch": 2,
+  "jp": "{薬|くすり} は {百五十|ひゃくごじゅう}{円|えん} です。",
+  "jpFull": "{薬|くすり} は {百五十|ひゃくごじゅう}{円|えん} です。",
+  "romaji": "kusuri wa hyakugojuuen desu.",
+  "kana": "くすり は ひゃくごじゅうえん です。",
+  "de": "Die Medizin kostet 150 Yen.",
+  "words": [
+   "kusuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#4",
+  "pattern": "p_N_yen",
+  "ch": 1,
+  "jp": "お{茶|ちゃ} は {十|じゅう}{円|えん} です。",
+  "jpFull": "お{茶|ちゃ} は {十|じゅう}{円|えん} です。",
+  "romaji": "ocha wa juuen desu.",
+  "kana": "おちゃ は じゅうえん です。",
+  "de": "Der Tee kostet 10 Yen.",
+  "words": [
+   "ocha"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#5",
+  "pattern": "p_N_yen",
+  "ch": 2,
+  "jp": "{卵|たまご} は {三十|さんじゅう}{円|えん} です。",
+  "jpFull": "{卵|たまご} は {三十|さんじゅう}{円|えん} です。",
+  "romaji": "tamago wa sanjuuen desu.",
+  "kana": "たまご は さんじゅうえん です。",
+  "de": "Das Ei kostet 30 Yen.",
+  "words": [
+   "tamago"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_yen#6",
+  "pattern": "p_N_yen",
+  "ch": 2,
+  "jp": "{肉|にく} は {三百|さんびゃく}{円|えん} です。",
+  "jpFull": "{肉|にく} は {三百|さんびゃく}{円|えん} です。",
+  "romaji": "niku wa sanbyakuen desu.",
+  "kana": "にく は さんびゃくえん です。",
+  "de": "Das Fleisch kostet 300 Yen.",
+  "words": [
+   "niku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#1",
+  "pattern": "p_N_doko",
+  "ch": 1,
+  "jp": "{店|みせ} は どこ です か。",
+  "jpFull": "{店|みせ} は どこ です か。",
+  "romaji": "mise wa doko desu ka.",
+  "kana": "みせ は どこ です か。",
+  "de": "Wo ist der Laden?",
+  "words": [
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#2",
+  "pattern": "p_N_doko",
+  "ch": 1,
+  "jp": "さかば は どこ です か。",
+  "jpFull": "{酒場|さかば} は どこ です か。",
+  "romaji": "sakaba wa doko desu ka.",
+  "kana": "さかば は どこ です か。",
+  "de": "Wo ist die Taverne?",
+  "words": [
+   "sakaba"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#3",
+  "pattern": "p_N_doko",
+  "ch": 1,
+  "jp": "{家|いえ} は どこ です か。",
+  "jpFull": "{家|いえ} は どこ です か。",
+  "romaji": "ie wa doko desu ka.",
+  "kana": "いえ は どこ です か。",
+  "de": "Wo ist das Haus?",
+  "words": [
+   "ie"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#4",
+  "pattern": "p_N_doko",
+  "ch": 1,
+  "jp": "おばあさん は どこ です か。",
+  "jpFull": "おばあさん は どこ です か。",
+  "romaji": "obaasan wa doko desu ka.",
+  "kana": "おばあさん は どこ です か。",
+  "de": "Wo ist die alte Frau?",
+  "words": [
+   "obaasan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#5",
+  "pattern": "p_N_doko",
+  "ch": 1,
+  "jp": "てんしゅ は どこ です か。",
+  "jpFull": "{店主|てんしゅ} は どこ です か。",
+  "romaji": "tenshu wa doko desu ka.",
+  "kana": "てんしゅ は どこ です か。",
+  "de": "Wo ist der Ladenbesitzer?",
+  "words": [
+   "tenshu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#1",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "りんご を ください。",
+  "jpFull": "りんご を ください。",
+  "romaji": "ringo o kudasai.",
+  "kana": "りんご を ください。",
+  "de": "Einen Apfel, bitte.",
+  "words": [
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#2",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "パン を ください。",
+  "jpFull": "パン を ください。",
+  "romaji": "pan o kudasai.",
+  "kana": "パン を ください。",
+  "de": "Ein Brot, bitte.",
+  "words": [
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#3",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "{水|みず} を ください。",
+  "jpFull": "{水|みず} を ください。",
+  "romaji": "mizu o kudasai.",
+  "kana": "みず を ください。",
+  "de": "Wasser, bitte.",
+  "words": [
+   "mizu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#4",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "お{茶|ちゃ} を ください。",
+  "jpFull": "お{茶|ちゃ} を ください。",
+  "romaji": "ocha o kudasai.",
+  "kana": "おちゃ を ください。",
+  "de": "Tee, bitte.",
+  "words": [
+   "ocha"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#5",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "{薬|くすり} を ください。",
+  "jpFull": "{薬|くすり} を ください。",
+  "romaji": "kusuri o kudasai.",
+  "kana": "くすり を ください。",
+  "de": "Medizin, bitte.",
+  "words": [
+   "kusuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_count_kudasai#1",
+  "pattern": "p_N_count_kudasai",
+  "ch": 2,
+  "jp": "りんご を {三つ|みっつ} ください。",
+  "jpFull": "りんご を {三つ|みっつ} ください。",
+  "romaji": "ringo o mittsu kudasai.",
+  "kana": "りんご を みっつ ください。",
+  "de": "Drei Äpfel, bitte.",
+  "words": [
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_count_kudasai#2",
+  "pattern": "p_N_count_kudasai",
+  "ch": 2,
+  "jp": "パン を {二つ|ふたつ} ください。",
+  "jpFull": "パン を {二つ|ふたつ} ください。",
+  "romaji": "pan o futatsu kudasai.",
+  "kana": "パン を ふたつ ください。",
+  "de": "Zwei Brote, bitte.",
+  "words": [
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_count_kudasai#3",
+  "pattern": "p_N_count_kudasai",
+  "ch": 2,
+  "jp": "{卵|たまご} を {六つ|むっつ} ください。",
+  "jpFull": "{卵|たまご} を {六つ|むっつ} ください。",
+  "romaji": "tamago o muttsu kudasai.",
+  "kana": "たまご を むっつ ください。",
+  "de": "Sechs Eier, bitte.",
+  "words": [
+   "tamago"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_count_kudasai#4",
+  "pattern": "p_N_count_kudasai",
+  "ch": 2,
+  "jp": "りんご を {五つ|いつつ} ください。",
+  "jpFull": "りんご を {五つ|いつつ} ください。",
+  "romaji": "ringo o itsutsu kudasai.",
+  "kana": "りんご を いつつ ください。",
+  "de": "Fünf Äpfel, bitte.",
+  "words": [
+   "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#1",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "りんご を {食|た}べます。",
+  "jpFull": "りんご を {食|た}べます。",
+  "romaji": "ringo o tabemasu.",
+  "kana": "りんご を たべます。",
+  "de": "Ich esse einen Apfel.",
+  "words": [
+   "ringo",
+   "taberu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#2",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "パン を {食|た}べます。",
+  "jpFull": "パン を {食|た}べます。",
+  "romaji": "pan o tabemasu.",
+  "kana": "パン を たべます。",
+  "de": "Ich esse ein Brot.",
+  "words": [
+   "pan",
+   "taberu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#3",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "{肉|にく} を {食|た}べます。",
+  "jpFull": "{肉|にく} を {食|た}べます。",
+  "romaji": "niku o tabemasu.",
+  "kana": "にく を たべます。",
+  "de": "Ich esse Fleisch.",
+  "words": [
+   "niku",
+   "taberu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#4",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "{水|みず} を {飲|の}みます。",
+  "jpFull": "{水|みず} を {飲|の}みます。",
+  "romaji": "mizu o nomimasu.",
+  "kana": "みず を のみます。",
+  "de": "Ich trinke Wasser.",
+  "words": [
+   "mizu",
+   "nomu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#5",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "お{茶|ちゃ} を {飲|の}みます。",
+  "jpFull": "お{茶|ちゃ} を {飲|の}みます。",
+  "romaji": "ocha o nomimasu.",
+  "kana": "おちゃ を のみます。",
+  "de": "Ich trinke Tee.",
+  "words": [
+   "ocha",
+   "nomu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#6",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "お{酒|さけ} を {飲|の}みます。",
+  "jpFull": "お{酒|さけ} を {飲|の}みます。",
+  "romaji": "osake o nomimasu.",
+  "kana": "おさけ を のみます。",
+  "de": "Ich trinke Sake.",
+  "words": [
+   "sake",
+   "nomu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#7",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "パン を {買|か}います。",
+  "jpFull": "パン を {買|か}います。",
+  "romaji": "pan o kaimasu.",
+  "kana": "パン を かいます。",
+  "de": "Ich kaufe ein Brot.",
+  "words": [
+   "pan",
+   "kau"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#8",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "{薬|くすり} を {買|か}います。",
+  "jpFull": "{薬|くすり} を {買|か}います。",
+  "romaji": "kusuri o kaimasu.",
+  "kana": "くすり を かいます。",
+  "de": "Ich kaufe Medizin.",
+  "words": [
+   "kusuri",
+   "kau"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_V#9",
+  "pattern": "p_N_wo_V",
+  "ch": 2,
+  "jp": "りんご を {買|か}います。",
+  "jpFull": "りんご を {買|か}います。",
+  "romaji": "ringo o kaimasu.",
+  "kana": "りんご を かいます。",
+  "de": "Ich kaufe einen Apfel.",
+  "words": [
+   "ringo",
+   "kau"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#1",
+  "pattern": "p_N_wa_adj",
+  "ch": 2,
+  "jp": "りんご は おいしい です。",
+  "jpFull": "りんご は おいしい です。",
+  "romaji": "ringo wa oishii desu.",
+  "kana": "りんご は おいしい です。",
+  "de": "Der Apfel ist lecker.",
+  "words": [
+   "ringo",
+   "oishii"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#2",
+  "pattern": "p_N_wa_adj",
+  "ch": 2,
+  "jp": "お{茶|ちゃ} は おいしい です。",
+  "jpFull": "お{茶|ちゃ} は おいしい です。",
+  "romaji": "ocha wa oishii desu.",
+  "kana": "おちゃ は おいしい です。",
+  "de": "Der Tee ist lecker.",
+  "words": [
+   "ocha",
+   "oishii"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#3",
+  "pattern": "p_N_wa_adj",
+  "ch": 2,
+  "jp": "{薬|くすり} は {高|たか}い です。",
+  "jpFull": "{薬|くすり} は {高|たか}い です。",
+  "romaji": "kusuri wa takai desu.",
+  "kana": "くすり は たかい です。",
+  "de": "Die Medizin ist teuer.",
+  "words": [
+   "kusuri",
+   "takai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#4",
+  "pattern": "p_N_wa_adj",
+  "ch": 2,
+  "jp": "パン は {安|やす}い です。",
+  "jpFull": "パン は {安|やす}い です。",
+  "romaji": "pan wa yasui desu.",
+  "kana": "パン は やすい です。",
+  "de": "Das Brot ist billig.",
+  "words": [
+   "pan",
+   "yasui"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#5",
+  "pattern": "p_N_wa_adj",
+  "ch": 3,
+  "jp": "おおかみ は {大|おお}きい です。",
+  "jpFull": "{狼|おおかみ} は {大|おお}きい です。",
+  "romaji": "ookami wa ookii desu.",
+  "kana": "おおかみ は おおきい です。",
+  "de": "Der Wolf ist groß.",
+  "words": [
+   "okami",
+   "ookii"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#6",
+  "pattern": "p_N_wa_adj",
+  "ch": 3,
+  "jp": "{犬|いぬ} は {小|ちい}さい です。",
+  "jpFull": "{犬|いぬ} は {小|ちい}さい です。",
+  "romaji": "inu wa chiisai desu.",
+  "kana": "いぬ は ちいさい です。",
+  "de": "Der Hund ist klein.",
+  "words": [
+   "inu",
+   "chiisai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#7",
+  "pattern": "p_N_wa_adj",
+  "ch": 3,
+  "jp": "{村|むら} は {小|ちい}さい です。",
+  "jpFull": "{村|むら} は {小|ちい}さい です。",
+  "romaji": "mura wa chiisai desu.",
+  "kana": "むら は ちいさい です。",
+  "de": "Das Dorf ist klein.",
+  "words": [
+   "mura",
+   "chiisai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wa_adj#8",
+  "pattern": "p_N_wa_adj",
+  "ch": 3,
+  "jp": "おおかみ は こわい です。",
+  "jpFull": "{狼|おおかみ} は {怖|こわ}い です。",
+  "romaji": "ookami wa kowai desu.",
+  "kana": "おおかみ は こわい です。",
+  "de": "Der Wolf ist furchteinflößend.",
+  "words": [
+   "okami",
+   "kowai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#1",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "{店|みせ} に {薬|くすり} が あります。",
+  "jpFull": "{店|みせ} に {薬|くすり} が あります。",
+  "romaji": "mise ni kusuri ga arimasu.",
+  "kana": "みせ に くすり が あります。",
+  "de": "Im Laden gibt es Medizin.",
+  "words": [
+   "mise",
+   "kusuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#2",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "さかば に お{酒|さけ} が あります。",
+  "jpFull": "{酒場|さかば} に お{酒|さけ} が あります。",
+  "romaji": "sakaba ni osake ga arimasu.",
+  "kana": "さかば に おさけ が あります。",
+  "de": "In der Taverne gibt es Sake.",
+  "words": [
+   "sakaba",
+   "sake"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#3",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "{森|もり} に {道|みち} が あります。",
+  "jpFull": "{森|もり} に {道|みち} が あります。",
+  "romaji": "mori ni michi ga arimasu.",
+  "kana": "もり に みち が あります。",
+  "de": "Im Wald gibt es einen Weg.",
+  "words": [
+   "mori",
+   "michi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#4",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "{村|むら} に {店|みせ} が あります。",
+  "jpFull": "{村|むら} に {店|みせ} が あります。",
+  "romaji": "mura ni mise ga arimasu.",
+  "kana": "むら に みせ が あります。",
+  "de": "Im Dorf gibt es einen Laden.",
+  "words": [
+   "mura",
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#5",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "{村|むら} に さかば が あります。",
+  "jpFull": "{村|むら} に {酒場|さかば} が あります。",
+  "romaji": "mura ni sakaba ga arimasu.",
+  "kana": "むら に さかば が あります。",
+  "de": "Im Dorf gibt es eine Taverne.",
+  "words": [
+   "mura",
+   "sakaba"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_aru#6",
+  "pattern": "p_ni_N_ga_aru",
+  "ch": 3,
+  "jp": "{村|むら} に {城|しろ} が あります。",
+  "jpFull": "{村|むら} に {城|しろ} が あります。",
+  "romaji": "mura ni shiro ga arimasu.",
+  "kana": "むら に しろ が あります。",
+  "de": "Im Dorf gibt es eine Burg.",
+  "words": [
+   "mura",
+   "shiro"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#1",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "{森|もり} に おおかみ が います。",
+  "jpFull": "{森|もり} に {狼|おおかみ} が います。",
+  "romaji": "mori ni ookami ga imasu.",
+  "kana": "もり に おおかみ が います。",
+  "de": "Im Wald gibt es einen Wolf.",
+  "words": [
+   "mori",
+   "okami"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#2",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "{村|むら} に {子供|こども} が います。",
+  "jpFull": "{村|むら} に {子供|こども} が います。",
+  "romaji": "mura ni kodomo ga imasu.",
+  "kana": "むら に こども が います。",
+  "de": "Im Dorf gibt es ein Kind.",
+  "words": [
+   "mura",
+   "kodomo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#3",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "さかば に かりゅうど が います。",
+  "jpFull": "{酒場|さかば} に {狩人|かりゅうど} が います。",
+  "romaji": "sakaba ni karyuudo ga imasu.",
+  "kana": "さかば に かりゅうど が います。",
+  "de": "In der Taverne gibt es einen Jäger.",
+  "words": [
+   "sakaba",
+   "kariudo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#4",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "{村|むら} に {猫|ねこ} が います。",
+  "jpFull": "{村|むら} に {猫|ねこ} が います。",
+  "romaji": "mura ni neko ga imasu.",
+  "kana": "むら に ねこ が います。",
+  "de": "Im Dorf gibt es eine Katze.",
+  "words": [
+   "mura",
+   "neko"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#5",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "{森|もり} に くま が います。",
+  "jpFull": "{森|もり} に {熊|くま} が います。",
+  "romaji": "mori ni kuma ga imasu.",
+  "kana": "もり に くま が います。",
+  "de": "Im Wald gibt es einen Bären.",
+  "words": [
+   "mori",
+   "kuma"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_ni_N_ga_iru#6",
+  "pattern": "p_ni_N_ga_iru",
+  "ch": 3,
+  "jp": "{店|みせ} に てんしゅ が います。",
+  "jpFull": "{店|みせ} に {店主|てんしゅ} が います。",
+  "romaji": "mise ni tenshu ga imasu.",
+  "kana": "みせ に てんしゅ が います。",
+  "de": "Im Laden gibt es einen Ladenbesitzer.",
+  "words": [
+   "mise",
+   "tenshu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_he_iku#1",
+  "pattern": "p_place_he_iku",
+  "ch": 3,
+  "jp": "{店|みせ} へ {行|い}きます。",
+  "jpFull": "{店|みせ} へ {行|い}きます。",
+  "romaji": "mise e ikimasu.",
+  "kana": "みせ へ いきます。",
+  "de": "Ich gehe in den Laden.",
+  "words": [
+   "mise",
+   "iku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_he_iku#2",
+  "pattern": "p_place_he_iku",
+  "ch": 3,
+  "jp": "さかば へ {行|い}きます。",
+  "jpFull": "{酒場|さかば} へ {行|い}きます。",
+  "romaji": "sakaba e ikimasu.",
+  "kana": "さかば へ いきます。",
+  "de": "Ich gehe in die Taverne.",
+  "words": [
+   "sakaba",
+   "iku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_he_iku#3",
+  "pattern": "p_place_he_iku",
+  "ch": 3,
+  "jp": "{村|むら} へ {行|い}きます。",
+  "jpFull": "{村|むら} へ {行|い}きます。",
+  "romaji": "mura e ikimasu.",
+  "kana": "むら へ いきます。",
+  "de": "Ich gehe ins Dorf.",
+  "words": [
+   "mura",
+   "iku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_he_iku#4",
+  "pattern": "p_place_he_iku",
+  "ch": 3,
+  "jp": "{森|もり} へ {行|い}きます。",
+  "jpFull": "{森|もり} へ {行|い}きます。",
+  "romaji": "mori e ikimasu.",
+  "kana": "もり へ いきます。",
+  "de": "Ich gehe in den Wald.",
+  "words": [
+   "mori",
+   "iku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_he_iku#5",
+  "pattern": "p_place_he_iku",
+  "ch": 3,
+  "jp": "{城|しろ} へ {行|い}きます。",
+  "jpFull": "{城|しろ} へ {行|い}きます。",
+  "romaji": "shiro e ikimasu.",
+  "kana": "しろ へ いきます。",
+  "de": "Ich gehe in die Burg.",
+  "words": [
+   "shiro",
+   "iku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ga_kowai#1",
+  "pattern": "p_N_ga_kowai",
+  "ch": 3,
+  "jp": "おおかみ が こわい です。",
+  "jpFull": "{狼|おおかみ} が {怖|こわ}い です。",
+  "romaji": "ookami ga kowai desu.",
+  "kana": "おおかみ が こわい です。",
+  "de": "Ich habe Angst vor dem Wolf.",
+  "words": [
+   "okami",
+   "kowai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ga_kowai#2",
+  "pattern": "p_N_ga_kowai",
+  "ch": 3,
+  "jp": "くま が こわい です。",
+  "jpFull": "{熊|くま} が {怖|こわ}い です。",
+  "romaji": "kuma ga kowai desu.",
+  "kana": "くま が こわい です。",
+  "de": "Ich habe Angst vor dem Bären.",
+  "words": [
+   "kuma",
+   "kowai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_ga_kowai#3",
+  "pattern": "p_N_ga_kowai",
+  "ch": 3,
+  "jp": "{犬|いぬ} が こわい です。",
+  "jpFull": "{犬|いぬ} が {怖|こわ}い です。",
+  "romaji": "inu ga kowai desu.",
+  "kana": "いぬ が こわい です。",
+  "de": "Ich habe Angst vor dem Hund.",
+  "words": [
+   "inu",
+   "kowai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#1",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "おおかみ を {見|み}ます。",
+  "jpFull": "{狼|おおかみ} を {見|み}ます。",
+  "romaji": "ookami o mimasu.",
+  "kana": "おおかみ を みます。",
+  "de": "Ich sehe einen Wolf.",
+  "words": [
+   "okami",
+   "miru"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#2",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "くま を {見|み}ます。",
+  "jpFull": "{熊|くま} を {見|み}ます。",
+  "romaji": "kuma o mimasu.",
+  "kana": "くま を みます。",
+  "de": "Ich sehe einen Bären.",
+  "words": [
+   "kuma",
+   "miru"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#3",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "きつね を {見|み}ます。",
+  "jpFull": "{狐|きつね} を {見|み}ます。",
+  "romaji": "kitsune o mimasu.",
+  "kana": "きつね を みます。",
+  "de": "Ich sehe einen Fuchs.",
+  "words": [
+   "kitsune",
+   "miru"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#4",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "{鳥|とり} を {見|み}ます。",
+  "jpFull": "{鳥|とり} を {見|み}ます。",
+  "romaji": "tori o mimasu.",
+  "kana": "とり を みます。",
+  "de": "Ich sehe einen Vogel.",
+  "words": [
+   "tori",
+   "miru"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#5",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "{城|しろ} を {見|み}ます。",
+  "jpFull": "{城|しろ} を {見|み}ます。",
+  "romaji": "shiro o mimasu.",
+  "kana": "しろ を みます。",
+  "de": "Ich sehe eine Burg.",
+  "words": [
+   "shiro",
+   "miru"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_miru#6",
+  "pattern": "p_N_wo_miru",
+  "ch": 3,
+  "jp": "{山|やま} を {見|み}ます。",
+  "jpFull": "{山|やま} を {見|み}ます。",
+  "romaji": "yama o mimasu.",
+  "kana": "やま を みます。",
+  "de": "Ich sehe einen Berg.",
+  "words": [
+   "yama",
+   "miru"
+  ],
+  "status": "draft"
+ }
+]
