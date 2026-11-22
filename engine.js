@@ -6,6 +6,7 @@
 // Content C = { words, byId, patterns, sentences }
 import { displayDe } from './german.js';
 import { parse } from './lang.js';
+import { hasSprite } from './sprites.js';
 
 export const CONF_LABELS = ['', 'neu', 'wackelig', 'geht so', 'sicher', 'sehr sicher'];
 const DAY = 864e5;
@@ -191,12 +192,19 @@ const wordPool = (G, C, target) => {
   return pool;
 };
 
-export function makeWordQuestion(G, C0, id, { rng = Math.random, forceConf, poolIds } = {}) {
+export function makeWordQuestion(G, C0, id, { rng = Math.random, forceConf, poolIds, pictures = true } = {}) {
   const C = mergeCustom(C0, G), w = C.byId[id];
   const conf = forceConf ?? (G.items[id]?.conf || 1);
   const n = conf <= 2 ? 2 : 3;                                      // wrong answers: fewer when beginning
+  let pool = poolIds ? C.words.filter(x => poolIds.includes(x.id)) : wordPool(G, C, w);
+  // picture questions for beginners: the picture carries the meaning, the learner picks the Japanese word
+  const picPool = pool.filter(x => hasSprite(x.id));
+  const pic = pictures && hasSprite(id) && conf <= 2 && picPool.length > n && rng() < (conf <= 1 ? 0.7 : 0.4);
+  if (pic) {
+    const opts = shuffle([w, ...distractors(w, picPool, conf, n, rng)], rng);
+    return { kind: 'mc', type: 'pic2jp', id, conf, hideFuri: false, prompt: { pic: id }, options: opts.map(o => ({ jp: o.jp, id: o.id })), correct: id };
+  }
   const type = conf <= 1 ? 'jp2de' : conf === 2 ? 'de2jp' : conf === 3 ? (rng() < 0.5 ? 'jp2de' : 'de2jp') : 'de2jp';
-  const pool = poolIds ? C.words.filter(x => poolIds.includes(x.id)) : wordPool(G, C, w);
   const opts = shuffle([w, ...distractors(w, pool, conf, n, rng)], rng);
   return { kind: 'mc', type, id, conf, hideFuri: conf >= 4,
     prompt: type === 'jp2de' ? { jp: w.jp } : { de: displayDe(w) },

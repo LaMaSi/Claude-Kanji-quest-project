@@ -50,11 +50,17 @@ for (const r of [fast, mid, slow]) for (const id of Object.keys(r.G.items)) chec
 
 // similarity grows with confidence: distractors for the same word at conf 1 vs conf 5
 const G = E.defaultLearner(); for (const w of words) if (w.ch <= 2) E.setConfidence(G, w.id, 3);
-const avgSim = conf => { let t = 0, n = 0; for (let i = 0; i < 60; i++) { const q = E.makeWordQuestion(G, C, 'ringo', { rng, forceConf: conf }); for (const o of q.options) if (o.id !== 'ringo') { t += E.similarity(C.byId.ringo, C.byId[o.id]); n++; } } return t / n; };
+const avgSim = conf => { let t = 0, n = 0; for (let i = 0; i < 60; i++) { const q = E.makeWordQuestion(G, C, 'ringo', { rng, forceConf: conf, pictures: false }); for (const o of q.options) if (o.id !== 'ringo') { t += E.similarity(C.byId.ringo, C.byId[o.id]); n++; } } return t / n; };
 const s1 = avgSim(1), s5 = avgSim(5);
 console.log(`distractor similarity to ringo: conf1=${s1.toFixed(2)}  conf3=${avgSim(3).toFixed(2)}  conf5=${s5.toFixed(2)}`);
 check(s5 > s1 + 0.8, 'wrong answers must get more similar with confidence');
 const q5 = E.makeWordQuestion(G, C, 'ringo', { rng, forceConf: 5 }); console.log('sample conf5 question:', JSON.stringify(q5.prompt), q5.options.map(o => o.id).join(', '));
+
+// beginners get picture questions for words that have a picture; advanced ones never do
+let pics = 0; for (let i = 0; i < 100; i++) if (E.makeWordQuestion(G, C, 'ringo', { rng, forceConf: 1 }).type === 'pic2jp') pics++;
+check(pics > 40 && pics < 95, `picture questions at conf 1 should be common but not exclusive (${pics}/100)`);
+check(E.makeWordQuestion(G, C, 'ringo', { rng, forceConf: 4 }).type !== 'pic2jp', 'no picture questions at confidence 4');
+check(E.makeWordQuestion(G, C, 'konbanwa', { rng, forceConf: 1 }).type !== 'pic2jp', 'words without a picture never get picture questions');
 
 // overwhelmed learner: no new words
 const H = E.defaultLearner(); for (const w of words.slice(0, 10)) { E.setConfidence(H, w.id, 1); }

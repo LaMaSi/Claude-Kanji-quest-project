@@ -6,6 +6,7 @@ import * as wk from 'wanakana';
 import { romanize, numKana, numKanji, toHira } from '../lang.js';
 import { loadAll, buildSentences, reading, kanjiText, KANA_RE, KANJI_RE, romaji } from './lib/build.mjs';
 import { KNOWN_WEAK, lemma, np, inDat, inAcc } from '../german.js';
+import { SPRITE_IDS, PORTRAITS } from '../sprites.js';
 
 const errors = [], warns = [];
 const err = m => errors.push(m), warn = m => warns.push(m);
@@ -67,6 +68,11 @@ for (const w of words) {
   if (['q', 'dem', 'pron'].includes(w.pos) && !w.deSent) err(`${at}: needs deSent`);
   if (w.kanjiCommon !== undefined && !KANJI_RE.test(kanjiText(w.jp))) err(`${at}: kanjiCommon only makes sense for words with kanji`);
 }
+
+// every noun needs a picture (sprites.js); people need a portrait
+for (const w of words) if (w.pos === 'noun' && !SPRITE_IDS.includes(w.id)) err(`word ${w.id}: noun without a sprite in sprites.js`);
+for (const id of SPRITE_IDS) if (!byId[id]) warn(`sprites.js: sprite "${id}" has no word`);
+for (const id of PORTRAITS) if (!SPRITE_IDS.includes(id)) err(`portrait ${id} missing in SPRITES`);
 
 // ---------- 3. patterns and sentences ----------
 const has = (w, t) => (w.tags || []).includes(t);

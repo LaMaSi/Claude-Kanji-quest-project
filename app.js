@@ -1,14 +1,15 @@
 import { render, num, count, speakText } from './lang.js';
-import { drawArt } from './art.js';
+import { drawScene, initScenes } from './stage.js';
+import { spriteEl, hasSprite } from './sprites.js';
 import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF, CONTENT } from './data.js';
 import * as E from './engine.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
-import { drawKanji } from './kanji.js';
+import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -40,21 +41,39 @@ let screen = null;                       // () => node, re-run whenever display 
 function setScreen(fn) { screen = fn; draw(); }
 function go(id) { G.loc = id; save(); setScreen(NODES[id]); }
 
+const WHO_PIC = { '{店主|てんしゅ}': 'tenshu', 'おかみさん': 'okamisan', '{狩人|かりうど}': 'kariudo', 'おばあさん': 'obaasan' };
+const unseenKanji = texts => {
+  const out = [];
+  for (const t of texts) for (const m of (t || '').matchAll(/\{([^|}]+)\|/g)) for (const ch of m[1]) if (hasKanji(ch) && !G.kanjiSeen[ch] && !out.includes(ch)) out.push(ch);
+  return out;
+};
+function showOrder(k) {
+  openSheet(s => {
+    s.innerHTML = `<h2>新しい漢字　${k}</h2>`; const host = document.createElement('div'); s.appendChild(host);
+    playStrokeOrder(host, k, () => { G.kanjiSeen[k] = 1; save(); closeSheet(); draw(); }, 'Strichfolge');
+  });
+}
+/** stroke order first, then the real task – used whenever a kanji is shown for the first time */
+const withOrder = (host, k, next) => { if (hasKanji(k) && !G.kanjiSeen[k]) playStrokeOrder(host, k, () => { G.kanjiSeen[k] = 1; save(); next(); }, 'Strichfolge'); else next(); };
+
 function draw() {
   const n = screen();
-  drawArt($('#art'), n.art || 'village');
+  const stage = $('#stage'); stage.hidden = n.art === null;
+  if (n.art !== null) drawScene($('#art'), n.art || 'village');
   $('#loc').innerHTML = J(n.title) + (G.help && n.titleDe ? `<small>${n.titleDe}</small>` : '');
   const text = $('#text'); text.innerHTML = '';
   for (const l of n.lines || []) {
     const d = document.createElement('div');
     if (l.say) { d.className = 'say'; d.innerHTML = l.say; text.appendChild(d); continue; }
     d.className = 'line';
-    d.innerHTML = `<div class="who"><span>${l.who ? J(l.who) : ''}</span><button class="spk" aria-label="Vorlesen">🔊</button></div>` +
-      `<div class="jp">${J(l.t)}</div>` + (G.help && l.de ? `<div class="de">${l.de}</div>` : '');
+    const pic = l.pic || WHO_PIC[l.who], sp = pic && spriteEl(pic, 64);
+    d.innerHTML = `<div class="body"><div class="who"><span>${l.who ? J(l.who) : ''}</span><button class="spk" aria-label="Vorlesen">🔊</button></div>` +
+      `<div class="jp">${J(l.t)}</div>` + (G.help && l.de ? `<div class="de">${l.de}</div>` : '') + '</div>';
+    if (sp) d.prepend(sp);
     d.querySelector('.spk').onclick = () => speak(l.t);
     text.appendChild(d);
   }
-  const wg = $('#widget'); wg.innerHTML = '';
+  const wg = $('#widget'); wg.innerHTML = ''; wg.className = n.widgetTop ? 'top' : '';
   if (n.widget) n.widget(wg);
   const ch = $('#choices'); ch.innerHTML = '';
   for (const c of n.choices || []) {
@@ -64,16 +83,27 @@ function draw() {
     b.onclick = () => { const r = c.fn ? c.fn() : c.go; if (typeof r === 'string') go(r); else if (r === undefined) draw(); };
     ch.appendChild(b);
   }
+  const nk = $('#newkanji'); nk.innerHTML = '';
+  if (G.mode === 'kanji' && !n.noBanner) {
+    const fresh = unseenKanji([n.title, ...(n.lines || []).map(l => l.t)]).slice(0, 4);
+    if (fresh.length) {
+      nk.insertAdjacentHTML('beforeend', '<span class="nkl">Neue Kanji – Strichfolge:</span>');
+      for (const k of fresh) { const b = document.createElement('button'); b.className = 'nkc'; b.textContent = k; b.onclick = () => showOrder(k); nk.appendChild(b); }
+    }
+  }
   renderStats();
   window.scrollTo(0, 0);
 }
+const FS = [1, 1.15, 1.3];
 function renderStats() {
   $('#stats').innerHTML = `<span>HP <b>${G.hp}/${G.maxhp}</b></span><span><b>${G.gold}</b> 円</span><span>Lv <b>${G.lv}</b></span>`;
-  $('#bMode').textContent = { kanji: '漢', kana: 'あ', romaji: 'A' }[G.mode];
+  document.querySelectorAll('#scriptsw button').forEach(b => b.classList.toggle('on', b.dataset.m === G.mode));
   $('#bFuri').classList.toggle('off', G.mode !== 'kanji' || !G.furi);
   $('#bHelp').classList.toggle('off', !G.help);
+  document.body.classList.toggle('lefty', !!G.lefty);
+  document.documentElement.style.setProperty('--fs', FS[G.fs] || 1);
 }
-$('#bMode').onclick = () => { G.mode = { kanji: 'kana', kana: 'romaji', romaji: 'kanji' }[G.mode]; save(); draw(); refreshSheet(); };
+document.querySelectorAll('#scriptsw button').forEach(b => { b.onclick = () => { G.mode = b.dataset.m; save(); draw(); refreshSheet(); }; });
 $('#bFuri').onclick = () => { G.furi = !G.furi; if (G.mode !== 'kanji') G.mode = 'kanji'; save(); draw(); refreshSheet(); };
 $('#bHelp').onclick = () => { G.help = !G.help; save(); draw(); refreshSheet(); };
 $('#bMenu').onclick = () => openSheet(menuSheet);
@@ -101,6 +131,7 @@ function keypad(host, onSubmit) {
   }
   host.append(disp, pad);
 }
+
 
 // ---------- quiz helpers ----------
 function numberQuestion() {
@@ -171,13 +202,18 @@ const NODES = {
   },
 
   buy() {
-    const ch = SHOP.map(it => ({
-      t: `${VOCAB[it.id].m}　${num(it.price)}{円|えん}`, de: `${VOCAB[it.id].de} – ${it.price} Yen`,
-      fn: () => buyItem(it),
-    }));
-    ch.push({ t: 'やめる', de: 'Zurück', go: 'shop' });
-    return { art: 'shop', title: '{何|なに} を {買|か}いますか？', titleDe: 'Was möchtest du kaufen?',
-      lines: [{ who: '{店主|てんしゅ}', t: 'どうぞ。{一|ひと}つ ずつ の ねだん です。', de: 'Bitte sehr. Das sind die Preise pro Stück.' }], choices: ch };
+    return { art: 'shop', title: '{何|なに} を {買|か}いますか？', titleDe: 'Was möchtest du kaufen?', widgetTop: true,
+      lines: [{ who: '{店主|てんしゅ}', t: 'どうぞ。 {一|ひと}つ ずつ の ねだん です。', de: 'Bitte sehr. Das sind die Preise pro Stück.' }],
+      widget: host => {
+        const grid = document.createElement('div'); grid.className = 'pgrid'; host.appendChild(grid);
+        for (const it of SHOP) {
+          const card = document.createElement('button'); card.className = 'pcard';
+          const sp = spriteEl(it.id, 84); if (sp) card.appendChild(sp);
+          card.insertAdjacentHTML('beforeend', `<div class="jp">${J(VOCAB[it.id].m)}</div><div class="pr">${J(num(it.price) + '{円|えん}')}</div>${G.help ? `<div class="de">${VOCAB[it.id].de}</div>` : ''}`);
+          card.onclick = () => buyItem(it); grid.appendChild(card);
+        }
+      },
+      choices: [{ t: 'やめる', de: 'Zurück', go: 'shop' }] };
   },
 
   tavern() {
@@ -249,9 +285,9 @@ function orderReply(id) {
 function signTask() {
   setScreen(() => ({ art: 'shop', title: '{看板|かんばん}', titleDe: 'Das Ladenschild',
     lines: [{ say: 'Auf dem Schild fehlt ein Zeichen. Schreibe 店 (みせ = Laden) Strich für Strich.' }],
-    widget: host => drawKanji(host, '店', ok => {
+    widget: host => withOrder(host, '店', () => drawKanji(host, '店', ok => {
       G.flags.sign = 1; if (ok) { G.kanji['店'] = 1; gain(10, 50); toast('+50 円, +10 XP'); } save(); go('shop');
-    }, 'Zeichne den 1. Strich'),
+    }, 'Zeichne den 1. Strich')),
     choices: [] }));
 }
 
@@ -339,6 +375,8 @@ function menuSheet(s) {
   btn(s, lbl('{勉強|べんきょう}', 'Lernen: Wiederholen, Kanji, Wörter'), () => openSheet(studySheet));
   btn(s, lbl('セーブ', 'Speichern'), () => { save(); toast('Gespeichert ✔'); });
   btn(s, lbl('ロード', 'Laden'), () => { try { G = { ...DEFAULT(), ...JSON.parse(localStorage.getItem(KEY)) }; go(G.loc in NODES ? G.loc : 'village'); closeSheet(); toast('Geladen'); } catch { toast('Kein Spielstand'); } });
+  btn(s, G.lefty ? 'Linkshänder-Modus: AN (tippen zum Ändern)' : 'Linkshänder-Modus: AUS (tippen zum Ändern)', () => { G.lefty = !G.lefty; save(); renderStats(); refreshSheet(); });
+  btn(s, `Schriftgröße: ${['normal', 'groß', 'sehr groß'][G.fs]} (tippen zum Ändern)`, () => { G.fs = (G.fs + 1) % 3; save(); renderStats(); draw(); refreshSheet(); });
   btn(s, 'Tägliche Erinnerung', () => openSheet(reminderSheet));
   btn(s, 'Backup kopieren / einfügen', () => openSheet(backupSheet));
   btn(s, 'Schließen', closeSheet);
@@ -355,7 +393,9 @@ function invSheet(s) {
   if (!ids.length) s.insertAdjacentHTML('beforeend', '<div class="de">Leer.</div>');
   for (const id of ids) {
     const it = SHOP.find(x => x.id === id), row = document.createElement('div'); row.className = 'kv';
-    row.innerHTML = `<span class="jp">${J(VOCAB[id].m)}</span><span>×${G.inv[id]} ${G.help ? ' · ' + VOCAB[id].de : ''}</span>`; s.appendChild(row);
+    const left = document.createElement('span'); left.style.cssText = 'display:flex;align-items:center;gap:12px;color:var(--fg)';
+    const sp = spriteEl(id, 48); if (sp) left.appendChild(sp); left.insertAdjacentHTML('beforeend', `<span class="jp" style="font-size:1.3rem">${J(VOCAB[id].m)}</span>`);
+    row.appendChild(left); row.insertAdjacentHTML('beforeend', `<span>×${G.inv[id]} ${G.help ? ' · ' + VOCAB[id].de : ''}</span>`); s.appendChild(row);
     if (it && it.heal) btn(s, `${lbl('つかう', 'Benutzen (+' + it.heal + ' HP)')}`, () => { G.inv[id]--; G.hp = Math.min(G.maxhp, G.hp + it.heal); save(); renderStats(); refreshSheet(); });
   }
   btn(s, 'Zurück', () => openSheet(menuSheet));
@@ -389,7 +429,7 @@ function kanjiSheet(s) {
 function practiceKanji(k) {
   setScreen(() => ({ art: 'home', title: `${k}　${KANJI[k][0]}`, titleDe: KANJI[k][1],
     lines: [{ say: 'Schreibe das Zeichen Strich für Strich. Nach zwei Fehlern erscheint ein Hinweis.' }],
-    widget: host => drawKanji(host, k, ok => { if (ok) { if (!G.kanji[k]) gain(8); G.kanji[k] = 1; save(); toast('Gespeichert ✔'); } go(G.loc in NODES ? G.loc : 'village'); }, 'Zeichne den 1. Strich'),
+    widget: host => withOrder(host, k, () => drawKanji(host, k, ok => { if (ok) { if (!G.kanji[k]) gain(8); G.kanji[k] = 1; save(); toast('Gespeichert ✔'); } go(G.loc in NODES ? G.loc : 'village'); }, 'Zeichne den 1. Strich')),
     choices: [{ t: 'もどる', de: 'Abbrechen', go: 'home' }] }));
 }
 // ---------- daily reminder (Android app only: local notification, no server) ----------
@@ -426,6 +466,7 @@ function reminderSheet(s) {
 setTimeout(() => applyReminder(false), 1500);   // re-register after app updates / restarts
 
 // ---------- start ----------
-initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet });
+initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
+await initScenes();
 go(G.loc in NODES ? G.loc : 'village');

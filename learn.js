@@ -2,6 +2,8 @@
 import * as E from './engine.js';
 import { render, speakText } from './lang.js';
 import { CONTENT } from './data.js';
+import { spriteEl, hasSprite } from './sprites.js';
+import { hasKanji } from './kanji.js';
 import { displayDe, lemma } from './german.js';
 
 let A;   // api from app.js: G(), save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, J, lbl, refreshSheet
@@ -19,19 +21,21 @@ function reveal(id) {
 }
 const answered = (q, ok) => { E.recordAnswer(G(), q.id, ok); A.save(); };
 
-/** multiple-choice / sentence-building question (from the engine) */
+/** multiple-choice / sentence-building question (from the engine). Answers sit at the bottom, within thumb reach. */
 export function renderQuestion(host, q, done) {
   host.innerHTML = '';
   const box = document.createElement('div'); box.className = 'q'; host.appendChild(box);
   const finish = (ok, locked) => {
     answered(q, ok); locked.forEach(b => b.disabled = true);
     const fb = document.createElement('div'); fb.className = 'kmsg'; fb.innerHTML = ok ? '✔ richtig' : `✘ ${reveal(q.id)}`; host.appendChild(fb);
-    setTimeout(() => done(ok), ok ? 650 : 1800);
+    if (ok) setTimeout(() => done(true), 650);
+    else A.btn(host, 'Weiter ▸', () => done(false), 'primary');          // wrong: take your time to read the correction
   };
   const promptHtml = p => (p.jp ? `<span class="jp">${Jf(p.jp, !q.hideFuri)}</span>` : p.de);
   if (q.kind === 'mc') {
-    box.innerHTML = promptHtml(q.prompt) + (q.type.startsWith('s_') && q.prompt.de ? '<div class="de">Wie sagt man das auf Japanisch?</div>' : '');
-    const wrap = document.createElement('div'); wrap.style.cssText = 'display:flex;flex-direction:column;gap:8px'; host.appendChild(wrap);
+    if (q.prompt.pic) { const sp = spriteEl(q.prompt.pic, 120); box.appendChild(sp); box.insertAdjacentHTML('beforeend', '<div class="de">Was ist das auf Japanisch?</div>'); }
+    else box.innerHTML = promptHtml(q.prompt) + (q.type.startsWith('s_') && q.prompt.de ? '<div class="de">Wie sagt man das auf Japanisch?</div>' : '');
+    const wrap = document.createElement('div'); wrap.className = 'opts'; host.appendChild(wrap);
     const btns = q.options.map(o => A.btn(wrap, o.jp ? `<span class="jp">${Jf(o.jp, !q.hideFuri)}</span>` : o.de, () => {
       const ok = o.id === q.correct; btns[q.options.indexOf(o)].classList.add(ok ? 'ok' : 'no'); finish(ok, btns);
     }));
@@ -57,14 +61,18 @@ export function renderQuestion(host, q, done) {
   }
 }
 
-/** card shown when a new word is introduced */
-function renderIntro(host, task, done) {
+/** card shown when a new word is introduced (the big "Weiter" button is a screen choice at the bottom) */
+function renderIntroCard(host, task) {
   const w = C().byId[task.id], it = E.ensureItem(G(), task.id); if (!it.intro) it.intro = Date.now(); A.save();
-  host.innerHTML = `<div class="q intro"><div class="de" style="margin-bottom:6px">Neues Wort</div><span class="jp big">${Jf(w.jp, true)}</span>
-    <div class="de" style="font-size:16px;color:var(--fg);margin-top:6px">${displayDe(w)}</div>${w.masu ? `<div class="de">höflich: <span class="jp">${Jf(w.masu, true)}</span></div>` : ''}${w.note ? `<div class="de">${w.note}</div>` : ''}</div>`;
-  const row = document.createElement('div'); row.className = 'row';
-  A.btn(row, '🔊 Anhören', () => A.speak(w.jp), 'small'); A.btn(row, 'Weiter ▸', () => done(), 'small'); host.appendChild(row);
+  host.innerHTML = '<div class="q intro"><div class="de" style="margin-bottom:8px">Neues Wort</div></div>';
+  const box = host.firstChild, sp = spriteEl(task.id, 120); if (sp) { sp.style.marginBottom = '10px'; box.appendChild(sp); }
+  box.insertAdjacentHTML('beforeend', `<span class="jp big">${Jf(w.jp, true)}</span>
+    <div class="de" style="font-size:1.1rem;color:var(--fg);margin-top:6px">${displayDe(w)}</div>${w.masu ? `<div class="de">höflich: <span class="jp">${Jf(w.masu, true)}</span></div>` : ''}${w.note ? `<div class="de">${w.note}</div>` : ''}`);
+  const row = document.createElement('div'); row.className = 'row'; row.style.marginTop = '12px'; row.style.justifyContent = 'center';
+  A.btn(row, '🔊 Anhören', () => A.speak(w.jp), 'small'); box.appendChild(row);
 }
+/** kanji of this word that were never shown with their stroke order (only relevant while kanji are displayed) */
+const unseenKanjiOf = w => (G().mode !== 'kanji' ? [] : [...new Set([...w.jp.matchAll(/\{([^|}]+)\|/g)].flatMap(m => [...m[1]]))].filter(k => hasKanji(k) && !G().kanjiSeen[k]));
 
 // ------------------------------------------------------------------ daily round
 export function startRound(size = 6) {
@@ -77,10 +85,15 @@ export function startRound(size = 6) {
     const task = E.makeTask(G(), CONTENT, tasks[st.i]);
     const isIntro = task.kind === 'intro';
     if (isIntro) st.fresh.push(task.id);
-    const ask = () => A.setScreen(() => ({ art: 'home', title: `{今日|きょう}の ふくしゅう　${st.i + 1}/${tasks.length}`, titleDe: 'Tagesrunde', lines: [],
+    const title = `{今日|きょう}の ふくしゅう　${st.i + 1}/${tasks.length}`;
+    const ask = () => A.setScreen(() => ({ art: null, noBanner: true, title, titleDe: 'Tagesrunde', lines: [],
       widget: host => renderQuestion(host, task.q, ok => { st.asked++; if (ok) st.ok++; st.i++; step(); }), choices: [] }));
-    if (isIntro) A.setScreen(() => ({ art: 'home', title: `{今日|きょう}の ふくしゅう　${st.i + 1}/${tasks.length}`, titleDe: 'Tagesrunde', lines: [],
-      widget: host => renderIntro(host, task, ask), choices: [] }));
+    // new kanji: show the stroke order before the question
+    const strokes = (kan, i) => (i >= kan.length ? ask() : A.setScreen(() => ({ art: null, noBanner: true, title: `新しい漢字　${kan[i]}`, titleDe: 'Strichfolge', lines: [],
+      widget: host => A.withOrder(host, kan[i], () => strokes(kan, i + 1)), choices: [] })));
+    if (isIntro) A.setScreen(() => ({ art: null, noBanner: true, widgetTop: true, title, titleDe: 'Tagesrunde', lines: [],
+      widget: host => renderIntroCard(host, task),
+      choices: [{ t: 'Weiter ▸', cls: 'primary', fn: () => { strokes(unseenKanjiOf(C().byId[task.id]), 0); } }] }));
     else ask();
   };
   const finish = () => {
@@ -89,7 +102,7 @@ export function startRound(size = 6) {
     if (firstToday) A.gain(10, 20);
     A.save();
     const fresh = st.fresh.map(id => C().byId[id]).filter(Boolean);
-    A.setScreen(() => ({ art: 'home', title: 'おつかれさま！', titleDe: 'Geschafft!',
+    A.setScreen(() => ({ art: 'home', noBanner: true, title: 'おつかれさま！', titleDe: 'Geschafft!',
       lines: [{ say: `${st.ok} von ${st.asked} richtig.${firstToday ? ' +10 XP, +20 円 für die erste Tagesrunde.' : ''} Serie: <b>${G().streak.days}</b> ${G().streak.days === 1 ? 'Tag' : 'Tage'}.` },
         ...(fresh.length ? [{ say: 'Neue Wörter: ' + fresh.map(w => `<span class="jp">${Jf(w.jp, true)}</span> (${displayDe(w)})`).join(', ') }] : [])],
       choices: [{ t: 'もう いちど', de: 'Noch eine Runde', fn: () => startRound(size) }, { t: 'むらへ もどる', de: 'Zurück ins Dorf', fn: () => A.go(G().loc in A.NODES ? G().loc : 'village') }] }));
@@ -120,7 +133,9 @@ export function dictSheet(s) {
       if (!ws.length) list.innerHTML = `<div class="de">${dictTab === 'learned' ? 'Noch keine Wörter gelernt – starte die Tagesrunde!' : 'Nichts gefunden.'}</div>`;
       for (const w of ws.slice(0, 60)) {
         const it = g.items[w.id], row = document.createElement('div'); row.className = 'drow';
+        const sp = spriteEl(w.id, 48);
         row.innerHTML = `<div class="dtop"><span class="jp">${Jf(w.jp, true)}</span><span class="dde">${displayDe(w)}</span></div><div class="de">${checkLabel(w)}</div>`;
+        if (sp) { sp.style.cssText += ';float:left;margin:0 12px 6px 0;image-rendering:pixelated;border:1px solid var(--line);border-radius:6px'; row.prepend(sp); }
         if (dictTab === 'learned') {
           const sl = document.createElement('div'); sl.className = 'dslide';
           sl.innerHTML = `<input type="range" min="1" max="5" step="1" value="${it.conf}" aria-label="Sicherheit"><span class="clabel">${E.CONF_LABELS[it.conf]}</span>`;

@@ -12,23 +12,24 @@
 </head>
 <body>
 <div id="app">
-  <header id="top">
-    <div id="stats"></div>
-    <div id="tools">
-      <button id="bMode" class="chip" title="Schrift">漢</button>
-      <button id="bFuri" class="chip" title="Furigana">ふ</button>
-      <button id="bHelp" class="chip" title="Deutsche Hilfe">DE</button>
-      <button id="bMenu" class="chip" title="Menü">☰</button>
-    </div>
-  </header>
-  <main>
-    <canvas id="art"></canvas>
+  <header id="top"><div id="stats"></div></header>
+  <main id="main">
+    <div id="stage"><canvas id="art"></canvas><div class="lcd"></div></div>
     <h1 id="loc"></h1>
     <section id="text"></section>
     <section id="widget"></section>
+    <div id="newkanji"></div>
     <nav id="choices"></nav>
   </main>
 </div>
+<footer id="dock">
+  <div class="seg" id="scriptsw" role="group" aria-label="Schrift">
+    <button data-m="kanji" aria-label="Kanji">漢</button><button data-m="kana" aria-label="Hiragana">あ</button><button data-m="romaji" aria-label="Rōmaji">A</button>
+  </div>
+  <button id="bFuri" class="dbtn" aria-label="Furigana">ふ</button>
+  <button id="bHelp" class="dbtn" aria-label="Deutsche Hilfe">DE</button>
+  <button id="bMenu" class="dbtn" aria-label="Menü">☰</button>
+</footer>
 <div id="overlay" hidden><div id="sheet"></div></div>
 <script type="module" src="app.js"></script>
 </body>

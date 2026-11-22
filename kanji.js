@@ -98,3 +98,42 @@ export function drawKanji(host, ch, onDone, note = '') {
 }
 
 export const hasKanji = ch => !!STROKES[ch];
+
+/** Animated stroke order: strokes are drawn one after another with numbers. Calls onDone when the learner taps "Verstanden". */
+export function playStrokeOrder(host, ch, onDone, label = 'Strichfolge') {
+  const strokes = STROKES[ch]; if (!strokes) { onDone(); return; }
+  const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('width', 0); svg.setAttribute('height', 0); svg.style.position = 'absolute'; document.body.appendChild(svg);
+  const items = strokes.map(d => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); svg.appendChild(p); const s = p.getPointAtLength(0); return { path2d: new Path2D(d), len: p.getTotalLength(), start: [s.x, s.y] }; });
+  host.innerHTML = '';
+  const SIZE = Math.min(host.clientWidth || 320, 340);
+  const cv = document.createElement('canvas'); cv.width = cv.height = Math.round(SIZE * devicePixelRatio); cv.style.width = cv.style.height = SIZE + 'px'; cv.className = 'kcanvas';
+  const msg = document.createElement('div'); msg.className = 'kmsg'; host.append(cv, msg);
+  const c = cv.getContext('2d'), k = cv.width / 109;
+  let run = 0, raf = 0;
+  const frame = (done, cur, t) => {
+    c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, cv.width, cv.height); c.setTransform(k, 0, 0, k, 0, 0);
+    c.strokeStyle = '#1e2230'; c.lineWidth = 0.6; c.setLineDash([2, 2]); c.strokeRect(0.5, 0.5, 108, 108); c.beginPath(); c.moveTo(54.5, 0); c.lineTo(54.5, 109); c.moveTo(0, 54.5); c.lineTo(109, 54.5); c.stroke(); c.setLineDash([]);
+    c.lineCap = 'round'; c.lineJoin = 'round'; c.lineWidth = 4.6;
+    items.forEach((it, i) => { c.strokeStyle = '#2a2f40'; c.lineWidth = 4; c.stroke(it.path2d); });
+    for (let i = 0; i < done; i++) { c.strokeStyle = '#d8d1bf'; c.lineWidth = 4.6; c.stroke(items[i].path2d); }
+    if (cur < items.length) { const it = items[cur]; c.strokeStyle = '#e0b060'; c.lineWidth = 4.6; c.setLineDash([it.len, it.len + 2]); c.lineDashOffset = it.len * (1 - t); c.stroke(it.path2d); c.setLineDash([]); }
+    c.font = 'bold 7px sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
+    for (let i = 0; i <= Math.min(cur, items.length - 1); i++) { if (i >= done && i !== cur) continue; const [x, y] = items[i].start; c.fillStyle = '#d29a3e'; c.beginPath(); c.arc(x - 4, y - 4, 4, 0, 7); c.fill(); c.fillStyle = '#0b0d12'; c.fillText(String(i + 1), x - 4, y - 3.6); }
+  };
+  const play = () => {
+    cancelAnimationFrame(raf); const my = ++run; let i = 0, t0 = performance.now();
+    msg.textContent = `${label}: Strich 1 / ${items.length}`;
+    const tick = now => {
+      if (my !== run) return;
+      const dur = 450 + items[i].len * 9, t = Math.min(1, (now - t0) / dur);
+      frame(i, i, t);
+      if (t >= 1) { i++; t0 = now + 180; if (i >= items.length) { frame(items.length, items.length, 1); msg.textContent = `${items.length} ${items.length === 1 ? 'Strich' : 'Striche'} – so wird ${ch} geschrieben`; return; } msg.textContent = `${label}: Strich ${i + 1} / ${items.length}`; }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+  };
+  const bar = document.createElement('div'); bar.className = 'kbar';
+  const b = (t, f, cls = '') => { const x = document.createElement('button'); x.className = 'btn small ' + cls; x.textContent = t; x.onclick = f; bar.appendChild(x); };
+  b('↺ Nochmal', play); b('Verstanden ▸', () => { run++; cancelAnimationFrame(raf); svg.remove(); onDone(); }, 'ok');
+  host.appendChild(bar); play();
+}
