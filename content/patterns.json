@@ -43,7 +43,8 @@
    "b": {
     "pos": "noun"
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_dem_nan",
@@ -67,7 +68,8 @@
    "a": {
     "pos": "dem"
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_ikura",
@@ -102,7 +104,8 @@
      "item"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_yen",
@@ -146,7 +149,8 @@
      "item"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_doko",
@@ -176,7 +180,8 @@
    "a": {
     "pos": "noun"
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_wo_kudasai",
@@ -211,13 +216,14 @@
      "item"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_count_kudasai",
   "ch": "2",
   "title": "N を 〜つ ください",
-  "explain": "Gegenstände zählt man mit ひとつ, ふたつ, みっつ …. Die Zahl steht nach を.",
+  "explain": "Gegenstände zählt man mit ひとつ, ふたつ, みっつ …. Die Zahl steht nach を. つ ist ein allgemeiner Zähler für viele Gegenstände, aber nicht für alle Dinge und Lebewesen.",
   "jp": "<a> を <n.count> ください。",
   "de": "[n.word] [a.pl], bitte.",
   "fills": [
@@ -226,7 +232,7 @@
     "n": 3
    },
    {
-    "a": "pan",
+    "a": "tamago",
     "n": 2
    },
    {
@@ -241,10 +247,10 @@
   "require": {
    "a": {
     "pos": "noun",
-    "hasPl": true,
-    "notMass": true
+    "hasPl": true
    }
-  }
+  },
+  "status": "checked"
  },
  {
   "id": "p_N_wo_V",
@@ -275,7 +281,7 @@
     "v": "nomu"
    },
    {
-    "a": "sake",
+    "a": "osake",
     "v": "nomu"
    },
    {
@@ -304,7 +310,8 @@
     "a",
     "v"
    ]
-  ]
+  ],
+  "status": "reviewed"
  },
  {
   "id": "p_N_wa_adj",
@@ -354,7 +361,8 @@
    "b": {
     "pos": "adj"
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_ni_N_ga_aru",
@@ -370,7 +378,7 @@
    },
    {
     "a": "sakaba",
-    "b": "sake"
+    "b": "osake"
    },
    {
     "a": "mori",
@@ -402,7 +410,8 @@
      "animate"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_ni_N_ga_iru",
@@ -450,7 +459,8 @@
      "animate"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_place_he_iku",
@@ -492,7 +502,8 @@
     "pos": "verb",
     "id": "iku"
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_ga_kowai",
@@ -519,7 +530,8 @@
      "animal"
     ]
    }
-  }
+  },
+  "status": "reviewed"
  },
  {
   "id": "p_N_wo_miru",
@@ -568,6 +580,7 @@
     "a",
     "v"
    ]
-  ]
+  ],
+  "status": "reviewed"
  }
 ]

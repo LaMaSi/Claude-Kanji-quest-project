@@ -4,23 +4,31 @@ const IND = { nom: { m: 'ein', f: 'eine', n: 'ein' }, acc: { m: 'einen', f: 'ein
 export const NUMBER_WORDS = ['null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf'];
 export const KNOWN_WEAK = ['Bär', 'Mensch', 'Junge', 'Herr', 'Nachbar', 'Löwe', 'Affe', 'Hase', 'Kunde'];
 
-/** noun with case ending (weak masculine nouns: Bär -> Bären in acc/dat/gen) */
-function noun(w, kase) {
-  if (w.weak && w.gender === 'm' && kase !== 'nom') return w.de.endsWith('e') ? w.de + 'n' : w.de + 'en';
-  return w.de;
+// adjective endings (nominative/accusative/dative; m f n)
+const ADJ_WEAK = { nom: { m: 'e', f: 'e', n: 'e' }, acc: { m: 'en', f: 'e', n: 'e' }, dat: { m: 'en', f: 'en', n: 'en' } }; // after der/die/das
+const ADJ_STRONG = { nom: { m: 'er', f: 'e', n: 'es' }, acc: { m: 'en', f: 'e', n: 'es' }, dat: { m: 'em', f: 'er', n: 'em' } }; // after ein / no article
+
+/** noun (+ optional adjective "adj") with case endings; weak masculine nouns: Bär -> Bären */
+function noun(w, kase, definite = false) {
+  let n = w.de;
+  if (w.weak && w.gender === 'm' && kase !== 'nom') n = n.endsWith('e') ? n + 'n' : n + 'en';
+  if (w.adj) n = `${w.adj}${(definite ? ADJ_WEAK : ADJ_STRONG)[kase][w.gender]} ${n}`;
+  return n;
 }
+/** dictionary form, e.g. "alter Mann", "Apfel" */
+export const lemma = w => noun(w, 'nom', false);
 export function np(w, kase, definite) {
-  if (!definite && w.mass) return noun(w, kase);
-  return `${(definite ? DEF : IND)[kase][w.gender]} ${noun(w, kase)}`;
+  if (!definite && w.mass) return noun(w, kase, false);
+  return `${(definite ? DEF : IND)[kase][w.gender]} ${noun(w, kase, definite)}`;
 }
 /** "im Dorf", "in der Burg" (in + dative with contraction) */
 export function inDat(w) {
-  const n = noun(w, 'dat');
+  const n = noun(w, 'dat', true);
   return w.gender === 'f' ? `in der ${n}` : `im ${n}`;
 }
 /** "ins Dorf", "in den Wald", "in die Taverne" (in + accusative, direction) */
 export function inAcc(w) {
-  const n = noun(w, 'acc');
+  const n = noun(w, 'acc', true);
   return w.gender === 'm' ? `in den ${n}` : w.gender === 'f' ? `in die ${n}` : `ins ${n}`;
 }
 export const capFirst = s => s.charAt(0).toUpperCase() + s.slice(1);

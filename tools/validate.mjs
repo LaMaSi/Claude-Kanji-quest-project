@@ -5,11 +5,11 @@ import kuromoji from 'kuromoji';
 import * as wk from 'wanakana';
 import { romanize, numKana, numKanji, toHira } from '../lang.js';
 import { loadAll, buildSentences, reading, kanjiText, KANA_RE, KANJI_RE, romaji } from './lib/build.mjs';
-import { KNOWN_WEAK } from './lib/german.mjs';
+import { KNOWN_WEAK, lemma, np, inDat, inAcc } from './lib/german.mjs';
 
 const errors = [], warns = [];
 const err = m => errors.push(m), warn = m => warns.push(m);
-const { words, patterns, byId } = loadAll();
+const { words, patterns, byId, reviewedSentences } = loadAll();
 
 // ---------- 1. unit checks of the script helpers ----------
 const eq = (name, got, want) => { if (got !== want) err(`self-test ${name}: got "${got}", want "${want}"`); };
@@ -20,6 +20,17 @@ eq('numKanji(150)', numKanji(150), '百五十'); eq('numKanji(3000)', numKanji(3
 for (const [k, r] of [['しゃしん', 'shashin'], ['ちゅうい', 'chuui'], ['きって', 'kitte'], ['はっぴゃく', 'happyaku'], ['ほんや', "hon'ya"], ['おおかみ', 'ookami'], ['じゃあ', 'jaa'],
   ['パン', 'pan'], ['おちゃ', 'ocha'], ['ごめんなさい', 'gomennasai'], ['おやすみなさい', 'oyasuminasai'], ['いらっしゃいませ', 'irasshaimase'], ['すみません', 'sumimasen']])
   eq(`romanize(${k})`, romanize(k), r);
+
+// German declension self-tests (the reviewer caught "der alter Mann"; keep it fixed)
+{
+  const T = (name, got, want) => eq(`german ${name}`, got, want);
+  const mann = { de: 'Mann', adj: 'alt', gender: 'm' }, frau = { de: 'Frau', adj: 'alt', gender: 'f' }, bar = { de: 'Bär', gender: 'm', weak: true }, brot = { de: 'Brot', gender: 'n', mass: true }, dorf = { de: 'Dorf', gender: 'n' }, burg = { de: 'Burg', gender: 'f' };
+  T('der alte Mann', np(mann, 'nom', true), 'der alte Mann'); T('ein alter Mann', np(mann, 'nom', false), 'ein alter Mann');
+  T('den alten Mann', np(mann, 'acc', true), 'den alten Mann'); T('die alte Frau', np(frau, 'nom', true), 'die alte Frau');
+  T('einen Bären', np(bar, 'acc', false), 'einen Bären'); T('dem Bären', np(bar, 'dat', true), 'dem Bären'); T('Brot', np(brot, 'acc', false), 'Brot');
+  T('im Dorf', inDat(dorf), 'im Dorf'); T('in der Burg', inDat(burg), 'in der Burg'); T('ins Dorf', inAcc(dorf), 'ins Dorf'); T('in die Burg', inAcc(burg), 'in die Burg');
+  T('lemma', lemma(mann), 'alter Mann');
+}
 
 // ---------- 2. schema ----------
 const POS = ['noun', 'verb', 'adj', 'expr', 'pron', 'dem', 'q'];
@@ -44,12 +55,14 @@ for (const w of words) {
   }
   if (w.pos === 'noun') {
     if (!['m', 'f', 'n'].includes(w.gender)) err(`${at}: noun needs gender`);
-    if (!/^\p{Lu}/u.test(w.de.split(' ').pop())) err(`${at}: German noun must be capitalized ("${w.de}")`);
-    if (!w.mass && !w.pl && !w.de.includes(' ')) warn(`${at}: countable noun without plural`);
+    if (!/^\p{Lu}/u.test(w.de)) err(`${at}: German noun must be capitalized ("${w.de}")`);
+    if (w.adj && /^\p{Lu}/u.test(w.adj)) err(`${at}: German adjective stem must be lowercase`);
+    if (w.de.includes(' ')) err(`${at}: put an adjective in "adj" (stem, e.g. "alt") so it can be declined; "de" is the bare noun`);
+    if (!w.mass && !w.pl && !w.adj) warn(`${at}: countable noun without plural`);
+    if (w.adj && w.pl) err(`${at}: noun with adjective must not have a plural field (declension not supported)`);
     if (w.gender === 'm' && KNOWN_WEAK.includes(w.de) && !w.weak) err(`${at}: "${w.de}" is a weak masculine noun (Bären/Menschen) – set "weak": true`);
-    if (w.de.includes(' ') && w.pl) err(`${at}: multi-word German noun should not have a plural field (declension unsafe)`);
   }
-  if (w.pos === 'verb' && (!w.masu || !w.de1)) err(`${at}: verb needs masu and de1`);
+  if (w.pos === 'verb' && !w.masu) err(`${at}: verb needs masu`);
   if (w.pos === 'verb' && w.objects && !Array.isArray(w.objects)) err(`${at}: objects must be a list`);
   if (['q', 'dem', 'pron'].includes(w.pos) && !w.deSent) err(`${at}: needs deSent`);
   if (w.kanjiCommon !== undefined && !KANJI_RE.test(kanjiText(w.jp))) err(`${at}: kanjiCommon only makes sense for words with kanji`);
@@ -80,7 +93,7 @@ for (const p of patterns) {
   });
 }
 let sentences = [];
-try { sentences = buildSentences({ patterns, byId }); } catch (e) { err(`sentence build failed: ${e.message}`); }
+try { sentences = buildSentences({ patterns, byId, reviewedSentences }); } catch (e) { err(`sentence build failed: ${e.message}`); }
 const seenJp = new Set();
 for (const s of sentences) {
   const at = `sentence ${s.id}`;
@@ -92,6 +105,8 @@ for (const s of sentences) {
   if (!/[。？]$/.test(s.jp)) err(`${at}: Japanese must end with 。or ？`);
   if (seenJp.has(s.jp)) err(`${at}: duplicate sentence ${s.jp}`); seenJp.add(s.jp);
 }
+
+for (const id of Object.keys(reviewedSentences)) if (!sentences.some(s => s.id === id)) warn(`reviewed-sentences.json: stale id ${id}`);
 
 // ---------- 4. readings vs. kuromoji, romaji vs. wanakana (independent cross-check) ----------
 const tokenizer = await new Promise((res, rej) => kuromoji.builder({ dicPath: new URL('../node_modules/kuromoji/dict', import.meta.url).pathname }).build((e, t) => e ? rej(e) : res(t)));
@@ -116,7 +131,8 @@ writeFileSync(new URL('../content/generated/sentences.json', import.meta.url), J
 
 const byCh = [1, 2, 3].map(c => `ch${c}: ${words.filter(w => w.ch === c).length} words, ${sentences.filter(s => s.ch === c).length} sentences`).join(' | ');
 console.log(`${words.length} words, ${patterns.length} patterns, ${sentences.length} generated sentences  (${byCh})`);
-console.log(`status: ${['draft', 'checked', 'reviewed'].map(s => `${s}=${words.filter(w => w.status === s).length}`).join(' ')}`);
+const cnt = (arr, s) => arr.filter(x => (x.status || 'draft') === s).length;
+console.log(`status (draft/checked/reviewed): words ${['draft', 'checked', 'reviewed'].map(s => cnt(words, s)).join('/')} | patterns ${['draft', 'checked', 'reviewed'].map(s => cnt(patterns, s)).join('/')} | sentences ${['draft', 'checked', 'reviewed'].map(s => cnt(sentences, s)).join('/')}`);
 for (const w of warns) console.log('WARN ', w);
 for (const e of errors) console.log('ERROR', e);
 console.log(errors.length ? `\n${errors.length} error(s), ${warns.length} warning(s)` : `\nOK – 0 errors, ${warns.length} warning(s)`);

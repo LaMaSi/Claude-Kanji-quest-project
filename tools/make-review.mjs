@@ -3,10 +3,10 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import { loadAll, buildSentences, reading, kanjiText } from './lib/build.mjs';
 import { romaji } from './lib/build.mjs';
-import { np } from './lib/german.mjs';
+import { lemma, np } from './lib/german.mjs';
 
-const { words, patterns, byId } = loadAll();
-const sentences = buildSentences({ patterns, byId });
+const { words, patterns, byId, reviewedSentences } = loadAll();
+const sentences = buildSentences({ patterns, byId, reviewedSentences });
 const out = new URL('../review/', import.meta.url);
 mkdirSync(out, { recursive: true });
 
@@ -27,7 +27,9 @@ Rules for your answer:
 
 function wordSheet(title, list, n) {
   const rows = list.map(w => {
-    const art = w.pos === 'noun' ? `${GEN[w.gender]} ${w.de}${w.pl ? `; Plural: ${w.pl}` : ''}${w.mass ? '; (nicht zählbar)' : ''}${w.weak ? '; (schwach: Bär→Bären)' : ''}` : w.de + (w.de1 ? `; ich ${w.de1}` : '');
+    const art = w.pos === 'noun'
+      ? `${np(w, 'nom', true)} (Nominativ mit bestimmtem Artikel)${w.pl ? `; Plural: ${w.pl}` : ''}${w.mass ? '; ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“)' : ''}${w.weak ? `; Akkusativ/Dativ Singular: ${np(w, 'acc', true)}` : ''}`
+      : w.de + (w.de1 ? `; 1. Person Singular: „ich ${w.de1}“` : '');
     const jp = readable(w.jp) + (w.masu ? `  /  ます-Form: ${readable(w.masu)}` : '');
     return `| ${w.id} | ${cell(POSNAME[w.pos])} | ${cell(jp)} | ${cell(kanjiText(w.jp))} | ${cell(reading(w.jp))}${w.masu ? ' / ' + cell(reading(w.masu)) : ''} | ${cell(romaji(w.jp))} | ${cell(art)} | ${cell(w.kanjiCommon === false ? 'nein (im Spiel nur Kana)' : (/\{/.test(w.jp) ? 'ja' : '–'))} | ${cell(w.note || '')} |`;
   });
@@ -75,12 +77,16 @@ ${rows.join('\n')}
 `;
 }
 
-const ws = c => words.filter(w => w.ch === c);
-writeFileSync(new URL('review-1-words-ch1.md', out), wordSheet('Chapter 1 vocabulary (arrival, greetings, "what is this?", prices)', ws(1), 1));
-writeFileSync(new URL('review-2-words-ch2.md', out), wordSheet('Chapter 2 vocabulary (tavern, ordering, requests)', ws(2), 2));
-writeFileSync(new URL('review-3-words-ch3.md', out), wordSheet('Chapter 3 vocabulary (the wolf, animals, places)', ws(3), 3));
-const pat = c => patterns.filter(p => +p.ch === c);
-const sen = c => sentences.filter(s => s.pattern && +patterns.find(p => p.id === s.pattern).ch === c);
-writeFileSync(new URL('review-4-sentences-ch1-2.md', out), sentenceSheet('Sentence patterns, chapters 1–2', [...sen(1), ...sen(2)], [...pat(1), ...pat(2)], 4));
-writeFileSync(new URL('review-5-sentences-ch3.md', out), sentenceSheet('Sentence patterns, chapter 3', sen(3), pat(3), 5));
-console.log('review sheets written to review/');
+const todo = x => (x.status || 'draft') !== 'reviewed';
+const ws = c => words.filter(w => w.ch === c && todo(w));
+import { readdirSync, unlinkSync } from 'fs';
+for (const f of readdirSync(out)) if (f.endsWith('.md')) unlinkSync(new URL(f, out));   // sheets only ever contain what is still open
+const openWords = words.filter(todo), openPats = patterns.filter(todo), openSent = sentences.filter(todo);
+let n = 0, written = [];
+const put = (name, text) => { writeFileSync(new URL(name, out), text); written.push(name); };
+if (openWords.length) put(`review-${++n}-words.md`, wordSheet('Vocabulary still open for review', openWords, n));
+if (openSent.length || openPats.length) {
+  const pids = new Set([...openPats.map(p => p.id), ...openSent.map(s => s.pattern)]);
+  put(`review-${++n}-sentences.md`, sentenceSheet('Sentence patterns and example sentences still open for review', openSent, patterns.filter(p => pids.has(p.id)), n));
+}
+console.log(written.length ? `review sheets written: ${written.join(', ')} (${openWords.length} words, ${openPats.length} patterns, ${openSent.length} sentences open)` : 'nothing open – all content reviewed');

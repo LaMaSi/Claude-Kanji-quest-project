@@ -20,15 +20,16 @@ export const romaji = jp => parse(jp).map(w => romanizeChunk(w.map(s => s.r).joi
 
 export function loadAll() {
   const words = load('content/words.json');
+  const reviewedSentences = load('content/reviewed-sentences.json');
   const patterns = load('content/patterns.json');
   const byId = Object.fromEntries(words.map(w => [w.id, w]));
-  return { words, patterns, byId };
+  return { words, patterns, byId, reviewedSentences };
 }
 
 /** Japanese display markup for a word: rare kanji are shown in kana */
 const jpDisplay = w => (w.kanjiCommon === false ? kanaOnly(w.jp) : w.jp);
 
-export function buildSentences({ patterns, byId }) {
+export function buildSentences({ patterns, byId, reviewedSentences = {} }) {
   const out = [];
   for (const p of patterns) {
     p.fills.forEach((fill, i) => {
@@ -68,7 +69,8 @@ export function buildSentences({ patterns, byId }) {
       out.push({
         id: `${p.id}#${i + 1}`, pattern: p.id, ch: Math.max(+p.ch, ...used.map(u => byId[u].ch)),
         jp, jpFull, romaji: romaji(jp), kana: reading(jp), de, words: used,
-        status: used.every(u => byId[u].status === 'reviewed') && p.status === 'reviewed' ? 'reviewed' : 'draft',
+        // reviewed only if the sentence text is exactly what a reviewer saw AND all its words and its pattern are reviewed
+        status: reviewedSentences[`${p.id}#${i + 1}`] === `${jpFull}|${de}` && p.status === 'reviewed' && used.every(u => byId[u].status === 'reviewed') ? 'reviewed' : 'draft',
       });
     });
   }
