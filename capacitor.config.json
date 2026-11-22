@@ -1,0 +1,1 @@
+{ "appId": "de.wolfsdorf.lernspiel", "appName": "Wolfsdorf", "webDir": "www", "android": { "backgroundColor": "#0b0d12" }, "server": { "androidScheme": "https" } }

@@ -8,7 +8,7 @@ import { drawKanji } from './kanji.js';
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, loc: 'village', ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -339,6 +339,7 @@ function menuSheet(s) {
   btn(s, lbl('{勉強|べんきょう}', 'Lernen: Wiederholen, Kanji, Wörter'), () => openSheet(studySheet));
   btn(s, lbl('セーブ', 'Speichern'), () => { save(); toast('Gespeichert ✔'); });
   btn(s, lbl('ロード', 'Laden'), () => { try { G = { ...DEFAULT(), ...JSON.parse(localStorage.getItem(KEY)) }; go(G.loc in NODES ? G.loc : 'village'); closeSheet(); toast('Geladen'); } catch { toast('Kein Spielstand'); } });
+  btn(s, 'Tägliche Erinnerung', () => openSheet(reminderSheet));
   btn(s, 'Backup kopieren / einfügen', () => openSheet(backupSheet));
   btn(s, 'Schließen', closeSheet);
 }
@@ -391,6 +392,39 @@ function practiceKanji(k) {
     widget: host => drawKanji(host, k, ok => { if (ok) { if (!G.kanji[k]) gain(8); G.kanji[k] = 1; save(); toast('Gespeichert ✔'); } go(G.loc in NODES ? G.loc : 'village'); }, 'Zeichne den 1. Strich'),
     choices: [{ t: 'もどる', de: 'Abbrechen', go: 'home' }] }));
 }
+// ---------- daily reminder (Android app only: local notification, no server) ----------
+const LN = () => window.Capacitor?.Plugins?.LocalNotifications;
+const pad2 = n => String(n).padStart(2, '0');
+async function applyReminder(interactive) {
+  const ln = LN(); if (!ln) return false;
+  const r = G.reminder || (G.reminder = { on: false, h: 21, m: 0 });
+  try { await ln.cancel({ notifications: [{ id: 1 }] }); } catch {}
+  if (!r.on) return true;
+  try {
+    let p = await ln.checkPermissions();
+    if (p.display !== 'granted' && interactive) p = await ln.requestPermissions();
+    if (p.display !== 'granted') { r.on = false; save(); if (interactive) toast('Benachrichtigungen sind nicht erlaubt (Android-Einstellungen)'); return false; }
+    await ln.schedule({ notifications: [{ id: 1, title: 'Wolfsdorf', body: 'Zeit für deine Tagesrunde – 3 Minuten reichen.', schedule: { on: { hour: r.h, minute: r.m }, allowWhileIdle: true } }] });
+    return true;
+  } catch (e) { if (interactive) toast('Erinnerung konnte nicht gesetzt werden'); return false; }
+}
+function reminderSheet(s) {
+  const r = G.reminder || (G.reminder = { on: false, h: 21, m: 0 });
+  s.innerHTML = '<h2>Tägliche Erinnerung</h2>';
+  if (!LN()) { s.insertAdjacentHTML('beforeend', '<div class="de">Erinnerungen gibt es nur in der Android-App (APK), nicht im Browser.</div>'); btn(s, 'Zurück', () => openSheet(menuSheet)); return; }
+  s.insertAdjacentHTML('beforeend', '<div class="de">Eine Benachrichtigung pro Tag zur gewählten Uhrzeit. Sie funktioniert ohne Internet.</div>');
+  const row = document.createElement('div'); row.className = 'form'; row.style.marginTop = '10px';
+  row.innerHTML = `<input type="time" id="rt" value="${pad2(r.h)}:${pad2(r.m)}">`; s.appendChild(row);
+  const t = row.querySelector('#rt');
+  const on = btn(s, r.on ? 'Erinnerung ist AN – tippen zum Ausschalten' : 'Erinnerung einschalten', async () => {
+    const [h, m] = (t.value || '21:00').split(':').map(Number); r.h = h; r.m = m; r.on = !r.on; save();
+    const ok = await applyReminder(true); if (ok && r.on) toast(`Erinnerung um ${pad2(h)}:${pad2(m)} gesetzt`); reminderSheet(s);
+  }, r.on ? 'ok' : '');
+  t.onchange = async () => { const [h, m] = t.value.split(':').map(Number); r.h = h; r.m = m; save(); if (r.on) { await applyReminder(true); toast('Uhrzeit geändert'); } };
+  btn(s, 'Zurück', () => openSheet(menuSheet));
+}
+setTimeout(() => applyReminder(false), 1500);   // re-register after app updates / restarts
+
 // ---------- start ----------
 initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
