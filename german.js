@@ -32,3 +32,6 @@ export function inAcc(w) {
   return w.gender === 'm' ? `in den ${n}` : w.gender === 'f' ? `in die ${n}` : `ins ${n}`;
 }
 export const capFirst = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+/** German text shown for a word in lists/quizzes: nouns with definite article, everything else as is */
+export const displayDe = w => (w.pos === 'noun' ? np(w, 'nom', true) : w.de);

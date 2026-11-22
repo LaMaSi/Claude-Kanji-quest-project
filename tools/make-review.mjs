@@ -3,7 +3,7 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import { loadAll, buildSentences, reading, kanjiText } from './lib/build.mjs';
 import { romaji } from './lib/build.mjs';
-import { lemma, np } from './lib/german.mjs';
+import { lemma, np } from '../german.js';
 
 const { words, patterns, byId, reviewedSentences } = loadAll();
 const sentences = buildSentences({ patterns, byId, reviewedSentences });

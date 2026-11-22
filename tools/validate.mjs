@@ -5,7 +5,7 @@ import kuromoji from 'kuromoji';
 import * as wk from 'wanakana';
 import { romanize, numKana, numKanji, toHira } from '../lang.js';
 import { loadAll, buildSentences, reading, kanjiText, KANA_RE, KANJI_RE, romaji } from './lib/build.mjs';
-import { KNOWN_WEAK, lemma, np, inDat, inAcc } from './lib/german.mjs';
+import { KNOWN_WEAK, lemma, np, inDat, inAcc } from '../german.js';
 
 const errors = [], warns = [];
 const err = m => errors.push(m), warn = m => warns.push(m);

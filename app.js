@@ -1,19 +1,30 @@
 import { render, num, count, speakText } from './lang.js';
 import { drawArt } from './art.js';
-import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF } from './data.js';
+import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF, CONTENT } from './data.js';
+import * as E from './engine.js';
+import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji } from './kanji.js';
 
 const $ = s => document.querySelector(s);
-const KEY = 'wolfsdorf.save.v1';
-const DEFAULT = () => ({ mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, seen: {}, srs: {}, kanji: {}, loc: 'village' });
-let G;
-try { G = { ...DEFAULT(), ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { G = DEFAULT(); }
+const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
+const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, loc: 'village', ...E.defaultLearner() });
+/** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
+function loadSave() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) return { ...DEFAULT(), ...JSON.parse(raw) };
+    const old = localStorage.getItem(OLD_KEY);
+    if (old) { const o = JSON.parse(old); delete o.seen; delete o.srs; return { ...DEFAULT(), ...o, ver: 2 }; }
+  } catch {}
+  return DEFAULT();
+}
+let G = loadSave();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(G)); } catch {} };
 const J = src => render(src, G.mode, G.furi);
 const rnd = n => Math.floor(Math.random() * n);
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-const see = ids => { for (const i of ids) G.seen[i] = G.seen[i] || 1; };
+const see = ids => { for (const i of ids) if (CONTENT.byId[i]) E.ensureItem(G, i).exposed = 1; };
 function toast(t) { const d = document.createElement('div'); d.className = 'toast'; d.textContent = t; document.body.appendChild(d); setTimeout(() => d.remove(), 2200); }
 function speak(src) {
   try { const u = new SpeechSynthesisUtterance(speakText(src)); u.lang = 'ja-JP'; u.rate = 0.85; speechSynthesis.cancel(); speechSynthesis.speak(u); }
@@ -92,42 +103,22 @@ function keypad(host, onSubmit) {
 }
 
 // ---------- quiz helpers ----------
-function vocabQuestion(id, pool) {
-  const type = Math.random() < 0.5 ? 'jp2de' : 'de2jp';
-  const others = shuffle(pool.filter(x => x !== id && VOCAB[x].cat === VOCAB[id].cat)).slice(0, 3);
-  while (others.length < 3) { const x = pool[rnd(pool.length)]; if (x !== id && !others.includes(x)) others.push(x); }
-  return { kind: 'vocab', id, type, opts: shuffle([id, ...others]) };
-}
 function numberQuestion() {
   const n = [3, 4, 5, 7, 8, 12, 20, 30, 45, 60, 80, 100, 150, 300, 600, 800][rnd(16)];
   return { kind: Math.random() < 0.5 ? 'numkp' : 'numpick', n };
 }
-function srsUpdate(id, ok) {
-  const s = G.srs[id] || { box: 0, due: 0 };
-  s.box = ok ? Math.min(4, s.box + 1) : 0; s.due = Date.now() + [0, 1, 3, 7, 14][s.box] * 864e5; G.srs[id] = s;
-}
 /** renders a question into host; calls done(correct) once */
 function askQuestion(host, q, done) {
+  if (q.kind === 'mc' || q.kind === 'order') return renderQuestion(host, q, done);
   host.innerHTML = '';
   const finish = (ok, correctHtml) => {
-    if (q.id) srsUpdate(q.id, ok);
     host.querySelectorAll('button').forEach(b => b.disabled = true);
     const nx = document.createElement('div'); nx.className = 'kmsg';
     nx.innerHTML = ok ? '✔ richtig' : `✘ ${correctHtml}`; host.appendChild(nx);
     setTimeout(() => done(ok), ok ? 650 : 1500);
   };
   const box = document.createElement('div'); box.className = 'q'; host.appendChild(box);
-  if (q.kind === 'vocab') {
-    const v = VOCAB[q.id];
-    box.innerHTML = q.type === 'jp2de' ? `<span class="jp">${J(v.m)}</span>` : v.de;
-    const wrap = document.createElement('div'); wrap.style.cssText = 'display:flex;flex-direction:column;gap:8px'; host.appendChild(wrap);
-    for (const o of q.opts) {
-      const b = btn(wrap, q.type === 'jp2de' ? VOCAB[o].de : `<span class="jp">${J(VOCAB[o].m)}</span>`, () => {
-        const ok = o === q.id; b.classList.add(ok ? 'ok' : 'no');
-        finish(ok, `<span class="jp">${J(v.m)}</span> = ${v.de}`);
-      });
-    }
-  } else if (q.kind === 'numpick') {
+  if (q.kind === 'numpick') {
     box.innerHTML = `${q.n}<div class="de">Wie sagt man das?</div>`;
     const set = new Set([q.n]); while (set.size < 4) set.add(Math.max(1, q.n + [-10, -1, 1, 2, 10, 20, -2, 100][rnd(8)]));
     const wrap = document.createElement('div'); wrap.style.cssText = 'display:flex;flex-direction:column;gap:8px'; host.appendChild(wrap);
@@ -147,6 +138,7 @@ const NODES = {
     if (!G.flags.intro) lines.push({ who: '{語|かた}り{手|て}', t: '{夜|よる} の {村|むら}。{狼|おおかみ} が {月|つき} に {吠|ほ}える。', de: 'Nachts im Dorf. Ein Wolf heult den Mond an.' });
     else lines.push({ say: 'Die Nacht ist still. Wohin gehst du?' });
     const ch = [
+      { t: '{今日|きょう}の ふくしゅう', de: G.flags.lastDaily === new Date().toLocaleDateString('sv-SE') ? `Tagesrunde (heute erledigt ✔, Serie ${G.streak.days})` : `Tagesrunde (ca. 3 Min, Serie ${G.streak.days})`, fn: () => { startRound(6); } },
       { t: '{店|みせ} へ いく', de: 'Zum Laden gehen', go: 'shop' },
       { t: '{酒場|さかば} へ いく', de: 'In die Taverne gehen', go: 'tavern' },
       { t: 'おばあさん と はなす', de: 'Mit der alten Frau sprechen', go: 'granny' },
@@ -189,7 +181,7 @@ const NODES = {
   },
 
   tavern() {
-    see(['sakaba', 'ocha', 'mizu', 'sake', 'okami_san', 'kariudo']);
+    see(['sakaba', 'ocha', 'mizu', 'osake', 'okamisan', 'kariudo']);
     const ch = [
       { t: 'おかみさん に はなす', de: 'Mit der Wirtin sprechen (bestellen)', go: 'order' },
       { t: '{狩人|かりうど} に はなす', de: 'Mit dem Jäger sprechen', go: 'hunter' },
@@ -200,7 +192,7 @@ const NODES = {
   },
 
   order() {
-    const items = [['ocha', 10, 4], ['mizu', 0, 1], ['sake', 30, 2]];
+    const items = [['ocha', 10, 4], ['mizu', 0, 1], ['osake', 30, 2]];
     const ch = items.map(([id, price, heal]) => ({
       t: `${VOCAB[id].m} を ください。`, de: `${VOCAB[id].de} bestellen (${price} Yen, +${heal} HP)`,
       fn: () => {
@@ -307,7 +299,7 @@ function giveApples() {
 function startBattle(foeId) {
   see(ANIMALS);
   const st = { foe: 3, round: 0, q: null, log: '', over: false };
-  const nextQ = () => { st.q = st.round % 3 === 2 ? numberQuestion() : vocabQuestion(Math.random() < 0.6 ? foeId : ANIMALS[rnd(ANIMALS.length)], ANIMALS); };
+  const nextQ = () => { st.q = st.round % 3 === 2 ? numberQuestion() : E.makeWordQuestion(G, CONTENT, Math.random() < 0.6 ? foeId : ANIMALS[rnd(ANIMALS.length)], { poolIds: ANIMALS }); };
   nextQ();
   setScreen(() => ({
     art: 'wolf', title: `${VOCAB[foeId].m} が あらわれた！`, titleDe: `Ein ${VOCAB[foeId].de.replace('der ', '')} erscheint!`,
@@ -370,7 +362,7 @@ function invSheet(s) {
 function statusSheet(s) {
   s.innerHTML = `<h2>${lbl('ステータス', 'Werte')}</h2>`;
   const row = (a, b) => s.insertAdjacentHTML('beforeend', `<div class="kv"><span class="jp">${a}</span><span>${b}</span></div>`);
-  row('HP', `${G.hp} / ${G.maxhp}`); row('Lv', G.lv); row('XP', `${G.xp} / ${G.lv * 40}`); row(J('お{金|かね}'), `${G.gold} 円`);
+  row(J('{勉強|べんきょう}'), `${E.introduced(G).length} Wörter · Serie ${G.streak.days}`); row('HP', `${G.hp} / ${G.maxhp}`); row('Lv', G.lv); row('XP', `${G.xp} / ${G.lv * 40}`); row(J('お{金|かね}'), `${G.gold} 円`);
   s.insertAdjacentHTML('beforeend', `<h2 style="margin-top:16px">${lbl('クエスト', 'Aufträge')}</h2>`);
   const stat = n => ['offen', 'läuft', '✔ erledigt'][n];
   row(J(`${VOCAB.ringo.m} の おつかい`), G.q.apple === 1 ? `${J(VOCAB.ringo.m)} × ${J(count(G.flags.appleN))}` : stat(G.q.apple));
@@ -379,17 +371,10 @@ function statusSheet(s) {
 }
 function studySheet(s) {
   s.innerHTML = `<h2>${lbl('{勉強|べんきょう}', 'Lernen')}</h2>`;
-  btn(s, lbl('ふくしゅう', 'Wiederholung (Vokabeln & Zahlen)'), () => { closeSheet(); startReview(); });
+  btn(s, lbl('{今日|きょう}の ふくしゅう', 'Tagesrunde (ca. 3 Min)'), () => { closeSheet(); startRound(6); });
+  btn(s, lbl('{単語帳|たんごちょう}', 'Wörterbuch: Wörter, Sicherheit, eigene & gewünschte Wörter'), () => openSheet(dictSheet));
   btn(s, lbl('{漢字|かんじ}れんしゅう', 'Kanji schreiben'), () => openSheet(kanjiSheet));
-  btn(s, lbl('{単語帳|たんごちょう}', 'Wörterbuch (bisher gesehen)'), () => openSheet(wordSheet));
   btn(s, 'Schließen', closeSheet);
-}
-function wordSheet(s) {
-  s.innerHTML = `<h2>${lbl('{単語帳|たんごちょう}', 'Wörterbuch')}</h2>`;
-  for (const id of Object.keys(VOCAB).filter(k => G.seen[k])) {
-    const r = document.createElement('div'); r.className = 'kv'; r.innerHTML = `<span class="jp">${J(VOCAB[id].m)}</span><span>${VOCAB[id].de}</span>`; r.onclick = () => speak(VOCAB[id].m); s.appendChild(r);
-  }
-  btn(s, 'Zurück', () => openSheet(studySheet));
 }
 function kanjiSheet(s) {
   s.innerHTML = `<h2>${lbl('{漢字|かんじ}れんしゅう', 'Kanji schreiben')}</h2><div class="grid"></div>`;
@@ -406,21 +391,7 @@ function practiceKanji(k) {
     widget: host => drawKanji(host, k, ok => { if (ok) { if (!G.kanji[k]) gain(8); G.kanji[k] = 1; save(); toast('Gespeichert ✔'); } go(G.loc in NODES ? G.loc : 'village'); }, 'Zeichne den 1. Strich'),
     choices: [{ t: 'もどる', de: 'Abbrechen', go: 'home' }] }));
 }
-function startReview() {
-  const seen = Object.keys(VOCAB).filter(k => G.seen[k]);
-  const pool = seen.length >= 4 ? seen : Object.keys(VOCAB);
-  const now = Date.now();
-  const due = shuffle(pool.filter(k => !G.srs[k] || G.srs[k].due <= now)).slice(0, 7);
-  const qs = [...(due.length ? due : shuffle(pool).slice(0, 7)).map(id => vocabQuestion(id, pool)), numberQuestion()];
-  let i = 0, right = 0;
-  const step = () => {
-    if (i >= qs.length) { gain(right * 2); save(); return setScreen(() => ({ art: 'home', title: 'おわり！', titleDe: 'Geschafft!', lines: [{ say: `${right} von ${qs.length} richtig. +${right * 2} XP` }], choices: [{ t: 'もどる', de: 'Zurück', go: 'home' }] })); }
-    setScreen(() => ({ art: 'home', title: `ふくしゅう ${i + 1}/${qs.length}`, titleDe: 'Wiederholung', lines: [],
-      widget: host => askQuestion(host, qs[i], ok => { if (ok) right++; i++; step(); }), choices: [] }));
-  };
-  step();
-}
-
 // ---------- start ----------
+initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 go(G.loc in NODES ? G.loc : 'village');

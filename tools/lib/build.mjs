@@ -1,7 +1,7 @@
 // Loads content and generates the sentence list from patterns. Pure functions, no I/O besides reading JSON.
 import { readFileSync } from 'fs';
 import { parse, num, count, numKana, romanizeChunk } from '../../lang.js';
-import { np, inDat, inAcc, capFirst, NUMBER_WORDS } from './german.mjs';
+import { np, inDat, inAcc, capFirst, NUMBER_WORDS } from '../../german.js';
 
 const root = new URL('../../', import.meta.url);
 export const load = f => JSON.parse(readFileSync(new URL(f, root), 'utf8'));

@@ -20,3 +20,12 @@ These checks cannot prove grammar or naturalness – that is what the external r
 ## External review – `node tools/make-review.mjs` → `review/*.md`
 Paste one sheet at a time into ChatGPT, paste the answer table back to Claude, who fixes every flagged row and sets `status` to `reviewed`.
 Unreviewed (`draft`) content must not be used by the adaptive engine in a release.
+
+## Learning engine (`engine.js`, UI in `learn.js`)
+- Per word: confidence 1–5 (`neu … sehr sicher`), optional lock (🔒 = never changed automatically), streak, recent answers, next due date.
+- Up: 2–3 correct in a row; down: 2 misses within the last 3. Wrong answers come back immediately, sure words after 8–21 days.
+- New words per session depend on accuracy of the last 20 answers and the number of wobbly words (0–3). Never more than 2 sessions without a new word unless accuracy < 70 %.
+- Chapters unlock when ≥70 % of the previous chapter was met and the average confidence is ≥ 2.5.
+- Sentences enter once all their words are solid (avg conf ≥ 3). Questions: pick the translation, pick the Japanese, or build the sentence from word chips.
+- Wrong answers are chosen by similarity: far apart at confidence 1 (different type/sound), close at confidence 5. Furigana disappears from prompts at confidence ≥ 4.
+- Content with status `draft` is never shown. `node tools/test-engine.mjs` simulates fast / medium / slow learners and checks these rules.
