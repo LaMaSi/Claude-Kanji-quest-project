@@ -44,6 +44,18 @@ indigo `#1b2140`, night blue `#2d3a6b`, moon cream `#e8e0c0`, lantern amber `#d2
 | `bakery.png` | Inside a small bakery: oven glow, loaves on racks, flour sacks, a counter (nobody visible). |
 | `night_end.png` | "Good night" screen after the daily round: the village asleep, only one lit window, shooting star, very calm. |
 
+## Map and place pictures (needed for the world map, send when ready)
+| File name | Picture |
+|---|---|
+| `map.png` | A hand-painted overworld map, no text: village in the middle, a lake to the west, mountains in the north, a coast with a beach to the east, a forest to the south, a small town and a bigger city on roads. Soft parchment-and-night colours. Claude overlays the markers. |
+| `lake.png` | A calm lake at night with reeds, a wooden jetty, mist, fireflies (kappa habitat). |
+| `shore.png` | A beach/coast at night: waves, rocks, a small fishing boat pulled onto the sand, a lantern. |
+| `woods.png` | Dense forest with tall trees, moonlight through the leaves, a small clearing. |
+| `mountains.png` | Rocky mountain slope with snow patches, a narrow path, wind. |
+| `orchard.png` | A peach orchard on a hillside at night, blossoms, wooden ladders and baskets. |
+| `town.png` | A small town street: shops with closed shutters and glowing lanterns, a stone bridge. |
+| `city.png` | A larger city at night: tall wooden buildings, many lit windows, a market square, castle in the background. |
+
 ## Optional later: battle pictures
 Transparent PNGs (1024×1024, centered creature, soft rim light, same style) named `enemy_wolf.png`, `enemy_fox.png`, `enemy_bear.png`, `enemy_kappa.png`, `enemy_tengu.png`.
 These are not needed yet – the sprites drawn by Claude are used for now.

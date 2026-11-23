@@ -3,6 +3,7 @@
 Decisions so far: **C (talk to the creature) is a must**, **A (classic command battle)** next to it, **B (kanji spells) = the expert mode**. Calm, turn-based, bedtime-friendly.
 
 ## 1. Two kinds of encounters
+Rule: **animal = fight, yokai = talk.** Yokai are never beaten, only calmed (see `docs/WORLD_DESIGN.md` for the request loop).
 | | Kampf (A) | Gespräch (C) |
 |---|---|---|
 | Typical enemies | wolf, bear, boar, bandit | yokai (kappa, fox, tengu …), frightened animals |
@@ -51,7 +52,7 @@ HP/MP, level-ups (existing), equipment from the shop, a battle screen in GBA sty
 5. Review sheets for all new Japanese/German.
 
 ## 8. Open questions
-1. Wolf: fight, talk, or the player's choice?
+1. ~~Wolf~~ **Decided:** an ordinary animal is always a *Kampf*; a **yokai** version of the same creature (e.g. the great wolf spirit 大神) is always a *Gespräch*. Type is shown by a badge on the enemy.
 2. Is "Freundschaft" (collecting creatures in the Yokai-Buch) a good reward?
 3. Time limit default OFF – ok?
 4. Hero: your own avatar from the editor in the battle screen?
