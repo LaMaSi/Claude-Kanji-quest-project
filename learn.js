@@ -75,23 +75,25 @@ function renderIntroCard(host, task) {
 const unseenKanjiOf = w => (G().mode !== 'kanji' ? [] : [...new Set([...w.jp.matchAll(/\{([^|}]+)\|/g)].flatMap(m => [...m[1]]))].filter(k => hasKanji(k) && !G().kanjiSeen[k]));
 
 // ------------------------------------------------------------------ daily round
-export function startRound(size = 6) {
+export function startRound(size = 6, replace = false) {
   const tasks = E.buildSession(G(), CONTENT, { size });
   if (!tasks.length) { A.toast('Noch nichts zu lernen'); return; }
   E.startSession(G(), tasks); A.save();
   const st = { i: 0, ok: 0, asked: 0, fresh: [] };
+  let started = replace;                                            // first screen of the round is a new entry on the back stack, all later steps replace it
+  const show = fn => { A.setScreen(fn, { replace: started, confirm: 'Tagesrunde beenden?' }); started = true; };
   const step = () => {
     if (st.i >= tasks.length) return finish();
     const task = E.makeTask(G(), CONTENT, tasks[st.i]);
     const isIntro = task.kind === 'intro';
     if (isIntro) st.fresh.push(task.id);
     const title = `{今日|きょう}の ふくしゅう　${st.i + 1}/${tasks.length}`;
-    const ask = () => A.setScreen(() => ({ art: null, noBanner: true, title, titleDe: 'Tagesrunde', lines: [],
+    const ask = () => show(() => ({ art: null, noBanner: true, title, titleDe: 'Tagesrunde', lines: [],
       widget: host => renderQuestion(host, task.q, ok => { st.asked++; if (ok) st.ok++; st.i++; step(); }), choices: [] }));
     // new kanji: show the stroke order before the question
-    const strokes = (kan, i) => (i >= kan.length ? ask() : A.setScreen(() => ({ art: null, noBanner: true, title: `新しい漢字　${kan[i]}`, titleDe: 'Strichfolge', lines: [],
+    const strokes = (kan, i) => (i >= kan.length ? ask() : show(() => ({ art: null, noBanner: true, title: `新しい漢字　${kan[i]}`, titleDe: 'Strichfolge', lines: [],
       widget: host => A.withOrder(host, kan[i], () => strokes(kan, i + 1)), choices: [] })));
-    if (isIntro) A.setScreen(() => ({ art: null, noBanner: true, widgetTop: true, title, titleDe: 'Tagesrunde', lines: [],
+    if (isIntro) show(() => ({ art: null, noBanner: true, widgetTop: true, title, titleDe: 'Tagesrunde', lines: [],
       widget: host => renderIntroCard(host, task),
       choices: [{ t: 'Weiter ▸', cls: 'primary', fn: () => { strokes(unseenKanjiOf(C().byId[task.id]), 0); } }] }));
     else ask();
@@ -105,7 +107,7 @@ export function startRound(size = 6) {
     A.setScreen(() => ({ art: 'home', noBanner: true, title: 'おつかれさま！', titleDe: 'Geschafft!',
       lines: [{ who: '{狸|たぬき} {先生|せんせい}', pic: 'tanuki', t: 'よく できました！', de: 'Gut gemacht!' }, { say: `${st.ok} von ${st.asked} richtig.${firstToday ? ' +10 XP, +20 円 für die erste Tagesrunde.' : ''} Serie: <b>${G().streak.days}</b> ${G().streak.days === 1 ? 'Tag' : 'Tage'}.` },
         ...(fresh.length ? [{ say: 'Neue Wörter: ' + fresh.map(w => `<span class="jp">${Jf(w.jp, true)}</span> (${displayDe(w)})`).join(', ') }] : [])],
-      choices: [{ t: 'もう いちど', de: 'Noch eine Runde', fn: () => startRound(size) }, { t: 'むらへ もどる', de: 'Zurück ins Dorf', fn: () => A.go(G().loc in A.NODES ? G().loc : 'village') }] }));
+      choices: [{ t: 'もう いちど', de: 'Noch eine Runde', fn: () => startRound(size, true) }, { t: 'むらへ もどる', de: 'Zurück ins Dorf', fn: () => A.go(G().loc in A.NODES ? G().loc : 'village') }] }), { replace: true });
   };
   step();
 }

@@ -123,7 +123,7 @@ export function makeSearch(variant, level = questLevel()) {
   return { variant, target, feats, level, cands: shuffle(cands), sentences: feats.map(f => featureSentence(target, f)).filter(Boolean) };
 }
 
-export function startSearch(variant) {
+export function startSearch(variant, replace = false) {
   const q = makeSearch(variant); let answered = false, msg = '';
   const title = '{人探|ひとさが}し';
   const node = () => ({ art: null, noBanner: true, title, titleDe: variant === 'face' ? 'Gesucht: erkenne die Person am Gesicht' : 'Gesucht: erkenne die Person an der Kleidung',
@@ -150,6 +150,6 @@ export function startSearch(variant) {
       host.appendChild(grid);
       if (msg) { const m = document.createElement('div'); m.className = 'kmsg'; m.textContent = msg; host.appendChild(m); }
     },
-    choices: answered ? [{ t: 'もう いちど', de: 'Noch eine Suche', fn: () => { startSearch(variant === 'face' ? 'outfit' : 'face'); } }, { t: 'もどる', de: 'Zurück zur Tafel', go: 'board' }] : [{ t: 'もどる', de: 'Aufgeben', go: 'board' }] });
-  A.setScreen(node);
+    choices: answered ? [{ t: 'もう いちど', de: 'Noch eine Suche', fn: () => { startSearch(variant === 'face' ? 'outfit' : 'face', true); } }, { t: 'もどる', de: 'Zurück zur Tafel', go: 'board' }] : [{ t: 'もどる', de: 'Aufgeben', go: 'board' }] });
+  A.setScreen(node, { replace });
 }

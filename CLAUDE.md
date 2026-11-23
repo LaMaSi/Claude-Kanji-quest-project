@@ -16,3 +16,8 @@
 ## UX preferences (from owner feedback)
 - Thumb-friendly: actions at the bottom, bottom dock with script switch (漢|あ|A), left-hand mode, large fonts.
 - Dark, bedtime-friendly colours; no bright whites. People must look friendly (no black-square eyes).
+
+## Glossary (names the owner and Claude use)
+- **Schriftwahl** (English: script switch) = the 漢 | あ | A buttons in the bottom dock. Must stay reachable on every screen, also while a menu sheet is open.
+- **Dock** = the permanent bottom bar (← back, Schriftwahl, ふ furigana, DE hints, ☰ menu). Back stack + Android back button/swipe: see `navigateBack()` in `app.js`.
+- **Tagesrunde** = the daily round (about 3 minutes, adaptive).

@@ -43,8 +43,39 @@ function gain(xp, gold = 0) {
 
 // ---------- screen engine ----------
 let screen = null;                       // () => node, re-run whenever display options change
-function setScreen(fn) { screen = fn; draw(); }
-function go(id) { G.loc = id; save(); setScreen(NODES[id]); }
+// back stack: every screen entered is remembered, so "back" (dock button, Android back button or swipe) goes to the previous screen
+const navStack = [];
+/** opts.replace: this screen replaces the current one (steps inside a flow); opts.confirm: ask before leaving it (daily round, battle) */
+function setScreen(fn, opts = {}) {
+  const entry = { fn, confirm: opts.confirm || null };
+  if (opts.replace && navStack.length) navStack[navStack.length - 1] = entry; else navStack.push(entry);
+  if (navStack.length > 30) navStack.shift();
+  screen = fn; draw(false);
+}
+function go(id) {
+  G.loc = id; save();
+  const fn = NODES[id], i = navStack.findIndex(e => e.fn === fn);
+  if (id === 'village') navStack.length = 0; else if (i >= 0) navStack.length = i;     // returning to a screen we already passed: cut back to it
+  setScreen(fn);
+}
+let exitArmed = 0;
+function popScreen() {
+  navStack.pop(); const prev = navStack[navStack.length - 1]; screen = prev.fn;
+  const id = Object.keys(NODES).find(k => NODES[k] === prev.fn); if (id) { G.loc = id; save(); }
+  draw(false);
+}
+function navigateBack() {
+  hideTip();
+  if (sheetFn) { closeSheet(); return; }
+  if (navStack.length > 1) {
+    const top = navStack[navStack.length - 1];
+    if (top.confirm) { openSheet(s => { s.innerHTML = `<h2>${top.confirm}</h2><div class="de">Dein bisheriger Fortschritt bleibt gespeichert.</div>`; btn(s, 'Weitermachen', closeSheet, 'ok'); btn(s, 'Beenden', () => { closeSheet(); popScreen(); }); }); return; }
+    popScreen(); return;
+  }
+  if (Date.now() - exitArmed < 2000) { window.Capacitor?.Plugins?.App?.exitApp(); return; }
+  exitArmed = Date.now(); toast('Noch einmal zurück zum Beenden');
+}
+window.Capacitor?.Plugins?.App?.addListener('backButton', navigateBack);
 
 const WHO_PIC = { '{店主|てんしゅ}': 'tenshu', 'おかみさん': 'okamisan', '{狩人|かりうど}': 'kariudo', 'おばあさん': 'obaasan' };
 const unseenKanji = texts => {
@@ -55,13 +86,16 @@ const unseenKanji = texts => {
 function showOrder(k) {
   openSheet(s => {
     s.innerHTML = `<h2>新しい漢字　${k}</h2>`; const host = document.createElement('div'); s.appendChild(host);
-    playStrokeOrder(host, k, () => { G.kanjiSeen[k] = 1; save(); closeSheet(); draw(); }, 'Strichfolge');
+    playStrokeOrder(host, k, () => { G.kanjiSeen[k] = 1; save(); closeSheet(); draw(true); }, 'Strichfolge');
   });
 }
 /** stroke order first, then the real task – used whenever a kanji is shown for the first time */
 const withOrder = (host, k, next) => { if (hasKanji(k) && !G.kanjiSeen[k]) playStrokeOrder(host, k, () => { G.kanjiSeen[k] = 1; save(); next(); }, 'Strichfolge'); else next(); };
 
-function draw() {
+// reading position: remembered while the learner scrolls, restored after redraws caused by toggles (even if the page got shorter in between)
+let desiredY = 0, restoring = false;
+window.addEventListener('scroll', () => { if (!restoring) desiredY = window.scrollY; }, { passive: true });
+function draw(keep = false) {
   const n = screen();
   const stage = $('#stage'); stage.hidden = n.art === null;
   if (n.art !== null) drawScene($('#art'), n.art || 'village');
@@ -85,7 +119,7 @@ function draw() {
     const b = document.createElement('button'); b.className = 'btn' + (c.cls ? ' ' + c.cls : '');
     b.innerHTML = J(c.t) + (G.help && c.de ? `<small>${c.de}</small>` : '');
     if (c.disabled) b.disabled = true;
-    b.onclick = () => { const r = c.fn ? c.fn() : c.go; if (typeof r === 'string') go(r); else if (r === undefined) draw(); };
+    b.onclick = () => { const r = c.fn ? c.fn() : c.go; if (typeof r === 'string') go(r); else if (r === undefined) draw(true); };
     ch.appendChild(b);
   }
   const nk = $('#newkanji'); nk.innerHTML = '';
@@ -97,7 +131,7 @@ function draw() {
     }
   }
   renderStats();
-  window.scrollTo(0, 0);
+  restoring = true; if (!keep) desiredY = 0; window.scrollTo(0, desiredY); setTimeout(() => { restoring = false; }, 80);   // toggles keep the reading position; new screens start at the top
 }
 const FS = [1, 1.15, 1.3];
 function renderStats() {
@@ -106,11 +140,13 @@ function renderStats() {
   $('#bFuri').classList.toggle('off', G.mode !== 'kanji' || !G.furi);
   $('#bHelp').classList.toggle('off', !G.help);
   document.body.classList.toggle('lefty', !!G.lefty);
+  $('#bBack').classList.toggle('off', navStack.length <= 1 && !sheetFn);
   document.documentElement.style.setProperty('--fs', FS[G.fs] || 1);
 }
-document.querySelectorAll('#scriptsw button').forEach(b => { b.onclick = () => { G.mode = b.dataset.m; save(); draw(); refreshSheet(); }; });
-$('#bFuri').onclick = () => { G.furi = !G.furi; if (G.mode !== 'kanji') G.mode = 'kanji'; save(); draw(); refreshSheet(); };
-$('#bHelp').onclick = () => { G.help = !G.help; save(); draw(); refreshSheet(); };
+document.querySelectorAll('#scriptsw button').forEach(b => { b.onclick = () => { G.mode = b.dataset.m; save(); draw(true); refreshSheet(); }; });
+$('#bFuri').onclick = () => { G.furi = !G.furi; if (G.mode !== 'kanji') G.mode = 'kanji'; save(); draw(true); refreshSheet(); };
+$('#bHelp').onclick = () => { G.help = !G.help; save(); draw(true); refreshSheet(); };
+$('#bBack').onclick = navigateBack;
 $('#bMenu').onclick = () => openSheet(menuSheet);
 
 // ---------- tap a word to see its translation ----------
@@ -130,9 +166,9 @@ document.addEventListener('click', e => {
 
 // ---------- overlay sheet ----------
 let sheetFn = null;
-function openSheet(fn) { sheetFn = fn; $('#overlay').hidden = false; refreshSheet(); }
-function closeSheet() { sheetFn = null; $('#overlay').hidden = true; $('#sheet').innerHTML = ''; }
-function refreshSheet() { if (sheetFn) { const s = $('#sheet'); s.innerHTML = ''; sheetFn(s); } }
+function openSheet(fn) { const same = sheetFn === fn; sheetFn = fn; $('#overlay').hidden = false; if (!same) $('#sheet').scrollTop = 0; refreshSheet(); }
+function closeSheet() { sheetFn = null; $('#overlay').hidden = true; $('#sheet').innerHTML = ''; renderStats(); }
+function refreshSheet() { if (sheetFn) { const s = $('#sheet'), top = s.scrollTop; s.innerHTML = ''; sheetFn(s); s.scrollTop = top; } renderStats(); }
 $('#overlay').addEventListener('click', e => { if (e.target.id === 'overlay') closeSheet(); });
 function btn(parent, html, fn, cls = '') { const b = document.createElement('button'); b.className = 'btn ' + cls; b.innerHTML = html; b.onclick = fn; parent.appendChild(b); return b; }
 const lbl = (m, de) => J(m) + (G.help ? `<small>${de}</small>` : '');
@@ -310,7 +346,7 @@ const NODES = {
 function orderReply(id) {
   setScreen(() => ({ art: 'tavern', title: '{酒場|さかば}', titleDe: 'Die Taverne',
     lines: [{ who: 'おかみさん', t: `${VOCAB[id].m} ですね。 どうぞ。`, de: `${VOCAB[id].de}, bitte sehr.` }, { say: '+2 XP' }],
-    choices: [{ t: 'ありがとう', de: 'Danke', go: 'order' }] }));
+    choices: [{ t: 'ありがとう', de: 'Danke', go: 'order' }] }), { replace: true });
 }
 
 function signTask() {
@@ -343,11 +379,11 @@ function payTotal(it, n) {
     lines: [{ who: '{店主|てんしゅ}', t: `${count(n)} ですね。 ぜんぶで ${num(total)}{円|えん} です。`, de: 'Das macht zusammen … (Betrag tippen, um zu zahlen)' },
       ...(msg ? [{ say: msg }] : [])],
     widget: host => keypad(host, val => {
-      if (val !== total) { msg = 'ちがいます。 もう いちど！ (Falscher Betrag – hör/lies die Zahl genau.)'; draw(); return; }
+      if (val !== total) { msg = 'ちがいます。 もう いちど！ (Falscher Betrag – hör/lies die Zahl genau.)'; draw(true); return; }
       if (G.gold < total) { toast('Zu wenig Geld!'); return go('shop'); }
       G.gold -= total; G.inv[it.id] = (G.inv[it.id] || 0) + n; gain(3); save(); toast(`${v.de} ×${n} gekauft`); go('buy');
     }),
-    choices: [{ t: 'やめる', de: 'Abbrechen', go: 'buy' }] }));
+    choices: [{ t: 'やめる', de: 'Abbrechen', go: 'buy' }] }), { replace: true });
 }
 
 function giveApples() {
@@ -355,8 +391,8 @@ function giveApples() {
   setScreen(() => ({ art: 'village', title: 'おばあさん', titleDe: 'Die alte Frau',
     lines: [{ who: 'おばあさん', t: `${VOCAB.ringo.m} を ${count(G.flags.appleN)} ください。`, de: 'Wie viele Äpfel wollte sie? Tippe die Zahl.' }, ...(msg ? [{ say: msg }] : [])],
     widget: host => keypad(host, val => {
-      if (val !== G.flags.appleN) { msg = 'ちがいます… もう いちど {聞|き}いて ください。'.replace(/\{[^}]+\}/g, 'も'); msg = 'ちがいます… (Falsche Zahl – lies das Zahlwort nochmal.)'; draw(); return; }
-      if ((G.inv.ringo || 0) < val) { msg = 'りんごが たりません。 (Du hast nicht genug Äpfel.)'; draw(); return; }
+      if (val !== G.flags.appleN) { msg = 'ちがいます… もう いちど {聞|き}いて ください。'.replace(/\{[^}]+\}/g, 'も'); msg = 'ちがいます… (Falsche Zahl – lies das Zahlwort nochmal.)'; draw(true); return; }
+      if ((G.inv.ringo || 0) < val) { msg = 'りんごが たりません。 (Du hast nicht genug Äpfel.)'; draw(true); return; }
       G.inv.ringo -= val; G.q.apple = 2; gain(25, 100); save(); toast('Auftrag erledigt! +100 円, +25 XP'); go('granny');
     }),
     choices: [{ t: 'もどる', de: 'Zurück', go: 'granny' }] }));
@@ -380,21 +416,21 @@ function startBattle(foeId) {
         if (ok) { st.foe--; st.log = 'こうげき！ Treffer!'; } else { G.hp = Math.max(0, G.hp - 4); st.log = 'いたい！ Du verlierst 4 HP.'; }
         if (st.foe <= 0) return win();
         if (G.hp <= 0) return lose();
-        nextQ(); draw();
+        nextQ(); draw(true);
       });
     },
     choices: [{ t: 'にげる', de: 'Fliehen', fn: () => { G.hp = Math.max(1, G.hp - 2); return 'village'; } }],
-  }));
+  }), { confirm: 'Kampf verlassen?' });
   function win() {
     G.q.wolf = 2; gain(40, 200); save();
     setScreen(() => ({ art: 'wolf', title: 'しょうり！', titleDe: 'Sieg!',
       lines: [{ who: '{狩人|かりうど}', t: 'ありがとう！ {村|むら} は あんぜん です。', de: 'Danke! Das Dorf ist sicher.' }, { say: '+200 円, +40 XP' }, { say: `<div class="lore">${LORE_WOLF}</div>` }],
-      choices: [{ t: 'もどる', de: 'Zurück zum Dorf', go: 'village' }] }));
+      choices: [{ t: 'もどる', de: 'Zurück zum Dorf', go: 'village' }] }), { replace: true });
   }
   function lose() {
     G.hp = 5; save();
     setScreen(() => ({ art: 'home', title: 'まけた…', titleDe: 'Besiegt …',
-      lines: [{ say: 'Du erwachst zu Hause. Der Wolf ist verschwunden – für heute Nacht. Ruh dich aus und versuch es erneut.' }], choices: [{ t: 'もどる', de: 'Weiter', go: 'home' }] }));
+      lines: [{ say: 'Du erwachst zu Hause. Der Wolf ist verschwunden – für heute Nacht. Ruh dich aus und versuch es erneut.' }], choices: [{ t: 'もどる', de: 'Weiter', go: 'home' }] }), { replace: true });
   }
 }
 
@@ -498,8 +534,8 @@ function reminderSheet(s) {
 setTimeout(() => applyReminder(false), 1500);   // re-register after app updates / restarts
 
 // ---------- start ----------
-initPeople({ G: () => G, save, setScreen, redraw: () => draw(), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES });
-initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
+initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES });
+initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();
 await loadPeopleParts();      // AI-sheet portraits; falls back to the code-drawn ones if the parts are missing
