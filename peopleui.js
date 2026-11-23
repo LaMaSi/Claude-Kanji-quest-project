@@ -2,7 +2,7 @@
 // Both use the same description sentences: "<part> は <adjective> です。", built from the words in content/words.json (see german.js describe()).
 import { drawPortrait, drawBody, DEFAULT_LOOK, OPTIONS, randomLook } from './people.js';
 import { CONTENT } from './data.js';
-import { describe } from './german.js';
+import { describe, optionLabel } from './german.js';
 
 let A;   // api from app.js: G(), save, setScreen, go, btn, toast, J, Jt, gain, NODES
 export const initPeople = api => { A = api; };
@@ -14,20 +14,20 @@ const colorOpts = keys => keys.map(k => [k, CLOTH_WORD[k]]);
 export const FACE_FEATURES = [
   { key: 'hairLen', part: 'kami', hint: 'Haarlänge', opts: [['short', 'mijikai'], ['long', 'nagai']] },
   { key: 'hairType', part: 'kami', hint: 'Haartyp', opts: [['straight', 'massugu'], ['curly', 'makige'], ['wavy', 'weibu']] },
-  { key: 'hair', part: 'kami', hint: 'Haarfarbe', opts: [['black', 'kuroi'], ['brown', 'chairo'], ['blond', 'kiniro'], ['white', 'shiroi'], ['red', 'akai']] },
+  { key: 'hair', part: 'kami', hint: 'Haarfarbe', opts: [['black', 'kuroi'], ['brown', 'chairo'], ['blond', 'kiniro'], ['white', 'shiroi'], ['red', 'akai'], ['purple', 'murasaki'], ['pink', 'pinku'], ['blue', 'aoi'], ['green', 'midori']] },
   { key: 'eyeSize', part: 'me', hint: 'Augengröße', opts: [['big', 'ookii'], ['small', 'chiisai'], ['narrow', 'hosoi']] },
   { key: 'eyeColor', part: 'me', hint: 'Augenfarbe', opts: [['black', 'kuroi'], ['brown', 'chairo'], ['blue', 'aoi'], ['green', 'midori']] },
   { key: 'brows', part: 'mayuge', hint: 'Augenbrauen', opts: [['thick', 'futoi'], ['thin', 'hosoi']] },
   { key: 'nose', part: 'hana', hint: 'Nase', opts: [['big', 'ookii'], ['small', 'chiisai'], ['high', 'takai'], ['low', 'hikui']] },
-  { key: 'mouth', part: 'kuchi', hint: 'Mund', opts: [['big', 'ookii'], ['small', 'chiisai']] },
+  { key: 'mouth', part: 'kuchi', hint: 'Mund', opts: [['open', 'aiteimasu'], ['closed', 'tojite']] },
   { key: 'face', part: 'kao', hint: 'Gesichtsform', opts: [['round', 'marui'], ['square', 'shikakui'], ['long', 'nagai']] },
 ];
 const bottomPart = look => (look.bottom === 'skirt' ? 'sukaato' : 'zubon');
 export const CLOTH_FEATURES = [
   { key: 'hat', part: 'boushi', hint: 'Mütze', opts: [[null, null], ...colorOpts(['red', 'blue', 'green', 'yellow', 'white', 'black'])] },
-  { key: 'shirt', part: 'shatsu', hint: 'Hemd', opts: colorOpts(['red', 'blue', 'green', 'yellow', 'white', 'black']) },
-  { key: 'bottom', part: null, hint: 'Hose oder Rock', opts: [['trousers', 'zubon'], ['skirt', 'sukaato']], noSentence: true },
-  { key: 'bottomColor', part: look => bottomPart(look), hint: 'Farbe von Hose/Rock', opts: colorOpts(['red', 'blue', 'green', 'yellow', 'white', 'black']) },
+  { key: 'shirt', part: 'shatsu', hint: 'Oberkörper', opts: colorOpts(['red', 'blue', 'green', 'yellow', 'white', 'black']) },
+  { key: 'bottom', part: null, hint: 'Beine', opts: [['trousers', 'zubon'], ['skirt', 'sukaato']], noSentence: true },
+  { key: 'bottomColor', part: look => bottomPart(look), hint: 'Beinfarbe', opts: colorOpts(['red', 'blue', 'green', 'yellow', 'white', 'black']) },
   { key: 'shoes', part: 'kutsu', hint: 'Schuhe', opts: [['black', 'kuroi'], ['brown', 'chairo'], ['white', 'shiroi']] },
 ];
 
@@ -51,30 +51,37 @@ function sentenceLine(parent, s) {
 export function openEditor() {
   const g = G(); if (!g.avatar) g.avatar = { ...DEFAULT_LOOK };
   const st = { page: 'face', feat: 'hairLen', last: null };
+  const done = () => { g.flags.editorSeen = 1; A.save(); A.navigateBack(); };
   const node = () => {
     const feats = st.page === 'face' ? FACE_FEATURES : CLOTH_FEATURES, f = feats.find(x => x.key === st.feat) || feats[0];
-    return { art: null, noBanner: true, title: 'キャラクター', titleDe: 'Charakter-Editor: lerne Wörter für Gesicht und Kleidung', lines: [],
-      widget: host => build(host, st, feats, f),
-      choices: [{ t: '{全部|ぜんぶ} の ぶん', de: 'Alle Sätze zu meiner Figur', fn: () => { allSentences(); } }, { t: 'おわり', de: 'Fertig', fn: () => { g.flags.editorSeen = 1; A.save(); return A.G().loc in A.NODES ? A.G().loc : 'village'; } }] };
+    return { art: null, noBanner: true, title: 'キャラクター', titleDe: 'Charakter-Editor: lerne Wörter für Gesicht und Kleidung', lines: [], widget: host => build(host, st, feats, f), choices: [] };
   };
   A.setScreen(node);
   function build(host, st, feats, f) {
     const g = G(), look = g.avatar;
-    const top = document.createElement('div'); top.style.cssText = 'text-align:center;margin-bottom:8px'; top.appendChild(lookCanvas(look, st.page === 'face' ? 170 : 2, st.page !== 'face')); host.appendChild(top);
-    if (st.last) sentenceLine(host, st.last);
-    // page switch
-    const pg = document.createElement('div'); pg.className = 'row'; pg.style.cssText = 'margin:10px 0 6px;justify-content:center';
-    for (const [k, label] of [['face', 'Gesicht'], ['cloth', 'Kleidung']]) { const b = A.btn(pg, label, () => { st.page = k; st.feat = (k === 'face' ? FACE_FEATURES : CLOTH_FEATURES)[0].key; st.last = null; A.redraw(); }, 'small'); if (st.page === k) b.classList.add('ok'); }
-    host.appendChild(pg);
+    // the portrait stays in view while you scroll; the sentence of the last change sits next to it
+    const sticky = document.createElement('div'); sticky.className = 'edtop';
+    const pic = document.createElement('div'); pic.appendChild(lookCanvas(look, st.page === 'face' ? 118 : 1.6, st.page !== 'face')); sticky.appendChild(pic);
+    const side = document.createElement('div'); side.className = 'edside'; sticky.appendChild(side);
+    if (st.last) sentenceLine(side, st.last); else side.innerHTML = '<div class="de">Wähle unten eine Eigenschaft – hier erscheint ihr Satz.</div>';
+    host.appendChild(sticky);
+    // one small row: page switch + description + done
+    const bar = document.createElement('div'); bar.className = 'edbar';
+    for (const [k, label] of [['face', 'Gesicht'], ['cloth', 'Kleidung']]) { const b = A.btn(bar, label, () => { st.page = k; st.feat = (k === 'face' ? FACE_FEATURES : CLOTH_FEATURES)[0].key; st.last = null; A.redraw(); }, 'small'); if (st.page === k) b.classList.add('ok'); }
+    A.btn(bar, `${A.J('{説明|せつめい}')}${g.help ? '<small>Beschreibung</small>' : ''}`, allSentences, 'small');
+    A.btn(bar, `${A.J('おわり')}${g.help ? '<small>Fertig</small>' : ''}`, done, 'small');
+    host.appendChild(bar);
     // feature chips
     const chips = document.createElement('div'); chips.className = 'row'; chips.style.cssText = 'margin-bottom:8px;justify-content:center';
     for (const x of feats) { const part = typeof x.part === 'function' ? x.part(look) : x.part; const b = document.createElement('button'); b.className = 'chipw'; b.style.cssText = 'padding:8px 12px;min-height:48px;text-align:center' + (x.key === f.key ? ';border-color:var(--amber);color:var(--amber)' : '');
       b.innerHTML = `${part ? `<span class="jp" style="font-size:1.15rem">${A.J(W(part).jp)}</span>` : ''}<small style="margin:0;font-size:.7rem">${x.hint}</small>`; b.onclick = () => { st.feat = x.key; st.last = null; A.redraw(); }; chips.appendChild(b); }
     host.appendChild(chips);
-    // options (bottom: thumb zone)
+    // options (bottom: thumb zone). The German label is the meaning for THIS body part (高い at the nose = markant, not "teuer").
     const wrap = document.createElement('div'); wrap.className = 'opts'; wrap.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto';
+    const part = typeof f.part === 'function' ? f.part(look) : f.part;
     for (const [val, wid] of f.opts) {
-      const b = A.btn(wrap, wid ? `<span class="jp" style="font-size:1.3rem">${A.J(W(wid).jp)}</span>${g.help ? `<small>${W(wid).de}</small>` : ''}` : `<span class="jp" style="font-size:1.3rem">${A.J('なし')}</span>${g.help ? '<small>keine</small>' : ''}`, () => {
+      const de = wid ? (part ? optionLabel(W(part), W(wid)) : W(wid).de) : 'keine';
+      const b = A.btn(wrap, wid ? `<span class="jp" style="font-size:1.3rem">${A.J(W(wid).jp)}</span>${g.help ? `<small>${de}</small>` : ''}` : `<span class="jp" style="font-size:1.3rem">${A.J('なし')}</span>${g.help ? '<small>keine</small>' : ''}`, () => {
         look[f.key] = val; if (f.key === 'bottom') look.bottomColor = look.bottomColor || 'black';
         st.last = featureSentence(look, f); A.save(); A.redraw();
       }, look[f.key] === val ? 'ok' : '');
@@ -84,7 +91,7 @@ export function openEditor() {
   }
   function allSentences() {
     A.openSheet(s => {
-      s.innerHTML = '<h2>Meine Figur beschreiben</h2>'; const look = G().avatar;
+      s.innerHTML = `<h2>${A.lbl('{説明|せつめい}', 'Beschreibung deiner Figur')}</h2>`; const look = G().avatar;
       for (const f of [...FACE_FEATURES, ...CLOTH_FEATURES]) { const x = featureSentence(look, f); if (x) sentenceLine(s, x); }
       A.btn(s, 'Schließen', A.closeSheet);
     });

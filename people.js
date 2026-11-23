@@ -6,7 +6,7 @@
 //          shirt color key, bottom 'trousers'|'skirt', bottomColor key, hat color key | null, shoes color key }
 
 export const SKIN = ['#f4d2b4', '#e6b68c', '#c78f60', '#8c5b3c'];
-export const HAIR = { black: '#2b2623', brown: '#6a4630', blond: '#dfb85e', white: '#e6e3dc', red: '#b0482c', gray: '#8f8f98' };
+export const HAIR = { black: '#2b2623', brown: '#6a4630', blond: '#dfb85e', white: '#e6e3dc', red: '#b0482c', gray: '#8f8f98', purple: '#7b4fa8', pink: '#d96b9b', blue: '#3f6fd0', green: '#3f9b5c' };
 export const EYE = { black: '#2a211c', brown: '#6e4527', blue: '#3f84d6', green: '#3f9b5c' };
 export const CLOTH = { red: '#c04545', blue: '#4373c7', green: '#3f9158', yellow: '#dbb53c', white: '#e8e5de', black: '#3b3b45', brown: '#7b5333' };
 const OUT = '#241811', WHITE = '#fbf8ef', LIP = '#b9564c', LIPD = '#8c3a33';
@@ -41,7 +41,7 @@ function canvas(w, h) {
   return api;
 }
 
-export const DEFAULT_LOOK = { skin: 0, face: 'round', hairLen: 'short', hairType: 'straight', hair: 'brown', eyeSize: 'big', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'small',
+export const DEFAULT_LOOK = { skin: 0, face: 'round', hairLen: 'short', hairType: 'straight', hair: 'brown', eyeSize: 'big', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'closed',
   shirt: 'blue', bottom: 'trousers', bottomColor: 'black', hat: null, shoes: 'brown' };
 
 // ---------------------------------------------------------------- portrait 40x40
@@ -105,7 +105,7 @@ function nose(c, look, skinD) {
   else { c.set(18, 23, d); c.set(21, 23, d); c.set(19, 24, d); c.set(20, 24, d); } // low
 }
 function mouth(c, look) {
-  if (look.mouth === 'big') { for (let x = 16; x <= 23; x++) c.set(x, 27, LIPD); for (let x = 17; x <= 22; x++) c.set(x, 28, LIP); for (let x = 18; x <= 21; x++) c.set(x, 29, LIP); }
+  if (look.mouth === 'open') { for (let x = 16; x <= 23; x++) c.set(x, 27, LIPD); for (let x = 17; x <= 22; x++) c.set(x, 28, LIP); for (let x = 18; x <= 21; x++) c.set(x, 29, LIP); }
   else { for (let x = 18; x <= 21; x++) c.set(x, 28, LIP); c.set(17, 27, LIPD); c.set(22, 27, LIPD); }
 }
 
@@ -163,12 +163,12 @@ export function drawBody(look = DEFAULT_LOOK) {
 export const OPTIONS = {
   hairLen: ['short', 'long'],
   hairType: ['straight', 'curly', 'wavy'],
-  hair: ['black', 'brown', 'blond', 'white', 'red'],
+  hair: ['black', 'brown', 'blond', 'white', 'red', 'purple', 'pink', 'blue', 'green'],
   eyeSize: ['big', 'small', 'narrow'],
   eyeColor: ['black', 'brown', 'blue', 'green'],
   brows: ['thick', 'thin'],
   nose: ['big', 'small', 'high', 'low'],
-  mouth: ['big', 'small'],
+  mouth: ['open', 'closed'],
   face: ['round', 'square', 'long'],
   shirt: ['red', 'blue', 'green', 'yellow', 'white', 'black'],
   bottom: ['trousers', 'skirt'],
@@ -184,11 +184,11 @@ export function randomLook(rng = Math.random, keys = Object.keys(OPTIONS)) {
 
 // NPC presets (replace the old black-square portraits)
 export const NPC_LOOKS = {
-  tenshu:   { skin: 1, face: 'square', hairLen: 'short', hairType: 'straight', hair: 'gray', eyeSize: 'small', eyeColor: 'brown', brows: 'thick', nose: 'big', mouth: 'big', shirt: 'brown' },
-  okamisan: { skin: 0, face: 'round', hairLen: 'long', hairType: 'wavy', hair: 'brown', eyeSize: 'big', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'small', shirt: 'red' },
-  obaasan:  { skin: 0, face: 'round', hairLen: 'short', hairType: 'curly', hair: 'white', eyeSize: 'narrow', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'small', shirt: 'green' },
-  ojiisan:  { skin: 1, face: 'long', hairLen: 'short', hairType: 'straight', hair: 'white', eyeSize: 'small', eyeColor: 'black', brows: 'thick', nose: 'high', mouth: 'small', shirt: 'brown' },
-  kariudo:  { skin: 2, face: 'square', hairLen: 'short', hairType: 'straight', hair: 'black', eyeSize: 'narrow', eyeColor: 'black', brows: 'thick', nose: 'high', mouth: 'small', shirt: 'green', hat: 'brown' },
-  kodomo:   { skin: 0, face: 'round', hairLen: 'short', hairType: 'curly', hair: 'brown', eyeSize: 'big', eyeColor: 'blue', brows: 'thin', nose: 'small', mouth: 'big', shirt: 'yellow' },
-  hito:     { skin: 1, face: 'round', hairLen: 'short', hairType: 'wavy', hair: 'black', eyeSize: 'big', eyeColor: 'black', brows: 'thin', nose: 'low', mouth: 'small', shirt: 'blue' },
+  tenshu:   { skin: 1, face: 'square', hairLen: 'short', hairType: 'straight', hair: 'gray', eyeSize: 'small', eyeColor: 'brown', brows: 'thick', nose: 'big', mouth: 'open', shirt: 'brown' },
+  okamisan: { skin: 0, face: 'round', hairLen: 'long', hairType: 'wavy', hair: 'brown', eyeSize: 'big', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'closed', shirt: 'red' },
+  obaasan:  { skin: 0, face: 'round', hairLen: 'short', hairType: 'curly', hair: 'white', eyeSize: 'narrow', eyeColor: 'brown', brows: 'thin', nose: 'small', mouth: 'closed', shirt: 'green' },
+  ojiisan:  { skin: 1, face: 'long', hairLen: 'short', hairType: 'straight', hair: 'white', eyeSize: 'small', eyeColor: 'black', brows: 'thick', nose: 'high', mouth: 'closed', shirt: 'brown' },
+  kariudo:  { skin: 2, face: 'square', hairLen: 'short', hairType: 'straight', hair: 'black', eyeSize: 'narrow', eyeColor: 'black', brows: 'thick', nose: 'high', mouth: 'closed', shirt: 'green', hat: 'brown' },
+  kodomo:   { skin: 0, face: 'round', hairLen: 'short', hairType: 'curly', hair: 'brown', eyeSize: 'big', eyeColor: 'blue', brows: 'thin', nose: 'small', mouth: 'open', shirt: 'yellow' },
+  hito:     { skin: 1, face: 'round', hairLen: 'short', hairType: 'wavy', hair: 'black', eyeSize: 'big', eyeColor: 'black', brows: 'thin', nose: 'low', mouth: 'closed', shirt: 'blue' },
 };

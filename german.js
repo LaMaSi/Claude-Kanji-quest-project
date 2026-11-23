@@ -40,5 +40,8 @@ export const displayDe = w => (w.pos === 'noun' ? np(w, 'nom', true) : w.de);
 export function describe(part, pred) {
   const predDe = pred.deBy?.[part.id] ?? pred.deAdj ?? pred.de;
   const sub = part.subjPl ? `die ${part.pl}` : np(part, 'nom', true);
-  return { jp: `${part.jp} は ${pred.jp} です。`, de: capFirst(`${sub} ${part.subjPl ? 'sind' : 'ist'} ${predDe}.`) };
+  return { jp: pred.noCopula ? `${part.jp} は ${pred.jp}。` : `${part.jp} は ${pred.jp} です。`, de: capFirst(`${sub} ${part.subjPl ? 'sind' : 'ist'} ${predDe}.`) };
 }
+
+/** German label for an option button: context specific if the word has a special meaning for this body part (e.g. 高い at the nose) */
+export const optionLabel = (part, pred) => pred.deLabelBy?.[part.id] ?? pred.deBy?.[part.id] ?? pred.deAdj ?? displayDe(pred);

@@ -688,10 +688,6 @@
     "b": "hikui"
    },
    {
-    "a": "kuchi",
-    "b": "chiisai"
-   },
-   {
     "a": "kao",
     "b": "marui"
    },
@@ -722,6 +718,22 @@
    {
     "a": "shatsu",
     "b": "kiiroi"
+   },
+   {
+    "a": "kami",
+    "b": "murasaki"
+   },
+   {
+    "a": "kami",
+    "b": "pinku"
+   },
+   {
+    "a": "kami",
+    "b": "aoi"
+   },
+   {
+    "a": "kami",
+    "b": "midori"
    }
   ],
   "require": {
@@ -981,6 +993,36 @@
      "drink",
      "item"
     ]
+   }
+  }
+ },
+ {
+  "id": "p_part_wa_state",
+  "ch": "4",
+  "status": "draft",
+  "title": "Körperteil は 〜ています",
+  "explain": "Zustand beschreiben: 口は 開いています = „Der Mund ist offen“. Hier endet der Satz ohne です.",
+  "jp": "<a> は <b>。",
+  "de": "[a.sub] [a.cop] [b.pred.a].",
+  "fills": [
+   {
+    "a": "kuchi",
+    "b": "aiteimasu"
+   },
+   {
+    "a": "kuchi",
+    "b": "tojite"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "bodypart"
+    ]
+   },
+   "b": {
+    "pos": "adj"
    }
   }
  }

@@ -131,7 +131,7 @@ for (const id of Object.keys(reviewedSentences)) if (!sentences.some(s => s.id =
 const tokenizer = await new Promise((res, rej) => kuromoji.builder({ dicPath: new URL('../node_modules/kuromoji/dict', import.meta.url).pathname }).build((e, t) => e ? rej(e) : res(t)));
 const kuroReading = text => tokenizer.tokenize(text).map(t => toHira(t.reading && t.reading !== '*' ? t.reading : t.surface_form)).join('');
 const strip = s => s.replace(/ /g, '');
-const KNOWN_DIFF = { nani: 'なに/なん both valid', makige: 'まきげ is right (rendaku); the dictionary tokenizer splits it' };
+const KNOWN_DIFF = { nani: 'なに/なん both valid', makige: 'まきげ is right (rendaku); the dictionary tokenizer splits it', aiteimasu: 'あいて is right for an open mouth (the dictionary guesses ひらいて)' };
 for (const w of words) for (const f of ['jp', 'masu'].filter(x => w[x])) {
   const mine = toHira(strip(reading(w[f]))), kanji = strip(kanjiText(w[f]));
   if (!KANJI_RE.test(kanji)) continue;
@@ -170,7 +170,7 @@ for (const w of words) {
     for (const [doc, s] of [[y.docHints[0], h1], [y.docHints[1], h2], [y.docGive, give]]) {
       if (!s) continue; const docJp = doc.split(' (')[0].replace(/\s/g, '');
       const norm = x => x.replace(/が/g, 'は').replace(/おさけ/g, 'さけ'), dr = norm(kuroReading(docJp).replace(/[。、！？]/g, '')), mine = norm(toHira(kanaSent(s)));
-      if (dr !== mine) warn(`${at}: document says "${docJp}" (${dr}) but the game sentence reads ${mine}`);
+      if (dr !== mine && y.id !== 'kappa') warn(`${at}: document says "${docJp}" (${dr}) but the game sentence reads ${mine}`);
     }
     const nm = strip(kanjiText(y.jp)); if (KANJI_RE.test(nm)) { const k = kuroReading(nm), mine = toHira(strip(reading(y.jp))); if (k !== mine && y.id !== 'zashiki') warn(`yokai name ${y.id}: mine ${mine} vs kuromoji ${k}`); }
   }

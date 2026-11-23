@@ -23,3 +23,13 @@ Status rules: `reviewed` = a reviewer saw exactly this text and found it OK. Any
 ## Style decisions
 - German addresses the player with „du“.
 - 酒場 = „Taverne“, お酒 = „Alkohol“.
+
+## Editor feedback round (2026-11-24) – wording changes, translations changed with them
+| Change | Japanese | German |
+|---|---|---|
+| Mouth options | 口は 開いて います / 閉じて います (new words 開いて います, 閉じて います; replaces 大きい/小さい for the mouth) | offen / geschlossen |
+| Nose "high" | 鼻は 高いです (unchanged) – button now shows the meaning for this body part | markant (wörtlich „hoch“); 低い at the nose: flach (wörtlich „niedrig“) |
+| New hair colours | 紫, ピンク, 青い, 緑 | lila, pink, blau, grün |
+| Editor buttons | 説明 / おわり | Beschreibung / Fertig |
+| Clothes chips | – | Hemd → Oberkörper, Hose oder Rock → Beine (the options themselves stay Hose / Rock) |
+All new or changed Japanese/German is `draft` and listed in the review sheets.

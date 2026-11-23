@@ -9,7 +9,7 @@ const jobs = [];
 for (let n = 1; n <= 12; n++) jobs.push([ls('faces', n), `face_${Math.floor((n - 1) / 4)}${(n - 1) % 4}`, HALF]);
 for (let n = 1; n <= 6; n++) { jobs.push([ls('hair_front', n), `hairF_${n}`, HALF * 0.62]); jobs.push([ls('hair_back', n), `hairB_${n}`, HALF * 0.62]); }
 for (const [col, i] of [['brown', 1], ['blue', 3], ['green', 5]]) { jobs.push([ls('eyes_A', i), `eye_${col}_L`, HALF * 0.42]); jobs.push([ls('eyes_A', i + 1), `eye_${col}_R`, HALF * 0.42]); }
-for (const [name, n, s] of [['nose_big', 4, 0.55], ['nose_small', 1, 0.55], ['nose_high', 6, 0.55], ['nose_low', 7, 0.55], ['mouth_big', 12, 0.6], ['mouth_small', 10, 0.6], ['brow_thick', 28, 0.55], ['brow_thin', 35, 0.55]]) jobs.push([ls('features', n), name, HALF * s]);
+for (const [name, n, s] of [['nose_big', 5, 0.55], ['nose_small', 1, 0.55], ['nose_high', 4, 0.55], ['nose_low', 7, 0.55], ['mouth_big', 12, 0.6], ['mouth_small', 10, 0.6], ['brow_thick', 28, 0.55], ['brow_thin', 35, 0.55]]) jobs.push([ls('features', n), name, HALF * s]);
 
 rmSync(OUT, { recursive: true, force: true }); mkdirSync(OUT, { recursive: true });
 for (const [src, name, s] of jobs) {

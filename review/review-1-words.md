@@ -80,3 +80,7 @@ Rules for your answer:
 | minato | Nomen | 港(みなと) | 港 | みなと | minato | der Hafen (Nominativ mit bestimmtem Artikel); Plural: Häfen | ja |  |
 | aburaage | Nomen | 油揚(あぶらあ)げ | 油揚げ | あぶらあげ | aburaage | der frittierte Tofu (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Dünne, frittierte Tofuscheiben. |
 | mochi | Nomen | もち | もち | もち | mochi | der Reiskuchen (Nominativ mit bestimmtem Artikel); Plural: Reiskuchen | – | Klebriger Reiskuchen (餅). |
+| murasaki | Nomen | 紫(むらさき) | 紫 | むらさき | murasaki | das Lila (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Lila/Violett. |
+| pinku | Nomen | ピンク | ピンク | ピンク | pinku | das Pink (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | – | Lehnwort (ピンク). Auch: 桃色 (ももいろ). |
+| aiteimasu | i-Adjektiv | 開(あ)いて います | 開いて います | あいて います | aite imasu | offen | ja | Zustand: „ist geöffnet“ (い-Form von 開く + います). Beim Mund: offen. |
+| tojite | i-Adjektiv | 閉(と)じて います | 閉じて います | とじて います | tojite imasu | geschlossen | ja | Zustand: „ist geschlossen“ (閉じる + います). Beim Mund: geschlossen. |

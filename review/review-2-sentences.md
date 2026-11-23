@@ -28,6 +28,7 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | p_item_place | 〜は 〇〇に あります | Wo gibt es etwas? Sache は Ort に あります. に nennt den Ort, an dem etwas ist. So fragt man nach dem Weg zu Dingen: 〜は どこ に ありますか？ |
 | p_place_shop | 〇〇に 店が あります | Ort に Geschäft が あります: „Dort gibt es einen Laden.“ に nennt den Ort, が das, was es dort gibt. |
 | p_dozo_item | どうぞ。〜です。 | Etwas höflich überreichen: どうぞ („bitte sehr“) und dann sagen, was es ist. |
+| p_part_wa_state | Körperteil は 〜ています | Zustand beschreiben: 口は 開いています = „Der Mund ist offen“. Hier endet der Satz ohne です. |
 
 ## Part B – example sentences
 Check each sentence for: (a) correct and natural Japanese (particles, word choice, politeness, counter, 何→なん, long vowels), (b) a German translation that is correct, natural and a faithful translation, and (c) whether the sentence makes sense as a beginner lesson. Japanese in these sentences is spaced between words only for learning; ignore the spacing.
@@ -75,15 +76,18 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_part_wa_pred#12 | 眉毛は太いです。 | まゆげはふといです。 | mayuge wa futoi desu. | Die Augenbrauen sind dick. |
 | p_part_wa_pred#13 | 鼻は高いです。 | はなはたかいです。 | hana wa takai desu. | Die Nase ist markant. |
 | p_part_wa_pred#14 | 鼻は低いです。 | はなはひくいです。 | hana wa hikui desu. | Die Nase ist flach. |
-| p_part_wa_pred#15 | 口は小さいです。 | くちはちいさいです。 | kuchi wa chiisai desu. | Der Mund ist klein. |
-| p_part_wa_pred#16 | 顔は丸いです。 | かおはまるいです。 | kao wa marui desu. | Das Gesicht ist rund. |
-| p_part_wa_pred#17 | 顔は四角いです。 | かおはしかくいです。 | kao wa shikakui desu. | Das Gesicht ist eckig. |
-| p_part_wa_pred#18 | シャツは赤いです。 | シャツはあかいです。 | shatsu wa akai desu. | Das Hemd ist rot. |
-| p_part_wa_pred#19 | ズボンは黒いです。 | ズボンはくろいです。 | zubon wa kuroi desu. | Die Hose ist schwarz. |
-| p_part_wa_pred#20 | スカートは緑です。 | スカートはみどりです。 | sukaato wa midori desu. | Der Rock ist grün. |
-| p_part_wa_pred#21 | 帽子は青いです。 | ぼうしはあおいです。 | boushi wa aoi desu. | Die Mütze ist blau. |
-| p_part_wa_pred#22 | 靴は白いです。 | くつはしろいです。 | kutsu wa shiroi desu. | Die Schuhe sind weiß. |
-| p_part_wa_pred#23 | シャツは黄色いです。 | シャツはきいろいです。 | shatsu wa kiiroi desu. | Das Hemd ist gelb. |
+| p_part_wa_pred#15 | 顔は丸いです。 | かおはまるいです。 | kao wa marui desu. | Das Gesicht ist rund. |
+| p_part_wa_pred#16 | 顔は四角いです。 | かおはしかくいです。 | kao wa shikakui desu. | Das Gesicht ist eckig. |
+| p_part_wa_pred#17 | シャツは赤いです。 | シャツはあかいです。 | shatsu wa akai desu. | Das Hemd ist rot. |
+| p_part_wa_pred#18 | ズボンは黒いです。 | ズボンはくろいです。 | zubon wa kuroi desu. | Die Hose ist schwarz. |
+| p_part_wa_pred#19 | スカートは緑です。 | スカートはみどりです。 | sukaato wa midori desu. | Der Rock ist grün. |
+| p_part_wa_pred#20 | 帽子は青いです。 | ぼうしはあおいです。 | boushi wa aoi desu. | Die Mütze ist blau. |
+| p_part_wa_pred#21 | 靴は白いです。 | くつはしろいです。 | kutsu wa shiroi desu. | Die Schuhe sind weiß. |
+| p_part_wa_pred#22 | シャツは黄色いです。 | シャツはきいろいです。 | shatsu wa kiiroi desu. | Das Hemd ist gelb. |
+| p_part_wa_pred#23 | 髪は紫です。 | かみはむらさきです。 | kami wa murasaki desu. | Das Haar ist lila. |
+| p_part_wa_pred#24 | 髪はピンクです。 | かみはピンクです。 | kami wa pinku desu. | Das Haar ist pink. |
+| p_part_wa_pred#25 | 髪は青いです。 | かみはあおいです。 | kami wa aoi desu. | Das Haar ist blau. |
+| p_part_wa_pred#26 | 髪は緑です。 | かみはみどりです。 | kami wa midori desu. | Das Haar ist grün. |
 | p_item_place#1 | きゅうりは畑にあります。 | きゅうりははたけにあります。 | kyuuri wa hatake ni arimasu. | Gurken gibt es auf dem Feld. |
 | p_item_place#2 | りんごは畑にあります。 | りんごははたけにあります。 | ringo wa hatake ni arimasu. | Äpfel gibt es auf dem Feld. |
 | p_item_place#3 | 魚は湖にあります。 | さかなはみずうみにあります。 | sakana wa mizuumi ni arimasu. | Fische gibt es am See. |
@@ -131,3 +135,5 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_dozo_item#10 | どうぞ。肉です。 | どうぞ。にくです。 | douzo. niku desu. | Bitte sehr. Hier ist Fleisch. |
 | p_dozo_item#11 | どうぞ。お酒です。 | どうぞ。おさけです。 | douzo. osake desu. | Bitte sehr. Hier ist eine Flasche Sake. |
 | p_dozo_item#12 | どうぞ。りんごです。 | どうぞ。りんごです。 | douzo. ringo desu. | Bitte sehr. Hier ist ein Apfel. |
+| p_part_wa_state#1 | 口は開いています。 | くちはあいています。 | kuchi wa aite imasu. | Der Mund ist offen. |
+| p_part_wa_state#2 | 口は閉じています。 | くちはとじています。 | kuchi wa tojite imasu. | Der Mund ist geschlossen. |

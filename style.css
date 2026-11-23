@@ -144,3 +144,10 @@ body.lefty #dock{flex-direction:row-reverse}
 .sil{filter:brightness(.28) contrast(1.3)}
 .pmark{overflow:visible}
 .badge{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--amber);color:#0b0d12;font-weight:700;font-size:.8rem;line-height:20px;text-align:center}
+
+/* character editor: sticky portrait, one compact button row */
+.edtop{position:sticky;top:0;z-index:3;display:flex;gap:10px;align-items:center;background:var(--bg);padding:6px 0 8px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.edtop>div:first-child{flex:none}
+.edside{flex:1;min-width:0}.edside .line{margin:0;padding:8px 10px}.edside .jp{font-size:1.2rem;line-height:1.5}
+.edbar{display:flex;gap:6px;margin:4px 0 8px}.edbar .btn{flex:1;min-width:0;width:auto;padding:8px 6px;min-height:46px;text-align:center;font-size:.9rem;line-height:1.2}
+.edbar .btn small{font-size:.65rem;margin:0}

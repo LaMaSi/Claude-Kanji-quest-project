@@ -26,6 +26,7 @@ function loadSave() {
   return DEFAULT();
 }
 let G = loadSave();
+if (G.avatar && G.avatar.mouth) G.avatar.mouth = { big: 'open', small: 'closed' }[G.avatar.mouth] ?? G.avatar.mouth;   // v0.8 saves used big/small
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(G)); } catch {} };
 const J = src => render(src, G.mode, G.furi);
 /** like J, but every word can be tapped to see its translation (story lines) */
@@ -543,7 +544,7 @@ setTimeout(() => applyReminder(false), 1500);   // re-register after app updates
 // ---------- start ----------
 initWorld({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initYokai({ G: () => G, save, setScreen, go, navigateBack, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
-initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES });
+initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES, lbl, navigateBack });
 initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();

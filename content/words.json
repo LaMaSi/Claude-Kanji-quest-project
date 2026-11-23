@@ -577,6 +577,9 @@
   "status": "reviewed",
   "deBy": {
    "hana": "markant"
+  },
+  "deLabelBy": {
+   "hana": "markant (wörtlich „hoch“)"
   }
  },
  {
@@ -1199,7 +1202,10 @@
   "deBy": {
    "hana": "flach"
   },
-  "note": "Bei der Nase: flach."
+  "note": "Bei der Nase: flach.",
+  "deLabelBy": {
+   "hana": "flach (wörtlich „niedrig“)"
+  }
  },
  {
   "id": "kuroi",
@@ -1636,5 +1642,55 @@
   "status": "draft",
   "pl": "Reiskuchen",
   "note": "Klebriger Reiskuchen (餅)."
+ },
+ {
+  "id": "murasaki",
+  "pos": "noun",
+  "jp": "{紫|むらさき}",
+  "de": "Lila",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "color"
+  ],
+  "mass": true,
+  "deAdj": "lila",
+  "status": "draft",
+  "note": "Lila/Violett."
+ },
+ {
+  "id": "pinku",
+  "pos": "noun",
+  "jp": "ピンク",
+  "de": "Pink",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "color"
+  ],
+  "mass": true,
+  "deAdj": "pink",
+  "status": "draft",
+  "note": "Lehnwort (ピンク). Auch: 桃色 (ももいろ)."
+ },
+ {
+  "id": "aiteimasu",
+  "pos": "adj",
+  "jp": "{開|あ}いて います",
+  "de": "offen",
+  "ch": 4,
+  "noCopula": true,
+  "status": "draft",
+  "note": "Zustand: „ist geöffnet“ (い-Form von 開く + います). Beim Mund: offen."
+ },
+ {
+  "id": "tojite",
+  "pos": "adj",
+  "jp": "{閉|と}じて います",
+  "de": "geschlossen",
+  "ch": 4,
+  "noCopula": true,
+  "status": "draft",
+  "note": "Zustand: „ist geschlossen“ (閉じる + います). Beim Mund: geschlossen."
  }
 ]

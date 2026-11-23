@@ -35,7 +35,7 @@ const clamp = v => Math.max(0, Math.min(255, Math.round(v)));
 const tint = (hex, f) => { const [r, g, b] = hexRGB(hex); if (f <= 1) return [clamp(r * f), clamp(g * f), clamp(b * f)]; const t = Math.min(0.55, (f - 1) * 0.8); return [clamp(r + (255 - r) * t), clamp(g + (255 - g) * t), clamp(b + (255 - b) * t)]; };
 
 const hairImg = (kind, n, color) => recolor(IMG[`hair${kind}_${n}`], `h${kind}${n}${color}`, (r, g, b) => { const l = lumOf(r, g, b); return l < 52 ? null : tint(HAIR[color], l / 120); });
-const browImg = (name, color) => recolor(IMG[name], `b${name}${color}`, (r, g, b) => { const l = lumOf(r, g, b); return l < 40 ? null : tint(HAIR[color], 0.8 * (l / 70)); });
+const browImg = (name, color) => recolor(IMG[name], `b${name}${color}`, (r, g, b) => { const l = lumOf(r, g, b); return l < 40 ? null : tint(HAIR[color], 0.55 * (l / 70)); });
 const noseImg = (name, skin) => recolor(IMG[name], `n${name}${skin}`, (r, g, b) => { const l = lumOf(r, g, b); return l > 110 && r > g ? tint(SKIN[skin], l / 205) : null; });
 const eyeImg = (name, black) => black ? recolor(IMG[name], `e${name}k`, (r, g, b) => (r >= g && g >= b - 4 && r - b > 18 && lumOf(r, g, b) < 170 ? [clamp(r * 0.42), clamp(g * 0.4), clamp(b * 0.4)] : null)) : IMG[name];
 const faceImg = (r, s, shirt) => recolor(IMG[`face_${r}${s}`], `f${r}${s}${shirt}`, (pr, pg, pb, x, y) => {
@@ -53,12 +53,13 @@ export function aiPortrait(look) {
   at(hairImg('B', hairN, hair), CX, FY + 57);
   g.drawImage(faceImg(row, skin, L.shirt || 'blue'), FX, FY);
   at(noseImg(`nose_${L.nose}`, skin), CX, FY + 79);
-  at(IMG[`mouth_${L.mouth === 'big' ? 'big' : 'small'}`], CX, FY + 95);
+  at(IMG[`mouth_${L.mouth === 'open' || L.mouth === 'big' ? 'big' : 'small'}`], CX, FY + 95);      // sprite names: big = open, small = closed
   const eyeCol = L.eyeColor === 'black' ? 'brown' : L.eyeColor, black = L.eyeColor === 'black';
   const [sx, sy] = L.eyeSize === 'small' ? [0.72, 0.72] : L.eyeSize === 'narrow' ? [1.05, 0.62] : [1, 1];
   at(eyeImg(`eye_${eyeCol}_L`, black), CX - 23.5, FY + 60, sx, sy); at(eyeImg(`eye_${eyeCol}_R`, black), CX + 23.5, FY + 60, sx, sy);
-  at(browImg(`brow_${L.brows === 'thick' ? 'thick' : 'thin'}`, hair), CX, FY + 44);
   at(hairImg('F', hairN, hair), CX, FY + 56);
+  // eyebrows are drawn on top of the fringe (otherwise short hair hides them) and wide enough to sit above each eye
+  at(browImg('brow_thick', hair), CX, FY + 46, 1.6, L.brows === 'thick' ? 1.45 : 0.8);                // thin = the same brows, flatter (the original thin sprite vanished in the fringe)
   if (L.hat) {                                                                       // simple cap drawn in code
     const col = CLOTH[L.hat], dark = tint(CLOTH[L.hat], 0.7);
     g.fillStyle = '#241811'; g.beginPath(); g.ellipse(CX, FY + 22, 40, 24, 0, Math.PI, 0); g.fill(); g.fillRect(CX - 48, FY + 20, 96, 12);

@@ -1537,21 +1537,6 @@
   "id": "p_part_wa_pred#15",
   "pattern": "p_part_wa_pred",
   "ch": 4,
-  "jp": "{口|くち} は {小|ちい}さい です。",
-  "jpFull": "{口|くち} は {小|ちい}さい です。",
-  "romaji": "kuchi wa chiisai desu.",
-  "kana": "くち は ちいさい です。",
-  "de": "Der Mund ist klein.",
-  "words": [
-   "kuchi",
-   "chiisai"
-  ],
-  "status": "draft"
- },
- {
-  "id": "p_part_wa_pred#16",
-  "pattern": "p_part_wa_pred",
-  "ch": 4,
   "jp": "{顔|かお} は {丸|まる}い です。",
   "jpFull": "{顔|かお} は {丸|まる}い です。",
   "romaji": "kao wa marui desu.",
@@ -1564,7 +1549,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#17",
+  "id": "p_part_wa_pred#16",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "{顔|かお} は {四角|しかく}い です。",
@@ -1579,7 +1564,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#18",
+  "id": "p_part_wa_pred#17",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "シャツ は {赤|あか}い です。",
@@ -1594,7 +1579,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#19",
+  "id": "p_part_wa_pred#18",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "ズボン は {黒|くろ}い です。",
@@ -1609,7 +1594,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#20",
+  "id": "p_part_wa_pred#19",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "スカート は {緑|みどり} です。",
@@ -1624,7 +1609,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#21",
+  "id": "p_part_wa_pred#20",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "{帽子|ぼうし} は {青|あお}い です。",
@@ -1639,7 +1624,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#22",
+  "id": "p_part_wa_pred#21",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "{靴|くつ} は {白|しろ}い です。",
@@ -1654,7 +1639,7 @@
   "status": "draft"
  },
  {
-  "id": "p_part_wa_pred#23",
+  "id": "p_part_wa_pred#22",
   "pattern": "p_part_wa_pred",
   "ch": 4,
   "jp": "シャツ は {黄色|きいろ}い です。",
@@ -1665,6 +1650,66 @@
   "words": [
    "shatsu",
    "kiiroi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#23",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {紫|むらさき} です。",
+  "jpFull": "{髪|かみ} は {紫|むらさき} です。",
+  "romaji": "kami wa murasaki desu.",
+  "kana": "かみ は むらさき です。",
+  "de": "Das Haar ist lila.",
+  "words": [
+   "kami",
+   "murasaki"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#24",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は ピンク です。",
+  "jpFull": "{髪|かみ} は ピンク です。",
+  "romaji": "kami wa pinku desu.",
+  "kana": "かみ は ピンク です。",
+  "de": "Das Haar ist pink.",
+  "words": [
+   "kami",
+   "pinku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#25",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {青|あお}い です。",
+  "jpFull": "{髪|かみ} は {青|あお}い です。",
+  "romaji": "kami wa aoi desu.",
+  "kana": "かみ は あおい です。",
+  "de": "Das Haar ist blau.",
+  "words": [
+   "kami",
+   "aoi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#26",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {緑|みどり} です。",
+  "jpFull": "{髪|かみ} は {緑|みどり} です。",
+  "romaji": "kami wa midori desu.",
+  "kana": "かみ は みどり です。",
+  "de": "Das Haar ist grün.",
+  "words": [
+   "kami",
+   "midori"
   ],
   "status": "draft"
  },
@@ -2358,6 +2403,36 @@
   "de": "Bitte sehr. Hier ist ein Apfel.",
   "words": [
    "ringo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_state#1",
+  "pattern": "p_part_wa_state",
+  "ch": 4,
+  "jp": "{口|くち} は {開|あ}いて います。",
+  "jpFull": "{口|くち} は {開|あ}いて います。",
+  "romaji": "kuchi wa aite imasu.",
+  "kana": "くち は あいて います。",
+  "de": "Der Mund ist offen.",
+  "words": [
+   "kuchi",
+   "aiteimasu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_state#2",
+  "pattern": "p_part_wa_state",
+  "ch": 4,
+  "jp": "{口|くち} は {閉|と}じて います。",
+  "jpFull": "{口|くち} は {閉|と}じて います。",
+  "romaji": "kuchi wa tojite imasu.",
+  "kana": "くち は とじて います。",
+  "de": "Der Mund ist geschlossen.",
+  "words": [
+   "kuchi",
+   "tojite"
   ],
   "status": "draft"
  }
