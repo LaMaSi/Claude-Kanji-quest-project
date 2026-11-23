@@ -1,5 +1,7 @@
 # Art assets and licences
 
+**General rule (all projects):** never use art, sounds, fonts or other assets whose creator says they do not support AI use / that they are for human-made projects only – even if the licence text would technically allow it. When in doubt about a creator's stance, do not use the asset and ask the owner.
+
 **Rule:** only art that is drawn by us (in code) or published under a licence that allows use in this project, including AI-assisted development.
 
 ## What is in the app today
@@ -10,5 +12,5 @@
 - Teaching vocabulary needs *parametric* faces (nose big/small, eyes narrow/wide, hair colours, clothes colours). Ready-made packs have fixed characters.
 - **RPG Maker default art (RTP)**: licensed for use inside RPG Maker only – not usable here.
 - **Universal LPC Spritesheet Generator**: every part has its own licence (CC0, CC-BY, CC-BY-SA, GPL, OGA-BY); attribution/share-alike apply and each artist's terms must be checked, including any AI-related terms.
-- **Kenney.nl**: CC0 (public domain), no attribution needed – the safest source if outside art is ever wanted (https://kenney.nl/support).
+- **Kenney.nl**: **do not use.** Kenney has said clearly that the assets are free for human-made projects only and that they do not support AI use. This is binding for us regardless of the licence text (CC0). (Corrected: an earlier note here called Kenney the safe option – that was wrong.)
 - If outside art is added: record the source URL, author, licence and date in this file, and check the artist's page for restrictions on AI use.
