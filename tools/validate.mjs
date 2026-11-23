@@ -70,7 +70,7 @@ for (const w of words) {
 }
 
 // every noun needs a picture (sprites.js); people need a portrait
-for (const w of words) if (w.pos === 'noun' && !SPRITE_IDS.includes(w.id)) err(`word ${w.id}: noun without a sprite in sprites.js`);
+for (const w of words) if (w.pos === 'noun' && !(w.tags || []).includes('descriptor') && !SPRITE_IDS.includes(w.id)) err(`word ${w.id}: noun without a sprite in sprites.js`);
 for (const id of SPRITE_IDS) if (!byId[id]) warn(`sprites.js: sprite "${id}" has no word`);
 for (const id of PORTRAITS) if (!SPRITE_IDS.includes(id)) err(`portrait ${id} missing in SPRITES`);
 
@@ -118,7 +118,7 @@ for (const id of Object.keys(reviewedSentences)) if (!sentences.some(s => s.id =
 const tokenizer = await new Promise((res, rej) => kuromoji.builder({ dicPath: new URL('../node_modules/kuromoji/dict', import.meta.url).pathname }).build((e, t) => e ? rej(e) : res(t)));
 const kuroReading = text => tokenizer.tokenize(text).map(t => toHira(t.reading && t.reading !== '*' ? t.reading : t.surface_form)).join('');
 const strip = s => s.replace(/ /g, '');
-const KNOWN_DIFF = { nani: 'なに/なん both valid' };
+const KNOWN_DIFF = { nani: 'なに/なん both valid', makige: 'まきげ is right (rendaku); the dictionary tokenizer splits it' };
 for (const w of words) for (const f of ['jp', 'masu'].filter(x => w[x])) {
   const mine = strip(reading(w[f])), kanji = strip(kanjiText(w[f]));
   if (!KANJI_RE.test(kanji)) continue;

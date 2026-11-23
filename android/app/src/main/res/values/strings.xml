@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Wolfsdorf</string>
-    <string name="title_activity_main">Wolfsdorf</string>
+    <string name="app_name">Tanuki Sensei</string>
+    <string name="title_activity_main">Tanuki Sensei</string>
     <string name="package_name">de.wolfsdorf.lernspiel</string>
     <string name="custom_url_scheme">de.wolfsdorf.lernspiel</string>
 </resources>

@@ -23,6 +23,7 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | p_ni_N_ga_iru | 〜に N が います | Wie あります, aber für Lebewesen. |
 | p_N_ga_kowai | N が こわいです | Angst haben vor: Das, wovor man Angst hat, steht mit が. |
 | p_N_wo_miru | N を みます | 見ます: sehen. |
+| p_part_wa_pred | Körperteil/Kleidung は 〜です | Beschreibung einer Person: Körperteil は Eigenschaft です. Bei Farben steht oft ein Nomen (茶色, 緑), sonst ein い-Adjektiv (黒い, 青い). |
 
 ## Part B – example sentences
 Check each sentence for: (a) correct and natural Japanese (particles, word choice, politeness, counter, 何→なん, long vowels), (b) a German translation that is correct, natural and a faithful translation, and (c) whether the sentence makes sense as a beginner lesson. Japanese in these sentences is spaced between words only for learning; ignore the spacing.
@@ -43,3 +44,26 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_ni_N_ga_iru#5 | 森に熊がいます。 | もりにくまがいます。 | mori ni kuma ga imasu. | Im Wald gibt es einen Bären. |
 | p_N_ga_kowai#2 | 熊が怖いです。 | くまがこわいです。 | kuma ga kowai desu. | Ich habe Angst vor dem Bären. |
 | p_N_wo_miru#2 | 熊を見ます。 | くまをみます。 | kuma o mimasu. | Ich sehe einen Bären. |
+| p_part_wa_pred#1 | 髪は長いです。 | かみはながいです。 | kami wa nagai desu. | Das Haar ist lang. |
+| p_part_wa_pred#2 | 髪は短いです。 | かみはみじかいです。 | kami wa mijikai desu. | Das Haar ist kurz. |
+| p_part_wa_pred#3 | 髪は黒いです。 | かみはくろいです。 | kami wa kuroi desu. | Das Haar ist schwarz. |
+| p_part_wa_pred#4 | 髪は茶色です。 | かみはちゃいろです。 | kami wa chairo desu. | Das Haar ist braun. |
+| p_part_wa_pred#5 | 髪は金色です。 | かみはきんいろです。 | kami wa kin'iro desu. | Das Haar ist blond. |
+| p_part_wa_pred#6 | 髪は巻き毛です。 | かみはまきげです。 | kami wa makige desu. | Das Haar ist lockig. |
+| p_part_wa_pred#7 | 髪はまっすぐです。 | かみはまっすぐです。 | kami wa massugu desu. | Das Haar ist glatt. |
+| p_part_wa_pred#8 | 目は大きいです。 | めはおおきいです。 | me wa ookii desu. | Die Augen sind groß. |
+| p_part_wa_pred#9 | 目は細いです。 | めはほそいです。 | me wa hosoi desu. | Die Augen sind schmal. |
+| p_part_wa_pred#10 | 目は青いです。 | めはあおいです。 | me wa aoi desu. | Die Augen sind blau. |
+| p_part_wa_pred#11 | 目は緑です。 | めはみどりです。 | me wa midori desu. | Die Augen sind grün. |
+| p_part_wa_pred#12 | 眉毛は太いです。 | まゆげはふといです。 | mayuge wa futoi desu. | Die Augenbrauen sind dick. |
+| p_part_wa_pred#13 | 鼻は高いです。 | はなはたかいです。 | hana wa takai desu. | Die Nase ist markant. |
+| p_part_wa_pred#14 | 鼻は低いです。 | はなはひくいです。 | hana wa hikui desu. | Die Nase ist flach. |
+| p_part_wa_pred#15 | 口は小さいです。 | くちはちいさいです。 | kuchi wa chiisai desu. | Der Mund ist klein. |
+| p_part_wa_pred#16 | 顔は丸いです。 | かおはまるいです。 | kao wa marui desu. | Das Gesicht ist rund. |
+| p_part_wa_pred#17 | 顔は四角いです。 | かおはしかくいです。 | kao wa shikakui desu. | Das Gesicht ist eckig. |
+| p_part_wa_pred#18 | シャツは赤いです。 | シャツはあかいです。 | shatsu wa akai desu. | Das Hemd ist rot. |
+| p_part_wa_pred#19 | ズボンは黒いです。 | ズボンはくろいです。 | zubon wa kuroi desu. | Die Hose ist schwarz. |
+| p_part_wa_pred#20 | スカートは緑です。 | スカートはみどりです。 | sukaato wa midori desu. | Der Rock ist grün. |
+| p_part_wa_pred#21 | 帽子は青いです。 | ぼうしはあおいです。 | boushi wa aoi desu. | Die Mütze ist blau. |
+| p_part_wa_pred#22 | 靴は白いです。 | くつはしろいです。 | kutsu wa shiroi desu. | Die Schuhe sind weiß. |
+| p_part_wa_pred#23 | シャツは黄色いです。 | シャツはきいろいです。 | shatsu wa kiiroi desu. | Das Hemd ist gelb. |

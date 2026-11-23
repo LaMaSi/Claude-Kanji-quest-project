@@ -103,7 +103,7 @@ export function startRound(size = 6) {
     A.save();
     const fresh = st.fresh.map(id => C().byId[id]).filter(Boolean);
     A.setScreen(() => ({ art: 'home', noBanner: true, title: 'おつかれさま！', titleDe: 'Geschafft!',
-      lines: [{ say: `${st.ok} von ${st.asked} richtig.${firstToday ? ' +10 XP, +20 円 für die erste Tagesrunde.' : ''} Serie: <b>${G().streak.days}</b> ${G().streak.days === 1 ? 'Tag' : 'Tage'}.` },
+      lines: [{ who: '{狸|たぬき} {先生|せんせい}', pic: 'tanuki', t: 'よく できました！', de: 'Gut gemacht!' }, { say: `${st.ok} von ${st.asked} richtig.${firstToday ? ' +10 XP, +20 円 für die erste Tagesrunde.' : ''} Serie: <b>${G().streak.days}</b> ${G().streak.days === 1 ? 'Tag' : 'Tage'}.` },
         ...(fresh.length ? [{ say: 'Neue Wörter: ' + fresh.map(w => `<span class="jp">${Jf(w.jp, true)}</span> (${displayDe(w)})`).join(', ') }] : [])],
       choices: [{ t: 'もう いちど', de: 'Noch eine Runde', fn: () => startRound(size) }, { t: 'むらへ もどる', de: 'Zurück ins Dorf', fn: () => A.go(G().loc in A.NODES ? G().loc : 'village') }] }));
   };

@@ -35,3 +35,10 @@ export const capFirst = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** German text shown for a word in lists/quizzes: nouns with definite article, everything else as is */
 export const displayDe = w => (w.pos === 'noun' ? np(w, 'nom', true) : w.de);
+
+/** one description sentence: part ("kami") + predicate ("nagai") -> { jp, de } e.g. 髪は 長いです。 / "Die Haare sind lang." */
+export function describe(part, pred) {
+  const predDe = pred.deBy?.[part.id] ?? pred.deAdj ?? pred.de;
+  const sub = part.subjPl ? `die ${part.pl}` : np(part, 'nom', true);
+  return { jp: `${part.jp} は ${pred.jp} です。`, de: capFirst(`${sub} ${part.subjPl ? 'sind' : 'ist'} ${predDe}.`) };
+}

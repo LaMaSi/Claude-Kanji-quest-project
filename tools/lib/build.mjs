@@ -60,6 +60,9 @@ export function buildSentences({ patterns, byId, reviewedSentences = {} }) {
         const v = slot(k);
         if (typeof v === 'number') return a === 'word' ? NUMBER_WORDS[v] : String(v);
         if (!a) return v.deSent ?? v.de;
+        if (a === 'sub') return v.subjPl ? `die ${v.pl}` : np(v, 'nom', true);
+        if (a === 'cop') return v.subjPl ? 'sind' : 'ist';
+        if (a === 'pred') return v.deBy?.[slot(b).id] ?? v.deAdj ?? v.de;
         if (a === 'pl') return v.pl;
         if (a === '1sg') return v.de1;
         if (a === 'in') return inDat(v);

@@ -29,3 +29,33 @@ Rules for your answer:
 | kuma | Nomen | 熊(くま) | 熊 | くま | kuma | der Bär (Nominativ mit bestimmtem Artikel); Plural: Bären; Akkusativ/Dativ Singular: den Bären | nein (im Spiel nur Kana) |  |
 | aru | Verb | ある  /  ます-Form: あります | ある | ある / あります | aru | es gibt / sich befinden (Dinge) | – | Für unbelebte Dinge. Für Lebewesen: いる. |
 | iru | Verb | いる  /  ます-Form: います | いる | いる / います | iru | es gibt / sich befinden (Lebewesen) | – | Für Lebewesen. Für unbelebte Dinge: ある. |
+| kami | Nomen | 髪(かみ) | 髪 | かみ | kami | das Haar (Nominativ mit bestimmtem Artikel); Plural: Haare | ja | Haupthaar. Im Deutschen oft Plural: „die Haare“. |
+| me | Nomen | 目(め) | 目 | め | me | das Auge (Nominativ mit bestimmtem Artikel); Plural: Augen | ja |  |
+| mayuge | Nomen | 眉毛(まゆげ) | 眉毛 | まゆげ | mayuge | die Augenbraue (Nominativ mit bestimmtem Artikel); Plural: Augenbrauen | nein (im Spiel nur Kana) |  |
+| hana | Nomen | 鼻(はな) | 鼻 | はな | hana | die Nase (Nominativ mit bestimmtem Artikel); Plural: Nasen | ja |  |
+| kuchi | Nomen | 口(くち) | 口 | くち | kuchi | der Mund (Nominativ mit bestimmtem Artikel); Plural: Münder | ja |  |
+| kao | Nomen | 顔(かお) | 顔 | かお | kao | das Gesicht (Nominativ mit bestimmtem Artikel); Plural: Gesichter | ja |  |
+| chairo | Nomen | 茶色(ちゃいろ) | 茶色 | ちゃいろ | chairo | das Braun (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Als Haar-/Augenfarbe: 茶色 = braun. |
+| kiniro | Nomen | 金色(きんいろ) | 金色 | きんいろ | kin'iro | das Gold (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Haarfarbe: blond (wörtlich „goldfarben“). |
+| midori | Nomen | 緑(みどり) | 緑 | みどり | midori | das Grün (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja |  |
+| massugu | i-Adjektiv | まっすぐ | まっすぐ | まっすぐ | massugu | gerade | – | na-Adjektiv. Bei Haaren: glatt. |
+| makige | Nomen | 巻(ま)き毛(げ) | 巻き毛 | まきげ | makige | die Locke (Nominativ mit bestimmtem Artikel); Plural: Locken | ja | Gelocktes Haar. |
+| weibu | Nomen | ウェーブ | ウェーブ | ウェーブ | ueebu | die Welle (Nominativ mit bestimmtem Artikel); Plural: Wellen | – | Gewelltes Haar (Lehnwort). |
+| nagai | i-Adjektiv | 長(なが)い | 長い | ながい | nagai | lang | ja |  |
+| mijikai | i-Adjektiv | 短(みじか)い | 短い | みじかい | mijikai | kurz | ja |  |
+| futoi | i-Adjektiv | 太(ふと)い | 太い | ふとい | futoi | dick | ja |  |
+| hosoi | i-Adjektiv | 細(ほそ)い | 細い | ほそい | hosoi | dünn | ja | Auch: schmal (Augen). |
+| marui | i-Adjektiv | 丸(まる)い | 丸い | まるい | marui | rund | ja |  |
+| shikakui | i-Adjektiv | 四角(しかく)い | 四角い | しかくい | shikakui | eckig | ja | Wörtlich „viereckig“. |
+| hikui | i-Adjektiv | 低(ひく)い | 低い | ひくい | hikui | niedrig | ja | Bei der Nase: flach. |
+| kuroi | i-Adjektiv | 黒(くろ)い | 黒い | くろい | kuroi | schwarz | ja |  |
+| shiroi | i-Adjektiv | 白(しろ)い | 白い | しろい | shiroi | weiß | ja |  |
+| akai | i-Adjektiv | 赤(あか)い | 赤い | あかい | akai | rot | ja |  |
+| aoi | i-Adjektiv | 青(あお)い | 青い | あおい | aoi | blau | ja |  |
+| kiiroi | i-Adjektiv | 黄色(きいろ)い | 黄色い | きいろい | kiiroi | gelb | ja |  |
+| shatsu | Nomen | シャツ | シャツ | シャツ | shatsu | das Hemd (Nominativ mit bestimmtem Artikel); Plural: Hemden | – |  |
+| zubon | Nomen | ズボン | ズボン | ズボン | zubon | die Hose (Nominativ mit bestimmtem Artikel); Plural: Hosen | – |  |
+| sukaato | Nomen | スカート | スカート | スカート | sukaato | der Rock (Nominativ mit bestimmtem Artikel); Plural: Röcke | – |  |
+| boushi | Nomen | 帽子(ぼうし) | 帽子 | ぼうし | boushi | die Mütze (Nominativ mit bestimmtem Artikel); Plural: Mützen | ja | Auch: Hut, Kappe. |
+| kutsu | Nomen | 靴(くつ) | 靴 | くつ | kutsu | der Schuh (Nominativ mit bestimmtem Artikel); Plural: Schuhe | ja |  |
+| tanuki | Nomen | 狸(たぬき) | 狸 | たぬき | tanuki | der Tanuki (Nominativ mit bestimmtem Artikel); Plural: Marderhunde | nein (im Spiel nur Kana) | Marderhund. In Japan ein Glücksbringer, der in Märchen seine Gestalt verwandeln kann. |

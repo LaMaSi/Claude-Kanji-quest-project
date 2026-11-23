@@ -63,18 +63,24 @@ export function parse(src) {
   });
 }
 
-/** render markup to HTML for the given mode: 'kanji' | 'kana' | 'romaji' */
-export function render(src, mode, furi) {
-  const words = parse(src);
-  const parts = words.map(segs => {
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+/** render markup to HTML for the given mode: 'kanji' | 'kana' | 'romaji'.
+ *  gloss(wordMarkup) -> string|null: when given, every word becomes a tappable span carrying its translation (data-g). */
+export function render(src, mode, furi, gloss) {
+  const raw = src.split(' '), words = parse(src);
+  const parts = words.map((segs, i) => {
+    let html;
     if (mode === 'kanji') {
-      return segs.map(s => s.kanji
+      html = segs.map(s => s.kanji
         ? (furi ? `<ruby>${s.k}<rt>${s.r}</rt></ruby>` : s.k)
         : s.k).join('');
+    } else {
+      const kana = segs.map(s => s.r).join('');
+      html = mode === 'kana' ? kana : romanizeChunk(kana);
     }
-    const kana = segs.map(s => s.r).join('');
-    if (mode === 'kana') return kana;
-    return romanizeChunk(kana);
+    if (!gloss || !html) return html;
+    const g = gloss(raw[i]);
+    return `<span class="tok"${g ? ` data-g="${esc(g)}"` : ''}>${html}</span>`;
   });
   return parts.join(mode === 'kanji' ? '' : ' ');
 }

@@ -582,5 +582,118 @@
    ]
   ],
   "status": "reviewed"
+ },
+ {
+  "id": "p_part_wa_pred",
+  "ch": "4",
+  "title": "Körperteil/Kleidung は 〜です",
+  "explain": "Beschreibung einer Person: Körperteil は Eigenschaft です. Bei Farben steht oft ein Nomen (茶色, 緑), sonst ein い-Adjektiv (黒い, 青い).",
+  "status": "draft",
+  "jp": "<a> は <b> です。",
+  "de": "[a.sub] [a.cop] [b.pred.a].",
+  "fills": [
+   {
+    "a": "kami",
+    "b": "nagai"
+   },
+   {
+    "a": "kami",
+    "b": "mijikai"
+   },
+   {
+    "a": "kami",
+    "b": "kuroi"
+   },
+   {
+    "a": "kami",
+    "b": "chairo"
+   },
+   {
+    "a": "kami",
+    "b": "kiniro"
+   },
+   {
+    "a": "kami",
+    "b": "makige"
+   },
+   {
+    "a": "kami",
+    "b": "massugu"
+   },
+   {
+    "a": "me",
+    "b": "ookii"
+   },
+   {
+    "a": "me",
+    "b": "hosoi"
+   },
+   {
+    "a": "me",
+    "b": "aoi"
+   },
+   {
+    "a": "me",
+    "b": "midori"
+   },
+   {
+    "a": "mayuge",
+    "b": "futoi"
+   },
+   {
+    "a": "hana",
+    "b": "takai"
+   },
+   {
+    "a": "hana",
+    "b": "hikui"
+   },
+   {
+    "a": "kuchi",
+    "b": "chiisai"
+   },
+   {
+    "a": "kao",
+    "b": "marui"
+   },
+   {
+    "a": "kao",
+    "b": "shikakui"
+   },
+   {
+    "a": "shatsu",
+    "b": "akai"
+   },
+   {
+    "a": "zubon",
+    "b": "kuroi"
+   },
+   {
+    "a": "sukaato",
+    "b": "midori"
+   },
+   {
+    "a": "boushi",
+    "b": "aoi"
+   },
+   {
+    "a": "kutsu",
+    "b": "shiroi"
+   },
+   {
+    "a": "shatsu",
+    "b": "kiiroi"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "bodypart",
+     "clothes"
+    ]
+   },
+   "b": {}
+  }
  }
 ]

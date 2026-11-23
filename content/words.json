@@ -566,8 +566,11 @@
   "de": "teuer",
   "ch": 2,
   "kanjiCommon": true,
-  "note": "Heißt auch: hoch.",
-  "status": "reviewed"
+  "note": "Heißt auch: hoch. Bei der Nase: markant, hoch.",
+  "status": "reviewed",
+  "deBy": {
+   "hana": "markant"
+  }
  },
  {
   "id": "yasui",
@@ -952,5 +955,361 @@
   "ch": 3,
   "kanjiCommon": true,
   "status": "reviewed"
+ },
+ {
+  "id": "kami",
+  "pos": "noun",
+  "jp": "{髪|かみ}",
+  "de": "Haar",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Haare",
+  "note": "Haupthaar. Im Deutschen oft Plural: „die Haare“."
+ },
+ {
+  "id": "me",
+  "pos": "noun",
+  "jp": "{目|め}",
+  "de": "Auge",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Augen",
+  "subjPl": true
+ },
+ {
+  "id": "mayuge",
+  "pos": "noun",
+  "jp": "{眉毛|まゆげ}",
+  "de": "Augenbraue",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Augenbrauen",
+  "subjPl": true,
+  "kanjiCommon": false
+ },
+ {
+  "id": "hana",
+  "pos": "noun",
+  "jp": "{鼻|はな}",
+  "de": "Nase",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Nasen"
+ },
+ {
+  "id": "kuchi",
+  "pos": "noun",
+  "jp": "{口|くち}",
+  "de": "Mund",
+  "gender": "m",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Münder"
+ },
+ {
+  "id": "kao",
+  "pos": "noun",
+  "jp": "{顔|かお}",
+  "de": "Gesicht",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "bodypart"
+  ],
+  "status": "draft",
+  "pl": "Gesichter"
+ },
+ {
+  "id": "chairo",
+  "pos": "noun",
+  "jp": "{茶色|ちゃいろ}",
+  "de": "Braun",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "color"
+  ],
+  "status": "draft",
+  "mass": true,
+  "deAdj": "braun",
+  "note": "Als Haar-/Augenfarbe: 茶色 = braun."
+ },
+ {
+  "id": "kiniro",
+  "pos": "noun",
+  "jp": "{金色|きんいろ}",
+  "de": "Gold",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "color"
+  ],
+  "status": "draft",
+  "mass": true,
+  "deAdj": "blond",
+  "note": "Haarfarbe: blond (wörtlich „goldfarben“)."
+ },
+ {
+  "id": "midori",
+  "pos": "noun",
+  "jp": "{緑|みどり}",
+  "de": "Grün",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "color"
+  ],
+  "status": "draft",
+  "mass": true,
+  "deAdj": "grün"
+ },
+ {
+  "id": "massugu",
+  "pos": "adj",
+  "jp": "まっすぐ",
+  "de": "gerade",
+  "ch": 4,
+  "status": "draft",
+  "deAdj": "glatt",
+  "na": true,
+  "note": "na-Adjektiv. Bei Haaren: glatt."
+ },
+ {
+  "id": "makige",
+  "pos": "noun",
+  "jp": "{巻|ま}き{毛|げ}",
+  "de": "Locke",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "descriptor"
+  ],
+  "status": "draft",
+  "deAdj": "lockig",
+  "pl": "Locken",
+  "note": "Gelocktes Haar."
+ },
+ {
+  "id": "weibu",
+  "pos": "noun",
+  "jp": "ウェーブ",
+  "de": "Welle",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "descriptor"
+  ],
+  "status": "draft",
+  "deAdj": "wellig",
+  "pl": "Wellen",
+  "note": "Gewelltes Haar (Lehnwort)."
+ },
+ {
+  "id": "nagai",
+  "pos": "adj",
+  "jp": "{長|なが}い",
+  "de": "lang",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "mijikai",
+  "pos": "adj",
+  "jp": "{短|みじか}い",
+  "de": "kurz",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "futoi",
+  "pos": "adj",
+  "jp": "{太|ふと}い",
+  "de": "dick",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "hosoi",
+  "pos": "adj",
+  "jp": "{細|ほそ}い",
+  "de": "dünn",
+  "ch": 4,
+  "status": "draft",
+  "deBy": {
+   "me": "schmal",
+   "mayuge": "dünn"
+  },
+  "note": "Auch: schmal (Augen)."
+ },
+ {
+  "id": "marui",
+  "pos": "adj",
+  "jp": "{丸|まる}い",
+  "de": "rund",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "shikakui",
+  "pos": "adj",
+  "jp": "{四角|しかく}い",
+  "de": "eckig",
+  "ch": 4,
+  "status": "draft",
+  "note": "Wörtlich „viereckig“."
+ },
+ {
+  "id": "hikui",
+  "pos": "adj",
+  "jp": "{低|ひく}い",
+  "de": "niedrig",
+  "ch": 4,
+  "status": "draft",
+  "deBy": {
+   "hana": "flach"
+  },
+  "note": "Bei der Nase: flach."
+ },
+ {
+  "id": "kuroi",
+  "pos": "adj",
+  "jp": "{黒|くろ}い",
+  "de": "schwarz",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "shiroi",
+  "pos": "adj",
+  "jp": "{白|しろ}い",
+  "de": "weiß",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "akai",
+  "pos": "adj",
+  "jp": "{赤|あか}い",
+  "de": "rot",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "aoi",
+  "pos": "adj",
+  "jp": "{青|あお}い",
+  "de": "blau",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "kiiroi",
+  "pos": "adj",
+  "jp": "{黄色|きいろ}い",
+  "de": "gelb",
+  "ch": 4,
+  "status": "draft"
+ },
+ {
+  "id": "shatsu",
+  "pos": "noun",
+  "jp": "シャツ",
+  "de": "Hemd",
+  "gender": "n",
+  "ch": 4,
+  "tags": [
+   "clothes"
+  ],
+  "status": "draft",
+  "pl": "Hemden"
+ },
+ {
+  "id": "zubon",
+  "pos": "noun",
+  "jp": "ズボン",
+  "de": "Hose",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "clothes"
+  ],
+  "status": "draft",
+  "pl": "Hosen"
+ },
+ {
+  "id": "sukaato",
+  "pos": "noun",
+  "jp": "スカート",
+  "de": "Rock",
+  "gender": "m",
+  "ch": 4,
+  "tags": [
+   "clothes"
+  ],
+  "status": "draft",
+  "pl": "Röcke"
+ },
+ {
+  "id": "boushi",
+  "pos": "noun",
+  "jp": "{帽子|ぼうし}",
+  "de": "Mütze",
+  "gender": "f",
+  "ch": 4,
+  "tags": [
+   "clothes"
+  ],
+  "status": "draft",
+  "pl": "Mützen",
+  "note": "Auch: Hut, Kappe."
+ },
+ {
+  "id": "kutsu",
+  "pos": "noun",
+  "jp": "{靴|くつ}",
+  "de": "Schuh",
+  "gender": "m",
+  "ch": 4,
+  "tags": [
+   "clothes"
+  ],
+  "status": "draft",
+  "pl": "Schuhe",
+  "subjPl": true
+ },
+ {
+  "id": "tanuki",
+  "pos": "noun",
+  "jp": "{狸|たぬき}",
+  "de": "Tanuki",
+  "gender": "m",
+  "ch": 3,
+  "tags": [
+   "animate",
+   "animal"
+  ],
+  "status": "draft",
+  "pl": "Marderhunde",
+  "kanjiCommon": false,
+  "note": "Marderhund. In Japan ein Glücksbringer, der in Märchen seine Gestalt verwandeln kann."
  }
 ]

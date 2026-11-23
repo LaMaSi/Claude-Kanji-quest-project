@@ -1140,5 +1140,350 @@
    "miru"
   ],
   "status": "reviewed"
+ },
+ {
+  "id": "p_part_wa_pred#1",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {長|なが}い です。",
+  "jpFull": "{髪|かみ} は {長|なが}い です。",
+  "romaji": "kami wa nagai desu.",
+  "kana": "かみ は ながい です。",
+  "de": "Das Haar ist lang.",
+  "words": [
+   "kami",
+   "nagai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#2",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {短|みじか}い です。",
+  "jpFull": "{髪|かみ} は {短|みじか}い です。",
+  "romaji": "kami wa mijikai desu.",
+  "kana": "かみ は みじかい です。",
+  "de": "Das Haar ist kurz.",
+  "words": [
+   "kami",
+   "mijikai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#3",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {黒|くろ}い です。",
+  "jpFull": "{髪|かみ} は {黒|くろ}い です。",
+  "romaji": "kami wa kuroi desu.",
+  "kana": "かみ は くろい です。",
+  "de": "Das Haar ist schwarz.",
+  "words": [
+   "kami",
+   "kuroi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#4",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {茶色|ちゃいろ} です。",
+  "jpFull": "{髪|かみ} は {茶色|ちゃいろ} です。",
+  "romaji": "kami wa chairo desu.",
+  "kana": "かみ は ちゃいろ です。",
+  "de": "Das Haar ist braun.",
+  "words": [
+   "kami",
+   "chairo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#5",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {金色|きんいろ} です。",
+  "jpFull": "{髪|かみ} は {金色|きんいろ} です。",
+  "romaji": "kami wa kin'iro desu.",
+  "kana": "かみ は きんいろ です。",
+  "de": "Das Haar ist blond.",
+  "words": [
+   "kami",
+   "kiniro"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#6",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は {巻|ま}き{毛|げ} です。",
+  "jpFull": "{髪|かみ} は {巻|ま}き{毛|げ} です。",
+  "romaji": "kami wa makige desu.",
+  "kana": "かみ は まきげ です。",
+  "de": "Das Haar ist lockig.",
+  "words": [
+   "kami",
+   "makige"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#7",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{髪|かみ} は まっすぐ です。",
+  "jpFull": "{髪|かみ} は まっすぐ です。",
+  "romaji": "kami wa massugu desu.",
+  "kana": "かみ は まっすぐ です。",
+  "de": "Das Haar ist glatt.",
+  "words": [
+   "kami",
+   "massugu"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#8",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{目|め} は {大|おお}きい です。",
+  "jpFull": "{目|め} は {大|おお}きい です。",
+  "romaji": "me wa ookii desu.",
+  "kana": "め は おおきい です。",
+  "de": "Die Augen sind groß.",
+  "words": [
+   "me",
+   "ookii"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#9",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{目|め} は {細|ほそ}い です。",
+  "jpFull": "{目|め} は {細|ほそ}い です。",
+  "romaji": "me wa hosoi desu.",
+  "kana": "め は ほそい です。",
+  "de": "Die Augen sind schmal.",
+  "words": [
+   "me",
+   "hosoi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#10",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{目|め} は {青|あお}い です。",
+  "jpFull": "{目|め} は {青|あお}い です。",
+  "romaji": "me wa aoi desu.",
+  "kana": "め は あおい です。",
+  "de": "Die Augen sind blau.",
+  "words": [
+   "me",
+   "aoi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#11",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{目|め} は {緑|みどり} です。",
+  "jpFull": "{目|め} は {緑|みどり} です。",
+  "romaji": "me wa midori desu.",
+  "kana": "め は みどり です。",
+  "de": "Die Augen sind grün.",
+  "words": [
+   "me",
+   "midori"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#12",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "まゆげ は {太|ふと}い です。",
+  "jpFull": "{眉毛|まゆげ} は {太|ふと}い です。",
+  "romaji": "mayuge wa futoi desu.",
+  "kana": "まゆげ は ふとい です。",
+  "de": "Die Augenbrauen sind dick.",
+  "words": [
+   "mayuge",
+   "futoi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#13",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{鼻|はな} は {高|たか}い です。",
+  "jpFull": "{鼻|はな} は {高|たか}い です。",
+  "romaji": "hana wa takai desu.",
+  "kana": "はな は たかい です。",
+  "de": "Die Nase ist markant.",
+  "words": [
+   "hana",
+   "takai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#14",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{鼻|はな} は {低|ひく}い です。",
+  "jpFull": "{鼻|はな} は {低|ひく}い です。",
+  "romaji": "hana wa hikui desu.",
+  "kana": "はな は ひくい です。",
+  "de": "Die Nase ist flach.",
+  "words": [
+   "hana",
+   "hikui"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#15",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{口|くち} は {小|ちい}さい です。",
+  "jpFull": "{口|くち} は {小|ちい}さい です。",
+  "romaji": "kuchi wa chiisai desu.",
+  "kana": "くち は ちいさい です。",
+  "de": "Der Mund ist klein.",
+  "words": [
+   "kuchi",
+   "chiisai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#16",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{顔|かお} は {丸|まる}い です。",
+  "jpFull": "{顔|かお} は {丸|まる}い です。",
+  "romaji": "kao wa marui desu.",
+  "kana": "かお は まるい です。",
+  "de": "Das Gesicht ist rund.",
+  "words": [
+   "kao",
+   "marui"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#17",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{顔|かお} は {四角|しかく}い です。",
+  "jpFull": "{顔|かお} は {四角|しかく}い です。",
+  "romaji": "kao wa shikakui desu.",
+  "kana": "かお は しかくい です。",
+  "de": "Das Gesicht ist eckig.",
+  "words": [
+   "kao",
+   "shikakui"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#18",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "シャツ は {赤|あか}い です。",
+  "jpFull": "シャツ は {赤|あか}い です。",
+  "romaji": "shatsu wa akai desu.",
+  "kana": "シャツ は あかい です。",
+  "de": "Das Hemd ist rot.",
+  "words": [
+   "shatsu",
+   "akai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#19",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "ズボン は {黒|くろ}い です。",
+  "jpFull": "ズボン は {黒|くろ}い です。",
+  "romaji": "zubon wa kuroi desu.",
+  "kana": "ズボン は くろい です。",
+  "de": "Die Hose ist schwarz.",
+  "words": [
+   "zubon",
+   "kuroi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#20",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "スカート は {緑|みどり} です。",
+  "jpFull": "スカート は {緑|みどり} です。",
+  "romaji": "sukaato wa midori desu.",
+  "kana": "スカート は みどり です。",
+  "de": "Der Rock ist grün.",
+  "words": [
+   "sukaato",
+   "midori"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#21",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{帽子|ぼうし} は {青|あお}い です。",
+  "jpFull": "{帽子|ぼうし} は {青|あお}い です。",
+  "romaji": "boushi wa aoi desu.",
+  "kana": "ぼうし は あおい です。",
+  "de": "Die Mütze ist blau.",
+  "words": [
+   "boushi",
+   "aoi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#22",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "{靴|くつ} は {白|しろ}い です。",
+  "jpFull": "{靴|くつ} は {白|しろ}い です。",
+  "romaji": "kutsu wa shiroi desu.",
+  "kana": "くつ は しろい です。",
+  "de": "Die Schuhe sind weiß.",
+  "words": [
+   "kutsu",
+   "shiroi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_part_wa_pred#23",
+  "pattern": "p_part_wa_pred",
+  "ch": 4,
+  "jp": "シャツ は {黄色|きいろ}い です。",
+  "jpFull": "シャツ は {黄色|きいろ}い です。",
+  "romaji": "shatsu wa kiiroi desu.",
+  "kana": "シャツ は きいろい です。",
+  "de": "Das Hemd ist gelb.",
+  "words": [
+   "shatsu",
+   "kiiroi"
+  ],
+  "status": "draft"
  }
 ]

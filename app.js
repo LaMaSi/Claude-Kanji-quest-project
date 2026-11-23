@@ -1,15 +1,17 @@
 import { render, num, count, speakText } from './lang.js';
 import { drawScene, initScenes } from './stage.js';
 import { spriteEl, hasSprite } from './sprites.js';
-import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF, CONTENT } from './data.js';
+import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF, CONTENT, glossOf } from './data.js';
 import * as E from './engine.js';
+import { initPeople, openEditor, startSearch } from './peopleui.js';
+import { drawPortrait, DEFAULT_LOOK } from './people.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, avatar: null, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -23,6 +25,8 @@ function loadSave() {
 let G = loadSave();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(G)); } catch {} };
 const J = src => render(src, G.mode, G.furi);
+/** like J, but every word can be tapped to see its translation (story lines) */
+const Jt = src => render(src, G.mode, G.furi, glossOf);
 const rnd = n => Math.floor(Math.random() * n);
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const see = ids => { for (const i of ids) if (CONTENT.byId[i]) E.ensureItem(G, i).exposed = 1; };
@@ -66,9 +70,9 @@ function draw() {
     const d = document.createElement('div');
     if (l.say) { d.className = 'say'; d.innerHTML = l.say; text.appendChild(d); continue; }
     d.className = 'line';
-    const pic = l.pic || WHO_PIC[l.who], sp = pic && spriteEl(pic, 64);
+    const pic = l.pic || WHO_PIC[l.who], sp = pic && spriteEl(pic, 80);
     d.innerHTML = `<div class="body"><div class="who"><span>${l.who ? J(l.who) : ''}</span><button class="spk" aria-label="Vorlesen">🔊</button></div>` +
-      `<div class="jp">${J(l.t)}</div>` + (G.help && l.de ? `<div class="de">${l.de}</div>` : '') + '</div>';
+      `<div class="jp">${Jt(l.t)}</div>` + (G.help && l.de ? `<div class="de">${l.de}</div>` : '') + '</div>';
     if (sp) d.prepend(sp);
     d.querySelector('.spk').onclick = () => speak(l.t);
     text.appendChild(d);
@@ -107,6 +111,21 @@ document.querySelectorAll('#scriptsw button').forEach(b => { b.onclick = () => {
 $('#bFuri').onclick = () => { G.furi = !G.furi; if (G.mode !== 'kanji') G.mode = 'kanji'; save(); draw(); refreshSheet(); };
 $('#bHelp').onclick = () => { G.help = !G.help; save(); draw(); refreshSheet(); };
 $('#bMenu').onclick = () => openSheet(menuSheet);
+
+// ---------- tap a word to see its translation ----------
+let tipTimer = 0;
+function hideTip() { document.querySelector('#tip')?.remove(); clearTimeout(tipTimer); }
+document.addEventListener('click', e => {
+  const t = e.target.closest?.('.tok');
+  hideTip();
+  if (!t) return;
+  const g = t.dataset.g, tip = document.createElement('div'); tip.id = 'tip'; tip.textContent = g || 'Noch nicht im Wörterbuch'; if (!g) tip.classList.add('unk');
+  document.body.appendChild(tip);
+  const r = t.getBoundingClientRect(), w = tip.offsetWidth;
+  tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left + r.width / 2 - w / 2)) + 'px';
+  tip.style.top = Math.max(8, r.top - tip.offsetHeight - 8) + 'px';
+  tipTimer = setTimeout(hideTip, 4000);
+}, true);
 
 // ---------- overlay sheet ----------
 let sheetFn = null;
@@ -166,12 +185,13 @@ const NODES = {
   village() {
     see(['mura', 'mise', 'sakaba', 'ie', 'shiro']);
     const lines = [];
-    if (!G.flags.intro) lines.push({ who: '{語|かた}り{手|て}', t: '{夜|よる} の {村|むら}。{狼|おおかみ} が {月|つき} に {吠|ほ}える。', de: 'Nachts im Dorf. Ein Wolf heult den Mond an.' });
+    if (!G.flags.intro) lines.push({ who: '{語|かた}り{手|て}', t: '{夜|よる} の {村|むら}。 {狼|おおかみ} が {月|つき} に {吠|ほ}える。', de: 'Nachts im Dorf. Ein Wolf heult den Mond an.' });
     else lines.push({ say: 'Die Nacht ist still. Wohin gehst du?' });
     const ch = [
       { t: '{今日|きょう}の ふくしゅう', de: G.flags.lastDaily === new Date().toLocaleDateString('sv-SE') ? `Tagesrunde (heute erledigt ✔, Serie ${G.streak.days})` : `Tagesrunde (ca. 3 Min, Serie ${G.streak.days})`, fn: () => { startRound(6); } },
       { t: '{店|みせ} へ いく', de: 'Zum Laden gehen', go: 'shop' },
       { t: '{酒場|さかば} へ いく', de: 'In die Taverne gehen', go: 'tavern' },
+      { t: '{掲示板|けいじばん} を みる', de: 'Zur Aushangtafel (Personen suchen)', go: 'board' },
       { t: 'おばあさん と はなす', de: 'Mit der alten Frau sprechen', go: 'granny' },
       { t: '{家|いえ} へ かえる', de: 'Nach Hause gehen', go: 'home' },
     ];
@@ -185,9 +205,19 @@ const NODES = {
       choices: [
         { t: 'ねる', de: 'Schlafen (HP auffüllen)', fn: () => { G.hp = G.maxhp; save(); toast('おやすみなさい… HP voll'); } },
         { t: '{勉強|べんきょう}', de: 'Lernen (Wiederholung & Kanji)', fn: () => { openSheet(studySheet); } },
+        { t: 'キャラクター', de: 'Charakter-Editor (Gesicht & Kleidung beschreiben)', fn: () => { openEditor(); } },
         { t: 'セーブ', de: 'Speichern', fn: () => { save(); toast('Gespeichert ✔'); } },
         { t: 'もどる', de: 'Zurück', go: 'village' },
       ] };
+  },
+
+  board() {
+    return { art: 'board', title: '{掲示板|けいじばん}', titleDe: 'Die Aushangtafel',
+      lines: [{ say: 'Auf der Tafel hängen Suchmeldungen. Lies die Beschreibung und finde die gesuchte Person.' }],
+      choices: [
+        { t: '{人探|ひとさが}し: かお', de: 'Person am Gesicht erkennen', fn: () => { startSearch('face'); } },
+        { t: '{人探|ひとさが}し: ふく', de: 'Person an der Kleidung erkennen', fn: () => { startSearch('outfit'); } },
+        { t: 'もどる', de: 'Zurück ins Dorf', go: 'village' }] };
   },
 
   shop() {
@@ -403,6 +433,7 @@ function invSheet(s) {
 function statusSheet(s) {
   s.innerHTML = `<h2>${lbl('ステータス', 'Werte')}</h2>`;
   const row = (a, b) => s.insertAdjacentHTML('beforeend', `<div class="kv"><span class="jp">${a}</span><span>${b}</span></div>`);
+  if (G.avatar) { const pc = drawPortrait(G.avatar); pc.className = 'sprite'; pc.style.cssText = 'width:120px;height:120px;image-rendering:pixelated;display:block;margin:0 auto 10px;border:1px solid var(--line);border-radius:10px'; s.appendChild(pc); }
   row(J('{勉強|べんきょう}'), `${E.introduced(G).length} Wörter · Serie ${G.streak.days}`); row('HP', `${G.hp} / ${G.maxhp}`); row('Lv', G.lv); row('XP', `${G.xp} / ${G.lv * 40}`); row(J('お{金|かね}'), `${G.gold} 円`);
   s.insertAdjacentHTML('beforeend', `<h2 style="margin-top:16px">${lbl('クエスト', 'Aufträge')}</h2>`);
   const stat = n => ['offen', 'läuft', '✔ erledigt'][n];
@@ -444,7 +475,7 @@ async function applyReminder(interactive) {
     let p = await ln.checkPermissions();
     if (p.display !== 'granted' && interactive) p = await ln.requestPermissions();
     if (p.display !== 'granted') { r.on = false; save(); if (interactive) toast('Benachrichtigungen sind nicht erlaubt (Android-Einstellungen)'); return false; }
-    await ln.schedule({ notifications: [{ id: 1, title: 'Wolfsdorf', body: 'Zeit für deine Tagesrunde – 3 Minuten reichen.', schedule: { on: { hour: r.h, minute: r.m }, allowWhileIdle: true } }] });
+    await ln.schedule({ notifications: [{ id: 1, title: 'Tanuki Sensei', body: 'Zeit für deine Tagesrunde – 3 Minuten reichen.', schedule: { on: { hour: r.h, minute: r.m }, allowWhileIdle: true } }] });
     return true;
   } catch (e) { if (interactive) toast('Erinnerung konnte nicht gesetzt werden'); return false; }
 }
@@ -466,6 +497,7 @@ function reminderSheet(s) {
 setTimeout(() => applyReminder(false), 1500);   // re-register after app updates / restarts
 
 // ---------- start ----------
+initPeople({ G: () => G, save, setScreen, redraw: () => draw(), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES });
 initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();
