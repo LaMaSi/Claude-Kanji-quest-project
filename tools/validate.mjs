@@ -69,6 +69,19 @@ for (const w of words) {
   if (w.kanjiCommon !== undefined && !KANJI_RE.test(kanjiText(w.jp))) err(`${at}: kanjiCommon only makes sense for words with kanji`);
 }
 
+// places need a German locative phrase ("am See"); world.json must only use existing words and scenes
+for (const w of words) if ((w.tags || []).includes('place') && !w.deLoc) err(`word ${w.id}: place without deLoc (e.g. "am See")`);
+{
+  const world = JSON.parse((await import('fs')).readFileSync(new URL('../content/world.json', import.meta.url), 'utf8'));
+  const { ART } = await import('../art.js'); const art = Object.keys(ART);
+  for (const p of world.places) {
+    if (!byId[p.word] || !(byId[p.word].tags || []).includes('place')) err(`world place ${p.id}: word "${p.word}" missing or not a place`);
+    if (!art.includes(p.art)) err(`world place ${p.id}: scene "${p.art}" not drawn in art.js`);
+    for (const id of [...p.items, ...p.animals]) if (!byId[id]) err(`world place ${p.id}: unknown word "${id}"`);
+    if (!(p.x >= 0 && p.x <= 100 && p.y >= 0 && p.y <= 100)) err(`world place ${p.id}: bad position`);
+  }
+}
+
 // every noun needs a picture (sprites.js); people need a portrait
 for (const w of words) if (w.pos === 'noun' && !(w.tags || []).includes('descriptor') && !SPRITE_IDS.includes(w.id)) err(`word ${w.id}: noun without a sprite in sprites.js`);
 for (const id of SPRITE_IDS) if (!byId[id]) warn(`sprites.js: sprite "${id}" has no word`);

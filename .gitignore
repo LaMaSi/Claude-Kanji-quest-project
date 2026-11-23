@@ -5,3 +5,4 @@ android/keystore.properties
 android/keystore/
 *.jks
 art/parts/
+art/fonts-src/*.ttf

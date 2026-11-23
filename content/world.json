@@ -1,0 +1,126 @@
+{
+ "places": [
+  {
+   "id": "village",
+   "word": "mura",
+   "art": "village",
+   "x": 50,
+   "y": 50,
+   "lv": 1,
+   "items": [
+    "pan",
+    "ocha",
+    "tamago",
+    "kusuri"
+   ],
+   "animals": [
+    "neko",
+    "inu"
+   ]
+  },
+  {
+   "id": "field",
+   "word": "hatake",
+   "art": "field",
+   "x": 62,
+   "y": 68,
+   "lv": 1,
+   "items": [
+    "kyuuri",
+    "ringo",
+    "tamago"
+   ],
+   "animals": [
+    "ushi",
+    "buta",
+    "uma"
+   ]
+  },
+  {
+   "id": "woods",
+   "word": "mori",
+   "art": "woods",
+   "x": 32,
+   "y": 72,
+   "lv": 1,
+   "items": [],
+   "animals": [
+    "okami",
+    "kuma",
+    "kitsune",
+    "tori"
+   ]
+  },
+  {
+   "id": "lake",
+   "word": "mizuumi",
+   "art": "lake",
+   "x": 24,
+   "y": 40,
+   "lv": 2,
+   "items": [
+    "sakana",
+    "mizu"
+   ],
+   "animals": [
+    "tori"
+   ]
+  },
+  {
+   "id": "town",
+   "word": "machi",
+   "art": "town",
+   "x": 72,
+   "y": 42,
+   "lv": 2,
+   "items": [
+    "momo",
+    "pan",
+    "osake",
+    "kusuri"
+   ],
+   "animals": []
+  },
+  {
+   "id": "shore",
+   "word": "hamabe",
+   "art": "shore",
+   "x": 88,
+   "y": 62,
+   "lv": 3,
+   "items": [
+    "sakana"
+   ],
+   "animals": [
+    "tori"
+   ]
+  },
+  {
+   "id": "mountains",
+   "word": "yama",
+   "art": "mountains",
+   "x": 50,
+   "y": 16,
+   "lv": 3,
+   "items": [],
+   "animals": [
+    "kuma",
+    "tori"
+   ]
+  },
+  {
+   "id": "city",
+   "word": "tokai",
+   "art": "city",
+   "x": 80,
+   "y": 20,
+   "lv": 4,
+   "items": [
+    "kusuri",
+    "osake",
+    "niku"
+   ],
+   "animals": []
+  }
+ ]
+}

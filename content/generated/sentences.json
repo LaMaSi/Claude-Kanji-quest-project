@@ -371,6 +371,76 @@
   "status": "reviewed"
  },
  {
+  "id": "p_N_doko#6",
+  "pattern": "p_N_doko",
+  "ch": 5,
+  "jp": "{湖|みずうみ} は どこ です か。",
+  "jpFull": "{湖|みずうみ} は どこ です か。",
+  "romaji": "mizuumi wa doko desu ka.",
+  "kana": "みずうみ は どこ です か。",
+  "de": "Wo ist der See?",
+  "words": [
+   "mizuumi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#7",
+  "pattern": "p_N_doko",
+  "ch": 5,
+  "jp": "はまべ は どこ です か。",
+  "jpFull": "{浜辺|はまべ} は どこ です か。",
+  "romaji": "hamabe wa doko desu ka.",
+  "kana": "はまべ は どこ です か。",
+  "de": "Wo ist der Strand?",
+  "words": [
+   "hamabe"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#8",
+  "pattern": "p_N_doko",
+  "ch": 5,
+  "jp": "{町|まち} は どこ です か。",
+  "jpFull": "{町|まち} は どこ です か。",
+  "romaji": "machi wa doko desu ka.",
+  "kana": "まち は どこ です か。",
+  "de": "Wo ist die Kleinstadt?",
+  "words": [
+   "machi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#9",
+  "pattern": "p_N_doko",
+  "ch": 5,
+  "jp": "{都会|とかい} は どこ です か。",
+  "jpFull": "{都会|とかい} は どこ です か。",
+  "romaji": "tokai wa doko desu ka.",
+  "kana": "とかい は どこ です か。",
+  "de": "Wo ist die Großstadt?",
+  "words": [
+   "tokai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_doko#10",
+  "pattern": "p_N_doko",
+  "ch": 5,
+  "jp": "{畑|はたけ} は どこ です か。",
+  "jpFull": "{畑|はたけ} は どこ です か。",
+  "romaji": "hatake wa doko desu ka.",
+  "kana": "はたけ は どこ です か。",
+  "de": "Wo ist das Feld?",
+  "words": [
+   "hatake"
+  ],
+  "status": "draft"
+ },
+ {
   "id": "p_N_wo_kudasai#1",
   "pattern": "p_N_wo_kudasai",
   "ch": 2,
@@ -1483,6 +1553,186 @@
   "words": [
    "shatsu",
    "kiiroi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#1",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "きゅうり は {畑|はたけ} に あります。",
+  "jpFull": "きゅうり は {畑|はたけ} に あります。",
+  "romaji": "kyuuri wa hatake ni arimasu.",
+  "kana": "きゅうり は はたけ に あります。",
+  "de": "Gurken gibt es auf dem Feld.",
+  "words": [
+   "kyuuri",
+   "hatake"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#2",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "りんご は {畑|はたけ} に あります。",
+  "jpFull": "りんご は {畑|はたけ} に あります。",
+  "romaji": "ringo wa hatake ni arimasu.",
+  "kana": "りんご は はたけ に あります。",
+  "de": "Äpfel gibt es auf dem Feld.",
+  "words": [
+   "ringo",
+   "hatake"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#3",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{魚|さかな} は {湖|みずうみ} に あります。",
+  "jpFull": "{魚|さかな} は {湖|みずうみ} に あります。",
+  "romaji": "sakana wa mizuumi ni arimasu.",
+  "kana": "さかな は みずうみ に あります。",
+  "de": "Fische gibt es am See.",
+  "words": [
+   "sakana",
+   "mizuumi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#4",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{魚|さかな} は はまべ に あります。",
+  "jpFull": "{魚|さかな} は {浜辺|はまべ} に あります。",
+  "romaji": "sakana wa hamabe ni arimasu.",
+  "kana": "さかな は はまべ に あります。",
+  "de": "Fische gibt es am Strand.",
+  "words": [
+   "sakana",
+   "hamabe"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#5",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{桃|もも} は {町|まち} に あります。",
+  "jpFull": "{桃|もも} は {町|まち} に あります。",
+  "romaji": "momo wa machi ni arimasu.",
+  "kana": "もも は まち に あります。",
+  "de": "Pfirsiche gibt es in der Kleinstadt.",
+  "words": [
+   "momo",
+   "machi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#6",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "パン は {町|まち} に あります。",
+  "jpFull": "パン は {町|まち} に あります。",
+  "romaji": "pan wa machi ni arimasu.",
+  "kana": "パン は まち に あります。",
+  "de": "Brote gibt es in der Kleinstadt.",
+  "words": [
+   "pan",
+   "machi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#7",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{薬|くすり} は {都会|とかい} に あります。",
+  "jpFull": "{薬|くすり} は {都会|とかい} に あります。",
+  "romaji": "kusuri wa tokai ni arimasu.",
+  "kana": "くすり は とかい に あります。",
+  "de": "Medizin gibt es in der Großstadt.",
+  "words": [
+   "kusuri",
+   "tokai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#8",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{肉|にく} は {都会|とかい} に あります。",
+  "jpFull": "{肉|にく} は {都会|とかい} に あります。",
+  "romaji": "niku wa tokai ni arimasu.",
+  "kana": "にく は とかい に あります。",
+  "de": "Fleisch gibt es in der Großstadt.",
+  "words": [
+   "niku",
+   "tokai"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#9",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "お{茶|ちゃ} は {村|むら} に あります。",
+  "jpFull": "お{茶|ちゃ} は {村|むら} に あります。",
+  "romaji": "ocha wa mura ni arimasu.",
+  "kana": "おちゃ は むら に あります。",
+  "de": "Tee gibt es im Dorf.",
+  "words": [
+   "ocha",
+   "mura"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#10",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{卵|たまご} は {村|むら} に あります。",
+  "jpFull": "{卵|たまご} は {村|むら} に あります。",
+  "romaji": "tamago wa mura ni arimasu.",
+  "kana": "たまご は むら に あります。",
+  "de": "Eier gibt es im Dorf.",
+  "words": [
+   "tamago",
+   "mura"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#11",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{水|みず} は {川|かわ} に あります。",
+  "jpFull": "{水|みず} は {川|かわ} に あります。",
+  "romaji": "mizu wa kawa ni arimasu.",
+  "kana": "みず は かわ に あります。",
+  "de": "Wasser gibt es am Fluss.",
+  "words": [
+   "mizu",
+   "kawa"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#12",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "{地図|ちず} は {店|みせ} に あります。",
+  "jpFull": "{地図|ちず} は {店|みせ} に あります。",
+  "romaji": "chizu wa mise ni arimasu.",
+  "kana": "ちず は みせ に あります。",
+  "de": "Karten gibt es im Laden.",
+  "words": [
+   "chizu",
+   "mise"
   ],
   "status": "draft"
  }

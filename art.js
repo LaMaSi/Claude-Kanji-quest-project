@@ -150,6 +150,53 @@ export const ART = {
     wolf(g, 40, 46, 0.78);
     g.rect(40, 5, 0, 0);
   },
+  lake(g) {
+    stars(g, 18, 20); fullMoon(g, 76, 11, 5); mountains(g, 28, 2.1);
+    g.rect(0, 29, W, 25, 0); g.line(0, 28, W, 28);
+    g.dither(8, 31, 80, 10, 0); g.dither(40, 42, 50, 8, 1); g.rect(70, 31, 6, 1, 0); g.rect(68, 34, 10, 1, 0);           // moon reflection
+    for (const x of [6, 10, 86, 90]) { g.line(x, 28, x, 20); g.line(x + 2, 28, x + 2, 22); g.px(x, 19); g.px(x + 2, 21); }  // reeds
+    g.rect(30, 38, 30, 2); for (const x of [32, 40, 48, 56]) g.rect(x, 40, 2, 6);                                          // jetty
+    ground(g, 50);
+  },
+  shore(g) {
+    stars(g, 16, 14); moon(g, 80, 10, 5);
+    g.line(0, 24, W, 24); for (let x = 0; x < W; x += 2) g.px(x, 24 + Math.round(Math.sin(x * 0.6)));
+    for (let y = 27; y < 40; y += 4) for (let x = (y % 8) ; x < W; x += 6) { g.px(x, y); g.px(x + 1, y); g.px(x + 2, y + 1); }
+    g.poly([[0, 40], [W, 36], [W, 54], [0, 54]]); g.dither(0, 41, W, 5, 0, 0);                                         // sand
+    g.poly([[52, 38], [70, 38], [66, 44], [56, 44]], 1); g.rect(52, 37, 18, 1, 0); g.line(61, 37, 61, 28); g.poly([[61, 28], [61, 36], [68, 36]]); // boat + sail
+    g.ring(18, 48, 3); g.px(18, 48);
+    lantern(g, 86, 40);
+  },
+  woods(g) {
+    stars(g, 12, 12); fullMoon(g, 70, 8, 5);
+    for (let x = 4; x < W; x += 11) tree(g, x, 46 + (x % 3), 1 + (x % 2) * 0.4);
+    for (let x = 0; x < W; x += 13) tree(g, x + 6, 50, 1.3);
+    g.poly([[40, 54], [52, 54], [49, 46], [44, 46]], 0); ground(g, 50);
+  },
+  mountains(g) {
+    stars(g, 30, 22); moon(g, 12, 9, 5);
+    const peak = (x, y, w) => { g.poly([[x - w, 46], [x, y], [x + w, 46]]); g.poly([[x - w * 0.35, y + w * 0.5], [x, y], [x + w * 0.35, y + w * 0.5], [x, y + w * 0.35]], 0); };
+    peak(30, 10, 28); peak(64, 16, 22); peak(84, 22, 14); ground(g, 46);
+    g.line(44, 54, 52, 46); g.line(58, 54, 54, 46); g.dither(0, 47, W, 6, 1);
+  },
+  field(g) {
+    stars(g, 14, 18); moon(g, 80, 9, 5); ground(g, 30);
+    for (const [y, step] of [[34, 4], [38, 5], [43, 6], [49, 7]]) { g.rect(0, y, W, 1); for (let x = step; x < W; x += step * 2) { g.line(x, y - 1, x, y - 3); g.px(x - 1, y - 3); g.px(x + 1, y - 3); } }
+    g.frame(8, 20, 20, 10); g.poly([[6, 20], [18, 12], [30, 20]]); g.rect(15, 24, 6, 6, 0);                                  // barn
+    g.line(70, 30, 70, 20); g.line(64, 23, 76, 23); g.disc(70, 19, 2); g.poly([[66, 14], [70, 10], [74, 14]]);                 // scarecrow
+  },
+  town(g) {
+    stars(g, 14, 18); moon(g, 84, 9, 5); mountains(g, 26, 1.1); ground(g, 46);
+    house(g, 6, 34, 14, 12); house(g, 24, 32, 12, 14, false); house(g, 62, 33, 14, 13); house(g, 80, 35, 12, 11);
+    g.poly([[38, 46], [42, 38], [56, 38], [60, 46]]); g.poly([[41, 46], [44, 40], [54, 40], [57, 46]], 0);                   // stone bridge
+    lantern(g, 14, 30); lantern(g, 70, 30);
+  },
+  city(g) {
+    stars(g, 22, 14); fullMoon(g, 14, 9, 5);
+    g.frame(36, 12, 24, 20); g.poly([[33, 12], [48, 3], [63, 12]]); g.rect(46, 16, 4, 6, 0);                                  // castle
+    for (const [x, w, h] of [[2, 10, 22], [14, 8, 30], [24, 10, 18], [64, 9, 26], [75, 10, 20], [87, 8, 32]]) { g.frame(x, 46 - h, w, h); for (let y = 46 - h + 3; y < 44; y += 4) for (let xx = x + 2; xx < x + w - 2; xx += 3) g.px(xx, y); }
+    ground(g, 46); for (let x = 6; x < W; x += 12) g.px(x, 49);
+  },
   hunter(g) { this.tavern(g); },
 };
 

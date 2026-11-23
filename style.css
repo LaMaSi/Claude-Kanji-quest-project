@@ -1,3 +1,4 @@
+@font-face{font-family:"Klee One";src:url(assets/fonts/KleeOne-subset.woff2) format("woff2");font-display:swap}
 :root{--bg:#0b0d12;--panel:#12151d;--line:#232838;--fg:#d3cdbd;--dim:#8a8fa2;--amber:#d29a3e;--red:#b45a5a;--green:#6f9a78;--fs:1;
  --jp:"Noto Sans JP","Noto Sans CJK JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;--dock:76px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -114,10 +115,24 @@ body.lefty #dock{flex-direction:row-reverse}
 
 /* tap-to-translate */
 .tok[data-g]{border-bottom:1px dotted #5a6078;cursor:pointer}
-.tok{border-radius:4px}
+.tok{border-radius:4px;margin:0 .1em;display:inline-block;white-space:nowrap}              /* small gap between words, also in kanji mode where there are no spaces */
 .tok:active{background:#232838}
 #tip{position:fixed;z-index:12;max-width:80vw;background:#1c2230;border:1px solid var(--amber);color:var(--fg);padding:8px 12px;border-radius:10px;font-size:.95rem;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 #tip.unk{border-color:var(--line);color:var(--dim)}
 
 .dbtn.back{flex:.7;font-size:1.4rem}
 .dbtn.back.off{color:#4b5062}
+
+/* world map */
+.mapbox{position:relative;aspect-ratio:3/2;width:100%;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:10px;background:var(--bg)}
+.mapbox>canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;display:block}
+.pmark{position:absolute;transform:translate(-50%,-50%);display:block;text-align:center;min-width:52px;padding:3px 5px 2px;background:rgba(11,13,18,.72);border:1px solid #3a4260;border-radius:10px}
+.pmark .sprite{width:32px;height:32px;image-rendering:pixelated;display:block;margin:0 auto}
+.pmark .jp{display:block;white-space:nowrap}
+.pmark .jp{font-size:.8rem;line-height:1.25}.pmark .jp rt{font-size:.45em}
+.pmark.locked{opacity:.5;border-style:dashed}
+.pmark:active{border-color:var(--amber)}
+
+/* diary: handwriting font for all scripts (kanji, kana, romaji) – Klee One, SIL OFL 1.1 */
+.hand .jp,.hand .jp rt{font-family:"Klee One",var(--jp)}
+.hand .jp{font-size:1.5rem}

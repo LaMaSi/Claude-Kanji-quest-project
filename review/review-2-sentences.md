@@ -16,6 +16,7 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | ID | Pattern | Explanation shown to the learner |
 |---|---|---|
 | p_dem_wa_N | A は B です | は markiert das Thema, です schließt höflich ab. Es gibt keinen Artikel. |
+| p_N_doko | N は どこですか | どこ fragt nach dem Ort. |
 | p_N_wo_kudasai | N を ください | を markiert das Objekt. 〜を ください = „〜, bitte“. |
 | p_N_count_kudasai | N を 〜つ ください | Gegenstände zählt man mit ひとつ, ふたつ, みっつ …. Die Zahl steht nach を. つ ist ein allgemeiner Zähler für viele Gegenstände, aber nicht für alle Dinge und Lebewesen. |
 | p_N_wo_V | N を 〜ます | Verb mit höflicher ます-Form. Das Subjekt wird oft weggelassen; im Deutschen ergänzen wir „ich“. |
@@ -24,6 +25,7 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | p_N_ga_kowai | N が こわいです | Angst haben vor: Das, wovor man Angst hat, steht mit が. |
 | p_N_wo_miru | N を みます | 見ます: sehen. |
 | p_part_wa_pred | Körperteil/Kleidung は 〜です | Beschreibung einer Person: Körperteil は Eigenschaft です. Bei Farben steht oft ein Nomen (茶色, 緑), sonst ein い-Adjektiv (黒い, 青い). |
+| p_item_place | 〜は 〇〇に あります | Wo gibt es etwas? Sache は Ort に あります. に nennt den Ort, an dem etwas ist. So fragt man nach dem Weg zu Dingen: 〜は どこ に ありますか？ |
 
 ## Part B – example sentences
 Check each sentence for: (a) correct and natural Japanese (particles, word choice, politeness, counter, 何→なん, long vowels), (b) a German translation that is correct, natural and a faithful translation, and (c) whether the sentence makes sense as a beginner lesson. Japanese in these sentences is spaced between words only for learning; ignore the spacing.
@@ -32,6 +34,11 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | ID | Japanese (kanji) | Hiragana | Rōmaji | German |
 |---|---|---|---|---|
 | p_dem_wa_N#2 | それはパンです。 | それはパンです。 | sore wa pan desu. | Das da ist Brot. |
+| p_N_doko#6 | 湖はどこですか。 | みずうみはどこですか。 | mizuumi wa doko desu ka. | Wo ist der See? |
+| p_N_doko#7 | 浜辺はどこですか。 | はまべはどこですか。 | hamabe wa doko desu ka. | Wo ist der Strand? |
+| p_N_doko#8 | 町はどこですか。 | まちはどこですか。 | machi wa doko desu ka. | Wo ist die Kleinstadt? |
+| p_N_doko#9 | 都会はどこですか。 | とかいはどこですか。 | tokai wa doko desu ka. | Wo ist die Großstadt? |
+| p_N_doko#10 | 畑はどこですか。 | はたけはどこですか。 | hatake wa doko desu ka. | Wo ist das Feld? |
 | p_N_wo_kudasai#2 | パンをください。 | パンをください。 | pan o kudasai. | Brot, bitte. |
 | p_N_count_kudasai#1 | りんごを三つください。 | りんごをみっつください。 | ringo o mittsu kudasai. | Drei Äpfel, bitte. |
 | p_N_count_kudasai#2 | 卵を二つください。 | たまごをふたつください。 | tamago o futatsu kudasai. | Zwei Eier, bitte. |
@@ -67,3 +74,15 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_part_wa_pred#21 | 帽子は青いです。 | ぼうしはあおいです。 | boushi wa aoi desu. | Die Mütze ist blau. |
 | p_part_wa_pred#22 | 靴は白いです。 | くつはしろいです。 | kutsu wa shiroi desu. | Die Schuhe sind weiß. |
 | p_part_wa_pred#23 | シャツは黄色いです。 | シャツはきいろいです。 | shatsu wa kiiroi desu. | Das Hemd ist gelb. |
+| p_item_place#1 | きゅうりは畑にあります。 | きゅうりははたけにあります。 | kyuuri wa hatake ni arimasu. | Gurken gibt es auf dem Feld. |
+| p_item_place#2 | りんごは畑にあります。 | りんごははたけにあります。 | ringo wa hatake ni arimasu. | Äpfel gibt es auf dem Feld. |
+| p_item_place#3 | 魚は湖にあります。 | さかなはみずうみにあります。 | sakana wa mizuumi ni arimasu. | Fische gibt es am See. |
+| p_item_place#4 | 魚は浜辺にあります。 | さかなははまべにあります。 | sakana wa hamabe ni arimasu. | Fische gibt es am Strand. |
+| p_item_place#5 | 桃は町にあります。 | ももはまちにあります。 | momo wa machi ni arimasu. | Pfirsiche gibt es in der Kleinstadt. |
+| p_item_place#6 | パンは町にあります。 | パンはまちにあります。 | pan wa machi ni arimasu. | Brote gibt es in der Kleinstadt. |
+| p_item_place#7 | 薬は都会にあります。 | くすりはとかいにあります。 | kusuri wa tokai ni arimasu. | Medizin gibt es in der Großstadt. |
+| p_item_place#8 | 肉は都会にあります。 | にくはとかいにあります。 | niku wa tokai ni arimasu. | Fleisch gibt es in der Großstadt. |
+| p_item_place#9 | お茶は村にあります。 | おちゃはむらにあります。 | ocha wa mura ni arimasu. | Tee gibt es im Dorf. |
+| p_item_place#10 | 卵は村にあります。 | たまごはむらにあります。 | tamago wa mura ni arimasu. | Eier gibt es im Dorf. |
+| p_item_place#11 | 水は川にあります。 | みずはかわにあります。 | mizu wa kawa ni arimasu. | Wasser gibt es am Fluss. |
+| p_item_place#12 | 地図は店にあります。 | ちずはみせにあります。 | chizu wa mise ni arimasu. | Karten gibt es im Laden. |

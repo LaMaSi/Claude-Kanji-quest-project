@@ -6,13 +6,14 @@ import * as E from './engine.js';
 import { initPeople, openEditor, startSearch } from './peopleui.js';
 import { drawPortrait, DEFAULT_LOOK } from './people.js';
 import { loadPeopleParts } from './aipeople.js';
+import { initWorld, mapNode, notebookSheet } from './world.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, avatar: null, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, avatar: null, notes: [], pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -228,6 +229,7 @@ const NODES = {
       { t: '{今日|きょう}の ふくしゅう', de: G.flags.lastDaily === new Date().toLocaleDateString('sv-SE') ? `Tagesrunde (heute erledigt ✔, Serie ${G.streak.days})` : `Tagesrunde (ca. 3 Min, Serie ${G.streak.days})`, fn: () => { startRound(6); } },
       { t: '{店|みせ} へ いく', de: 'Zum Laden gehen', go: 'shop' },
       { t: '{酒場|さかば} へ いく', de: 'In die Taverne gehen', go: 'tavern' },
+      { t: '{地図|ちず} を みる', de: 'Die Karte: Orte kennenlernen', go: 'map' },
       { t: '{掲示板|けいじばん} を みる', de: 'Zur Aushangtafel (Personen suchen)', go: 'board' },
       { t: 'おばあさん と はなす', de: 'Mit der alten Frau sprechen', go: 'granny' },
       { t: '{家|いえ} へ かえる', de: 'Nach Hause gehen', go: 'home' },
@@ -247,6 +249,8 @@ const NODES = {
         { t: 'もどる', de: 'Zurück', go: 'village' },
       ] };
   },
+
+  map() { return mapNode(); },
 
   board() {
     return { art: 'board', title: '{掲示板|けいじばん}', titleDe: 'Die Aushangtafel',
@@ -444,6 +448,7 @@ function menuSheet(s) {
   btn(s, lbl('ロード', 'Laden'), () => { try { G = { ...DEFAULT(), ...JSON.parse(localStorage.getItem(KEY)) }; go(G.loc in NODES ? G.loc : 'village'); closeSheet(); toast('Geladen'); } catch { toast('Kein Spielstand'); } });
   btn(s, G.lefty ? 'Linkshänder-Modus: AN (tippen zum Ändern)' : 'Linkshänder-Modus: AUS (tippen zum Ändern)', () => { G.lefty = !G.lefty; save(); renderStats(); refreshSheet(); });
   btn(s, `Schriftgröße: ${['normal', 'groß', 'sehr groß'][G.fs]} (tippen zum Ändern)`, () => { G.fs = (G.fs + 1) % 3; save(); renderStats(); draw(); refreshSheet(); });
+  btn(s, lbl('ノート', 'Notizbuch (Orts-Hinweise)'), () => openSheet(notebookSheet));
   btn(s, 'Tägliche Erinnerung', () => openSheet(reminderSheet));
   btn(s, 'Backup kopieren / einfügen', () => openSheet(backupSheet));
   btn(s, 'Schließen', closeSheet);
@@ -534,6 +539,7 @@ function reminderSheet(s) {
 setTimeout(() => applyReminder(false), 1500);   // re-register after app updates / restarts
 
 // ---------- start ----------
+initWorld({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES });
 initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});

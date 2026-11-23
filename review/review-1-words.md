@@ -59,3 +59,12 @@ Rules for your answer:
 | boushi | Nomen | 帽子(ぼうし) | 帽子 | ぼうし | boushi | die Mütze (Nominativ mit bestimmtem Artikel); Plural: Mützen | ja | Auch: Hut, Kappe. |
 | kutsu | Nomen | 靴(くつ) | 靴 | くつ | kutsu | der Schuh (Nominativ mit bestimmtem Artikel); Plural: Schuhe | ja |  |
 | tanuki | Nomen | 狸(たぬき) | 狸 | たぬき | tanuki | der Tanuki (Nominativ mit bestimmtem Artikel); Plural: Marderhunde | nein (im Spiel nur Kana) | Marderhund. In Japan ein Glücksbringer, der in Märchen seine Gestalt verwandeln kann. |
+| mizuumi | Nomen | 湖(みずうみ) | 湖 | みずうみ | mizuumi | der See (Nominativ mit bestimmtem Artikel); Plural: Seen | ja |  |
+| umi | Nomen | 海(うみ) | 海 | うみ | umi | das Meer (Nominativ mit bestimmtem Artikel); Plural: Meere | ja |  |
+| hamabe | Nomen | 浜辺(はまべ) | 浜辺 | はまべ | hamabe | der Strand (Nominativ mit bestimmtem Artikel); Plural: Strände | nein (im Spiel nur Kana) |  |
+| machi | Nomen | 町(まち) | 町 | まち | machi | die Kleinstadt (Nominativ mit bestimmtem Artikel); Plural: Kleinstädte | ja | 町 ist eine Stadt kleiner als eine Großstadt. |
+| tokai | Nomen | 都会(とかい) | 都会 | とかい | tokai | die Großstadt (Nominativ mit bestimmtem Artikel); Plural: Großstädte | ja | Auch: „die Stadt“ im Gegensatz zum Land. |
+| hatake | Nomen | 畑(はたけ) | 畑 | はたけ | hatake | das Feld (Nominativ mit bestimmtem Artikel); Plural: Felder | ja | Gemüsefeld / Acker. |
+| momo | Nomen | 桃(もも) | 桃 | もも | momo | der Pfirsich (Nominativ mit bestimmtem Artikel); Plural: Pfirsiche | ja |  |
+| kyuuri | Nomen | きゅうり | きゅうり | きゅうり | kyuuri | die Gurke (Nominativ mit bestimmtem Artikel); Plural: Gurken | – |  |
+| chizu | Nomen | 地図(ちず) | 地図 | ちず | chizu | die Karte (Nominativ mit bestimmtem Artikel); Plural: Karten | ja | Landkarte / Stadtplan. |

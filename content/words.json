@@ -221,7 +221,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Dörfer",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "im Dorf"
  },
  {
   "id": "mise",
@@ -235,7 +236,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Läden",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "im Laden"
  },
  {
   "id": "ie",
@@ -249,7 +251,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Häuser",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "im Haus"
  },
  {
   "id": "sakaba",
@@ -264,7 +267,8 @@
   "kanjiCommon": false,
   "pl": "Tavernen",
   "status": "reviewed",
-  "note": "Stilentscheidung: „Taverne“ (Fantasy-Register); alltagssprachlich wäre „Kneipe“."
+  "note": "Stilentscheidung: „Taverne“ (Fantasy-Register); alltagssprachlich wäre „Kneipe“.",
+  "deLoc": "in der Taverne"
  },
  {
   "id": "ringo",
@@ -486,7 +490,8 @@
   "gender": "m",
   "ch": 2,
   "tags": [
-   "food"
+   "food",
+   "animate"
   ],
   "kanjiCommon": true,
   "pl": "Fische",
@@ -782,7 +787,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Berge",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "auf dem Berg"
  },
  {
   "id": "kawa",
@@ -796,7 +802,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Flüsse",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "am Fluss"
  },
  {
   "id": "mori",
@@ -810,7 +817,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Wälder",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "im Wald"
  },
  {
   "id": "michi",
@@ -824,7 +832,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Wege",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "auf dem Weg"
  },
  {
   "id": "shiro",
@@ -838,7 +847,8 @@
   ],
   "kanjiCommon": true,
   "pl": "Burgen",
-  "status": "reviewed"
+  "status": "reviewed",
+  "deLoc": "auf der Burg"
  },
  {
   "id": "iku",
@@ -1311,5 +1321,135 @@
   "pl": "Marderhunde",
   "kanjiCommon": false,
   "note": "Marderhund. In Japan ein Glücksbringer, der in Märchen seine Gestalt verwandeln kann."
+ },
+ {
+  "id": "mizuumi",
+  "pos": "noun",
+  "jp": "{湖|みずうみ}",
+  "de": "See",
+  "gender": "m",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Seen",
+  "deLoc": "am See"
+ },
+ {
+  "id": "umi",
+  "pos": "noun",
+  "jp": "{海|うみ}",
+  "de": "Meer",
+  "gender": "n",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Meere",
+  "deLoc": "am Meer"
+ },
+ {
+  "id": "hamabe",
+  "pos": "noun",
+  "jp": "{浜辺|はまべ}",
+  "de": "Strand",
+  "gender": "m",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Strände",
+  "deLoc": "am Strand",
+  "kanjiCommon": false
+ },
+ {
+  "id": "machi",
+  "pos": "noun",
+  "jp": "{町|まち}",
+  "de": "Kleinstadt",
+  "gender": "f",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Kleinstädte",
+  "deLoc": "in der Kleinstadt",
+  "note": "町 ist eine Stadt kleiner als eine Großstadt."
+ },
+ {
+  "id": "tokai",
+  "pos": "noun",
+  "jp": "{都会|とかい}",
+  "de": "Großstadt",
+  "gender": "f",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Großstädte",
+  "deLoc": "in der Großstadt",
+  "note": "Auch: „die Stadt“ im Gegensatz zum Land."
+ },
+ {
+  "id": "hatake",
+  "pos": "noun",
+  "jp": "{畑|はたけ}",
+  "de": "Feld",
+  "gender": "n",
+  "ch": 5,
+  "tags": [
+   "place"
+  ],
+  "status": "draft",
+  "pl": "Felder",
+  "deLoc": "auf dem Feld",
+  "note": "Gemüsefeld / Acker."
+ },
+ {
+  "id": "momo",
+  "pos": "noun",
+  "jp": "{桃|もも}",
+  "de": "Pfirsich",
+  "gender": "m",
+  "ch": 5,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "status": "draft",
+  "pl": "Pfirsiche"
+ },
+ {
+  "id": "kyuuri",
+  "pos": "noun",
+  "jp": "きゅうり",
+  "de": "Gurke",
+  "gender": "f",
+  "ch": 5,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "status": "draft",
+  "pl": "Gurken"
+ },
+ {
+  "id": "chizu",
+  "pos": "noun",
+  "jp": "{地図|ちず}",
+  "de": "Karte",
+  "gender": "f",
+  "ch": 5,
+  "tags": [
+   "item"
+  ],
+  "status": "draft",
+  "pl": "Karten",
+  "note": "Landkarte / Stadtplan."
  }
 ]
