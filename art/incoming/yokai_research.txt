@@ -1,0 +1,304 @@
+YOKAI-FREUNDSCHAFTEN
+Konzept- und Quest-Handbuch für ein japanisches Lern-RPG (JLPT N5)
+Arbeitsfassung auf Deutsch · Japanische Begriffe mit Kanji, Kana und Rōmaji
+Hinweis zur Einordnung: Die freundschaftlichen Quests sind Spieladaptionen. Überlieferte Eigenschaften, regionale Varianten und eigens erfundene Wünsche werden im Dokument getrennt gekennzeichnet.
+1. Yokai-Auswahl
+Nr. | Kanji | Kana | Rōmaji | Deutsch | Habitat | Überlieferte Motive | Status
+1 | 河童 | かっぱ | Kappa | Wasserkobold | See | Gurke; Wasser; Ringkampf; Wasserschale auf dem Kopf | Folklore
+2 | 狐 | きつね | Kitsune | Fuchsgeist | Dorf | Verwandlung und Klugheit; Verbindung zu Inari; Aburaage als populäre kulinarische Verbindung | Folklore
+3 | 狸 | たぬき | Tanuki | Marderhundgeist | Wald | Verwandlung, Streiche, Geselligkeit; Sake in manchen Erzählungen | Folklore
+4 | 天狗 | てんぐ | Tengu | Bergkobold | Berge | Berge, Wind, Flug, Kampfkünste; Stolz und Prüfung | Folklore
+5 | 雪女 | ゆきおんな | Yuki-onna | Schneefrau | Berge | Schnee, Kälte, Winterlandschaften; regional gefährlich oder hilfsbereit | Folklore / regional
+6 | 座敷童子 | ざしきわらし | Zashiki-warashi | Hauskindgeist | Dorf | Alte Häuser und Kinder; Anwesenheit gilt als Glückszeichen | Folklore, besonders Tōhoku
+7 | 木霊 | こだま | Kodama | Baumgeist | Wald | Alte Bäume und Wald; Stimme als Echo in Bergen und Wäldern | Folklore
+8 | 磯女 | いそおんな | Iso-onna | Küstengeist | Strand / Küste | Nächtliche Küste, langes Haar, Gefahr für Fischer; regionale Erzählungen | Regionale Variante
+9 | 提灯お化け | ちょうちんおばけ | Chōchin-obake | Laternengeist | Stadt | Alte Papierlaterne erwacht zum Leben; Tsukumogami-Bildwelt | Historische Bildtradition
+10 | 化け猫 | ばけねこ | Bake-neko | Wandelkatze | Stadt | Alte Katzen, Verwandlung, Sprechen und nächtliche Streiche | Folklore
+11 | 猩々 | しょうじょう | Shōjō | Sakegeist | Strand / Küste | Rotes Haar, Sake, Tanz und Großzügigkeit; Nō-Theatertradition mit chinesischen Wurzeln | Theatertradition
+12 | 枕返し | まくらがえし | Makura-gaeshi | Kissenverdreher | Stadt | Nächtlicher Schabernack: Kissen oder Schlafposition werden verändert | Folklore / regional
+
+2. Lore-Karten
+Kappa
+Kappa leben in Flüssen und tiefen Gewässern. Sie sind neugierig und verspielt, können Menschen aber auch gefährlich werden. Eine Schale Wasser auf ihrem Kopf gibt ihnen Kraft. Wer ihnen mit Respekt begegnet, kann manchmal einen ungewöhnlichen Freund gewinnen.
+Einordnung: Gut belegtes folkloristisches Motiv.
+Kitsune
+Kitsune sind kluge Füchse, die ihre Gestalt verändern können. Manche spielen Menschen Streiche, andere helfen ihnen. Füchse gelten in der Tradition von Inari als dessen Boten. Ihre wahre Gestalt bleibt oft lange verborgen.
+Einordnung: Folklore; Aburaage als allgemeine Lieblingsspeise ist nicht gesichert.
+Tanuki
+Tanuki sind Meister der Verwandlung. Sie können sich als Menschen, Gegenstände oder andere Wesen zeigen. Ihre Streiche sind häufig komisch, manchmal aber auch unheimlich. Hinter ihrer fröhlichen Erscheinung verbirgt sich ein Wesen, das die Grenzen zwischen Wirklichkeit und Illusion kennt.
+Einordnung: Gut belegtes folkloristisches Motiv.
+Tengu
+Tengu leben in abgelegenen Bergregionen. Sie gelten als mächtige und stolze Wesen, die Menschen prüfen können. Manche schützen die Berge und kennen verborgene Wege. Wer ihnen mit Respekt begegnet, kann von ihrer Erfahrung lernen.
+Einordnung: Gut belegtes folkloristisches Motiv.
+Yuki-onna
+Die Schneefrau erscheint in verschneiten Nächten. Ihre Gestalt ist oft so weiß wie der Schnee selbst. In manchen Geschichten raubt sie Menschen die Wärme und das Leben. Andere Überlieferungen zeigen sie als geheimnisvolle Gestalt, die Menschen nicht schadet.
+Einordnung: Folklore; Ausprägungen regional unterschiedlich.
+Zashiki-warashi
+Zashiki-warashi leben in alten Häusern, besonders in der Region Tōhoku. Manchmal sieht man sie als Kinder, manchmal hört man nur ihre Schritte oder ihr Lachen. Ihre Anwesenheit gilt als gutes Zeichen für die Bewohner. Wenn sie ein Haus verlassen, kann dessen Glück schwinden.
+Einordnung: Gut dokumentierte regionale Überlieferung.
+Kodama
+Kodama wohnen in alten Bäumen. In der Vorstellung der Menschen kann ihre Stimme durch die Berge und Wälder widerhallen. Sie erinnern daran, dass ein Wald mehr ist als eine Ansammlung von Bäumen. Wer einen alten Baum achtet, sollte ihn nicht leichtfertig verletzen.
+Einordnung: Folklore; konkrete Vorstellungen variieren.
+Iso-onna
+Iso-onna erscheint in regionalen Küstenerzählungen, besonders aus Westjapan. Sie kann wie eine schöne Frau aussehen, doch ihr langes schwarzes Haar verbirgt eine gefährliche Seite. In manchen Geschichten nähert sie sich nachts den Fischerbooten. Sie gehört zu den unheimlichen Wesen der Grenze zwischen Meer und Land.
+Einordnung: Regionale Variante; nicht als landesweit einheitlicher Yokai darstellen.
+Chōchin-obake
+Eine alte Laterne kann in Geschichten ein eigenes Leben entwickeln. Ihr Mund öffnet sich, eine lange Zunge erscheint und Augen blicken aus dem Papier. Sie erschreckt nächtliche Wanderer, ohne zwangsläufig Böses zu wollen. Vielleicht erinnert sie daran, dass auch vergessene Dinge eine Geschichte besitzen.
+Einordnung: Vor allem als historisches Bildmotiv / Tsukumogami-Darstellung bekannt.
+Bake-neko
+Eine Katze, die viele Jahre gelebt hat, kann in Erzählungen zu einem Bake-neko werden. Sie kann sprechen, menschliche Gestalt annehmen oder auf zwei Beinen tanzen. Manche Geschichten erzählen von Katzen, die das Unrecht ihrer menschlichen Freunde nicht vergessen. Nicht jede alte Katze ist jedoch ein gefährliches Wesen.
+Einordnung: Gut belegte Erzähltradition; Varianten unterscheiden sich.
+Shōjō
+Shōjō ist ein geheimnisvolles Wesen, das mit dem Meer verbunden ist. Sein rotes Haar und sein fröhliches Wesen machen es unverwechselbar. In der bekannten Nō-Erzählung schenkt es einem ehrlichen Menschen besonderen Sake. Die Geschichte stellt Großzügigkeit und Bescheidenheit der Gier gegenüber.
+Einordnung: Nō-Theatertradition; Motiv hat chinesische Wurzeln.
+Makura-gaeshi
+Makura-gaeshi ist ein nächtlicher Störenfried. Während Menschen schlafen, verändert es ihre Kissen oder dreht ihre Schlafposition um. Manchmal wird es mit anderen Hausgeistern in Verbindung gebracht. Es zeigt, wie aus einer kleinen unerklärlichen Alltagserfahrung eine Yokai-Geschichte entstehen kann.
+Einordnung: Folklore; lokale Ausprägungen beachten.
+3. Zwölf Quests
+Kappa
+Element | Inhalt
+Bitte | „Ich habe Hunger. Bring mir eine Gurke!“
+Gegenstand | 胡瓜・きゅうり (kyūri) – Gurke
+Fundort | Dorfladen
+NPC-Hinweis 1 | 村に店があります。 (Mura ni mise ga arimasu.) – Im Dorf gibt es einen Laden.
+NPC-Hinweis 2 | 店にきゅうりがあります。 (Mise ni kyūri ga arimasu.) – Im Laden gibt es Gurken.
+Übergabe | どうぞ。きゅうりです。 (Dōzo. Kyūri desu.) – Bitte. Hier ist eine Gurke.
+Kulturdetail | In manchen Kappa-Erzählungen kann eine Verbeugung dazu führen, dass Wasser aus der Kopfschale läuft. Als spielerische Folklore-Referenz, nicht als allgemeine japanische Etikette kennzeichnen.
+
+Kitsune
+Element | Inhalt
+Bitte | „Ich möchte frittierten Tofu.“
+Gegenstand | 油揚げ・あぶらあげ (aburaage) – frittierter Tofu
+Fundort | Tofuladen im Dorf
+NPC-Hinweis 1 | 村にとうふ屋があります。 (Mura ni tōfuya ga arimasu.) – Im Dorf gibt es einen Tofuladen.
+NPC-Hinweis 2 | あぶらあげはとうふ屋にあります。 (Aburaage wa tōfuya ni arimasu.) – Aburaage gibt es im Tofuladen.
+Übergabe | どうぞ。あぶらあげです。 (Dōzo. Aburaage desu.) – Bitte. Hier ist frittierter Tofu.
+Kulturdetail | Füchse gelten in Inari-Traditionen als Boten. Fuchsfiguren an Schreinen nicht als Inari selbst bezeichnen und nicht als Sammelobjekte verwenden.
+
+Tanuki
+Element | Inhalt
+Bitte | „Ich möchte einen leckeren Reiskuchen.“
+Gegenstand | 餅・もち (mochi) – Reiskuchen
+Fundort | Süßwarenladen
+NPC-Hinweis 1 | 村におかし屋があります。 (Mura ni okashiya ga arimasu.) – Im Dorf gibt es einen Süßwarenladen.
+NPC-Hinweis 2 | もちがおかし屋にあります。 (Mochi ga okashiya ni arimasu.) – Mochi gibt es im Süßwarenladen.
+Übergabe | どうぞ。もちです。 (Dōzo. Mochi desu.) – Bitte. Hier ist Mochi.
+Kulturdetail | Keramische Tanuki-Figuren stehen häufig vor Geschäften. Ihre Bedeutung kann ein Händler erklären.
+
+Tengu
+Element | Inhalt
+Bitte | „Ich möchte guten Tee trinken.“
+Gegenstand | 茶・ちゃ (cha) – Tee
+Fundort | Teehaus am Berg
+NPC-Hinweis 1 | 山に茶屋があります。 (Yama ni chaya ga arimasu.) – Am Berg gibt es ein Teehaus.
+NPC-Hinweis 2 | お茶は茶屋にあります。 (Ocha wa chaya ni arimasu.) – Tee gibt es im Teehaus.
+Übergabe | どうぞ。おちゃです。 (Dōzo. Ocha desu.) – Bitte. Hier ist Tee.
+Kulturdetail | Eine höfliche Begrüßung anderer Wanderer ist ein passendes Alltagselement. Keine erfundene religiöse Bergzeremonie darstellen.
+
+Yuki-onna
+Element | Inhalt
+Bitte | „Bring mir einen schönen Pfirsich.“
+Gegenstand | 桃・もも (momo) – Pfirsich
+Fundort | Obstladen im Dorf
+NPC-Hinweis 1 | 村にくだもの屋があります。 (Mura ni kudamonoya ga arimasu.) – Im Dorf gibt es einen Obstladen.
+NPC-Hinweis 2 | ももはくだもの屋にあります。 (Momo wa kudamonoya ni arimasu.) – Pfirsiche gibt es im Obstladen.
+Übergabe | どうぞ。ももです。 (Dōzo. Momo desu.) – Bitte. Hier ist ein Pfirsich.
+Kulturdetail | Eine bekannte Hearn-Erzählung betont ein Versprechen und das Bewahren von Vertrauen. Das kann als Dialogthema dienen.
+
+Zashiki-warashi
+Element | Inhalt
+Bitte | „Ich möchte ein frisches Ei.“
+Gegenstand | 卵・たまご (tamago) – Ei
+Fundort | Bauernhof
+NPC-Hinweis 1 | 村に農家があります。 (Mura ni nōka ga arimasu.) – Im Dorf gibt es einen Bauernhof.
+NPC-Hinweis 2 | たまごは農家にあります。 (Tamago wa nōka ni arimasu.) – Eier gibt es auf dem Bauernhof.
+Übergabe | どうぞ。たまごです。 (Dōzo. Tamago desu.) – Bitte. Hier ist ein Ei.
+Kulturdetail | In einem traditionellen Haus zieht man vor dem Betreten üblicherweise die Schuhe aus. Tatami und Tokonoma respektvoll darstellen.
+
+Kodama
+Element | Inhalt
+Bitte | „Mein alter Baum ist krank. Bring mir Medizin.“
+Gegenstand | 薬・くすり (kusuri) – Medizin
+Fundort | Apotheke in der Stadt
+NPC-Hinweis 1 | 町に薬屋があります。 (Machi ni kusuriya ga arimasu.) – In der Stadt gibt es eine Apotheke.
+NPC-Hinweis 2 | 薬は薬屋にあります。 (Kusuri wa kusuriya ni arimasu.) – Medizin gibt es in der Apotheke.
+Übergabe | どうぞ。くすりです。 (Dōzo. Kusuri desu.) – Bitte. Hier ist Medizin.
+Kulturdetail | Alte Bäume respektieren. Shimenawa nicht als beliebige Dekoration verwenden und keine heiligen Bereiche als Questkulisse vereinnahmen.
+
+Iso-onna
+Element | Inhalt
+Bitte | „Ich möchte einen frischen Fisch.“
+Gegenstand | 魚・さかな (sakana) – Fisch
+Fundort | Fischmarkt am Hafen
+NPC-Hinweis 1 | 港に魚屋があります。 (Minato ni sakanaya ga arimasu.) – Am Hafen gibt es einen Fischladen.
+NPC-Hinweis 2 | 魚は魚屋にあります。 (Sakana wa sakanaya ni arimasu.) – Fisch gibt es im Fischladen.
+Übergabe | どうぞ。さかなです。 (Dōzo. Sakana desu.) – Bitte. Hier ist Fisch.
+Kulturdetail | Küstenlegenden können auf die Gefahren nächtlicher Fischerei verweisen. Ein Fischer erzählt davon, ohne reale Fischertraditionen zu karikieren.
+
+Chōchin-obake
+Element | Inhalt
+Bitte | „Ich habe Hunger. Bring mir Brot.“
+Gegenstand | パン・パン (pan) – Brot
+Fundort | Bäckerei in der Stadt
+NPC-Hinweis 1 | 町にパン屋があります。 (Machi ni pan'ya ga arimasu.) – In der Stadt gibt es eine Bäckerei.
+NPC-Hinweis 2 | パンはパン屋にあります。 (Pan wa pan'ya ni arimasu.) – Brot gibt es in der Bäckerei.
+Übergabe | どうぞ。パンです。 (Dōzo. Pan desu.) – Bitte. Hier ist Brot.
+Kulturdetail | Papierlaternen waren wichtige historische Lichtquellen. Alte Gegenstände reparieren statt sie als wertlos darzustellen.
+
+Bake-neko
+Element | Inhalt
+Bitte | „Ich möchte ein Stück Fleisch.“
+Gegenstand | 肉・にく (niku) – Fleisch
+Fundort | Metzgerei in der Stadt
+NPC-Hinweis 1 | 町に肉屋があります。 (Machi ni nikuya ga arimasu.) – In der Stadt gibt es eine Metzgerei.
+NPC-Hinweis 2 | 肉は肉屋にあります。 (Niku wa nikuya ni arimasu.) – Fleisch gibt es in der Metzgerei.
+Übergabe | どうぞ。にくです。 (Dōzo. Niku desu.) – Bitte. Hier ist Fleisch.
+Kulturdetail | Katzen freundlich behandeln und nicht grob anfassen. Die Verwandlung alter Katzen als Legende kennzeichnen.
+
+Shōjō
+Element | Inhalt
+Bitte | „Ich wünsche mir eine Flasche Sake.“
+Gegenstand | 酒・さけ (sake) – Sake
+Fundort | Getränkeladen am Hafen
+NPC-Hinweis 1 | 港に店があります。 (Minato ni mise ga arimasu.) – Am Hafen gibt es einen Laden.
+NPC-Hinweis 2 | さけは店にあります。 (Sake wa mise ni arimasu.) – Sake gibt es im Laden.
+Übergabe | どうぞ。さけです。 (Dōzo. Sake desu.) – Bitte. Hier ist Sake.
+Kulturdetail | Die Figur ist eng mit dem Nō-Stück Shōjō verbunden. Maske und Tanz als Theaterkunst erklären; keinen Alkoholkonsum fördern.
+
+Makura-gaeshi
+Element | Inhalt
+Bitte | „Ich möchte einen knackigen Apfel.“
+Gegenstand | 林檎・りんご (ringo) – Apfel
+Fundort | Obstmarkt in der Stadt
+NPC-Hinweis 1 | 町にくだもの屋があります。 (Machi ni kudamonoya ga arimasu.) – In der Stadt gibt es einen Obstladen.
+NPC-Hinweis 2 | りんごはくだもの屋にあります。 (Ringo wa kudamonoya ni arimasu.) – Äpfel gibt es im Obstladen.
+Übergabe | どうぞ。りんごです。 (Dōzo. Ringo desu.) – Bitte. Hier ist ein Apfel.
+Kulturdetail | Futon und Kissen als Teil der Wohnkultur zeigen. Das Zusammenlegen eines Futons ist eine passende Alltagsszene.
+
+4. Zusätzlicher N5-orientierter Wortschatz
+Hinweis: Die JLPT-Prüfung veröffentlicht keine verbindliche vollständige Wortliste. Die folgende Auswahl ist anfängerfreundlich; Spezialbegriffe und manche Ortsbezeichnungen können über N5 hinausgehen.
+4.1 Orte und Orientierung
+Kanji | Kana | Rōmaji | Deutsch
+湖 | みずうみ | mizuumi | See
+山 | やま | yama | Berg
+海 | うみ | umi | Meer
+浜 | はま | hama | Strand
+森 | もり | mori | Wald
+村 | むら | mura | Dorf
+町 | まち | machi | Kleinstadt / Stadtviertel
+市 | し | shi | Stadt (Verwaltungseinheit)
+港 | みなと | minato | Hafen
+店 | みせ | mise | Geschäft
+市場 | いちば | ichiba | Markt
+農家 | のうか | nōka | Bauernhof / Bauernfamilie
+道 | みち | michi | Weg
+家 | いえ | ie | Haus
+薬屋 | くすりや | kusuriya | Apotheke
+魚屋 | さかなや | sakanaya | Fischgeschäft
+肉屋 | にくや | nikuya | Metzgerei
+パン屋 | パンや | pan'ya | Bäckerei
+くだもの屋 | くだものや | kudamonoya | Obstladen
+とうふ屋 | とうふや | tōfuya | Tofuladen
+おかし屋 | おかしや | okashiya | Süßwarenladen
+茶屋 | ちゃや | chaya | Teehaus
+
+4.2 Gegenstände und Lebensmittel
+Kanji | Kana | Rōmaji | Deutsch
+胡瓜 | きゅうり | kyūri | Gurke
+油揚げ | あぶらあげ | aburaage | frittierter Tofu
+餅 | もち | mochi | Reiskuchen
+酒 | さけ | sake | Sake / Reiswein
+桃 | もも | momo | Pfirsich
+魚 | さかな | sakana | Fisch
+茶 | ちゃ | cha | Tee
+薬 | くすり | kusuri | Medizin
+林檎 | りんご | ringo | Apfel
+卵 | たまご | tamago | Ei
+肉 | にく | niku | Fleisch
+パン | パン | pan | Brot
+
+4.3 Handlungen und Quest-Verben
+Kanji | Kana | Rōmaji | Deutsch
+行く | いく | iku | gehen
+来る | くる | kuru | kommen
+聞く | きく | kiku | fragen / hören
+話す | はなす | hanasu | sprechen
+探す | さがす | sagasu | suchen
+見る | みる | miru | sehen
+見つける | みつける | mitsukeru | finden
+買う | かう | kau | kaufen
+持つ | もつ | motsu | tragen / besitzen
+あげる | あげる | ageru | geben
+食べる | たべる | taberu | essen
+飲む | のむ | nomu | trinken
+ある | ある | aru | vorhanden sein (Dinge)
+いる | いる | iru | da sein (Lebewesen)
+待つ | まつ | matsu | warten
+帰る | かえる | kaeru | zurückkehren
+会う | あう | au | treffen
+
+4.4 Frage- und Höflichkeitswörter
+Kanji | Kana | Rōmaji | Deutsch
+何 | なに | nani | was
+どこ | どこ | doko | wo
+誰 | だれ | dare | wer
+これ | これ | kore | dies
+それ | それ | sore | das
+ここ | ここ | koko | hier
+あそこ | あそこ | asoko | dort
+ください | ください | kudasai | bitte geben Sie mir
+どうぞ | どうぞ | dōzo | bitte / hier
+こんにちは | こんにちは | konnichiwa | Guten Tag
+ありがとう | ありがとう | arigatō | Danke
+すみません | すみません | sumimasen | Entschuldigung
+はい | はい | hai | Ja
+いいえ | いいえ | iie | Nein
+
+5. Grammatikmuster für den Quest-Loop
+Muster | Japanisch | Rōmaji | Deutsch | Funktion
+は | これは魚です。 | Kore wa sakana desu. | Das ist Fisch. | Gegenstand benennen
+が | 店があります。 | Mise ga arimasu. | Es gibt einen Laden. | Existenz / Fundort
+を | 魚をください。 | Sakana o kudasai. | Fisch bitte. | Gegenstand erbitten
+に | 店に行きます。 | Mise ni ikimasu. | Ich gehe zum Laden. | Ziel / Ort
+です | これは薬です。 | Kore wa kusuri desu. | Das ist Medizin. | Aussage
+ます | 魚を買います。 | Sakana o kaimasu. | Ich kaufe Fisch. | Höfliche Verbform
+あります | 店にパンがあります。 | Mise ni pan ga arimasu. | Im Laden gibt es Brot. | Unbelebte Dinge lokalisieren
+います | 森に天狗がいます。 | Mori ni tengu ga imasu. | Im Wald ist ein Tengu. | Lebewesen lokalisieren
+ください | りんごをください。 | Ringo o kudasai. | Einen Apfel bitte. | Einkaufen
+
+Einheitliche Übergabeformel: どうぞ。〇〇です。 (Dōzo. ___ desu.) – „Bitte. Hier ist ___.“
+Alternative: これをどうぞ。 (Kore o dōzo.) – „Bitte, nimm das hier.“
+6. Kulturelle und religiöse Leitlinien
+Thema | Empfehlung
+Kami und Yokai | Nicht alle Yokai als Kami bezeichnen. Die Kategorien sind verschieden, auch wenn sich Vorstellungen historisch überschneiden.
+Inari | Füchse als Boten Inaris bezeichnen, nicht als Inari selbst.
+Schreine und Tempel | Keine heiligen Gegenstände als Quest-Beute verwenden. Religiöse Figuren nicht als Monster oder Sammelobjekte darstellen.
+Shimenawa | Nicht als beliebige Dekoration für jeden Baum einsetzen; Bedeutung als Abgrenzung eines besonderen Bereichs respektieren.
+Opfergaben | Keine realen religiösen Opfergaben als verpflichtende Spielhandlung verwenden. Lieber gewöhnliche Geschenke an fiktive Yokai.
+Verbeugungen | Als allgemeine höfliche Geste darstellen, nicht als religiöses Ritual.
+Sake | Als kulturellen Gegenstand oder versiegeltes Geschenk behandeln; keinen Alkoholkonsum fördern.
+Regionale Überlieferungen | Geografischen Ursprung sichtbar machen und nicht behaupten, jede Region kenne dieselbe Version.
+Gefährliche Legenden | Gefährliche Motive dürfen in Lore vorkommen, müssen aber nicht als brutale Spielhandlung umgesetzt werden.
+
+7. Quellen und weiterführende Recherche
+Quelle | Nutzen für das Projekt
+Yanagita Kunio, Tōno Monogatari (遠野物語, 1910) | Klassische Sammlung regionaler Erzählungen; wichtig für Tōhoku-Motive und ländliche Geisterüberlieferung.
+Toriyama Sekien, Gazu Hyakki Yagyō (画図百鬼夜行, 1776) | Historisches Yokai-Bilderbuch; wichtig für die Geschichte visueller Yokai-Darstellungen.
+Lafcadio Hearn, Kwaidan (怪談, 1904) | Literarische Bearbeitungen japanischer Geistergeschichten, darunter Yuki-onna.
+M. W. de Visser, The Dragon in China and Japan (1913) und Arbeiten zur japanischen Mythologie | Historische Vergleichs- und Mythologieforschung.
+Michael Dylan Foster, The Book of Yokai (2015) | Wissenschaftliche Sekundärquelle zur Geschichte, Kategorisierung und kulturellen Entwicklung von Yokai.
+Nichibunken – International Research Center for Japanese Studies, Kaii/Yōkai Denshō Database | Wissenschaftliche Datenbank regionaler Überlieferungen; für konkrete lokale Varianten besonders nützlich.
+Japan Search | Portal für japanische Kultur- und Archivbestände; nützlich zur Recherche historischer Bild- und Theaterobjekte.
+
+Recherchehinweis: Vor einer Veröffentlichung sollten einzelne Yokai-Details anhand der jeweiligen Original- oder Fachquelle überprüft werden. Insbesondere bei Iso-onna, Shōjō und Chōchin-obake ist die regionale beziehungsweise mediengeschichtliche Einordnung wichtig. Keine unbelegten Lieblingsspeisen oder Wünsche als historische Tatsachen ausgeben.
+8. Empfohlener Spielablauf
+Phase | Spielhandlung
+1. Begegnung | Der Yokai begrüßt den Spieler und äußert seinen Wunsch in einfachem Japanisch.
+2. Verstehen | Der Spieler identifiziert den Gegenstand anhand von Hiragana, Kanji oder Sprachausgabe.
+3. Nachfragen | Zwei NPCs geben kurze japanische Hinweise zu Gegenstand und Fundort.
+4. Reisen | Der Spieler besucht Laden, Markt oder Bauernhof und begegnet Ortsvokabeln.
+5. Sammeln | Der Gegenstand wird eingesammelt und im Inventar angezeigt.
+6. Höflich schenken | Der Spieler übergibt ihn mit どうぞ (dōzo).
+7. Freundschaft | Eine kurze Szene wird abgespielt und die Lore-Karte freigeschaltet.
+
+Designempfehlungen: (1) Historische Überlieferung, regionale Legende und Spielgeschichte sichtbar voneinander trennen. (2) Hiragana und kurze Sätze im ersten Durchlauf priorisieren; Kanji schrittweise freischalten. (3) Freundschaft und Lore-Wissen statt Kampfbelohnungen in den Mittelpunkt stellen.

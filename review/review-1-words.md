@@ -68,3 +68,15 @@ Rules for your answer:
 | momo | Nomen | 桃(もも) | 桃 | もも | momo | der Pfirsich (Nominativ mit bestimmtem Artikel); Plural: Pfirsiche | ja |  |
 | kyuuri | Nomen | きゅうり | きゅうり | きゅうり | kyuuri | die Gurke (Nominativ mit bestimmtem Artikel); Plural: Gurken | – |  |
 | chizu | Nomen | 地図(ちず) | 地図 | ちず | chizu | die Karte (Nominativ mit bestimmtem Artikel); Plural: Karten | ja | Landkarte / Stadtplan. |
+| tofuya | Nomen | とうふ屋(や) | とうふ屋 | とうふや | toufuya | der Tofuladen (Nominativ mit bestimmtem Artikel); Plural: Tofuläden | ja |  |
+| okashiya | Nomen | おかし屋(や) | おかし屋 | おかしや | okashiya | der Süßwarenladen (Nominativ mit bestimmtem Artikel); Plural: Süßwarenläden | ja |  |
+| chaya | Nomen | 茶屋(ちゃや) | 茶屋 | ちゃや | chaya | das Teehaus (Nominativ mit bestimmtem Artikel); Plural: Teehäuser | nein (im Spiel nur Kana) |  |
+| kudamonoya | Nomen | くだもの屋(や) | くだもの屋 | くだものや | kudamonoya | der Obstladen (Nominativ mit bestimmtem Artikel); Plural: Obstläden | ja |  |
+| nouka | Nomen | 農家(のうか) | 農家 | のうか | nouka | der Bauernhof (Nominativ mit bestimmtem Artikel); Plural: Bauernhöfe | nein (im Spiel nur Kana) |  |
+| kusuriya | Nomen | 薬屋(くすりや) | 薬屋 | くすりや | kusuriya | die Apotheke (Nominativ mit bestimmtem Artikel); Plural: Apotheken | ja |  |
+| sakanaya | Nomen | 魚屋(さかなや) | 魚屋 | さかなや | sakanaya | der Fischladen (Nominativ mit bestimmtem Artikel); Plural: Fischläden | ja |  |
+| nikuya | Nomen | 肉屋(にくや) | 肉屋 | にくや | nikuya | die Metzgerei (Nominativ mit bestimmtem Artikel); Plural: Metzgereien | ja |  |
+| panya | Nomen | パン屋(や) | パン屋 | パンや | pan'ya | die Bäckerei (Nominativ mit bestimmtem Artikel); Plural: Bäckereien | ja |  |
+| minato | Nomen | 港(みなと) | 港 | みなと | minato | der Hafen (Nominativ mit bestimmtem Artikel); Plural: Häfen | ja |  |
+| aburaage | Nomen | 油揚(あぶらあ)げ | 油揚げ | あぶらあげ | aburaage | der frittierte Tofu (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Dünne, frittierte Tofuscheiben. |
+| mochi | Nomen | もち | もち | もち | mochi | der Reiskuchen (Nominativ mit bestimmtem Artikel); Plural: Reiskuchen | – | Klebriger Reiskuchen (餅). |

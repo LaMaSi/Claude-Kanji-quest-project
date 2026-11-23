@@ -26,6 +26,8 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | p_N_wo_miru | N を みます | 見ます: sehen. |
 | p_part_wa_pred | Körperteil/Kleidung は 〜です | Beschreibung einer Person: Körperteil は Eigenschaft です. Bei Farben steht oft ein Nomen (茶色, 緑), sonst ein い-Adjektiv (黒い, 青い). |
 | p_item_place | 〜は 〇〇に あります | Wo gibt es etwas? Sache は Ort に あります. に nennt den Ort, an dem etwas ist. So fragt man nach dem Weg zu Dingen: 〜は どこ に ありますか？ |
+| p_place_shop | 〇〇に 店が あります | Ort に Geschäft が あります: „Dort gibt es einen Laden.“ に nennt den Ort, が das, was es dort gibt. |
+| p_dozo_item | どうぞ。〜です。 | Etwas höflich überreichen: どうぞ („bitte sehr“) und dann sagen, was es ist. |
 
 ## Part B – example sentences
 Check each sentence for: (a) correct and natural Japanese (particles, word choice, politeness, counter, 何→なん, long vowels), (b) a German translation that is correct, natural and a faithful translation, and (c) whether the sentence makes sense as a beginner lesson. Japanese in these sentences is spaced between words only for learning; ignore the spacing.
@@ -40,6 +42,14 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_N_doko#9 | 都会はどこですか。 | とかいはどこですか。 | tokai wa doko desu ka. | Wo ist die Großstadt? |
 | p_N_doko#10 | 畑はどこですか。 | はたけはどこですか。 | hatake wa doko desu ka. | Wo ist das Feld? |
 | p_N_wo_kudasai#2 | パンをください。 | パンをください。 | pan o kudasai. | Brot, bitte. |
+| p_N_wo_kudasai#6 | きゅうりをください。 | きゅうりをください。 | kyuuri o kudasai. | Eine Gurke, bitte. |
+| p_N_wo_kudasai#7 | 油揚げをください。 | あぶらあげをください。 | aburaage o kudasai. | Frittierten Tofu, bitte. |
+| p_N_wo_kudasai#8 | もちをください。 | もちをください。 | mochi o kudasai. | Einen Reiskuchen, bitte. |
+| p_N_wo_kudasai#9 | 桃をください。 | ももをください。 | momo o kudasai. | Einen Pfirsich, bitte. |
+| p_N_wo_kudasai#10 | 卵をください。 | たまごをください。 | tamago o kudasai. | Ein Ei, bitte. |
+| p_N_wo_kudasai#11 | 魚をください。 | さかなをください。 | sakana o kudasai. | Einen Fisch, bitte. |
+| p_N_wo_kudasai#12 | 肉をください。 | にくをください。 | niku o kudasai. | Fleisch, bitte. |
+| p_N_wo_kudasai#13 | お酒をください。 | おさけをください。 | osake o kudasai. | Alkohol, bitte. |
 | p_N_count_kudasai#1 | りんごを三つください。 | りんごをみっつください。 | ringo o mittsu kudasai. | Drei Äpfel, bitte. |
 | p_N_count_kudasai#2 | 卵を二つください。 | たまごをふたつください。 | tamago o futatsu kudasai. | Zwei Eier, bitte. |
 | p_N_count_kudasai#3 | 卵を六つください。 | たまごをむっつください。 | tamago o muttsu kudasai. | Sechs Eier, bitte. |
@@ -86,3 +96,38 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_item_place#10 | 卵は村にあります。 | たまごはむらにあります。 | tamago wa mura ni arimasu. | Eier gibt es im Dorf. |
 | p_item_place#11 | 水は川にあります。 | みずはかわにあります。 | mizu wa kawa ni arimasu. | Wasser gibt es am Fluss. |
 | p_item_place#12 | 地図は店にあります。 | ちずはみせにあります。 | chizu wa mise ni arimasu. | Karten gibt es im Laden. |
+| p_item_place#13 | きゅうりは店にあります。 | きゅうりはみせにあります。 | kyuuri wa mise ni arimasu. | Gurken gibt es im Laden. |
+| p_item_place#14 | 油揚げはとうふ屋にあります。 | あぶらあげはとうふやにあります。 | aburaage wa toufuya ni arimasu. | Frittierter Tofu gibt es im Tofuladen. |
+| p_item_place#15 | もちはおかし屋にあります。 | もちはおかしやにあります。 | mochi wa okashiya ni arimasu. | Reiskuchen gibt es im Süßwarenladen. |
+| p_item_place#16 | お茶は茶屋にあります。 | おちゃはちゃやにあります。 | ocha wa chaya ni arimasu. | Tee gibt es im Teehaus. |
+| p_item_place#17 | 桃はくだもの屋にあります。 | ももはくだものやにあります。 | momo wa kudamonoya ni arimasu. | Pfirsiche gibt es im Obstladen. |
+| p_item_place#18 | 卵は農家にあります。 | たまごはのうかにあります。 | tamago wa nouka ni arimasu. | Eier gibt es auf dem Bauernhof. |
+| p_item_place#19 | 薬は薬屋にあります。 | くすりはくすりやにあります。 | kusuri wa kusuriya ni arimasu. | Medizin gibt es in der Apotheke. |
+| p_item_place#20 | 魚は魚屋にあります。 | さかなはさかなやにあります。 | sakana wa sakanaya ni arimasu. | Fische gibt es im Fischladen. |
+| p_item_place#21 | パンはパン屋にあります。 | パンはパンやにあります。 | pan wa pan'ya ni arimasu. | Brote gibt es in der Bäckerei. |
+| p_item_place#22 | 肉は肉屋にあります。 | にくはにくやにあります。 | niku wa nikuya ni arimasu. | Fleisch gibt es in der Metzgerei. |
+| p_item_place#23 | お酒は店にあります。 | おさけはみせにあります。 | osake wa mise ni arimasu. | Alkohol gibt es im Laden. |
+| p_item_place#24 | りんごはくだもの屋にあります。 | りんごはくだものやにあります。 | ringo wa kudamonoya ni arimasu. | Äpfel gibt es im Obstladen. |
+| p_place_shop#1 | 村にとうふ屋があります。 | むらにとうふやがあります。 | mura ni toufuya ga arimasu. | Im Dorf gibt es einen Tofuladen. |
+| p_place_shop#2 | 村におかし屋があります。 | むらにおかしやがあります。 | mura ni okashiya ga arimasu. | Im Dorf gibt es einen Süßwarenladen. |
+| p_place_shop#3 | 山に茶屋があります。 | やまにちゃやがあります。 | yama ni chaya ga arimasu. | Auf dem Berg gibt es ein Teehaus. |
+| p_place_shop#4 | 村にくだもの屋があります。 | むらにくだものやがあります。 | mura ni kudamonoya ga arimasu. | Im Dorf gibt es einen Obstladen. |
+| p_place_shop#5 | 村に農家があります。 | むらにのうかがあります。 | mura ni nouka ga arimasu. | Im Dorf gibt es einen Bauernhof. |
+| p_place_shop#6 | 町に薬屋があります。 | まちにくすりやがあります。 | machi ni kusuriya ga arimasu. | In der Kleinstadt gibt es eine Apotheke. |
+| p_place_shop#7 | 港に魚屋があります。 | みなとにさかなやがあります。 | minato ni sakanaya ga arimasu. | Am Hafen gibt es einen Fischladen. |
+| p_place_shop#8 | 町にパン屋があります。 | まちにパンやがあります。 | machi ni pan'ya ga arimasu. | In der Kleinstadt gibt es eine Bäckerei. |
+| p_place_shop#9 | 町に肉屋があります。 | まちににくやがあります。 | machi ni nikuya ga arimasu. | In der Kleinstadt gibt es eine Metzgerei. |
+| p_place_shop#10 | 港に店があります。 | みなとにみせがあります。 | minato ni mise ga arimasu. | Am Hafen gibt es einen Laden. |
+| p_place_shop#11 | 町にくだもの屋があります。 | まちにくだものやがあります。 | machi ni kudamonoya ga arimasu. | In der Kleinstadt gibt es einen Obstladen. |
+| p_dozo_item#1 | どうぞ。きゅうりです。 | どうぞ。きゅうりです。 | douzo. kyuuri desu. | Bitte sehr. Hier ist eine Gurke. |
+| p_dozo_item#2 | どうぞ。油揚げです。 | どうぞ。あぶらあげです。 | douzo. aburaage desu. | Bitte sehr. Hier ist frittierter Tofu. |
+| p_dozo_item#3 | どうぞ。もちです。 | どうぞ。もちです。 | douzo. mochi desu. | Bitte sehr. Hier ist ein Reiskuchen. |
+| p_dozo_item#4 | どうぞ。お茶です。 | どうぞ。おちゃです。 | douzo. ocha desu. | Bitte sehr. Hier ist Tee. |
+| p_dozo_item#5 | どうぞ。桃です。 | どうぞ。ももです。 | douzo. momo desu. | Bitte sehr. Hier ist ein Pfirsich. |
+| p_dozo_item#6 | どうぞ。卵です。 | どうぞ。たまごです。 | douzo. tamago desu. | Bitte sehr. Hier ist ein Ei. |
+| p_dozo_item#7 | どうぞ。薬です。 | どうぞ。くすりです。 | douzo. kusuri desu. | Bitte sehr. Hier ist Medizin. |
+| p_dozo_item#8 | どうぞ。魚です。 | どうぞ。さかなです。 | douzo. sakana desu. | Bitte sehr. Hier ist ein Fisch. |
+| p_dozo_item#9 | どうぞ。パンです。 | どうぞ。パンです。 | douzo. pan desu. | Bitte sehr. Hier ist Brot. |
+| p_dozo_item#10 | どうぞ。肉です。 | どうぞ。にくです。 | douzo. niku desu. | Bitte sehr. Hier ist Fleisch. |
+| p_dozo_item#11 | どうぞ。お酒です。 | どうぞ。おさけです。 | douzo. osake desu. | Bitte sehr. Hier ist eine Flasche Sake. |
+| p_dozo_item#12 | どうぞ。りんごです。 | どうぞ。りんごです。 | douzo. ringo desu. | Bitte sehr. Hier ist ein Apfel. |

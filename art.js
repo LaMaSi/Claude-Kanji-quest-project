@@ -197,6 +197,13 @@ export const ART = {
     for (const [x, w, h] of [[2, 10, 22], [14, 8, 30], [24, 10, 18], [64, 9, 26], [75, 10, 20], [87, 8, 32]]) { g.frame(x, 46 - h, w, h); for (let y = 46 - h + 3; y < 44; y += 4) for (let xx = x + 2; xx < x + w - 2; xx += 3) g.px(xx, y); }
     ground(g, 46); for (let x = 6; x < W; x += 12) g.px(x, 49);
   },
+  harbor(g) {
+    stars(g, 16, 14); moon(g, 12, 9, 5); g.line(0, 26, W, 26); for (let x = 0; x < W; x += 2) g.px(x, 26 + Math.round(Math.sin(x * 0.5)));
+    for (let y = 29; y < 44; y += 4) for (let x = (y % 8); x < W; x += 6) { g.px(x, y); g.px(x + 1, y); }
+    g.rect(0, 44, W, 3); for (let x = 4; x < W; x += 12) g.rect(x, 47, 2, 7);                                              // pier
+    g.poly([[16, 40], [40, 40], [36, 46], [20, 46]]); g.line(28, 40, 28, 24); g.poly([[28, 24], [28, 38], [38, 38]]);           // boat
+    house(g, 58, 34, 12, 10); house(g, 74, 32, 14, 12, false); lantern(g, 54, 36); lantern(g, 90, 36);
+  },
   hunter(g) { this.tavern(g); },
 };
 

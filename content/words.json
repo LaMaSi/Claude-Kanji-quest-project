@@ -232,7 +232,8 @@
   "gender": "m",
   "ch": 1,
   "tags": [
-   "place"
+   "place",
+   "shop"
   ],
   "kanjiCommon": true,
   "pl": "Läden",
@@ -451,7 +452,8 @@
   "kanjiCommon": true,
   "mass": true,
   "note": "お酒 heißt allgemein Alkohol / alkoholisches Getränk. Der Reiswein heißt 日本酒 (にほんしゅ).",
-  "status": "checked"
+  "status": "checked",
+  "deGift": "eine Flasche Sake"
  },
  {
   "id": "niku",
@@ -1451,5 +1453,188 @@
   "status": "draft",
   "pl": "Karten",
   "note": "Landkarte / Stadtplan."
+ },
+ {
+  "id": "tofuya",
+  "pos": "noun",
+  "jp": "とうふ{屋|や}",
+  "de": "Tofuladen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Tofuläden",
+  "deLoc": "im Tofuladen"
+ },
+ {
+  "id": "okashiya",
+  "pos": "noun",
+  "jp": "おかし{屋|や}",
+  "de": "Süßwarenladen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Süßwarenläden",
+  "deLoc": "im Süßwarenladen"
+ },
+ {
+  "id": "chaya",
+  "pos": "noun",
+  "jp": "{茶屋|ちゃや}",
+  "de": "Teehaus",
+  "gender": "n",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Teehäuser",
+  "deLoc": "im Teehaus",
+  "kanjiCommon": false
+ },
+ {
+  "id": "kudamonoya",
+  "pos": "noun",
+  "jp": "くだもの{屋|や}",
+  "de": "Obstladen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Obstläden",
+  "deLoc": "im Obstladen"
+ },
+ {
+  "id": "nouka",
+  "pos": "noun",
+  "jp": "{農家|のうか}",
+  "de": "Bauernhof",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Bauernhöfe",
+  "deLoc": "auf dem Bauernhof",
+  "kanjiCommon": false
+ },
+ {
+  "id": "kusuriya",
+  "pos": "noun",
+  "jp": "{薬屋|くすりや}",
+  "de": "Apotheke",
+  "gender": "f",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Apotheken",
+  "deLoc": "in der Apotheke"
+ },
+ {
+  "id": "sakanaya",
+  "pos": "noun",
+  "jp": "{魚屋|さかなや}",
+  "de": "Fischladen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Fischläden",
+  "deLoc": "im Fischladen"
+ },
+ {
+  "id": "nikuya",
+  "pos": "noun",
+  "jp": "{肉屋|にくや}",
+  "de": "Metzgerei",
+  "gender": "f",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Metzgereien",
+  "deLoc": "in der Metzgerei"
+ },
+ {
+  "id": "panya",
+  "pos": "noun",
+  "jp": "パン{屋|や}",
+  "de": "Bäckerei",
+  "gender": "f",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Bäckereien",
+  "deLoc": "in der Bäckerei"
+ },
+ {
+  "id": "minato",
+  "pos": "noun",
+  "jp": "{港|みなと}",
+  "de": "Hafen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "place",
+   "shop"
+  ],
+  "status": "draft",
+  "pl": "Häfen",
+  "deLoc": "am Hafen"
+ },
+ {
+  "id": "aburaage",
+  "pos": "noun",
+  "jp": "{油揚|あぶらあ}げ",
+  "de": "Tofu",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "status": "draft",
+  "mass": true,
+  "adj": "frittiert",
+  "note": "Dünne, frittierte Tofuscheiben."
+ },
+ {
+  "id": "mochi",
+  "pos": "noun",
+  "jp": "もち",
+  "de": "Reiskuchen",
+  "gender": "m",
+  "ch": 6,
+  "tags": [
+   "food",
+   "item"
+  ],
+  "status": "draft",
+  "pl": "Reiskuchen",
+  "note": "Klebriger Reiskuchen (餅)."
  }
 ]

@@ -220,6 +220,30 @@
    },
    {
     "a": "kusuri"
+   },
+   {
+    "a": "kyuuri"
+   },
+   {
+    "a": "aburaage"
+   },
+   {
+    "a": "mochi"
+   },
+   {
+    "a": "momo"
+   },
+   {
+    "a": "tamago"
+   },
+   {
+    "a": "sakana"
+   },
+   {
+    "a": "niku"
+   },
+   {
+    "a": "osake"
    }
   ],
   "require": {
@@ -767,6 +791,54 @@
    {
     "a": "chizu",
     "b": "mise"
+   },
+   {
+    "a": "kyuuri",
+    "b": "mise"
+   },
+   {
+    "a": "aburaage",
+    "b": "tofuya"
+   },
+   {
+    "a": "mochi",
+    "b": "okashiya"
+   },
+   {
+    "a": "ocha",
+    "b": "chaya"
+   },
+   {
+    "a": "momo",
+    "b": "kudamonoya"
+   },
+   {
+    "a": "tamago",
+    "b": "nouka"
+   },
+   {
+    "a": "kusuri",
+    "b": "kusuriya"
+   },
+   {
+    "a": "sakana",
+    "b": "sakanaya"
+   },
+   {
+    "a": "pan",
+    "b": "panya"
+   },
+   {
+    "a": "niku",
+    "b": "nikuya"
+   },
+   {
+    "a": "osake",
+    "b": "mise"
+   },
+   {
+    "a": "ringo",
+    "b": "kudamonoya"
    }
   ],
   "require": {
@@ -782,6 +854,132 @@
     "pos": "noun",
     "tagsAny": [
      "place"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_place_shop",
+  "ch": "6",
+  "status": "draft",
+  "title": "〇〇に 店が あります",
+  "explain": "Ort に Geschäft が あります: „Dort gibt es einen Laden.“ に nennt den Ort, が das, was es dort gibt.",
+  "jp": "<a> に <b> が あります。",
+  "de": "[a.loc] gibt es [b.acc.indef].",
+  "fills": [
+   {
+    "a": "mura",
+    "b": "tofuya"
+   },
+   {
+    "a": "mura",
+    "b": "okashiya"
+   },
+   {
+    "a": "yama",
+    "b": "chaya"
+   },
+   {
+    "a": "mura",
+    "b": "kudamonoya"
+   },
+   {
+    "a": "mura",
+    "b": "nouka"
+   },
+   {
+    "a": "machi",
+    "b": "kusuriya"
+   },
+   {
+    "a": "minato",
+    "b": "sakanaya"
+   },
+   {
+    "a": "machi",
+    "b": "panya"
+   },
+   {
+    "a": "machi",
+    "b": "nikuya"
+   },
+   {
+    "a": "minato",
+    "b": "mise"
+   },
+   {
+    "a": "machi",
+    "b": "kudamonoya"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "place"
+    ]
+   },
+   "b": {
+    "pos": "noun",
+    "tagsAny": [
+     "shop"
+    ]
+   }
+  }
+ },
+ {
+  "id": "p_dozo_item",
+  "ch": "6",
+  "status": "draft",
+  "title": "どうぞ。〜です。",
+  "explain": "Etwas höflich überreichen: どうぞ („bitte sehr“) und dann sagen, was es ist.",
+  "jp": "どうぞ。 <a> です。",
+  "de": "Bitte sehr. Hier ist [a.gift].",
+  "fills": [
+   {
+    "a": "kyuuri"
+   },
+   {
+    "a": "aburaage"
+   },
+   {
+    "a": "mochi"
+   },
+   {
+    "a": "ocha"
+   },
+   {
+    "a": "momo"
+   },
+   {
+    "a": "tamago"
+   },
+   {
+    "a": "kusuri"
+   },
+   {
+    "a": "sakana"
+   },
+   {
+    "a": "pan"
+   },
+   {
+    "a": "niku"
+   },
+   {
+    "a": "osake"
+   },
+   {
+    "a": "ringo"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "food",
+     "drink",
+     "item"
     ]
    }
   }

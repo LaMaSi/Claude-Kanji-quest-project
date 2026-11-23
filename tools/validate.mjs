@@ -84,7 +84,7 @@ for (const w of words) if ((w.tags || []).includes('place') && !w.deLoc) err(`wo
 
 // every noun needs a picture (sprites.js); people need a portrait
 for (const w of words) if (w.pos === 'noun' && !(w.tags || []).includes('descriptor') && !SPRITE_IDS.includes(w.id)) err(`word ${w.id}: noun without a sprite in sprites.js`);
-for (const id of SPRITE_IDS) if (!byId[id]) warn(`sprites.js: sprite "${id}" has no word`);
+for (const id of SPRITE_IDS) if (!byId[id] && !id.startsWith('y_')) warn(`sprites.js: sprite "${id}" has no word`);
 for (const id of PORTRAITS) if (!SPRITE_IDS.includes(id)) err(`portrait ${id} missing in SPRITES`);
 
 // ---------- 3. patterns and sentences ----------
@@ -133,7 +133,7 @@ const kuroReading = text => tokenizer.tokenize(text).map(t => toHira(t.reading &
 const strip = s => s.replace(/ /g, '');
 const KNOWN_DIFF = { nani: 'なに/なん both valid', makige: 'まきげ is right (rendaku); the dictionary tokenizer splits it' };
 for (const w of words) for (const f of ['jp', 'masu'].filter(x => w[x])) {
-  const mine = strip(reading(w[f])), kanji = strip(kanjiText(w[f]));
+  const mine = toHira(strip(reading(w[f]))), kanji = strip(kanjiText(w[f]));
   if (!KANJI_RE.test(kanji)) continue;
   const k = kuroReading(kanji);
   if (k !== mine && !KNOWN_DIFF[w.id]) warn(`reading ${w.id}.${f}: mine ${mine}  vs kuromoji ${k}  (${kanji})`);
@@ -142,6 +142,38 @@ for (const w of words) {
   const mine = romaji(w.jp).replace(/'/g, '');
   const theirs = wk.toRomaji(reading(w.jp)).replace(/'/g, '').replace(/ /g, ' ');
   if (strip(mine) !== strip(theirs) && !/[はへ]\b/.test(reading(w.jp)) && !/(は|へ)$/.test(reading(w.jp).split(' ').pop())) warn(`romaji ${w.id}: mine "${mine}" vs wanakana "${theirs}"`);
+}
+
+// ---------- 4b. yokai quests: every request must be fulfillable and every sentence must exist ----------
+{
+  const fs = await import('fs');
+  const yokai = JSON.parse(fs.readFileSync(new URL('../content/yokai.json', import.meta.url), 'utf8'));
+  const world = JSON.parse(fs.readFileSync(new URL('../content/world.json', import.meta.url), 'utf8'));
+  const wordOf = Object.fromEntries(world.places.map(p => [p.id, p.word]));
+  const find = (w0, w1) => sentences.find(s => s.words[0] === w0 && s.words[1] === w1);
+  const kanaSent = s => strip(s.kana).replace(/[。、！？]/g, '');
+  for (const y of yokai) {
+    const at = `yokai ${y.id}`;
+    const place = world.places.find(p => p.id === y.place), shopPlace = world.places.find(p => p.id === y.shop.place);
+    if (!place) err(`${at}: unknown habitat ${y.place}`);
+    if (!byId[y.item]) err(`${at}: unknown item ${y.item}`);
+    const b = shopPlace?.shops.find(s => s.word === y.shop.building);
+    if (!b) err(`${at}: shop ${y.shop.building} does not exist in ${y.shop.place}`); else if (!b.sells.includes(y.item)) err(`${at}: shop ${y.shop.building} in ${y.shop.place} does not sell ${y.item}`);
+    if (!(world.prices[y.item] > 0)) err(`${at}: no price for ${y.item}`);
+    if (!SPRITE_IDS.includes('y_' + y.id)) err(`${at}: no sprite y_${y.id}`);
+    for (const k of ['lore', 'einordnung', 'culture', 'wish_de', 'deLong']) if (!y[k] || y[k].length < 8) err(`${at}: missing ${k}`);
+    const h1 = shopPlace && find(wordOf[y.shop.place], y.shop.building), h2 = find(y.item, y.shop.building);
+    const req = sentences.find(s => s.pattern === 'p_N_wo_kudasai' && s.words[0] === y.item), give = sentences.find(s => s.pattern === 'p_dozo_item' && s.words[0] === y.item);
+    if (!h1) err(`${at}: no hint sentence "${wordOf[y.shop.place]} ni ${y.shop.building} ga arimasu"`); if (!h2) err(`${at}: no hint sentence "${y.item} wa ${y.shop.building} ni arimasu"`);
+    if (!req) err(`${at}: no request sentence`); if (!give) err(`${at}: no hand-over sentence`);
+    // the Japanese of the research document and our generated sentences must read identically
+    for (const [doc, s] of [[y.docHints[0], h1], [y.docHints[1], h2], [y.docGive, give]]) {
+      if (!s) continue; const docJp = doc.split(' (')[0].replace(/\s/g, '');
+      const norm = x => x.replace(/が/g, 'は').replace(/おさけ/g, 'さけ'), dr = norm(kuroReading(docJp).replace(/[。、！？]/g, '')), mine = norm(toHira(kanaSent(s)));
+      if (dr !== mine) warn(`${at}: document says "${docJp}" (${dr}) but the game sentence reads ${mine}`);
+    }
+    const nm = strip(kanjiText(y.jp)); if (KANJI_RE.test(nm)) { const k = kuroReading(nm), mine = toHira(strip(reading(y.jp))); if (k !== mine && y.id !== 'zashiki') warn(`yokai name ${y.id}: mine ${mine} vs kuromoji ${k}`); }
+  }
 }
 
 // ---------- 5. output ----------

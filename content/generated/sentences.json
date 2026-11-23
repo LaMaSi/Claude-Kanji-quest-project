@@ -511,6 +511,118 @@
   "status": "reviewed"
  },
  {
+  "id": "p_N_wo_kudasai#6",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 5,
+  "jp": "きゅうり を ください。",
+  "jpFull": "きゅうり を ください。",
+  "romaji": "kyuuri o kudasai.",
+  "kana": "きゅうり を ください。",
+  "de": "Eine Gurke, bitte.",
+  "words": [
+   "kyuuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#7",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 6,
+  "jp": "{油揚|あぶらあ}げ を ください。",
+  "jpFull": "{油揚|あぶらあ}げ を ください。",
+  "romaji": "aburaage o kudasai.",
+  "kana": "あぶらあげ を ください。",
+  "de": "Frittierten Tofu, bitte.",
+  "words": [
+   "aburaage"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#8",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 6,
+  "jp": "もち を ください。",
+  "jpFull": "もち を ください。",
+  "romaji": "mochi o kudasai.",
+  "kana": "もち を ください。",
+  "de": "Einen Reiskuchen, bitte.",
+  "words": [
+   "mochi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#9",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 5,
+  "jp": "{桃|もも} を ください。",
+  "jpFull": "{桃|もも} を ください。",
+  "romaji": "momo o kudasai.",
+  "kana": "もも を ください。",
+  "de": "Einen Pfirsich, bitte.",
+  "words": [
+   "momo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#10",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "{卵|たまご} を ください。",
+  "jpFull": "{卵|たまご} を ください。",
+  "romaji": "tamago o kudasai.",
+  "kana": "たまご を ください。",
+  "de": "Ein Ei, bitte.",
+  "words": [
+   "tamago"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#11",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "{魚|さかな} を ください。",
+  "jpFull": "{魚|さかな} を ください。",
+  "romaji": "sakana o kudasai.",
+  "kana": "さかな を ください。",
+  "de": "Einen Fisch, bitte.",
+  "words": [
+   "sakana"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#12",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "{肉|にく} を ください。",
+  "jpFull": "{肉|にく} を ください。",
+  "romaji": "niku o kudasai.",
+  "kana": "にく を ください。",
+  "de": "Fleisch, bitte.",
+  "words": [
+   "niku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_N_wo_kudasai#13",
+  "pattern": "p_N_wo_kudasai",
+  "ch": 2,
+  "jp": "お{酒|さけ} を ください。",
+  "jpFull": "お{酒|さけ} を ください。",
+  "romaji": "osake o kudasai.",
+  "kana": "おさけ を ください。",
+  "de": "Alkohol, bitte.",
+  "words": [
+   "osake"
+  ],
+  "status": "draft"
+ },
+ {
   "id": "p_N_count_kudasai#1",
   "pattern": "p_N_count_kudasai",
   "ch": 2,
@@ -1733,6 +1845,519 @@
   "words": [
    "chizu",
    "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#13",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "きゅうり は {店|みせ} に あります。",
+  "jpFull": "きゅうり は {店|みせ} に あります。",
+  "romaji": "kyuuri wa mise ni arimasu.",
+  "kana": "きゅうり は みせ に あります。",
+  "de": "Gurken gibt es im Laden.",
+  "words": [
+   "kyuuri",
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#14",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{油揚|あぶらあ}げ は とうふ{屋|や} に あります。",
+  "jpFull": "{油揚|あぶらあ}げ は とうふ{屋|や} に あります。",
+  "romaji": "aburaage wa toufuya ni arimasu.",
+  "kana": "あぶらあげ は とうふや に あります。",
+  "de": "Frittierter Tofu gibt es im Tofuladen.",
+  "words": [
+   "aburaage",
+   "tofuya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#15",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "もち は おかし{屋|や} に あります。",
+  "jpFull": "もち は おかし{屋|や} に あります。",
+  "romaji": "mochi wa okashiya ni arimasu.",
+  "kana": "もち は おかしや に あります。",
+  "de": "Reiskuchen gibt es im Süßwarenladen.",
+  "words": [
+   "mochi",
+   "okashiya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#16",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "お{茶|ちゃ} は ちゃや に あります。",
+  "jpFull": "お{茶|ちゃ} は {茶屋|ちゃや} に あります。",
+  "romaji": "ocha wa chaya ni arimasu.",
+  "kana": "おちゃ は ちゃや に あります。",
+  "de": "Tee gibt es im Teehaus.",
+  "words": [
+   "ocha",
+   "chaya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#17",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{桃|もも} は くだもの{屋|や} に あります。",
+  "jpFull": "{桃|もも} は くだもの{屋|や} に あります。",
+  "romaji": "momo wa kudamonoya ni arimasu.",
+  "kana": "もも は くだものや に あります。",
+  "de": "Pfirsiche gibt es im Obstladen.",
+  "words": [
+   "momo",
+   "kudamonoya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#18",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{卵|たまご} は のうか に あります。",
+  "jpFull": "{卵|たまご} は {農家|のうか} に あります。",
+  "romaji": "tamago wa nouka ni arimasu.",
+  "kana": "たまご は のうか に あります。",
+  "de": "Eier gibt es auf dem Bauernhof.",
+  "words": [
+   "tamago",
+   "nouka"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#19",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{薬|くすり} は {薬屋|くすりや} に あります。",
+  "jpFull": "{薬|くすり} は {薬屋|くすりや} に あります。",
+  "romaji": "kusuri wa kusuriya ni arimasu.",
+  "kana": "くすり は くすりや に あります。",
+  "de": "Medizin gibt es in der Apotheke.",
+  "words": [
+   "kusuri",
+   "kusuriya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#20",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{魚|さかな} は {魚屋|さかなや} に あります。",
+  "jpFull": "{魚|さかな} は {魚屋|さかなや} に あります。",
+  "romaji": "sakana wa sakanaya ni arimasu.",
+  "kana": "さかな は さかなや に あります。",
+  "de": "Fische gibt es im Fischladen.",
+  "words": [
+   "sakana",
+   "sakanaya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#21",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "パン は パン{屋|や} に あります。",
+  "jpFull": "パン は パン{屋|や} に あります。",
+  "romaji": "pan wa pan'ya ni arimasu.",
+  "kana": "パン は パンや に あります。",
+  "de": "Brote gibt es in der Bäckerei.",
+  "words": [
+   "pan",
+   "panya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#22",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "{肉|にく} は {肉屋|にくや} に あります。",
+  "jpFull": "{肉|にく} は {肉屋|にくや} に あります。",
+  "romaji": "niku wa nikuya ni arimasu.",
+  "kana": "にく は にくや に あります。",
+  "de": "Fleisch gibt es in der Metzgerei.",
+  "words": [
+   "niku",
+   "nikuya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#23",
+  "pattern": "p_item_place",
+  "ch": 5,
+  "jp": "お{酒|さけ} は {店|みせ} に あります。",
+  "jpFull": "お{酒|さけ} は {店|みせ} に あります。",
+  "romaji": "osake wa mise ni arimasu.",
+  "kana": "おさけ は みせ に あります。",
+  "de": "Alkohol gibt es im Laden.",
+  "words": [
+   "osake",
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_item_place#24",
+  "pattern": "p_item_place",
+  "ch": 6,
+  "jp": "りんご は くだもの{屋|や} に あります。",
+  "jpFull": "りんご は くだもの{屋|や} に あります。",
+  "romaji": "ringo wa kudamonoya ni arimasu.",
+  "kana": "りんご は くだものや に あります。",
+  "de": "Äpfel gibt es im Obstladen.",
+  "words": [
+   "ringo",
+   "kudamonoya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#1",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{村|むら} に とうふ{屋|や} が あります。",
+  "jpFull": "{村|むら} に とうふ{屋|や} が あります。",
+  "romaji": "mura ni toufuya ga arimasu.",
+  "kana": "むら に とうふや が あります。",
+  "de": "Im Dorf gibt es einen Tofuladen.",
+  "words": [
+   "mura",
+   "tofuya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#2",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{村|むら} に おかし{屋|や} が あります。",
+  "jpFull": "{村|むら} に おかし{屋|や} が あります。",
+  "romaji": "mura ni okashiya ga arimasu.",
+  "kana": "むら に おかしや が あります。",
+  "de": "Im Dorf gibt es einen Süßwarenladen.",
+  "words": [
+   "mura",
+   "okashiya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#3",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{山|やま} に ちゃや が あります。",
+  "jpFull": "{山|やま} に {茶屋|ちゃや} が あります。",
+  "romaji": "yama ni chaya ga arimasu.",
+  "kana": "やま に ちゃや が あります。",
+  "de": "Auf dem Berg gibt es ein Teehaus.",
+  "words": [
+   "yama",
+   "chaya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#4",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{村|むら} に くだもの{屋|や} が あります。",
+  "jpFull": "{村|むら} に くだもの{屋|や} が あります。",
+  "romaji": "mura ni kudamonoya ga arimasu.",
+  "kana": "むら に くだものや が あります。",
+  "de": "Im Dorf gibt es einen Obstladen.",
+  "words": [
+   "mura",
+   "kudamonoya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#5",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{村|むら} に のうか が あります。",
+  "jpFull": "{村|むら} に {農家|のうか} が あります。",
+  "romaji": "mura ni nouka ga arimasu.",
+  "kana": "むら に のうか が あります。",
+  "de": "Im Dorf gibt es einen Bauernhof.",
+  "words": [
+   "mura",
+   "nouka"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#6",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{町|まち} に {薬屋|くすりや} が あります。",
+  "jpFull": "{町|まち} に {薬屋|くすりや} が あります。",
+  "romaji": "machi ni kusuriya ga arimasu.",
+  "kana": "まち に くすりや が あります。",
+  "de": "In der Kleinstadt gibt es eine Apotheke.",
+  "words": [
+   "machi",
+   "kusuriya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#7",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{港|みなと} に {魚屋|さかなや} が あります。",
+  "jpFull": "{港|みなと} に {魚屋|さかなや} が あります。",
+  "romaji": "minato ni sakanaya ga arimasu.",
+  "kana": "みなと に さかなや が あります。",
+  "de": "Am Hafen gibt es einen Fischladen.",
+  "words": [
+   "minato",
+   "sakanaya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#8",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{町|まち} に パン{屋|や} が あります。",
+  "jpFull": "{町|まち} に パン{屋|や} が あります。",
+  "romaji": "machi ni pan'ya ga arimasu.",
+  "kana": "まち に パンや が あります。",
+  "de": "In der Kleinstadt gibt es eine Bäckerei.",
+  "words": [
+   "machi",
+   "panya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#9",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{町|まち} に {肉屋|にくや} が あります。",
+  "jpFull": "{町|まち} に {肉屋|にくや} が あります。",
+  "romaji": "machi ni nikuya ga arimasu.",
+  "kana": "まち に にくや が あります。",
+  "de": "In der Kleinstadt gibt es eine Metzgerei.",
+  "words": [
+   "machi",
+   "nikuya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#10",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{港|みなと} に {店|みせ} が あります。",
+  "jpFull": "{港|みなと} に {店|みせ} が あります。",
+  "romaji": "minato ni mise ga arimasu.",
+  "kana": "みなと に みせ が あります。",
+  "de": "Am Hafen gibt es einen Laden.",
+  "words": [
+   "minato",
+   "mise"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_place_shop#11",
+  "pattern": "p_place_shop",
+  "ch": 6,
+  "jp": "{町|まち} に くだもの{屋|や} が あります。",
+  "jpFull": "{町|まち} に くだもの{屋|や} が あります。",
+  "romaji": "machi ni kudamonoya ga arimasu.",
+  "kana": "まち に くだものや が あります。",
+  "de": "In der Kleinstadt gibt es einen Obstladen.",
+  "words": [
+   "machi",
+   "kudamonoya"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#1",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 きゅうり です。",
+  "jpFull": "どうぞ。 きゅうり です。",
+  "romaji": "douzo. kyuuri desu.",
+  "kana": "どうぞ。 きゅうり です。",
+  "de": "Bitte sehr. Hier ist eine Gurke.",
+  "words": [
+   "kyuuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#2",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {油揚|あぶらあ}げ です。",
+  "jpFull": "どうぞ。 {油揚|あぶらあ}げ です。",
+  "romaji": "douzo. aburaage desu.",
+  "kana": "どうぞ。 あぶらあげ です。",
+  "de": "Bitte sehr. Hier ist frittierter Tofu.",
+  "words": [
+   "aburaage"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#3",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 もち です。",
+  "jpFull": "どうぞ。 もち です。",
+  "romaji": "douzo. mochi desu.",
+  "kana": "どうぞ。 もち です。",
+  "de": "Bitte sehr. Hier ist ein Reiskuchen.",
+  "words": [
+   "mochi"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#4",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 お{茶|ちゃ} です。",
+  "jpFull": "どうぞ。 お{茶|ちゃ} です。",
+  "romaji": "douzo. ocha desu.",
+  "kana": "どうぞ。 おちゃ です。",
+  "de": "Bitte sehr. Hier ist Tee.",
+  "words": [
+   "ocha"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#5",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {桃|もも} です。",
+  "jpFull": "どうぞ。 {桃|もも} です。",
+  "romaji": "douzo. momo desu.",
+  "kana": "どうぞ。 もも です。",
+  "de": "Bitte sehr. Hier ist ein Pfirsich.",
+  "words": [
+   "momo"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#6",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {卵|たまご} です。",
+  "jpFull": "どうぞ。 {卵|たまご} です。",
+  "romaji": "douzo. tamago desu.",
+  "kana": "どうぞ。 たまご です。",
+  "de": "Bitte sehr. Hier ist ein Ei.",
+  "words": [
+   "tamago"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#7",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {薬|くすり} です。",
+  "jpFull": "どうぞ。 {薬|くすり} です。",
+  "romaji": "douzo. kusuri desu.",
+  "kana": "どうぞ。 くすり です。",
+  "de": "Bitte sehr. Hier ist Medizin.",
+  "words": [
+   "kusuri"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#8",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {魚|さかな} です。",
+  "jpFull": "どうぞ。 {魚|さかな} です。",
+  "romaji": "douzo. sakana desu.",
+  "kana": "どうぞ。 さかな です。",
+  "de": "Bitte sehr. Hier ist ein Fisch.",
+  "words": [
+   "sakana"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#9",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 パン です。",
+  "jpFull": "どうぞ。 パン です。",
+  "romaji": "douzo. pan desu.",
+  "kana": "どうぞ。 パン です。",
+  "de": "Bitte sehr. Hier ist Brot.",
+  "words": [
+   "pan"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#10",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 {肉|にく} です。",
+  "jpFull": "どうぞ。 {肉|にく} です。",
+  "romaji": "douzo. niku desu.",
+  "kana": "どうぞ。 にく です。",
+  "de": "Bitte sehr. Hier ist Fleisch.",
+  "words": [
+   "niku"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#11",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 お{酒|さけ} です。",
+  "jpFull": "どうぞ。 お{酒|さけ} です。",
+  "romaji": "douzo. osake desu.",
+  "kana": "どうぞ。 おさけ です。",
+  "de": "Bitte sehr. Hier ist eine Flasche Sake.",
+  "words": [
+   "osake"
+  ],
+  "status": "draft"
+ },
+ {
+  "id": "p_dozo_item#12",
+  "pattern": "p_dozo_item",
+  "ch": 6,
+  "jp": "どうぞ。 りんご です。",
+  "jpFull": "どうぞ。 りんご です。",
+  "romaji": "douzo. ringo desu.",
+  "kana": "どうぞ。 りんご です。",
+  "de": "Bitte sehr. Hier ist ein Apfel.",
+  "words": [
+   "ringo"
   ],
   "status": "draft"
  }

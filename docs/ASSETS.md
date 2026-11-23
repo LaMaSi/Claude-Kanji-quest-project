@@ -24,3 +24,6 @@ Pipeline: `node tools/slice-sheets.mjs` (cut + remove magenta) -> `node tools/bu
 ## Fonts
 - **Klee One** (Fontworks, "Klee Project Authors"), SIL Open Font License 1.1 – handwriting-style font for the diary (Notizbuch), covers kanji, kana and Latin (romaji). Subset to the characters used: `tools/build-fonts.py` -> `assets/fonts/KleeOne-subset.woff2`; license text next to it (`assets/fonts/OFL-KleeOne.txt`). Source: https://github.com/google/fonts/tree/main/ofl/kleeone . No statement against AI use found (checked 2026-11-23).
 - Candidates **not yet used** because their licence/creator stance is not verified: Zen Kurenaido, Yomogi (Google Fonts, OFL). Check the creators' pages before adding.
+
+## Yokai research (text)
+`art/incoming/yokai_research.txt` is the text of the ChatGPT research document the owner supplied on 2026-11-23 ("Yokai-Freundschaften – Konzept- und Quest-Handbuch"). It was imported by `tools/import-yokai.py` into `content/yokai.json` (+ words, patterns, shops in `content/`). All imported texts have status `draft` until the external review sheet `review-3-yokai.md` has been answered. The yokai pictures in the Dex are placeholders drawn in code (`y_*` in `sprites.js`); real illustrations are welcome (see `docs/SCENES.md`).

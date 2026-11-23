@@ -5,6 +5,8 @@ import { spriteEl } from './sprites.js';
 import { drawMapArt } from './mapart.js';
 import { displayDe } from './german.js';
 
+export const hooks = { extras: null, badge: null };   // set by yokai.js (shops, yokai cards on the place screen, map badges)
+export const openPlace = (id, replace = false) => A.setScreen(() => placeNode(id), { replace });
 let A;   // api from app.js: G, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, redraw
 export const initWorld = api => { A = api; };
 const G = () => A.G();
@@ -24,20 +26,22 @@ export function mapNode() {
         b.style.left = p.x + '%'; b.style.top = p.y + '%';
         const sp = spriteEl(p.word, 32); if (sp) b.appendChild(sp);
         b.insertAdjacentHTML('beforeend', `<span class="jp">${ok ? A.J(w.jp) : '🔒 Lv ' + p.lv}</span>`);
+        if (ok && hooks.badge?.(p.id)) b.insertAdjacentHTML('beforeend', '<span class="badge">!</span>');
         b.onclick = () => (ok ? A.setScreen(() => placeNode(p.id)) : A.toast(`Dieser Ort öffnet sich ab Level ${p.lv}`));
         box.appendChild(b);
       }
       host.appendChild(box);
     },
-    choices: [{ t: 'ばしょ クイズ', de: 'Orts-Quiz: Wo gibt es was?', fn: () => { startPlaceQuiz(); } }, { t: 'ノート', de: 'Notizbuch ansehen', fn: () => { A.openSheet(notebookSheet); } }] };
+    choices: [{ t: 'ばしょ クイズ', de: 'Orts-Quiz: Wo gibt es was?', fn: () => { startPlaceQuiz(); } }, { t: 'ノート', de: 'Notizbuch ansehen', fn: () => { A.openSheet(notebookSheet); } }, { t: '{妖怪図鑑|ようかいずかん}', de: 'Yokai-Dex', fn: () => { A.openSheet(hooks.dex); } }] };
 }
 
 function placeNode(id) {
   const p = places().find(x => x.id === id), w = W(p.word);
   const things = [...p.items.map(i => ['item', i]), ...p.animals.map(i => ['animal', i])];
   return { art: p.art, title: w.jp, titleDe: `${displayDe(w)} – ${w.deLoc}`, widgetTop: true,
-    lines: [{ say: things.length ? 'Hier findest du:' : 'Hier gibt es noch nichts zu finden. Frag die Leute im Dorf!' }],
+    lines: [{ say: things.length ? 'Hier findest du:' : 'Hier gibt es nicht viel zu sehen.' }],
     widget: host => {
+      hooks.extras?.(host, p);
       if (!things.length) return;
       const grid = document.createElement('div'); grid.className = 'pgrid'; host.appendChild(grid);
       for (const [kind, wid] of things) {

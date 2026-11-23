@@ -1,7 +1,7 @@
 // Loads content and generates the sentence list from patterns. Pure functions, no I/O besides reading JSON.
 import { readFileSync } from 'fs';
 import { parse, num, count, numKana, romanizeChunk } from '../../lang.js';
-import { np, inDat, inAcc, capFirst, NUMBER_WORDS } from '../../german.js';
+import { np, inDat, inAcc, capFirst, NUMBER_WORDS, lemma } from '../../german.js';
 
 const root = new URL('../../', import.meta.url);
 export const load = f => JSON.parse(readFileSync(new URL(f, root), 'utf8'));
@@ -61,7 +61,8 @@ export function buildSentences({ patterns, byId, reviewedSentences = {} }) {
         if (typeof v === 'number') return a === 'word' ? NUMBER_WORDS[v] : String(v);
         if (!a) return v.deSent ?? v.de;
         if (a === 'loc') return v.deLoc;
-        if (a === 'bare') return v.pl ?? v.de;
+        if (a === 'bare') return v.pl ?? lemma(v);
+        if (a === 'gift') return v.deGift ?? np(v, 'nom', false);
         if (a === 'sub') return v.subjPl ? `die ${v.pl}` : np(v, 'nom', true);
         if (a === 'cop') return v.subjPl ? 'sind' : 'ist';
         if (a === 'pred') return v.deBy?.[slot(b).id] ?? v.deAdj ?? v.de;

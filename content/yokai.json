@@ -1,0 +1,290 @@
+[
+ {
+  "id": "kappa",
+  "jp": "{河童|かっぱ}",
+  "rom": "Kappa",
+  "de": "Kappa",
+  "deLong": "Wasserkobold",
+  "place": "lake",
+  "motifs": "Gurke; Wasser; Ringkampf; Wasserschale auf dem Kopf",
+  "status": "draft",
+  "einordnung": "Gut belegtes folkloristisches Motiv.",
+  "lore": "Kappa leben in Flüssen und tiefen Gewässern. Sie sind neugierig und verspielt, können Menschen aber auch gefährlich werden. Eine Schale Wasser auf ihrem Kopf gibt ihnen Kraft. Wer ihnen mit Respekt begegnet, kann manchmal einen ungewöhnlichen Freund gewinnen.",
+  "wish_de": "Ich habe Hunger. Bring mir eine Gurke!",
+  "item": "kyuuri",
+  "shop": {
+   "place": "village",
+   "building": "mise"
+  },
+  "culture": "In manchen Kappa-Erzählungen kann eine Verbeugung dazu führen, dass Wasser aus der Kopfschale läuft. Als spielerische Folklore-Referenz, nicht als allgemeine japanische Etikette kennzeichnen.",
+  "docHints": [
+   "村に店があります。 (Mura ni mise ga arimasu.) – Im Dorf gibt es einen Laden.",
+   "店にきゅうりがあります。 (Mise ni kyūri ga arimasu.) – Im Laden gibt es Gurken."
+  ],
+  "docGive": "どうぞ。きゅうりです。 (Dōzo. Kyūri desu.) – Bitte. Hier ist eine Gurke."
+ },
+ {
+  "id": "kitsune",
+  "jp": "{狐|きつね}",
+  "rom": "Kitsune",
+  "de": "Kitsune",
+  "deLong": "Fuchsgeist",
+  "place": "village",
+  "motifs": "Verwandlung und Klugheit; Verbindung zu Inari; Aburaage als populäre kulinarische Verbindung",
+  "status": "draft",
+  "einordnung": "Folklore; Aburaage als allgemeine Lieblingsspeise ist nicht gesichert.",
+  "lore": "Kitsune sind kluge Füchse, die ihre Gestalt verändern können. Manche spielen Menschen Streiche, andere helfen ihnen. Füchse gelten in der Tradition von Inari als dessen Boten. Ihre wahre Gestalt bleibt oft lange verborgen.",
+  "wish_de": "Ich möchte frittierten Tofu.",
+  "item": "aburaage",
+  "shop": {
+   "place": "village",
+   "building": "tofuya"
+  },
+  "culture": "Füchse gelten in Inari-Traditionen als Boten. Fuchsfiguren an Schreinen nicht als Inari selbst bezeichnen und nicht als Sammelobjekte verwenden.",
+  "docHints": [
+   "村にとうふ屋があります。 (Mura ni tōfuya ga arimasu.) – Im Dorf gibt es einen Tofuladen.",
+   "あぶらあげはとうふ屋にあります。 (Aburaage wa tōfuya ni arimasu.) – Aburaage gibt es im Tofuladen."
+  ],
+  "docGive": "どうぞ。あぶらあげです。 (Dōzo. Aburaage desu.) – Bitte. Hier ist frittierter Tofu."
+ },
+ {
+  "id": "tanuki",
+  "jp": "{狸|たぬき}",
+  "rom": "Tanuki",
+  "de": "Tanuki",
+  "deLong": "Marderhundgeist",
+  "place": "woods",
+  "motifs": "Verwandlung, Streiche, Geselligkeit; Sake in manchen Erzählungen",
+  "status": "draft",
+  "einordnung": "Gut belegtes folkloristisches Motiv.",
+  "lore": "Tanuki sind Meister der Verwandlung. Sie können sich als Menschen, Gegenstände oder andere Wesen zeigen. Ihre Streiche sind häufig komisch, manchmal aber auch unheimlich. Hinter ihrer fröhlichen Erscheinung verbirgt sich ein Wesen, das die Grenzen zwischen Wirklichkeit und Illusion kennt.",
+  "wish_de": "Ich möchte einen leckeren Reiskuchen.",
+  "item": "mochi",
+  "shop": {
+   "place": "village",
+   "building": "okashiya"
+  },
+  "culture": "Keramische Tanuki-Figuren stehen häufig vor Geschäften. Ihre Bedeutung kann ein Händler erklären.",
+  "docHints": [
+   "村におかし屋があります。 (Mura ni okashiya ga arimasu.) – Im Dorf gibt es einen Süßwarenladen.",
+   "もちがおかし屋にあります。 (Mochi ga okashiya ni arimasu.) – Mochi gibt es im Süßwarenladen."
+  ],
+  "docGive": "どうぞ。もちです。 (Dōzo. Mochi desu.) – Bitte. Hier ist Mochi."
+ },
+ {
+  "id": "tengu",
+  "jp": "{天狗|てんぐ}",
+  "rom": "Tengu",
+  "de": "Tengu",
+  "deLong": "Bergkobold",
+  "place": "mountains",
+  "motifs": "Berge, Wind, Flug, Kampfkünste; Stolz und Prüfung",
+  "status": "draft",
+  "einordnung": "Gut belegtes folkloristisches Motiv.",
+  "lore": "Tengu leben in abgelegenen Bergregionen. Sie gelten als mächtige und stolze Wesen, die Menschen prüfen können. Manche schützen die Berge und kennen verborgene Wege. Wer ihnen mit Respekt begegnet, kann von ihrer Erfahrung lernen.",
+  "wish_de": "Ich möchte guten Tee trinken.",
+  "item": "ocha",
+  "shop": {
+   "place": "mountains",
+   "building": "chaya"
+  },
+  "culture": "Eine höfliche Begrüßung anderer Wanderer ist ein passendes Alltagselement. Keine erfundene religiöse Bergzeremonie darstellen.",
+  "docHints": [
+   "山に茶屋があります。 (Yama ni chaya ga arimasu.) – Am Berg gibt es ein Teehaus.",
+   "お茶は茶屋にあります。 (Ocha wa chaya ni arimasu.) – Tee gibt es im Teehaus."
+  ],
+  "docGive": "どうぞ。おちゃです。 (Dōzo. Ocha desu.) – Bitte. Hier ist Tee."
+ },
+ {
+  "id": "yukionna",
+  "jp": "{雪女|ゆきおんな}",
+  "rom": "Yuki-onna",
+  "de": "Yuki-onna",
+  "deLong": "Schneefrau",
+  "place": "mountains",
+  "motifs": "Schnee, Kälte, Winterlandschaften; regional gefährlich oder hilfsbereit",
+  "status": "draft",
+  "einordnung": "Folklore; Ausprägungen regional unterschiedlich.",
+  "lore": "Die Schneefrau erscheint in verschneiten Nächten. Ihre Gestalt ist oft so weiß wie der Schnee selbst. In manchen Geschichten raubt sie Menschen die Wärme und das Leben. Andere Überlieferungen zeigen sie als geheimnisvolle Gestalt, die Menschen nicht schadet.",
+  "wish_de": "Bring mir einen schönen Pfirsich.",
+  "item": "momo",
+  "shop": {
+   "place": "village",
+   "building": "kudamonoya"
+  },
+  "culture": "Eine bekannte Hearn-Erzählung betont ein Versprechen und das Bewahren von Vertrauen. Das kann als Dialogthema dienen.",
+  "docHints": [
+   "村にくだもの屋があります。 (Mura ni kudamonoya ga arimasu.) – Im Dorf gibt es einen Obstladen.",
+   "ももはくだもの屋にあります。 (Momo wa kudamonoya ni arimasu.) – Pfirsiche gibt es im Obstladen."
+  ],
+  "docGive": "どうぞ。ももです。 (Dōzo. Momo desu.) – Bitte. Hier ist ein Pfirsich."
+ },
+ {
+  "id": "zashiki",
+  "jp": "{座敷童子|ざしきわらし}",
+  "rom": "Zashiki-warashi",
+  "de": "Zashiki-warashi",
+  "deLong": "Hauskindgeist",
+  "place": "village",
+  "motifs": "Alte Häuser und Kinder; Anwesenheit gilt als Glückszeichen",
+  "status": "draft",
+  "einordnung": "Gut dokumentierte regionale Überlieferung.",
+  "lore": "Zashiki-warashi leben in alten Häusern, besonders in der Region Tōhoku. Manchmal sieht man sie als Kinder, manchmal hört man nur ihre Schritte oder ihr Lachen. Ihre Anwesenheit gilt als gutes Zeichen für die Bewohner. Wenn sie ein Haus verlassen, kann dessen Glück schwinden.",
+  "wish_de": "Ich möchte ein frisches Ei.",
+  "item": "tamago",
+  "shop": {
+   "place": "village",
+   "building": "nouka"
+  },
+  "culture": "In einem traditionellen Haus zieht man vor dem Betreten üblicherweise die Schuhe aus. Tatami und Tokonoma respektvoll darstellen.",
+  "docHints": [
+   "村に農家があります。 (Mura ni nōka ga arimasu.) – Im Dorf gibt es einen Bauernhof.",
+   "たまごは農家にあります。 (Tamago wa nōka ni arimasu.) – Eier gibt es auf dem Bauernhof."
+  ],
+  "docGive": "どうぞ。たまごです。 (Dōzo. Tamago desu.) – Bitte. Hier ist ein Ei."
+ },
+ {
+  "id": "kodama",
+  "jp": "{木霊|こだま}",
+  "rom": "Kodama",
+  "de": "Kodama",
+  "deLong": "Baumgeist",
+  "place": "woods",
+  "motifs": "Alte Bäume und Wald; Stimme als Echo in Bergen und Wäldern",
+  "status": "draft",
+  "einordnung": "Folklore; konkrete Vorstellungen variieren.",
+  "lore": "Kodama wohnen in alten Bäumen. In der Vorstellung der Menschen kann ihre Stimme durch die Berge und Wälder widerhallen. Sie erinnern daran, dass ein Wald mehr ist als eine Ansammlung von Bäumen. Wer einen alten Baum achtet, sollte ihn nicht leichtfertig verletzen.",
+  "wish_de": "Mein alter Baum ist krank. Bring mir Medizin.",
+  "item": "kusuri",
+  "shop": {
+   "place": "town",
+   "building": "kusuriya"
+  },
+  "culture": "Alte Bäume respektieren. Shimenawa nicht als beliebige Dekoration verwenden und keine heiligen Bereiche als Questkulisse vereinnahmen.",
+  "docHints": [
+   "町に薬屋があります。 (Machi ni kusuriya ga arimasu.) – In der Stadt gibt es eine Apotheke.",
+   "薬は薬屋にあります。 (Kusuri wa kusuriya ni arimasu.) – Medizin gibt es in der Apotheke."
+  ],
+  "docGive": "どうぞ。くすりです。 (Dōzo. Kusuri desu.) – Bitte. Hier ist Medizin."
+ },
+ {
+  "id": "isoonna",
+  "jp": "{磯女|いそおんな}",
+  "rom": "Iso-onna",
+  "de": "Iso-onna",
+  "deLong": "Küstengeist",
+  "place": "shore",
+  "motifs": "Nächtliche Küste, langes Haar, Gefahr für Fischer; regionale Erzählungen",
+  "status": "draft",
+  "einordnung": "Regionale Variante; nicht als landesweit einheitlicher Yokai darstellen.",
+  "lore": "Iso-onna erscheint in regionalen Küstenerzählungen, besonders aus Westjapan. Sie kann wie eine schöne Frau aussehen, doch ihr langes schwarzes Haar verbirgt eine gefährliche Seite. In manchen Geschichten nähert sie sich nachts den Fischerbooten. Sie gehört zu den unheimlichen Wesen der Grenze zwischen Meer und Land.",
+  "wish_de": "Ich möchte einen frischen Fisch.",
+  "item": "sakana",
+  "shop": {
+   "place": "harbor",
+   "building": "sakanaya"
+  },
+  "culture": "Küstenlegenden können auf die Gefahren nächtlicher Fischerei verweisen. Ein Fischer erzählt davon, ohne reale Fischertraditionen zu karikieren.",
+  "docHints": [
+   "港に魚屋があります。 (Minato ni sakanaya ga arimasu.) – Am Hafen gibt es einen Fischladen.",
+   "魚は魚屋にあります。 (Sakana wa sakanaya ni arimasu.) – Fisch gibt es im Fischladen."
+  ],
+  "docGive": "どうぞ。さかなです。 (Dōzo. Sakana desu.) – Bitte. Hier ist Fisch."
+ },
+ {
+  "id": "chochin",
+  "jp": "{提灯|ちょうちん}お{化|ば}け",
+  "rom": "Chōchin-obake",
+  "de": "Chōchin-obake",
+  "deLong": "Laternengeist",
+  "place": "city",
+  "motifs": "Alte Papierlaterne erwacht zum Leben; Tsukumogami-Bildwelt",
+  "status": "draft",
+  "einordnung": "Vor allem als historisches Bildmotiv / Tsukumogami-Darstellung bekannt.",
+  "lore": "Eine alte Laterne kann in Geschichten ein eigenes Leben entwickeln. Ihr Mund öffnet sich, eine lange Zunge erscheint und Augen blicken aus dem Papier. Sie erschreckt nächtliche Wanderer, ohne zwangsläufig Böses zu wollen. Vielleicht erinnert sie daran, dass auch vergessene Dinge eine Geschichte besitzen.",
+  "wish_de": "Ich habe Hunger. Bring mir Brot.",
+  "item": "pan",
+  "shop": {
+   "place": "town",
+   "building": "panya"
+  },
+  "culture": "Papierlaternen waren wichtige historische Lichtquellen. Alte Gegenstände reparieren statt sie als wertlos darzustellen.",
+  "docHints": [
+   "町にパン屋があります。 (Machi ni pan'ya ga arimasu.) – In der Stadt gibt es eine Bäckerei.",
+   "パンはパン屋にあります。 (Pan wa pan'ya ni arimasu.) – Brot gibt es in der Bäckerei."
+  ],
+  "docGive": "どうぞ。パンです。 (Dōzo. Pan desu.) – Bitte. Hier ist Brot."
+ },
+ {
+  "id": "bakeneko",
+  "jp": "{化|ば}け{猫|ねこ}",
+  "rom": "Bake-neko",
+  "de": "Bake-neko",
+  "deLong": "Wandelkatze",
+  "place": "town",
+  "motifs": "Alte Katzen, Verwandlung, Sprechen und nächtliche Streiche",
+  "status": "draft",
+  "einordnung": "Gut belegte Erzähltradition; Varianten unterscheiden sich.",
+  "lore": "Eine Katze, die viele Jahre gelebt hat, kann in Erzählungen zu einem Bake-neko werden. Sie kann sprechen, menschliche Gestalt annehmen oder auf zwei Beinen tanzen. Manche Geschichten erzählen von Katzen, die das Unrecht ihrer menschlichen Freunde nicht vergessen. Nicht jede alte Katze ist jedoch ein gefährliches Wesen.",
+  "wish_de": "Ich möchte ein Stück Fleisch.",
+  "item": "niku",
+  "shop": {
+   "place": "town",
+   "building": "nikuya"
+  },
+  "culture": "Katzen freundlich behandeln und nicht grob anfassen. Die Verwandlung alter Katzen als Legende kennzeichnen.",
+  "docHints": [
+   "町に肉屋があります。 (Machi ni nikuya ga arimasu.) – In der Stadt gibt es eine Metzgerei.",
+   "肉は肉屋にあります。 (Niku wa nikuya ni arimasu.) – Fleisch gibt es in der Metzgerei."
+  ],
+  "docGive": "どうぞ。にくです。 (Dōzo. Niku desu.) – Bitte. Hier ist Fleisch."
+ },
+ {
+  "id": "shojo",
+  "jp": "{猩々|しょうじょう}",
+  "rom": "Shōjō",
+  "de": "Shōjō",
+  "deLong": "Sakegeist",
+  "place": "shore",
+  "motifs": "Rotes Haar, Sake, Tanz und Großzügigkeit; Nō-Theatertradition mit chinesischen Wurzeln",
+  "status": "draft",
+  "einordnung": "Nō-Theatertradition; Motiv hat chinesische Wurzeln.",
+  "lore": "Shōjō ist ein geheimnisvolles Wesen, das mit dem Meer verbunden ist. Sein rotes Haar und sein fröhliches Wesen machen es unverwechselbar. In der bekannten Nō-Erzählung schenkt es einem ehrlichen Menschen besonderen Sake. Die Geschichte stellt Großzügigkeit und Bescheidenheit der Gier gegenüber.",
+  "wish_de": "Ich wünsche mir eine Flasche Sake.",
+  "item": "osake",
+  "shop": {
+   "place": "harbor",
+   "building": "mise"
+  },
+  "culture": "Die Figur ist eng mit dem Nō-Stück Shōjō verbunden. Maske und Tanz als Theaterkunst erklären; keinen Alkoholkonsum fördern.",
+  "docHints": [
+   "港に店があります。 (Minato ni mise ga arimasu.) – Am Hafen gibt es einen Laden.",
+   "さけは店にあります。 (Sake wa mise ni arimasu.) – Sake gibt es im Laden."
+  ],
+  "docGive": "どうぞ。さけです。 (Dōzo. Sake desu.) – Bitte. Hier ist Sake."
+ },
+ {
+  "id": "makura",
+  "jp": "{枕|まくら}{返|がえ}し",
+  "rom": "Makura-gaeshi",
+  "de": "Makura-gaeshi",
+  "deLong": "Kissenverdreher",
+  "place": "city",
+  "motifs": "Nächtlicher Schabernack: Kissen oder Schlafposition werden verändert",
+  "status": "draft",
+  "einordnung": "Folklore; lokale Ausprägungen beachten.",
+  "lore": "Makura-gaeshi ist ein nächtlicher Störenfried. Während Menschen schlafen, verändert es ihre Kissen oder dreht ihre Schlafposition um. Manchmal wird es mit anderen Hausgeistern in Verbindung gebracht. Es zeigt, wie aus einer kleinen unerklärlichen Alltagserfahrung eine Yokai-Geschichte entstehen kann.",
+  "wish_de": "Ich möchte einen knackigen Apfel.",
+  "item": "ringo",
+  "shop": {
+   "place": "town",
+   "building": "kudamonoya"
+  },
+  "culture": "Futon und Kissen als Teil der Wohnkultur zeigen. Das Zusammenlegen eines Futons ist eine passende Alltagsszene.",
+  "docHints": [
+   "町にくだもの屋があります。 (Machi ni kudamonoya ga arimasu.) – In der Stadt gibt es einen Obstladen.",
+   "りんごはくだもの屋にあります。 (Ringo wa kudamonoya ni arimasu.) – Äpfel gibt es im Obstladen."
+  ],
+  "docGive": "どうぞ。りんごです。 (Dōzo. Ringo desu.) – Bitte. Hier ist ein Apfel."
+ }
+]

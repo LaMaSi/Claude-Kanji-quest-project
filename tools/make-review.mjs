@@ -79,7 +79,7 @@ ${rows.join('\n')}
 
 const todo = x => (x.status || 'draft') !== 'reviewed';
 const ws = c => words.filter(w => w.ch === c && todo(w));
-import { readdirSync, unlinkSync } from 'fs';
+import { readdirSync, unlinkSync, readFileSync } from 'fs';
 for (const f of readdirSync(out)) if (f.endsWith('.md')) unlinkSync(new URL(f, out));   // sheets only ever contain what is still open
 const openWords = words.filter(todo), openPats = patterns.filter(todo), openSent = sentences.filter(todo);
 let n = 0, written = [];
@@ -88,5 +88,30 @@ if (openWords.length) put(`review-${++n}-words.md`, wordSheet('Vocabulary still 
 if (openSent.length || openPats.length) {
   const pids = new Set([...openPats.map(p => p.id), ...openSent.map(s => s.pattern)]);
   put(`review-${++n}-sentences.md`, sentenceSheet('Sentence patterns and example sentences still open for review', openSent, patterns.filter(p => pids.has(p.id)), n));
+}
+const yokai = JSON.parse(readFileSync(new URL('../content/yokai.json', import.meta.url), 'utf8')).filter(todo);
+if (yokai.length) {
+  const rows = yokai.map(y => `| ${y.id} | ${cell(readable(y.jp))} | ${cell(y.rom)} | ${cell(y.deLong)} | ${cell(byId[y.item]?.id)} | ${cell(y.place)} | ${cell(y.lore)} | ${cell(y.einordnung)} | ${cell(y.culture)} |`);
+  put(`review-${++n}-yokai.md`, `# Review sheet ${n}: yokai texts
+
+${ROLE}
+## What to check
+These texts are for a calm adult learning game (JLPT N5 learners, German speakers). They were drafted with AI help and must be fact-checked.
+1. **Facts:** Is each lore card accurate for what folklore/scholarship says (Yanagita Kunio, Toriyama Sekien, Lafcadio Hearn, Michael Dylan Foster, Nichibunken yōkai database)? Mark every claim that is not well attested, is only regional, or is a modern pop-culture invention.
+2. **Labels:** Is the column "Einordnung" (classification) correct and honest?
+3. **Japanese:** Are the Japanese names (kanji with reading in brackets) and rōmaji correct?
+4. **German:** Correct, natural, adult tone, no errors.
+5. **Respect:** Is anything disrespectful toward real religious practice (Shinto/Buddhist), or misleading? Is the cultural detail ("Kultur") accurate and not presented as general etiquette when it is folklore only?
+6. **Game logic is not your task:** the wish item and habitat are a game adaptation; only comment if the combination is culturally misleading.
+
+## Answer format (one row per yokai, same order)
+| ID | Verdict | Problem (short) | Exact correction | Reason / source |
+|---|---|---|---|---|
+
+## The yokai
+| ID | Japanese (kanji(reading)) | Rōmaji | German name | Wished item (id) | Habitat (game map) | Lore card | Einordnung | Kultur |
+|---|---|---|---|---|---|---|---|---|
+${rows.join('\n')}
+`);
 }
 console.log(written.length ? `review sheets written: ${written.join(', ')} (${openWords.length} words, ${openPats.length} patterns, ${openSent.length} sentences open)` : 'nothing open – all content reviewed');

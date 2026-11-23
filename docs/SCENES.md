@@ -56,6 +56,12 @@ indigo `#1b2140`, night blue `#2d3a6b`, moon cream `#e8e0c0`, lantern amber `#d2
 | `town.png` | A small town street: shops with closed shutters and glowing lanterns, a stone bridge. |
 | `city.png` | A larger city at night: tall wooden buildings, many lit windows, a market square, castle in the background. |
 
+## Yokai illustrations (for the Yokai-Dex, replace the placeholder sprites)
+Transparent PNG (magenta background is fine), 512×512, one creature centered, same pixel-art style, friendly and calm (not scary), file names `y_<id>.png`:
+`y_kappa` (河童, green, water dish on head), `y_kitsune` (狐), `y_tanuki` (狸), `y_tengu` (天狗, red face, long nose), `y_yukionna` (雪女), `y_zashiki` (座敷童子, child in kimono),
+`y_kodama` (木霊, small tree spirit), `y_isoonna` (磯女), `y_chochin` (提灯お化け, paper lantern), `y_bakeneko` (化け猫, two-tailed cat standing), `y_shojo` (猩々, red hair, cup), `y_makura` (枕返し, pillow with eyes).
+Also the harbour scene: `harbor.png` (a small fishing harbour at night, boats, lanterns, wooden pier).
+
 ## Optional later: battle pictures
 Transparent PNGs (1024×1024, centered creature, soft rim light, same style) named `enemy_wolf.png`, `enemy_fox.png`, `enemy_bear.png`, `enemy_kappa.png`, `enemy_tengu.png`.
 These are not needed yet – the sprites drawn by Claude are used for now.

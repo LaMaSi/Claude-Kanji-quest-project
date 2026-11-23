@@ -16,6 +16,43 @@
    "animals": [
     "neko",
     "inu"
+   ],
+   "shops": [
+    {
+     "word": "mise",
+     "sells": [
+      "kyuuri",
+      "pan",
+      "ringo",
+      "kusuri",
+      "ocha"
+     ]
+    },
+    {
+     "word": "tofuya",
+     "sells": [
+      "aburaage"
+     ]
+    },
+    {
+     "word": "okashiya",
+     "sells": [
+      "mochi"
+     ]
+    },
+    {
+     "word": "kudamonoya",
+     "sells": [
+      "momo",
+      "ringo"
+     ]
+    },
+    {
+     "word": "nouka",
+     "sells": [
+      "tamago"
+     ]
+    }
    ]
   },
   {
@@ -34,7 +71,8 @@
     "ushi",
     "buta",
     "uma"
-   ]
+   ],
+   "shops": []
   },
   {
    "id": "woods",
@@ -49,7 +87,8 @@
     "kuma",
     "kitsune",
     "tori"
-   ]
+   ],
+   "shops": []
   },
   {
    "id": "lake",
@@ -64,7 +103,8 @@
    ],
    "animals": [
     "tori"
-   ]
+   ],
+   "shops": []
   },
   {
    "id": "town",
@@ -79,7 +119,34 @@
     "osake",
     "kusuri"
    ],
-   "animals": []
+   "animals": [],
+   "shops": [
+    {
+     "word": "kusuriya",
+     "sells": [
+      "kusuri"
+     ]
+    },
+    {
+     "word": "panya",
+     "sells": [
+      "pan"
+     ]
+    },
+    {
+     "word": "nikuya",
+     "sells": [
+      "niku"
+     ]
+    },
+    {
+     "word": "kudamonoya",
+     "sells": [
+      "ringo",
+      "momo"
+     ]
+    }
+   ]
   },
   {
    "id": "shore",
@@ -93,7 +160,8 @@
    ],
    "animals": [
     "tori"
-   ]
+   ],
+   "shops": []
   },
   {
    "id": "mountains",
@@ -106,6 +174,14 @@
    "animals": [
     "kuma",
     "tori"
+   ],
+   "shops": [
+    {
+     "word": "chaya",
+     "sells": [
+      "ocha"
+     ]
+    }
    ]
   },
   {
@@ -120,7 +196,48 @@
     "osake",
     "niku"
    ],
-   "animals": []
+   "animals": [],
+   "shops": []
+  },
+  {
+   "id": "harbor",
+   "word": "minato",
+   "art": "harbor",
+   "x": 91,
+   "y": 44,
+   "lv": 3,
+   "items": [],
+   "animals": [
+    "tori"
+   ],
+   "shops": [
+    {
+     "word": "sakanaya",
+     "sells": [
+      "sakana"
+     ]
+    },
+    {
+     "word": "mise",
+     "sells": [
+      "osake"
+     ]
+    }
+   ]
   }
- ]
+ ],
+ "prices": {
+  "kyuuri": 15,
+  "aburaage": 30,
+  "mochi": 40,
+  "ocha": 10,
+  "momo": 60,
+  "tamago": 30,
+  "kusuri": 80,
+  "sakana": 50,
+  "pan": 50,
+  "niku": 120,
+  "osake": 100,
+  "ringo": 40
+ }
 }
