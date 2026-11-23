@@ -24,7 +24,7 @@ small,.de{display:block;color:var(--dim);font-size:.88rem;font-weight:400;letter
 #text{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
 .line{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start}
 .line .body{flex:1;min-width:0}
-.line .sprite{width:80px;height:80px;flex:none;image-rendering:pixelated;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.line .sprite{width:80px;height:auto;flex:none;image-rendering:pixelated;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
 .who{font-size:.8rem;color:var(--amber);margin-bottom:3px;display:flex;justify-content:space-between}
 .jp{font-size:1.4rem;line-height:1.7}
 .jp rt{font-size:.5em;color:var(--dim)}

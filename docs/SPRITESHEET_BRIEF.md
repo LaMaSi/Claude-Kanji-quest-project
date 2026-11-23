@@ -130,3 +130,19 @@ Nothing else: no body, no skin, only the clothing piece on magenta.
 Chroma-keys the magenta, slices the grid, snaps the colours to a small palette, scales to the in-game size with nearest-neighbour (portraits 40×40, bodies 32×56),
 recolours the grey parts (hair colours, shirt/trousers/skirt/hat colours), assembles the layers in the character editor and the quests, and keeps the current
 code-drawn characters as a fallback. The origin of the sheets (your ChatGPT session, date) is recorded in `docs/ASSETS.md`.
+
+---
+
+## Round 2 (after the first sheets, 2026-11-23)
+**Received and used:** `faces`, `hair_front`, `hair_back`, `eyes` (one sheet), `features` – they work very well together (see `docs/ASSETS.md`).
+**Still needed:** `body_base` (sheet 7), `body_clothes` (sheet 8), and plain `clothes_top` (sheet 6). The two clothes sheets that came back were fantasy costumes with capes, belts, armour and baked-in
+colours – they cannot be recoloured, so they are not used. Use the stricter wording below (send the template again; one sheet per message):
+
+```
+Redo this sheet. Last time you drew fantasy costumes. I need PLAIN, SIMPLE EVERYDAY clothes only, drawn in neutral grey (three greys + dark outline), nothing else:
+NO capes, NO belts, NO buckles, NO armour, NO gold trim, NO straps, NO patterns, NO colours at all. Each item is one flat, plain garment so that I can tint it.
+Same grid, same magenta background, same rules as before. Draw exactly what is listed for each cell and nothing more.
+```
+For sheet 8 (full body) add: *"Each garment must fit the guide boxes of the body template exactly: shirt over the torso and upper arms, trousers over the legs, skirt from the waist to the knees,
+shoes at the bottom of the legs. Plain t-shirt, plain trousers, plain skirt, plain sneakers, plain cap, plain wide-brim hat."*
+Tip: if the model keeps adding details, ask for ONE garment per image (6 small requests) on a magenta background, same size, and send all six.

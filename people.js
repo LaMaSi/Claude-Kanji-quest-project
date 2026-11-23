@@ -109,7 +109,14 @@ function mouth(c, look) {
   else { for (let x = 18; x <= 21; x++) c.set(x, 28, LIP); c.set(17, 27, LIPD); c.set(22, 27, LIPD); }
 }
 
+let aiDraw = null;
+/** the AI-sheet portraits (aipeople.js) register here once their parts are loaded; otherwise the code-drawn portraits are used */
+export const setAIPortrait = fn => { aiDraw = fn; };
 export function drawPortrait(look = DEFAULT_LOOK) {
+  if (aiDraw) { try { return aiDraw({ ...DEFAULT_LOOK, ...look }); } catch { /* fall through to the code version */ } }
+  return drawPortraitCode(look);
+}
+function drawPortraitCode(look = DEFAULT_LOOK) {
   const L = { ...DEFAULT_LOOK, ...look }, c = canvas(40, 40), skin = SKIN[L.skin], skinD = shade(skin, 0.86), hair = HAIR[L.hair] || HAIR.brown, shirt = CLOTH[L.shirt];
   hairShape(c, L, hair, 'back');
   c.rect(17, 26, 6, 6, skinD);                                                   // neck

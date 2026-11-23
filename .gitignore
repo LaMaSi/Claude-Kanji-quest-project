@@ -4,3 +4,4 @@ www/
 android/keystore.properties
 android/keystore/
 *.jks
+art/parts/

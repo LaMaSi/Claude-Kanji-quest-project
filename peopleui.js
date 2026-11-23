@@ -39,7 +39,8 @@ export function featureSentence(look, f) {
   const part = typeof f.part === 'function' ? f.part(look) : f.part;
   return describe(W(part), W(opt[1]));
 }
-const lookCanvas = (look, scale, body) => { const c = body ? drawBody(look) : drawPortrait(look); c.className = 'sprite'; c.style.width = c.width * scale + 'px'; c.style.height = c.height * scale + 'px'; return c; };
+/** portraits: `size` = display width in px; full bodies: `size` = integer pixel scale */
+const lookCanvas = (look, size, body) => { const c = body ? drawBody(look) : drawPortrait(look); c.className = 'sprite'; if (body) { c.style.width = c.width * size + 'px'; c.style.height = c.height * size + 'px'; } else { c.style.width = size + 'px'; c.style.height = Math.round(size * c.height / c.width) + 'px'; } return c; };
 function sentenceLine(parent, s) {
   const d = document.createElement('div'); d.className = 'line'; d.innerHTML = `<div class="body"><div class="jp">${A.Jt(s.jp)}</div>${A.G().help ? `<div class="de">${s.de}</div>` : ''}</div>`;
   const b = document.createElement('button'); b.className = 'spk'; b.textContent = '🔊'; b.onclick = () => A.speak(s.jp); d.querySelector('.body').prepend(b); b.style.cssText = 'float:right';
@@ -59,7 +60,7 @@ export function openEditor() {
   A.setScreen(node);
   function build(host, st, feats, f) {
     const g = G(), look = g.avatar;
-    const top = document.createElement('div'); top.style.cssText = 'text-align:center;margin-bottom:8px'; top.appendChild(lookCanvas(look, st.page === 'face' ? 3 : 2, st.page !== 'face')); host.appendChild(top);
+    const top = document.createElement('div'); top.style.cssText = 'text-align:center;margin-bottom:8px'; top.appendChild(lookCanvas(look, st.page === 'face' ? 170 : 2, st.page !== 'face')); host.appendChild(top);
     if (st.last) sentenceLine(host, st.last);
     // page switch
     const pg = document.createElement('div'); pg.className = 'row'; pg.style.cssText = 'margin:10px 0 6px;justify-content:center';
@@ -132,7 +133,7 @@ export function startSearch(variant) {
       const grid = document.createElement('div'); grid.style.cssText = `display:grid;grid-template-columns:repeat(${variant === 'face' ? 2 : 4},1fr);gap:8px;margin-top:auto;padding-top:10px`;
       q.cands.forEach(c => {
         const b = document.createElement('button'); b.className = 'pcard'; b.style.cssText = 'padding:8px;min-width:0;display:flex;justify-content:center;align-items:center';
-        const cv = lookCanvas(c.look, variant === 'face' ? 3 : 2, variant !== 'face'); cv.style.margin = '0'; b.appendChild(cv);
+        const cv = lookCanvas(c.look, variant === 'face' ? 150 : 2, variant !== 'face'); cv.style.margin = '0'; b.appendChild(cv);
         if (answered && c.ok) b.style.borderColor = 'var(--green)'; if (c.picked) b.style.borderColor = c.ok ? 'var(--green)' : 'var(--red)';
         b.onclick = () => {
           if (answered) return; answered = true; c.picked = true;

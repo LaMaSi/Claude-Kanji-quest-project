@@ -94,5 +94,5 @@ export const hasSprite = id => id in SPRITES;
 /** canvas element with the sprite for a word id (or null). px = displayed size (integer multiples look sharpest) */
 export function spriteEl(id, px = 96) {
   if (!SPRITES[id]) return null;
-  const c = SPRITES[id]().c; c.className = 'sprite'; c.style.width = c.style.height = px + 'px'; return c;
+  const c = SPRITES[id]().c; c.className = 'sprite'; c.style.width = px + 'px'; c.style.height = Math.round(px * c.height / c.width) + 'px'; return c;
 }

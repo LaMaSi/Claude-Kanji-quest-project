@@ -5,6 +5,7 @@ import { VOCAB, ANIMALS, SHOP, KANJI, LORE_WOLF, CONTENT, glossOf } from './data
 import * as E from './engine.js';
 import { initPeople, openEditor, startSearch } from './peopleui.js';
 import { drawPortrait, DEFAULT_LOOK } from './people.js';
+import { loadPeopleParts } from './aipeople.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 
@@ -433,7 +434,7 @@ function invSheet(s) {
 function statusSheet(s) {
   s.innerHTML = `<h2>${lbl('ステータス', 'Werte')}</h2>`;
   const row = (a, b) => s.insertAdjacentHTML('beforeend', `<div class="kv"><span class="jp">${a}</span><span>${b}</span></div>`);
-  if (G.avatar) { const pc = drawPortrait(G.avatar); pc.className = 'sprite'; pc.style.cssText = 'width:120px;height:120px;image-rendering:pixelated;display:block;margin:0 auto 10px;border:1px solid var(--line);border-radius:10px'; s.appendChild(pc); }
+  if (G.avatar) { const pc = drawPortrait(G.avatar); pc.className = 'sprite'; pc.style.cssText = `width:150px;height:${Math.round(150 * pc.height / pc.width)}px;image-rendering:pixelated;display:block;margin:0 auto 10px;border:1px solid var(--line);border-radius:10px`; s.appendChild(pc); }
   row(J('{勉強|べんきょう}'), `${E.introduced(G).length} Wörter · Serie ${G.streak.days}`); row('HP', `${G.hp} / ${G.maxhp}`); row('Lv', G.lv); row('XP', `${G.xp} / ${G.lv * 40}`); row(J('お{金|かね}'), `${G.gold} 円`);
   s.insertAdjacentHTML('beforeend', `<h2 style="margin-top:16px">${lbl('クエスト', 'Aufträge')}</h2>`);
   const stat = n => ['offen', 'läuft', '✔ erledigt'][n];
@@ -501,4 +502,5 @@ initPeople({ G: () => G, save, setScreen, redraw: () => draw(), openSheet, close
 initLearn({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();
+await loadPeopleParts();      // AI-sheet portraits; falls back to the code-drawn ones if the parts are missing
 go(G.loc in NODES ? G.loc : 'village');
