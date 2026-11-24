@@ -176,6 +176,21 @@ for (const w of words) {
   }
 }
 
+// ---------- 4b. runes (Kanji-Zauber) ----------
+{
+  const fs = await import('fs'), { STROKES } = await import('../kanjidata.js');
+  const runes = JSON.parse(fs.readFileSync(new URL('../content/runes.json', import.meta.url), 'utf8')), seenR = new Set();
+  for (const l of runes.lessons) for (const r of l.runes) {
+    const at = `runes lesson ${l.id} ${r.c}`;
+    if (!STROKES[r.c]) err(`${at}: no stroke data`);
+    if (seenR.has(r.c)) err(`${at}: duplicate`); seenR.add(r.c);
+    if (!r.jp.includes(`{${r.c}|`) || !/^[^{]*(\{[^|}]+\|[ぁ-ゖ]+\}[ぁ-ゖ]*)+$/.test(r.jp)) err(`${at}: reading markup "${r.jp}" malformed`);
+    if (!r.de || /^(der|die|das|ein|eine) /i.test(r.de)) err(`${at}: German meaning missing or has an article`);
+    for (const w of words) for (const m of w.jp.matchAll(/\{([^|}]+)\|([^}]+)\}/g)) if (m[1] === r.c && w.jp === r.jp && w.de.toLowerCase() !== r.de.toLowerCase() && !r.de.split(', ').includes(w.de)) warn(`${at}: word ${w.id} has the same markup but meaning "${w.de}"`);
+  }
+  if (runes.lessons.some(l => l.runes.length !== 5)) err('runes: every lesson needs exactly 5 runes');
+}
+
 // ---------- 5. output ----------
 mkdirSync(new URL('../content/generated/', import.meta.url), { recursive: true });
 writeFileSync(new URL('../content/generated/sentences.json', import.meta.url), JSON.stringify(sentences, null, 1));

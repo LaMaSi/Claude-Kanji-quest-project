@@ -47,3 +47,7 @@ Applied rules: word-for-word labels, bare nouns when standing alone, no locative
 | Yokai-Dex name | → "Yokai-Lexikon" (図鑑 = illustrated reference book) |
 Status now `checked`: 59 words, 7 patterns, the yokai except Iso-onna, Shōjō, Chōchin-obake (the research document itself asks for a source check).
 Still `draft` (unsure, please check when an external review is possible): ウェーブ (weibu), 口は 開いています / 閉じています (aiteimasu, tojite), the three yokai above.
+
+## Kanji-Zauber (runes), 2026-11-24
+New `content/runes.json`: 10 lessons × 5 kanji (all with KanjiVG stroke data). Each rune has a bare German meaning and the reading as used in the game's own words (e.g. 食 = {食|た}べる). Checked by Claude against `words.json`; status `checked`.
+Unsure / simplified: 高 = "teuer" and 安 = "billig" (the kanji also mean "hoch" / "ruhig"; the game words only use the price meaning), 町 = "Kleinstadt" as in the word list, 緑 = "grün".

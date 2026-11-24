@@ -8,13 +8,14 @@ import { drawPortrait, DEFAULT_LOOK } from './people.js';
 import { loadPeopleParts } from './aipeople.js';
 import { initWorld, mapNode, notebookSheet } from './world.js';
 import { initYokai, dexSheet } from './yokai.js';
+import { initRunes, runeHome, fiveKanji, nextLesson } from './runes.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, avatar: null, notes: [], yokai: {}, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, runes: {}, runeLessons: {}, avatar: null, notes: [], yokai: {}, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -488,7 +489,9 @@ function statusSheet(s) {
 }
 function studySheet(s) {
   s.innerHTML = `<h2>${lbl('{勉強|べんきょう}', 'Lernen')}</h2>`;
-  btn(s, lbl('{今日|きょう}の ふくしゅう', 'Heutige Wiederholung'), () => { closeSheet(); startRound(6); });
+  btn(s, lbl('{今日|きょう}の ふくしゅう', 'Heutige Wiederholung'), () => { closeSheet(); startRound(6); }, 'primary');
+  btn(s, lbl('{漢字|かんじ}の まほう', 'Kanji-Zauber'), () => { closeSheet(); runeHome(); });
+  btn(s, lbl('{五|いつ}つの {漢字|かんじ}', 'Fünf Kanji'), () => { closeSheet(); fiveKanji(); });
   btn(s, lbl('{単語帳|たんごちょう}', 'Wörterbuch'), () => openSheet(dictSheet));
   btn(s, lbl('{漢字|かんじ}れんしゅう', 'Kanji schreiben'), () => openSheet(kanjiSheet));
   btn(s, 'Schließen', closeSheet);
@@ -545,7 +548,8 @@ setTimeout(() => applyReminder(false), 1500);   // re-register after app updates
 initWorld({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initYokai({ G: () => G, save, setScreen, go, navigateBack, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES, lbl, navigateBack });
-initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder });
+initRunes({ G: () => G, save, setScreen, navigateBack, gain, btn, J });
+initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder, runeHome, nextRune: nextLesson });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();
 await loadPeopleParts();      // AI-sheet portraits; falls back to the code-drawn ones if the parts are missing

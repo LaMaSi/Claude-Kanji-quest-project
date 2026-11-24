@@ -2,8 +2,8 @@
 import { displayDe } from './german.js';
 import { numKana } from './lang.js';
 const get = f => fetch(f).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
-const [words, patterns, sentences, world, yokai] = await Promise.all([get('content/words.json'), get('content/patterns.json'), get('content/generated/sentences.json'), get('content/world.json'), get('content/yokai.json')]);
-export const CONTENT = { words, patterns, sentences, world, yokai, byId: Object.fromEntries(words.map(w => [w.id, w])) };
+const [words, patterns, sentences, world, yokai, runes] = await Promise.all([get('content/words.json'), get('content/patterns.json'), get('content/generated/sentences.json'), get('content/world.json'), get('content/yokai.json'), get('content/runes.json')]);
+export const CONTENT = { words, patterns, sentences, world, yokai, runes, byId: Object.fromEntries(words.map(w => [w.id, w])) };
 
 const catOf = w => (w.tags || []).includes('animal') ? 'animal' : (w.tags || []).includes('place') ? 'place' : (w.tags || []).includes('person') ? 'person'
   : (w.tags || []).some(t => ['food', 'drink', 'item', 'money'].includes(t)) ? 'item' : w.pos;
