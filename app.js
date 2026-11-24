@@ -103,6 +103,33 @@ const withOrder = (host, k, next) => { if (hasKanji(k) && !G.kanjiSeen[k]) playS
 // reading position: remembered while the learner scrolls, restored after redraws caused by toggles (even if the page got shorter in between)
 let desiredY = 0, restoring = false;
 window.addEventListener('scroll', () => { if (!restoring) desiredY = window.scrollY; }, { passive: true });
+/** JRPG dialogue: the bubbles are written letter by letter (ruby readings appear with their first letter); a tap on a bubble finishes it; ▼ blinks at the end */
+let twTimer = 0;
+function typewriter(root) {
+  clearTimeout(twTimer);
+  const els = [...root.querySelectorAll('.line .jp')]; if (!els.length) return;
+  const chars = [];
+  for (const el of els) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.parentElement.closest('rt') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT) });
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    const mine = [];
+    for (const n of nodes) {
+      const frag = document.createDocumentFragment();
+      for (const ch of n.nodeValue) { const s = document.createElement('span'); s.className = 'tw'; s.textContent = ch; frag.appendChild(s); mine.push(s); }
+      n.replaceWith(frag);
+    }
+    el.querySelectorAll('rt').forEach(rt => { rt.classList.add('tw'); const r = rt.closest('ruby'); const first = r && r.querySelector('.tw:not(rt)'); (first || { _rt: [] })._rt?.push?.(rt); if (first) (first._rt ||= []).push(rt); });
+    chars.push(...mine);
+  }
+  if (!chars.length) return;
+  const per = Math.max(12, Math.min(38, 1400 / chars.length));
+  let i = 0;
+  const show = c => { c.classList.remove('tw'); (c._rt || []).forEach(rt => rt.classList.remove('tw')); };
+  const finish = () => { clearTimeout(twTimer); chars.forEach(show); root.querySelectorAll('.tw').forEach(x => x.classList.remove('tw')); root.querySelector('.line:last-of-type .body')?.classList.add('more'); };
+  root.onclick = e => { if (i < chars.length) { i = chars.length; finish(); } };
+  const tick = () => { if (i >= chars.length) return finish(); show(chars[i++]); twTimer = setTimeout(tick, /[。！？、…]/.test(chars[i - 1].textContent) ? per * 4 : per); };
+  tick();
+}
 function draw(keep = false) {
   curLock = {};
   const n = screen();
@@ -121,6 +148,7 @@ function draw(keep = false) {
     d.querySelector('.spk').onclick = () => speak(l.t);
     text.appendChild(d);
   }
+  if (!keep) typewriter(text);
   const wg = $('#widget'); wg.innerHTML = ''; wg.className = n.widgetTop ? 'top' : '';
   if (n.widget) n.widget(wg);
   const ch = $('#choices'); ch.innerHTML = ''; ch.className = n.grid ? 'g2' : '';
