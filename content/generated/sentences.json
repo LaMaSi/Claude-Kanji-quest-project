@@ -27,7 +27,7 @@
    "sore",
    "pan"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dem_wa_N#3",
@@ -382,7 +382,7 @@
   "words": [
    "mizuumi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_doko#7",
@@ -396,7 +396,7 @@
   "words": [
    "hamabe"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_doko#8",
@@ -410,7 +410,7 @@
   "words": [
    "machi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_doko#9",
@@ -424,7 +424,7 @@
   "words": [
    "tokai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_doko#10",
@@ -438,7 +438,7 @@
   "words": [
    "hatake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#1",
@@ -466,7 +466,7 @@
   "words": [
    "pan"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#3",
@@ -522,7 +522,7 @@
   "words": [
    "kyuuri"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#7",
@@ -536,7 +536,7 @@
   "words": [
    "aburaage"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#8",
@@ -550,7 +550,7 @@
   "words": [
    "mochi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#9",
@@ -564,7 +564,7 @@
   "words": [
    "momo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#10",
@@ -578,7 +578,7 @@
   "words": [
    "tamago"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#11",
@@ -592,7 +592,7 @@
   "words": [
    "sakana"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#12",
@@ -606,7 +606,7 @@
   "words": [
    "niku"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_kudasai#13",
@@ -620,7 +620,7 @@
   "words": [
    "osake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_count_kudasai#1",
@@ -634,7 +634,7 @@
   "words": [
    "ringo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_count_kudasai#2",
@@ -648,7 +648,7 @@
   "words": [
    "tamago"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_count_kudasai#3",
@@ -662,7 +662,7 @@
   "words": [
    "tamago"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_count_kudasai#4",
@@ -676,7 +676,7 @@
   "words": [
    "ringo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_V#1",
@@ -706,7 +706,7 @@
    "pan",
    "taberu"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_V#3",
@@ -766,7 +766,7 @@
    "osake",
    "nomu"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_V#7",
@@ -781,7 +781,7 @@
    "pan",
    "kau"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_V#8",
@@ -961,7 +961,7 @@
    "sakaba",
    "osake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_ni_N_ga_aru#3",
@@ -1096,7 +1096,7 @@
    "mori",
    "kuma"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_ni_N_ga_iru#6",
@@ -1216,7 +1216,7 @@
    "kuma",
    "kowai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_ga_kowai#3",
@@ -1261,7 +1261,7 @@
    "kuma",
    "miru"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_N_wo_miru#3",
@@ -1336,7 +1336,7 @@
    "kami",
    "nagai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#2",
@@ -1351,7 +1351,7 @@
    "kami",
    "mijikai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#3",
@@ -1366,7 +1366,7 @@
    "kami",
    "kuroi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#4",
@@ -1381,22 +1381,22 @@
    "kami",
    "chairo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#5",
   "pattern": "p_part_wa_pred",
   "ch": 4,
-  "jp": "{髪|かみ} は {金色|きんいろ} です。",
-  "jpFull": "{髪|かみ} は {金色|きんいろ} です。",
-  "romaji": "kami wa kin'iro desu.",
-  "kana": "かみ は きんいろ です。",
+  "jp": "{髪|かみ} は {金髪|きんぱつ} です。",
+  "jpFull": "{髪|かみ} は {金髪|きんぱつ} です。",
+  "romaji": "kami wa kinpatsu desu.",
+  "kana": "かみ は きんぱつ です。",
   "de": "Das Haar ist blond.",
   "words": [
    "kami",
    "kiniro"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#6",
@@ -1411,7 +1411,7 @@
    "kami",
    "makige"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#7",
@@ -1426,7 +1426,7 @@
    "kami",
    "massugu"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#8",
@@ -1441,7 +1441,7 @@
    "me",
    "ookii"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#9",
@@ -1456,7 +1456,7 @@
    "me",
    "hosoi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#10",
@@ -1471,7 +1471,7 @@
    "me",
    "aoi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#11",
@@ -1486,7 +1486,7 @@
    "me",
    "midori"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#12",
@@ -1501,7 +1501,7 @@
    "mayuge",
    "futoi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#13",
@@ -1516,7 +1516,7 @@
    "hana",
    "takai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#14",
@@ -1531,7 +1531,7 @@
    "hana",
    "hikui"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#15",
@@ -1546,7 +1546,7 @@
    "kao",
    "marui"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#16",
@@ -1561,7 +1561,7 @@
    "kao",
    "shikakui"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#17",
@@ -1576,7 +1576,7 @@
    "shatsu",
    "akai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#18",
@@ -1591,7 +1591,7 @@
    "zubon",
    "kuroi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#19",
@@ -1606,7 +1606,7 @@
    "sukaato",
    "midori"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#20",
@@ -1621,7 +1621,7 @@
    "boushi",
    "aoi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#21",
@@ -1636,7 +1636,7 @@
    "kutsu",
    "shiroi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#22",
@@ -1651,7 +1651,7 @@
    "shatsu",
    "kiiroi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#23",
@@ -1666,7 +1666,7 @@
    "kami",
    "murasaki"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#24",
@@ -1681,7 +1681,7 @@
    "kami",
    "pinku"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#25",
@@ -1696,7 +1696,7 @@
    "kami",
    "aoi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_pred#26",
@@ -1711,7 +1711,7 @@
    "kami",
    "midori"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_item_place#1",
@@ -1726,7 +1726,7 @@
    "kyuuri",
    "hatake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_item_place#2",
@@ -1741,40 +1741,10 @@
    "ringo",
    "hatake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_item_place#3",
-  "pattern": "p_item_place",
-  "ch": 5,
-  "jp": "{魚|さかな} は {湖|みずうみ} に あります。",
-  "jpFull": "{魚|さかな} は {湖|みずうみ} に あります。",
-  "romaji": "sakana wa mizuumi ni arimasu.",
-  "kana": "さかな は みずうみ に あります。",
-  "de": "Fische gibt es am See.",
-  "words": [
-   "sakana",
-   "mizuumi"
-  ],
-  "status": "draft"
- },
- {
-  "id": "p_item_place#4",
-  "pattern": "p_item_place",
-  "ch": 5,
-  "jp": "{魚|さかな} は はまべ に あります。",
-  "jpFull": "{魚|さかな} は {浜辺|はまべ} に あります。",
-  "romaji": "sakana wa hamabe ni arimasu.",
-  "kana": "さかな は はまべ に あります。",
-  "de": "Fische gibt es am Strand.",
-  "words": [
-   "sakana",
-   "hamabe"
-  ],
-  "status": "draft"
- },
- {
-  "id": "p_item_place#5",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{桃|もも} は {町|まち} に あります。",
@@ -1786,10 +1756,10 @@
    "momo",
    "machi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#6",
+  "id": "p_item_place#4",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "パン は {町|まち} に あります。",
@@ -1801,10 +1771,10 @@
    "pan",
    "machi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#7",
+  "id": "p_item_place#5",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{薬|くすり} は {都会|とかい} に あります。",
@@ -1816,10 +1786,10 @@
    "kusuri",
    "tokai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#8",
+  "id": "p_item_place#6",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{肉|にく} は {都会|とかい} に あります。",
@@ -1831,10 +1801,10 @@
    "niku",
    "tokai"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#9",
+  "id": "p_item_place#7",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "お{茶|ちゃ} は {村|むら} に あります。",
@@ -1846,10 +1816,10 @@
    "ocha",
    "mura"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#10",
+  "id": "p_item_place#8",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{卵|たまご} は {村|むら} に あります。",
@@ -1861,10 +1831,10 @@
    "tamago",
    "mura"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#11",
+  "id": "p_item_place#9",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{水|みず} は {川|かわ} に あります。",
@@ -1876,10 +1846,10 @@
    "mizu",
    "kawa"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#12",
+  "id": "p_item_place#10",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "{地図|ちず} は {店|みせ} に あります。",
@@ -1891,10 +1861,10 @@
    "chizu",
    "mise"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#13",
+  "id": "p_item_place#11",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "きゅうり は {店|みせ} に あります。",
@@ -1906,10 +1876,10 @@
    "kyuuri",
    "mise"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#14",
+  "id": "p_item_place#12",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{油揚|あぶらあ}げ は とうふ{屋|や} に あります。",
@@ -1921,10 +1891,10 @@
    "aburaage",
    "tofuya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#15",
+  "id": "p_item_place#13",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "もち は おかし{屋|や} に あります。",
@@ -1936,10 +1906,10 @@
    "mochi",
    "okashiya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#16",
+  "id": "p_item_place#14",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "お{茶|ちゃ} は ちゃや に あります。",
@@ -1951,10 +1921,10 @@
    "ocha",
    "chaya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#17",
+  "id": "p_item_place#15",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{桃|もも} は くだもの{屋|や} に あります。",
@@ -1966,10 +1936,10 @@
    "momo",
    "kudamonoya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#18",
+  "id": "p_item_place#16",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{卵|たまご} は のうか に あります。",
@@ -1981,10 +1951,10 @@
    "tamago",
    "nouka"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#19",
+  "id": "p_item_place#17",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{薬|くすり} は {薬屋|くすりや} に あります。",
@@ -1996,10 +1966,10 @@
    "kusuri",
    "kusuriya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#20",
+  "id": "p_item_place#18",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{魚|さかな} は {魚屋|さかなや} に あります。",
@@ -2011,10 +1981,10 @@
    "sakana",
    "sakanaya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#21",
+  "id": "p_item_place#19",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "パン は パン{屋|や} に あります。",
@@ -2026,10 +1996,10 @@
    "pan",
    "panya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#22",
+  "id": "p_item_place#20",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "{肉|にく} は {肉屋|にくや} に あります。",
@@ -2041,10 +2011,10 @@
    "niku",
    "nikuya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#23",
+  "id": "p_item_place#21",
   "pattern": "p_item_place",
   "ch": 5,
   "jp": "お{酒|さけ} は {店|みせ} に あります。",
@@ -2056,10 +2026,10 @@
    "osake",
    "mise"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
-  "id": "p_item_place#24",
+  "id": "p_item_place#22",
   "pattern": "p_item_place",
   "ch": 6,
   "jp": "りんご は くだもの{屋|や} に あります。",
@@ -2071,7 +2041,7 @@
    "ringo",
    "kudamonoya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#1",
@@ -2086,7 +2056,7 @@
    "mura",
    "tofuya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#2",
@@ -2101,7 +2071,7 @@
    "mura",
    "okashiya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#3",
@@ -2116,7 +2086,7 @@
    "yama",
    "chaya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#4",
@@ -2131,7 +2101,7 @@
    "mura",
    "kudamonoya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#5",
@@ -2146,7 +2116,7 @@
    "mura",
    "nouka"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#6",
@@ -2161,7 +2131,7 @@
    "machi",
    "kusuriya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#7",
@@ -2176,7 +2146,7 @@
    "minato",
    "sakanaya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#8",
@@ -2191,7 +2161,7 @@
    "machi",
    "panya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#9",
@@ -2206,7 +2176,7 @@
    "machi",
    "nikuya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#10",
@@ -2221,7 +2191,7 @@
    "minato",
    "mise"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_place_shop#11",
@@ -2236,7 +2206,7 @@
    "machi",
    "kudamonoya"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#1",
@@ -2250,7 +2220,7 @@
   "words": [
    "kyuuri"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#2",
@@ -2264,7 +2234,7 @@
   "words": [
    "aburaage"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#3",
@@ -2278,7 +2248,7 @@
   "words": [
    "mochi"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#4",
@@ -2292,7 +2262,7 @@
   "words": [
    "ocha"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#5",
@@ -2306,7 +2276,7 @@
   "words": [
    "momo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#6",
@@ -2320,7 +2290,7 @@
   "words": [
    "tamago"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#7",
@@ -2334,7 +2304,7 @@
   "words": [
    "kusuri"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#8",
@@ -2348,7 +2318,7 @@
   "words": [
    "sakana"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#9",
@@ -2362,7 +2332,7 @@
   "words": [
    "pan"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#10",
@@ -2376,7 +2346,7 @@
   "words": [
    "niku"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#11",
@@ -2390,7 +2360,7 @@
   "words": [
    "osake"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_dozo_item#12",
@@ -2404,7 +2374,7 @@
   "words": [
    "ringo"
   ],
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "p_part_wa_state#1",
@@ -2435,5 +2405,95 @@
    "tojite"
   ],
   "status": "draft"
+ },
+ {
+  "id": "p_ani_place#1",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "{魚|さかな} は {湖|みずうみ} に います。",
+  "jpFull": "{魚|さかな} は {湖|みずうみ} に います。",
+  "romaji": "sakana wa mizuumi ni imasu.",
+  "kana": "さかな は みずうみ に います。",
+  "de": "Fische gibt es am See.",
+  "words": [
+   "sakana",
+   "mizuumi"
+  ],
+  "status": "checked"
+ },
+ {
+  "id": "p_ani_place#2",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "{魚|さかな} は はまべ に います。",
+  "jpFull": "{魚|さかな} は {浜辺|はまべ} に います。",
+  "romaji": "sakana wa hamabe ni imasu.",
+  "kana": "さかな は はまべ に います。",
+  "de": "Fische gibt es am Strand.",
+  "words": [
+   "sakana",
+   "hamabe"
+  ],
+  "status": "checked"
+ },
+ {
+  "id": "p_ani_place#3",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "{鳥|とり} は {山|やま} に います。",
+  "jpFull": "{鳥|とり} は {山|やま} に います。",
+  "romaji": "tori wa yama ni imasu.",
+  "kana": "とり は やま に います。",
+  "de": "Vögel gibt es auf dem Berg.",
+  "words": [
+   "tori",
+   "yama"
+  ],
+  "status": "checked"
+ },
+ {
+  "id": "p_ani_place#4",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "くま は {森|もり} に います。",
+  "jpFull": "{熊|くま} は {森|もり} に います。",
+  "romaji": "kuma wa mori ni imasu.",
+  "kana": "くま は もり に います。",
+  "de": "Bären gibt es im Wald.",
+  "words": [
+   "kuma",
+   "mori"
+  ],
+  "status": "checked"
+ },
+ {
+  "id": "p_ani_place#5",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "おおかみ は {森|もり} に います。",
+  "jpFull": "{狼|おおかみ} は {森|もり} に います。",
+  "romaji": "ookami wa mori ni imasu.",
+  "kana": "おおかみ は もり に います。",
+  "de": "Wölfe gibt es im Wald.",
+  "words": [
+   "okami",
+   "mori"
+  ],
+  "status": "checked"
+ },
+ {
+  "id": "p_ani_place#6",
+  "pattern": "p_ani_place",
+  "ch": 5,
+  "jp": "{猫|ねこ} は {村|むら} に います。",
+  "jpFull": "{猫|ねこ} は {村|むら} に います。",
+  "romaji": "neko wa mura ni imasu.",
+  "kana": "ねこ は むら に います。",
+  "de": "Katzen gibt es im Dorf.",
+  "words": [
+   "neko",
+   "mura"
+  ],
+  "status": "checked"
  }
 ]

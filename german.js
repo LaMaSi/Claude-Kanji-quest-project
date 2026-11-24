@@ -34,7 +34,8 @@ export function inAcc(w) {
 export const capFirst = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 /** German text shown for a word in lists/quizzes: nouns with definite article, everything else as is */
-export const displayDe = w => (w.pos === 'noun' ? np(w, 'nom', true) : w.de);
+/** German text for a word shown ALONE (lists, cards, quiz answers): no article – "Fleisch", "Kleinstadt". Inside German sentences use np() with the right article. */
+export const displayDe = w => (w.pos === 'noun' ? lemma(w) : w.de);
 
 /** one description sentence: part ("kami") + predicate ("nagai") -> { jp, de } e.g. 髪は 長いです。 / "Die Haare sind lang." */
 export function describe(part, pred) {

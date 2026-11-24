@@ -33,3 +33,17 @@ Status rules: `reviewed` = a reviewer saw exactly this text and found it OK. Any
 | Editor buttons | 説明 / おわり | Beschreibung / Fertig |
 | Clothes chips | – | Hemd → Oberkörper, Hose oder Rock → Beine (the options themselves stay Hose / Rock) |
 All new or changed Japanese/German is `draft` and listed in the review sheets.
+
+## Claude's own review pass (2026-11-24, replaces the external review for now)
+Applied rules: word-for-word labels, bare nouns when standing alone, no locative titles (see CLAUDE.md).
+| Finding | Action |
+|---|---|
+| 地図を みる translated "Die Karte: Orte kennenlernen" | → "Karte ansehen". All other button/title hints checked and made literal (Heutige Wiederholung, Schwarzes Brett ansehen, Personensuche: Gesicht …). |
+| Titles "Kleinstadt – in der Kleinstadt" | → "Kleinstadt" (same for shops, yokai places) |
+| "Das Fleisch" / "der Apfel" in lists, quizzes, cards | → bare nouns; sentences use proper articles ("eine Gurke dabei") |
+| 金色 for blond hair | → 金髪 (きんぱつ), the natural word |
+| 魚は 湖に あります (live fish) | → 魚は 湖に います (new pattern p_ani_place); fish in shops stay あります |
+| Yokai wishes are game ideas, not folklore | Dex entry now says so |
+| Yokai-Dex name | → "Yokai-Lexikon" (図鑑 = illustrated reference book) |
+Status now `checked`: 59 words, 7 patterns, the yokai except Iso-onna, Shōjō, Chōchin-obake (the research document itself asks for a source check).
+Still `draft` (unsure, please check when an external review is possible): ウェーブ (weibu), 口は 開いています / 閉じています (aiteimasu, tojite), the three yokai above.

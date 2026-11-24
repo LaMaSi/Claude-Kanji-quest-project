@@ -19,7 +19,7 @@ export function drawMapArt(canvas, places = []) {
   // lake (west)
   c.fillStyle = '#1d4a6b'; c.beginPath(); c.ellipse(58, 64, 24, 15, 0, 0, 7); c.fill(); dither(36, 52, 44, 26, '#2a6389'); px(46, 60, '#a8c8e0'); px(70, 68, '#a8c8e0');
   // mountains (north)
-  const peak = (x, y, w, h) => { poly([[x - w, y + h], [x, y], [x + w, y + h]], '#363e55'); poly([[x - w * 0.35, y + h * 0.38], [x, y], [x + w * 0.35, y + h * 0.38], [x, y + h * 0.28]], '#d8d1bf'); };
+  const peak = (x, y, w, h) => { poly([[x - w, y + h], [x, y], [x + w, y + h]], '#363e55'); poly([[x - w * 0.35, y + h * 0.38], [x, y], [x + w * 0.35, y + h * 0.38], [x, y + h * 0.28]], '#cbc1af'); };
   peak(98, 14, 22, 28); peak(122, 8, 26, 34); peak(150, 16, 20, 26); peak(76, 22, 16, 20);
   // forest (south-west)
   for (let i = 0; i < 26; i++) { const x = 52 + rnd() * 52, y = 96 + rnd() * 50; poly([[x - 4, y], [x, y - 11], [x + 4, y]], '#1f4a35'); px(x, y + 1, '#4a3626'); }
@@ -36,6 +36,6 @@ export function drawMapArt(canvas, places = []) {
     for (let t = 0; t < n; t += 3) px(x0 + (x1 - x0) * t / n, y0 + (y1 - y0) * t / n, '#b59b5a');
   }
   // stars in the sky corner and a little boat
-  for (let i = 0; i < 14; i++) px(rnd() * 190, rnd() * 10, '#d8d1bf');
-  poly([[226, 100], [234, 100], [232, 104], [228, 104]], '#d8d1bf'); c.fillStyle = '#d8d1bf'; c.fillRect(229, 93, 1, 7); poly([[230, 93], [230, 99], [235, 99]], '#d8d1bf');
+  for (let i = 0; i < 14; i++) px(rnd() * 190, rnd() * 10, '#cbc1af');
+  poly([[226, 100], [234, 100], [232, 104], [228, 104]], '#cbc1af'); c.fillStyle = '#cbc1af'; c.fillRect(229, 93, 1, 7); poly([[230, 93], [230, 99], [235, 99]], '#cbc1af');
 }

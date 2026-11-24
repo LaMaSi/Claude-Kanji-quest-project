@@ -21,3 +21,14 @@
 - **Schriftwahl** (English: script switch) = the 漢 | あ | A buttons in the bottom dock. Must stay reachable on every screen, also while a menu sheet is open.
 - **Dock** = the permanent bottom bar (← back, Schriftwahl, ふ furigana, DE hints, ☰ menu). Back stack + Android back button/swipe: see `navigateBack()` in `app.js`.
 - **Tagesrunde** = the daily round (about 3 minutes, adaptive).
+
+## German translation rules (owner feedback, 2026-11-24)
+- Labels and buttons: translate the Japanese **word for word as closely as possible** ("地図を みる" = "Karte ansehen", not "Orte kennenlernen"). No explanations in parentheses, no extra meaning.
+- A noun shown **alone** (title, list, card, quiz answer, button) has **no article**: "Fleisch", "Kleinstadt" (`displayDe()`). Articles only inside real German sentences (`np()` in `german.js`, e.g. "Kappa wünscht sich eine Gurke.").
+- Never show a locative phrase as a title ("Kleinstadt – in der Kleinstadt" is wrong). Locatives (`deLoc`) are only for generated sentences.
+- Whenever a Japanese wording changes, change the German with it (and the other way round). Every Japanese string shown to the player must go through `J()` / `lbl()` so the Schriftwahl (漢/あ/A) applies – no hard-coded kana in buttons or toasts.
+- The owner cannot send files to ChatGPT any more: Claude reviews new content itself. Status `checked` = Claude's review; `reviewed` is reserved for an external review. List unsure items in `docs/REVIEW-LOG.md` and keep them `draft`.
+
+## Visual style (see `docs/STYLE.md`)
+- Brightest colour is a light, slightly brownish grey (`--fg #c9bfad`), never pure white; the background is a lifted black (`--bg #15171d`).
+- **Speech bubbles / text boxes are flat, warm and have a tail. Everything tappable is raised** (gradient, rim, thick shadow, sinks when pressed). Never style a text box like a button.

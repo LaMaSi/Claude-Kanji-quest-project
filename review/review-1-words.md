@@ -36,7 +36,7 @@ Rules for your answer:
 | kuchi | Nomen | 口(くち) | 口 | くち | kuchi | der Mund (Nominativ mit bestimmtem Artikel); Plural: Münder | ja |  |
 | kao | Nomen | 顔(かお) | 顔 | かお | kao | das Gesicht (Nominativ mit bestimmtem Artikel); Plural: Gesichter | ja |  |
 | chairo | Nomen | 茶色(ちゃいろ) | 茶色 | ちゃいろ | chairo | das Braun (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Als Haar-/Augenfarbe: 茶色 = braun. |
-| kiniro | Nomen | 金色(きんいろ) | 金色 | きんいろ | kin'iro | das Gold (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Haarfarbe: blond (wörtlich „goldfarben“). |
+| kiniro | Nomen | 金髪(きんぱつ) | 金髪 | きんぱつ | kinpatsu | das Gold (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja | Blondes Haar (wörtlich „goldenes Haar“). Nur für Haare. |
 | midori | Nomen | 緑(みどり) | 緑 | みどり | midori | das Grün (Nominativ mit bestimmtem Artikel); ohne Artikel gebraucht, wenn allgemein gemeint (z. B. „Ich esse Brot“) | ja |  |
 | massugu | i-Adjektiv | まっすぐ | まっすぐ | まっすぐ | massugu | gerade | – | na-Adjektiv. Bei Haaren: glatt. |
 | makige | Nomen | 巻(ま)き毛(げ) | 巻き毛 | まきげ | makige | die Locke (Nominativ mit bestimmtem Artikel); Plural: Locken | ja | Gelocktes Haar. |

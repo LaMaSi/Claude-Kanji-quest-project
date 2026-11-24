@@ -34,14 +34,14 @@ const Jt = src => render(src, G.mode, G.furi, glossOf);
 const rnd = n => Math.floor(Math.random() * n);
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const see = ids => { for (const i of ids) if (CONTENT.byId[i]) E.ensureItem(G, i).exposed = 1; };
-function toast(t) { const d = document.createElement('div'); d.className = 'toast'; d.textContent = t; document.body.appendChild(d); setTimeout(() => d.remove(), 2200); }
+function toast(t) { const d = document.createElement('div'); d.className = 'toast'; d.innerHTML = t; document.body.appendChild(d); setTimeout(() => d.remove(), 2200); }
 function speak(src) {
   try { const u = new SpeechSynthesisUtterance(speakText(src)); u.lang = 'ja-JP'; u.rate = 0.85; speechSynthesis.cancel(); speechSynthesis.speak(u); }
   catch { toast('Keine Sprachausgabe verfügbar'); }
 }
 function gain(xp, gold = 0) {
   G.xp += xp; G.gold += gold;
-  while (G.xp >= G.lv * 40) { G.xp -= G.lv * 40; G.lv++; G.maxhp += 4; G.hp = G.maxhp; toast(`レベル ${G.lv}！ Level up!`); }
+  while (G.xp >= G.lv * 40) { G.xp -= G.lv * 40; G.lv++; G.maxhp += 4; G.hp = G.maxhp; toast(`${J('レベル')} ${G.lv}！ Level up!`); }
 }
 
 // ---------- screen engine ----------
@@ -228,15 +228,15 @@ const NODES = {
     if (!G.flags.intro) lines.push({ who: '{語|かた}り{手|て}', t: '{夜|よる} の {村|むら}。 {狼|おおかみ} が {月|つき} に {吠|ほ}える。', de: 'Nachts im Dorf. Ein Wolf heult den Mond an.' });
     else lines.push({ say: 'Die Nacht ist still. Wohin gehst du?' });
     const ch = [
-      { t: '{今日|きょう}の ふくしゅう', de: G.flags.lastDaily === new Date().toLocaleDateString('sv-SE') ? `Tagesrunde (heute erledigt ✔, Serie ${G.streak.days})` : `Tagesrunde (ca. 3 Min, Serie ${G.streak.days})`, fn: () => { startRound(6); } },
+      { t: '{今日|きょう}の ふくしゅう', de: `Heutige Wiederholung · Serie ${G.streak.days}${G.flags.lastDaily === new Date().toLocaleDateString('sv-SE') ? ' ✔' : ''}`, fn: () => { startRound(6); } },
       { t: '{店|みせ} へ いく', de: 'Zum Laden gehen', go: 'shop' },
       { t: '{酒場|さかば} へ いく', de: 'In die Taverne gehen', go: 'tavern' },
-      { t: '{地図|ちず} を みる', de: 'Die Karte: Orte kennenlernen', go: 'map' },
-      { t: '{掲示板|けいじばん} を みる', de: 'Zur Aushangtafel (Personen suchen)', go: 'board' },
+      { t: '{地図|ちず} を みる', de: 'Karte ansehen', go: 'map' },
+      { t: '{掲示板|けいじばん} を みる', de: 'Schwarzes Brett ansehen', go: 'board' },
       { t: 'おばあさん と はなす', de: 'Mit der alten Frau sprechen', go: 'granny' },
-      { t: '{家|いえ} へ かえる', de: 'Nach Hause gehen', go: 'home' },
+      { t: '{家|いえ} へ かえる', de: 'Nach Hause zurückkehren', go: 'home' },
     ];
-    if (G.q.wolf === 1) ch.unshift({ t: '{村|むら} の {外|そと} へ いく', de: 'Vor das Dorf gehen (Wolf!)', fn: () => startBattle('okami') });
+    if (G.q.wolf === 1) ch.unshift({ t: '{村|むら} の {外|そと} へ いく', de: 'Vor das Dorf gehen', fn: () => startBattle('okami') });
     G.flags.intro = 1;
     return { art: 'village', title: '{狼|おおかみ} の {村|むら}', titleDe: 'Wolfsdorf', lines, choices: ch };
   },
@@ -244,9 +244,9 @@ const NODES = {
   home() {
     return { art: 'home', title: '{家|いえ}', titleDe: 'Zuhause', lines: [{ say: 'Eine warme Kerze, ein weiches Bett. Hier kannst du speichern und lernen.' }],
       choices: [
-        { t: 'ねる', de: 'Schlafen (HP auffüllen)', fn: () => { G.hp = G.maxhp; save(); toast('おやすみなさい… HP voll'); } },
-        { t: '{勉強|べんきょう}', de: 'Lernen (Wiederholung & Kanji)', fn: () => { openSheet(studySheet); } },
-        { t: 'キャラクター', de: 'Charakter-Editor (Gesicht & Kleidung beschreiben)', fn: () => { openEditor(); } },
+        { t: 'ねる', de: 'Schlafen', fn: () => { G.hp = G.maxhp; save(); toast(`${J('おやすみなさい')}… HP voll`); } },
+        { t: '{勉強|べんきょう}', de: 'Lernen', fn: () => { openSheet(studySheet); } },
+        { t: 'キャラクター', de: 'Charakter', fn: () => { openEditor(); } },
         { t: 'セーブ', de: 'Speichern', fn: () => { save(); toast('Gespeichert ✔'); } },
         { t: 'もどる', de: 'Zurück', go: 'village' },
       ] };
@@ -258,9 +258,9 @@ const NODES = {
     return { art: 'board', title: '{掲示板|けいじばん}', titleDe: 'Die Aushangtafel',
       lines: [{ say: 'Auf der Tafel hängen Suchmeldungen. Lies die Beschreibung und finde die gesuchte Person.' }],
       choices: [
-        { t: '{人探|ひとさが}し: かお', de: 'Person am Gesicht erkennen', fn: () => { startSearch('face'); } },
-        { t: '{人探|ひとさが}し: ふく', de: 'Person an der Kleidung erkennen', fn: () => { startSearch('outfit'); } },
-        { t: 'もどる', de: 'Zurück ins Dorf', go: 'village' }] };
+        { t: '{人探|ひとさが}し: かお', de: 'Personensuche: Gesicht', fn: () => { startSearch('face'); } },
+        { t: '{人探|ひとさが}し: ふく', de: 'Personensuche: Kleidung', fn: () => { startSearch('outfit'); } },
+        { t: 'もどる', de: 'Zurück', go: 'village' }] };
   },
 
   shop() {
@@ -286,13 +286,13 @@ const NODES = {
           card.onclick = () => buyItem(it); grid.appendChild(card);
         }
       },
-      choices: [{ t: 'やめる', de: 'Zurück', go: 'shop' }] };
+      choices: [{ t: 'やめる', de: 'Abbrechen', go: 'shop' }] };
   },
 
   tavern() {
     see(['sakaba', 'ocha', 'mizu', 'osake', 'okamisan', 'kariudo']);
     const ch = [
-      { t: 'おかみさん に はなす', de: 'Mit der Wirtin sprechen (bestellen)', go: 'order' },
+      { t: 'おかみさん に はなす', de: 'Mit der Wirtin sprechen', go: 'order' },
       { t: '{狩人|かりうど} に はなす', de: 'Mit dem Jäger sprechen', go: 'hunter' },
       { t: 'でる', de: 'Hinausgehen', go: 'village' },
     ];
@@ -323,7 +323,7 @@ const NODES = {
         { who: '{狩人|かりうど}', t: '{狼|おおかみ} は {村|むら} の {外|そと} に います。 たすけて ください。', de: 'Der Wolf ist vor dem Dorf. Bitte hilf uns.' }],
       choices: [
         { t: 'はい、たすけます。', de: 'Ja, ich helfe.', fn: () => { G.q.wolf = 1; save(); toast('Neuer Auftrag: Wolf!'); return 'tavern'; } },
-        { t: 'ごめんなさい。', de: 'Entschuldigung. (später)', go: 'tavern' }] };
+        { t: 'ごめんなさい。', de: 'Entschuldigung.', go: 'tavern' }] };
     if (q === 1) return { art: 'tavern', title: '{狩人|かりうど}', titleDe: 'Der Jäger',
       lines: [{ who: '{狩人|かりうど}', t: '{気|き} を つけて ください！', de: 'Pass auf dich auf!' }], choices: [{ t: 'もどる', de: 'Zurück', go: 'tavern' }] };
     return { art: 'tavern', title: '{狩人|かりうど}', titleDe: 'Der Jäger',
@@ -343,7 +343,7 @@ const NODES = {
       lines: [{ who: 'おばあさん', t: `${VOCAB.ringo.m} を ${count(G.flags.appleN)} ください。`, de: 'Bitte bring mir ■ Äpfel. (Die Zahl musst du selbst lesen!)' },
         { say: `Du hast ${G.inv.ringo || 0} Äpfel dabei. Kaufe sie im Laden (店).` }],
       choices: [
-        { t: 'わたす', de: 'Äpfel übergeben', fn: () => giveApples() },
+        { t: 'わたす', de: 'Übergeben', fn: () => giveApples() },
         { t: 'もどる', de: 'Zurück', go: 'village' }] };
     return { ...title, lines: [{ who: 'おばあさん', t: 'ありがとう。 おいしい です！', de: 'Danke. Die sind lecker!' }], choices: [{ t: 'もどる', de: 'Zurück', go: 'village' }] };
   },
@@ -376,7 +376,7 @@ function buyItem(it) {
       btn(st, '−', () => { n = Math.max(1, n - 1); num_.textContent = n; }); st.appendChild(num_); btn(st, '+', () => { n = Math.min(9, n + 1); num_.textContent = n; });
       host.appendChild(st);
     },
-    choices: [{ t: 'これを ください', de: 'Das nehme ich', fn: () => payTotal(it, n) }, { t: 'やめる', de: 'Zurück', go: 'buy' }] }));
+    choices: [{ t: 'これを ください', de: 'Das, bitte', fn: () => payTotal(it, n) }, { t: 'やめる', de: 'Abbrechen', go: 'buy' }] }));
 }
 function payTotal(it, n) {
   const total = it.price * n, v = VOCAB[it.id];
@@ -444,14 +444,14 @@ function startBattle(foeId) {
 function menuSheet(s) {
   s.innerHTML = `<h2>${lbl('メニュー', 'Menü')}</h2>`;
   btn(s, lbl('{持|も}ち{物|もの}', 'Inventar'), () => openSheet(invSheet));
-  btn(s, lbl('ステータス', 'Werte & Aufträge'), () => openSheet(statusSheet));
-  btn(s, lbl('{勉強|べんきょう}', 'Lernen: Wiederholen, Kanji, Wörter'), () => openSheet(studySheet));
+  btn(s, lbl('ステータス', 'Status'), () => openSheet(statusSheet));
+  btn(s, lbl('{勉強|べんきょう}', 'Lernen'), () => openSheet(studySheet));
   btn(s, lbl('セーブ', 'Speichern'), () => { save(); toast('Gespeichert ✔'); });
   btn(s, lbl('ロード', 'Laden'), () => { try { G = { ...DEFAULT(), ...JSON.parse(localStorage.getItem(KEY)) }; go(G.loc in NODES ? G.loc : 'village'); closeSheet(); toast('Geladen'); } catch { toast('Kein Spielstand'); } });
   btn(s, G.lefty ? 'Linkshänder-Modus: AN (tippen zum Ändern)' : 'Linkshänder-Modus: AUS (tippen zum Ändern)', () => { G.lefty = !G.lefty; save(); renderStats(); refreshSheet(); });
   btn(s, `Schriftgröße: ${['normal', 'groß', 'sehr groß'][G.fs]} (tippen zum Ändern)`, () => { G.fs = (G.fs + 1) % 3; save(); renderStats(); draw(); refreshSheet(); });
-  btn(s, lbl('{妖怪図鑑|ようかいずかん}', 'Yokai-Dex'), () => openSheet(dexSheet));
-  btn(s, lbl('ノート', 'Notizbuch (Orts-Hinweise)'), () => openSheet(notebookSheet));
+  btn(s, lbl('{妖怪図鑑|ようかいずかん}', 'Yokai-Lexikon'), () => openSheet(dexSheet));
+  btn(s, lbl('ノート', 'Notizbuch'), () => openSheet(notebookSheet));
   btn(s, 'Tägliche Erinnerung', () => openSheet(reminderSheet));
   btn(s, 'Backup kopieren / einfügen', () => openSheet(backupSheet));
   btn(s, 'Schließen', closeSheet);
@@ -471,12 +471,12 @@ function invSheet(s) {
     const left = document.createElement('span'); left.style.cssText = 'display:flex;align-items:center;gap:12px;color:var(--fg)';
     const sp = spriteEl(id, 48); if (sp) left.appendChild(sp); left.insertAdjacentHTML('beforeend', `<span class="jp" style="font-size:1.3rem">${J(VOCAB[id].m)}</span>`);
     row.appendChild(left); row.insertAdjacentHTML('beforeend', `<span>×${G.inv[id]} ${G.help ? ' · ' + VOCAB[id].de : ''}</span>`); s.appendChild(row);
-    if (it && it.heal) btn(s, `${lbl('つかう', 'Benutzen (+' + it.heal + ' HP)')}`, () => { G.inv[id]--; G.hp = Math.min(G.maxhp, G.hp + it.heal); save(); renderStats(); refreshSheet(); });
+    if (it && it.heal) btn(s, `${lbl('つかう', 'Benutzen · +' + it.heal + ' HP')}`, () => { G.inv[id]--; G.hp = Math.min(G.maxhp, G.hp + it.heal); save(); renderStats(); refreshSheet(); });
   }
   btn(s, 'Zurück', () => openSheet(menuSheet));
 }
 function statusSheet(s) {
-  s.innerHTML = `<h2>${lbl('ステータス', 'Werte')}</h2>`;
+  s.innerHTML = `<h2>${lbl('ステータス', 'Status')}</h2>`;
   const row = (a, b) => s.insertAdjacentHTML('beforeend', `<div class="kv"><span class="jp">${a}</span><span>${b}</span></div>`);
   if (G.avatar) { const pc = drawPortrait(G.avatar); pc.className = 'sprite'; pc.style.cssText = `width:150px;height:${Math.round(150 * pc.height / pc.width)}px;image-rendering:pixelated;display:block;margin:0 auto 10px;border:1px solid var(--line);border-radius:10px`; s.appendChild(pc); }
   row(J('{勉強|べんきょう}'), `${E.introduced(G).length} Wörter · Serie ${G.streak.days}`); row('HP', `${G.hp} / ${G.maxhp}`); row('Lv', G.lv); row('XP', `${G.xp} / ${G.lv * 40}`); row(J('お{金|かね}'), `${G.gold} 円`);
@@ -488,8 +488,8 @@ function statusSheet(s) {
 }
 function studySheet(s) {
   s.innerHTML = `<h2>${lbl('{勉強|べんきょう}', 'Lernen')}</h2>`;
-  btn(s, lbl('{今日|きょう}の ふくしゅう', 'Tagesrunde (ca. 3 Min)'), () => { closeSheet(); startRound(6); });
-  btn(s, lbl('{単語帳|たんごちょう}', 'Wörterbuch: Wörter, Sicherheit, eigene & gewünschte Wörter'), () => openSheet(dictSheet));
+  btn(s, lbl('{今日|きょう}の ふくしゅう', 'Heutige Wiederholung'), () => { closeSheet(); startRound(6); });
+  btn(s, lbl('{単語帳|たんごちょう}', 'Wörterbuch'), () => openSheet(dictSheet));
   btn(s, lbl('{漢字|かんじ}れんしゅう', 'Kanji schreiben'), () => openSheet(kanjiSheet));
   btn(s, 'Schließen', closeSheet);
 }
@@ -506,7 +506,7 @@ function practiceKanji(k) {
   setScreen(() => ({ art: 'home', title: `${k}　${KANJI[k][0]}`, titleDe: KANJI[k][1],
     lines: [{ say: 'Schreibe das Zeichen Strich für Strich. Nach zwei Fehlern erscheint ein Hinweis.' }],
     widget: host => withOrder(host, k, () => drawKanji(host, k, ok => { if (ok) { if (!G.kanji[k]) gain(8); G.kanji[k] = 1; save(); toast('Gespeichert ✔'); } go(G.loc in NODES ? G.loc : 'village'); }, 'Zeichne den 1. Strich')),
-    choices: [{ t: 'もどる', de: 'Abbrechen', go: 'home' }] }));
+    choices: [{ t: 'もどる', de: 'Zurück', go: 'home' }] }));
 }
 // ---------- daily reminder (Android app only: local notification, no server) ----------
 const LN = () => window.Capacitor?.Plugins?.LocalNotifications;

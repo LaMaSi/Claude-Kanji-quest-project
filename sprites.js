@@ -1,15 +1,15 @@
 // Pixel sprites drawn in code: light pixels on dark, plus one amber accent (value 2).
 // Objects/animals/places are 24x24, portraits 32x32. Every noun in content/words.json needs an entry (tools/validate.mjs checks it).
 import { drawPortrait, NPC_LOOKS } from './people.js';
-const FG = '#d8d1bf', BG = '#0b0d12', ACC = '#d29a3e';
+const FG = '#cbc1af', BG = '#0b0d12', ACC = '#d29a3e';
 
 function mk(n) {
   const c = document.createElement('canvas'); c.width = c.height = n;
   const x = c.getContext('2d'), col = v => (typeof v === 'string' ? v : v === 0 ? BG : v === 2 ? ACC : FG);
   const g = {
     c, n,
-    px(a, b, v = 1) { x.fillStyle = col(v); x.fillRect(Math.round(a), Math.round(b), 1, 1); },
-    rect(a, b, w, h, v = 1) { x.fillStyle = col(v); x.fillRect(a, b, w, h); },
+    px(a, b, v = 1) { if (v === 0) x.clearRect(Math.round(a), Math.round(b), 1, 1); else { x.fillStyle = col(v); x.fillRect(Math.round(a), Math.round(b), 1, 1); } },
+    rect(a, b, w, h, v = 1) { if (v === 0) x.clearRect(a, b, w, h); else { x.fillStyle = col(v); x.fillRect(a, b, w, h); } },
     line(x0, y0, x1, y1, v = 1) {
       x0 |= 0; y0 |= 0; x1 |= 0; y1 |= 0;
       const dx = Math.abs(x1 - x0), dy = -Math.abs(y1 - y0), sx = x0 < x1 ? 1 : -1, sy = y0 < y1 ? 1 : -1; let e = dx + dy;
@@ -29,7 +29,6 @@ function mk(n) {
     },
     dither(a, b, w, h, ph = 0, v = 1) { for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) if ((i + j + ph) % 2 === 0) g.px(a + i, b + j, v); },
   };
-  g.rect(0, 0, n, n, 0);
   return g;
 }
 const tree = (g, x, y, s = 1) => { g.rect(x, y - 3 * s, s + 1, 3 * s); g.poly([[x + s - 4 * s, y - 3 * s], [x + s, y - 11 * s], [x + s + 4 * s, y - 3 * s]]); g.poly([[x + s - 3 * s, y - 7 * s], [x + s, y - 13 * s], [x + s + 3 * s, y - 7 * s]]); };
@@ -108,11 +107,11 @@ export const SPRITES = {
   ...Object.fromEntries(Object.keys(NPC_LOOKS).map(id => [id, () => ({ c: drawPortrait(NPC_LOOKS[id]), n: 40 })])),
   // ---- face parts, colours, clothes (colour icons), the tanuki
   kami: () => { const g = mk(24); g.poly([[9, 2], [16, 2], [19, 9], [17, 20], [13, 22], [12, 14], [9, 22], [5, 20], [6, 9]], '#241811'); g.poly([[9, 3], [15, 3], [18, 9], [16, 19], [13, 20], [12, 12], [9, 20], [6, 19], [7, 9]], '#6a4630'); g.line(11, 4, 10, 12, '#8a6446'); g.line(14, 5, 15, 12, '#8a6446'); return g; },
-  me: () => { const g = mk(24); g.ell(12, 12, 11, 6, '#241811'); g.ell(12, 12, 10, 5, '#fbf8ef'); g.disc(12, 12, 4, '#3f84d6'); g.disc(12, 12, 2, '#1d3c68'); g.px(14, 10, '#fbf8ef'); g.line(3, 9, 9, 7, '#241811'); g.line(21, 9, 15, 7, '#241811'); return g; },
+  me: () => { const g = mk(24); g.ell(12, 12, 11, 6, '#241811'); g.ell(12, 12, 10, 5, '#ebe4d4'); g.disc(12, 12, 4, '#3f84d6'); g.disc(12, 12, 2, '#1d3c68'); g.px(14, 10, '#ebe4d4'); g.line(3, 9, 9, 7, '#241811'); g.line(21, 9, 15, 7, '#241811'); return g; },
   mayuge: () => { const g = mk(24); g.poly([[2, 11], [9, 7], [12, 8], [11, 11], [8, 11]], '#5a3a26'); g.poly([[22, 11], [15, 7], [12, 8], [13, 11], [16, 11]], '#5a3a26'); g.poly([[3, 17], [9, 15], [11, 16], [9, 17]], '#5a3a26'); g.poly([[21, 17], [15, 15], [13, 16], [15, 17]], '#5a3a26'); return g; },
   hana: () => { const g = mk(24); g.poly([[10, 2], [14, 2], [15, 13], [20, 17], [19, 21], [5, 21], [4, 17], [9, 13]], '#241811'); g.poly([[11, 3], [13, 3], [14, 13], [19, 17], [18, 20], [6, 20], [5, 17], [10, 13]], '#e6b68c'); g.rect(7, 17, 3, 2, '#9a6a45'); g.rect(14, 17, 3, 2, '#9a6a45'); g.line(11, 5, 11, 12, '#f4d2b4'); return g; },
   kuchi: () => { const g = mk(24); g.poly([[2, 12], [8, 7], [12, 9], [16, 7], [22, 12], [12, 13]], '#8c3a33'); g.poly([[2, 12], [12, 13], [22, 12], [17, 19], [12, 20], [7, 19]], '#b9564c'); g.line(2, 12, 22, 12, '#5a211c'); g.line(9, 16, 15, 16, '#d17d72'); return g; },
-  kao: () => { const g = mk(24); g.ell(12, 12, 10, 11, '#241811'); g.ell(12, 12, 9, 10, '#f4d2b4'); for (const x of [8, 15]) { g.rect(x, 10, 3, 2, '#fbf8ef'); g.px(x + 1, 10, '#6e4527'); g.px(x + 1, 11, '#2a211c'); } g.line(11, 13, 11, 15, '#c9996f'); g.line(9, 18, 14, 18, '#b9564c'); g.line(7, 8, 10, 8, '#5a3a26'); g.line(14, 8, 17, 8, '#5a3a26'); return g; },
+  kao: () => { const g = mk(24); g.ell(12, 12, 10, 11, '#241811'); g.ell(12, 12, 9, 10, '#f4d2b4'); for (const x of [8, 15]) { g.rect(x, 10, 3, 2, '#ebe4d4'); g.px(x + 1, 10, '#6e4527'); g.px(x + 1, 11, '#2a211c'); } g.line(11, 13, 11, 15, '#c9996f'); g.line(9, 18, 14, 18, '#b9564c'); g.line(7, 8, 10, 8, '#5a3a26'); g.line(14, 8, 17, 8, '#5a3a26'); return g; },
   chairo: () => { const g = mk(24); g.rect(3, 3, 18, 18, '#241811'); g.rect(4, 4, 16, 16, '#6a4630'); g.rect(5, 5, 14, 3, '#8a6446'); return g; },
   kiniro: () => { const g = mk(24); g.rect(3, 3, 18, 18, '#241811'); g.rect(4, 4, 16, 16, '#dfb85e'); g.rect(5, 5, 14, 3, '#f0d588'); return g; },
   midori: () => { const g = mk(24); g.rect(3, 3, 18, 18, '#241811'); g.rect(4, 4, 16, 16, '#3f9b5c'); g.rect(5, 5, 14, 3, '#66bd82'); return g; },

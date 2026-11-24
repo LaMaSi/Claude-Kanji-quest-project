@@ -9,7 +9,7 @@ export const SKIN = ['#f4d2b4', '#e6b68c', '#c78f60', '#8c5b3c'];
 export const HAIR = { black: '#2b2623', brown: '#6a4630', blond: '#dfb85e', white: '#e6e3dc', red: '#b0482c', gray: '#8f8f98', purple: '#7b4fa8', pink: '#d96b9b', blue: '#3f6fd0', green: '#3f9b5c' };
 export const EYE = { black: '#2a211c', brown: '#6e4527', blue: '#3f84d6', green: '#3f9b5c' };
 export const CLOTH = { red: '#c04545', blue: '#4373c7', green: '#3f9158', yellow: '#dbb53c', white: '#e8e5de', black: '#3b3b45', brown: '#7b5333' };
-const OUT = '#241811', WHITE = '#fbf8ef', LIP = '#b9564c', LIPD = '#8c3a33';
+const OUT = '#241811', WHITE = '#ebe4d4', LIP = '#b9564c', LIPD = '#8c3a33';
 
 const shade = (hex, f) => { const n = parseInt(hex.slice(1), 16); const c = [n >> 16, (n >> 8) & 255, n & 255].map(v => Math.max(0, Math.min(255, Math.round(v * f)))); return '#' + c.map(v => v.toString(16).padStart(2, '0')).join(''); };
 

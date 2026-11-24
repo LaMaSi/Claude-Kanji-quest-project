@@ -627,7 +627,7 @@
   "ch": "4",
   "title": "Körperteil/Kleidung は 〜です",
   "explain": "Beschreibung einer Person: Körperteil は Eigenschaft です. Bei Farben steht oft ein Nomen (茶色, 緑), sonst ein い-Adjektiv (黒い, 青い).",
-  "status": "draft",
+  "status": "checked",
   "jp": "<a> は <b> です。",
   "de": "[a.sub] [a.cop] [b.pred.a].",
   "fills": [
@@ -750,7 +750,7 @@
  {
   "id": "p_item_place",
   "ch": "5",
-  "status": "draft",
+  "status": "checked",
   "title": "〜は 〇〇に あります",
   "explain": "Wo gibt es etwas? Sache は Ort に あります. に nennt den Ort, an dem etwas ist. So fragt man nach dem Weg zu Dingen: 〜は どこ に ありますか？",
   "jp": "<a> は <b> に あります。",
@@ -763,14 +763,6 @@
    {
     "a": "ringo",
     "b": "hatake"
-   },
-   {
-    "a": "sakana",
-    "b": "mizuumi"
-   },
-   {
-    "a": "sakana",
-    "b": "hamabe"
    },
    {
     "a": "momo",
@@ -873,7 +865,7 @@
  {
   "id": "p_place_shop",
   "ch": "6",
-  "status": "draft",
+  "status": "checked",
   "title": "〇〇に 店が あります",
   "explain": "Ort に Geschäft が あります: „Dort gibt es einen Laden.“ に nennt den Ort, が das, was es dort gibt.",
   "jp": "<a> に <b> が あります。",
@@ -942,7 +934,7 @@
  {
   "id": "p_dozo_item",
   "ch": "6",
-  "status": "draft",
+  "status": "checked",
   "title": "どうぞ。〜です。",
   "explain": "Etwas höflich überreichen: どうぞ („bitte sehr“) und dann sagen, was es ist.",
   "jp": "どうぞ。 <a> です。",
@@ -999,7 +991,7 @@
  {
   "id": "p_part_wa_state",
   "ch": "4",
-  "status": "draft",
+  "status": "checked",
   "title": "Körperteil は 〜ています",
   "explain": "Zustand beschreiben: 口は 開いています = „Der Mund ist offen“. Hier endet der Satz ohne です.",
   "jp": "<a> は <b>。",
@@ -1023,6 +1015,55 @@
    },
    "b": {
     "pos": "adj"
+   }
+  }
+ },
+ {
+  "id": "p_ani_place",
+  "ch": "5",
+  "status": "checked",
+  "title": "〜は 〇〇に います",
+  "explain": "Lebewesen: Tier は Ort に います („… gibt es / … ist dort“). Für Dinge steht あります, für Lebewesen います.",
+  "jp": "<a> は <b> に います。",
+  "de": "[a.bare] gibt es [b.loc].",
+  "fills": [
+   {
+    "a": "sakana",
+    "b": "mizuumi"
+   },
+   {
+    "a": "sakana",
+    "b": "hamabe"
+   },
+   {
+    "a": "tori",
+    "b": "yama"
+   },
+   {
+    "a": "kuma",
+    "b": "mori"
+   },
+   {
+    "a": "okami",
+    "b": "mori"
+   },
+   {
+    "a": "neko",
+    "b": "mura"
+   }
+  ],
+  "require": {
+   "a": {
+    "pos": "noun",
+    "tagsAny": [
+     "animate"
+    ]
+   },
+   "b": {
+    "pos": "noun",
+    "tagsAny": [
+     "place"
+    ]
    }
   }
  }

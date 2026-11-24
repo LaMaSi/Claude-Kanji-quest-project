@@ -1,5 +1,5 @@
 @font-face{font-family:"Klee One";src:url(assets/fonts/KleeOne-subset.woff2) format("woff2");font-display:swap}
-:root{--bg:#0b0d12;--panel:#12151d;--line:#232838;--fg:#d3cdbd;--dim:#8a8fa2;--amber:#d29a3e;--red:#b45a5a;--green:#6f9a78;--fs:1;
+:root{--bg:#15171d;--panel:#1c1f27;--bubble:#2b2520;--line:#2d3240;--btn1:#282d3a;--btn2:#1e222d;--btnline:#454c63;--fg:#c9bfad;--dim:#8d887e;--amber:#d29a3e;--red:#b45a5a;--green:#6f9a78;--fs:1;
  --jp:"Noto Sans JP","Noto Sans CJK JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;--dock:76px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{font-size:calc(17px * var(--fs))}
@@ -151,3 +151,31 @@ body.lefty #dock{flex-direction:row-reverse}
 .edside{flex:1;min-width:0}.edside .line{margin:0;padding:8px 10px}.edside .jp{font-size:1.2rem;line-height:1.5}
 .edbar{display:flex;gap:6px;margin:4px 0 8px}.edbar .btn{flex:1;min-width:0;width:auto;padding:8px 6px;min-height:46px;text-align:center;font-size:.9rem;line-height:1.2}
 .edbar .btn small{font-size:.65rem;margin:0}
+
+
+/* ===== Visual style v2: soft light on a lifted black; bubbles are flat and warm, buttons are raised ===== */
+canvas{filter:sepia(.08) brightness(.95)}                      /* no pure white pixels in pictures */
+.sil{filter:brightness(.28) contrast(1.3)}
+body{color:var(--fg)}
+
+/* speech bubbles / text boxes: flat, warm, with a small tail – NOT tappable */
+.line{background:var(--bubble);border:0;border-radius:18px 18px 18px 5px;box-shadow:none;position:relative;margin-left:8px}
+.line::before{content:"";position:absolute;left:-7px;bottom:11px;border:8px solid transparent;border-left:0;border-right-color:var(--bubble)}
+.line .who{color:#d9a85a}
+.q{background:var(--bubble);border:0;border-radius:18px;box-shadow:none}
+.say{font-style:italic;color:var(--dim)}
+.ycard{background:var(--panel);border:1px solid var(--line);box-shadow:none}
+div.pcard{background:var(--panel);border:1px solid var(--line);box-shadow:none}
+.kmsg{color:var(--dim)}
+
+/* everything you can tap is raised: gradient, lighter rim, a thick "floor" shadow, and it sinks when pressed */
+.btn,button.pcard,.chipw,.dbtn,.seg,.chip,.pmark,.nkc{background:linear-gradient(var(--btn1),var(--btn2));border:1px solid var(--btnline);box-shadow:0 3px 0 #0b0c10,inset 0 1px 0 rgba(255,255,255,.07)}
+.btn:active,button.pcard:active,.chipw:active,.dbtn:active,.chip:active,.pmark:active{transform:translateY(2px);box-shadow:0 1px 0 #0b0c10,inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(var(--btn2),var(--btn2))}
+.btn.ok,.pcard.ok{background:linear-gradient(#26382f,#1c2a23);border-color:var(--green)}
+.btn.no{background:linear-gradient(#3a2527,#2a1a1c);border-color:var(--red)}
+.btn.primary{background:linear-gradient(#34301f,#26231a);border-color:var(--amber);color:#e3b765}
+.seg button{box-shadow:none}.seg button.on{background:#323747;color:#e3b765}
+.pmark{transform:translate(-50%,-50%)}.pmark:active{transform:translate(-50%,-48%)}
+#dock{background:linear-gradient(transparent,var(--bg) 24%)}
+.edtop{background:var(--bg)}
+.chipw[style*="border-color"]{background:linear-gradient(#34301f,#26231a)}

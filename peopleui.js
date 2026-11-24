@@ -54,7 +54,7 @@ export function openEditor() {
   const done = () => { g.flags.editorSeen = 1; A.save(); A.navigateBack(); };
   const node = () => {
     const feats = st.page === 'face' ? FACE_FEATURES : CLOTH_FEATURES, f = feats.find(x => x.key === st.feat) || feats[0];
-    return { art: null, noBanner: true, title: 'キャラクター', titleDe: 'Charakter-Editor: lerne Wörter für Gesicht und Kleidung', lines: [], widget: host => build(host, st, feats, f), choices: [] };
+    return { art: null, noBanner: true, title: 'キャラクター', titleDe: 'Charakter', lines: [], widget: host => build(host, st, feats, f), choices: [] };
   };
   A.setScreen(node);
   function build(host, st, feats, f) {
@@ -133,7 +133,7 @@ export function makeSearch(variant, level = questLevel()) {
 export function startSearch(variant, replace = false) {
   const q = makeSearch(variant); let answered = false, msg = '';
   const title = '{人探|ひとさが}し';
-  const node = () => ({ art: null, noBanner: true, title, titleDe: variant === 'face' ? 'Gesucht: erkenne die Person am Gesicht' : 'Gesucht: erkenne die Person an der Kleidung',
+  const node = () => ({ art: null, noBanner: true, title, titleDe: variant === 'face' ? 'Personensuche: Gesicht' : 'Personensuche: Kleidung',
     lines: [{ say: 'Tippe die Person an, die zur Beschreibung passt. Tippe auf ein Wort für die Übersetzung.' }, { who: '{誰|だれ}', t: 'この {人|ひと} は {誰|だれ} ですか？', de: 'Wer ist diese Person?' }],
     widget: host => {
       for (const s of q.sentences) sentenceLine(host, s);
@@ -157,6 +157,6 @@ export function startSearch(variant, replace = false) {
       host.appendChild(grid);
       if (msg) { const m = document.createElement('div'); m.className = 'kmsg'; m.textContent = msg; host.appendChild(m); }
     },
-    choices: answered ? [{ t: 'もう いちど', de: 'Noch eine Suche', fn: () => { startSearch(variant === 'face' ? 'outfit' : 'face', true); } }, { t: 'もどる', de: 'Zurück zur Tafel', go: 'board' }] : [{ t: 'もどる', de: 'Aufgeben', go: 'board' }] });
+    choices: answered ? [{ t: 'もう いちど', de: 'Noch einmal', fn: () => { startSearch(variant === 'face' ? 'outfit' : 'face', true); } }, { t: 'もどる', de: 'Zurück', go: 'board' }] : [{ t: 'もどる', de: 'Zurück', go: 'board' }] });
   A.setScreen(node, { replace });
 }

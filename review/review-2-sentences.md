@@ -29,6 +29,7 @@ Answer in a table: | ID | Verdict | Problem | Exact correction | Reason |
 | p_place_shop | 〇〇に 店が あります | Ort に Geschäft が あります: „Dort gibt es einen Laden.“ に nennt den Ort, が das, was es dort gibt. |
 | p_dozo_item | どうぞ。〜です。 | Etwas höflich überreichen: どうぞ („bitte sehr“) und dann sagen, was es ist. |
 | p_part_wa_state | Körperteil は 〜ています | Zustand beschreiben: 口は 開いています = „Der Mund ist offen“. Hier endet der Satz ohne です. |
+| p_ani_place | 〜は 〇〇に います | Lebewesen: Tier は Ort に います („… gibt es / … ist dort“). Für Dinge steht あります, für Lebewesen います. |
 
 ## Part B – example sentences
 Check each sentence for: (a) correct and natural Japanese (particles, word choice, politeness, counter, 何→なん, long vowels), (b) a German translation that is correct, natural and a faithful translation, and (c) whether the sentence makes sense as a beginner lesson. Japanese in these sentences is spaced between words only for learning; ignore the spacing.
@@ -66,7 +67,7 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_part_wa_pred#2 | 髪は短いです。 | かみはみじかいです。 | kami wa mijikai desu. | Das Haar ist kurz. |
 | p_part_wa_pred#3 | 髪は黒いです。 | かみはくろいです。 | kami wa kuroi desu. | Das Haar ist schwarz. |
 | p_part_wa_pred#4 | 髪は茶色です。 | かみはちゃいろです。 | kami wa chairo desu. | Das Haar ist braun. |
-| p_part_wa_pred#5 | 髪は金色です。 | かみはきんいろです。 | kami wa kin'iro desu. | Das Haar ist blond. |
+| p_part_wa_pred#5 | 髪は金髪です。 | かみはきんぱつです。 | kami wa kinpatsu desu. | Das Haar ist blond. |
 | p_part_wa_pred#6 | 髪は巻き毛です。 | かみはまきげです。 | kami wa makige desu. | Das Haar ist lockig. |
 | p_part_wa_pred#7 | 髪はまっすぐです。 | かみはまっすぐです。 | kami wa massugu desu. | Das Haar ist glatt. |
 | p_part_wa_pred#8 | 目は大きいです。 | めはおおきいです。 | me wa ookii desu. | Die Augen sind groß. |
@@ -90,28 +91,26 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_part_wa_pred#26 | 髪は緑です。 | かみはみどりです。 | kami wa midori desu. | Das Haar ist grün. |
 | p_item_place#1 | きゅうりは畑にあります。 | きゅうりははたけにあります。 | kyuuri wa hatake ni arimasu. | Gurken gibt es auf dem Feld. |
 | p_item_place#2 | りんごは畑にあります。 | りんごははたけにあります。 | ringo wa hatake ni arimasu. | Äpfel gibt es auf dem Feld. |
-| p_item_place#3 | 魚は湖にあります。 | さかなはみずうみにあります。 | sakana wa mizuumi ni arimasu. | Fische gibt es am See. |
-| p_item_place#4 | 魚は浜辺にあります。 | さかなははまべにあります。 | sakana wa hamabe ni arimasu. | Fische gibt es am Strand. |
-| p_item_place#5 | 桃は町にあります。 | ももはまちにあります。 | momo wa machi ni arimasu. | Pfirsiche gibt es in der Kleinstadt. |
-| p_item_place#6 | パンは町にあります。 | パンはまちにあります。 | pan wa machi ni arimasu. | Brote gibt es in der Kleinstadt. |
-| p_item_place#7 | 薬は都会にあります。 | くすりはとかいにあります。 | kusuri wa tokai ni arimasu. | Medizin gibt es in der Großstadt. |
-| p_item_place#8 | 肉は都会にあります。 | にくはとかいにあります。 | niku wa tokai ni arimasu. | Fleisch gibt es in der Großstadt. |
-| p_item_place#9 | お茶は村にあります。 | おちゃはむらにあります。 | ocha wa mura ni arimasu. | Tee gibt es im Dorf. |
-| p_item_place#10 | 卵は村にあります。 | たまごはむらにあります。 | tamago wa mura ni arimasu. | Eier gibt es im Dorf. |
-| p_item_place#11 | 水は川にあります。 | みずはかわにあります。 | mizu wa kawa ni arimasu. | Wasser gibt es am Fluss. |
-| p_item_place#12 | 地図は店にあります。 | ちずはみせにあります。 | chizu wa mise ni arimasu. | Karten gibt es im Laden. |
-| p_item_place#13 | きゅうりは店にあります。 | きゅうりはみせにあります。 | kyuuri wa mise ni arimasu. | Gurken gibt es im Laden. |
-| p_item_place#14 | 油揚げはとうふ屋にあります。 | あぶらあげはとうふやにあります。 | aburaage wa toufuya ni arimasu. | Frittierter Tofu gibt es im Tofuladen. |
-| p_item_place#15 | もちはおかし屋にあります。 | もちはおかしやにあります。 | mochi wa okashiya ni arimasu. | Reiskuchen gibt es im Süßwarenladen. |
-| p_item_place#16 | お茶は茶屋にあります。 | おちゃはちゃやにあります。 | ocha wa chaya ni arimasu. | Tee gibt es im Teehaus. |
-| p_item_place#17 | 桃はくだもの屋にあります。 | ももはくだものやにあります。 | momo wa kudamonoya ni arimasu. | Pfirsiche gibt es im Obstladen. |
-| p_item_place#18 | 卵は農家にあります。 | たまごはのうかにあります。 | tamago wa nouka ni arimasu. | Eier gibt es auf dem Bauernhof. |
-| p_item_place#19 | 薬は薬屋にあります。 | くすりはくすりやにあります。 | kusuri wa kusuriya ni arimasu. | Medizin gibt es in der Apotheke. |
-| p_item_place#20 | 魚は魚屋にあります。 | さかなはさかなやにあります。 | sakana wa sakanaya ni arimasu. | Fische gibt es im Fischladen. |
-| p_item_place#21 | パンはパン屋にあります。 | パンはパンやにあります。 | pan wa pan'ya ni arimasu. | Brote gibt es in der Bäckerei. |
-| p_item_place#22 | 肉は肉屋にあります。 | にくはにくやにあります。 | niku wa nikuya ni arimasu. | Fleisch gibt es in der Metzgerei. |
-| p_item_place#23 | お酒は店にあります。 | おさけはみせにあります。 | osake wa mise ni arimasu. | Alkohol gibt es im Laden. |
-| p_item_place#24 | りんごはくだもの屋にあります。 | りんごはくだものやにあります。 | ringo wa kudamonoya ni arimasu. | Äpfel gibt es im Obstladen. |
+| p_item_place#3 | 桃は町にあります。 | ももはまちにあります。 | momo wa machi ni arimasu. | Pfirsiche gibt es in der Kleinstadt. |
+| p_item_place#4 | パンは町にあります。 | パンはまちにあります。 | pan wa machi ni arimasu. | Brote gibt es in der Kleinstadt. |
+| p_item_place#5 | 薬は都会にあります。 | くすりはとかいにあります。 | kusuri wa tokai ni arimasu. | Medizin gibt es in der Großstadt. |
+| p_item_place#6 | 肉は都会にあります。 | にくはとかいにあります。 | niku wa tokai ni arimasu. | Fleisch gibt es in der Großstadt. |
+| p_item_place#7 | お茶は村にあります。 | おちゃはむらにあります。 | ocha wa mura ni arimasu. | Tee gibt es im Dorf. |
+| p_item_place#8 | 卵は村にあります。 | たまごはむらにあります。 | tamago wa mura ni arimasu. | Eier gibt es im Dorf. |
+| p_item_place#9 | 水は川にあります。 | みずはかわにあります。 | mizu wa kawa ni arimasu. | Wasser gibt es am Fluss. |
+| p_item_place#10 | 地図は店にあります。 | ちずはみせにあります。 | chizu wa mise ni arimasu. | Karten gibt es im Laden. |
+| p_item_place#11 | きゅうりは店にあります。 | きゅうりはみせにあります。 | kyuuri wa mise ni arimasu. | Gurken gibt es im Laden. |
+| p_item_place#12 | 油揚げはとうふ屋にあります。 | あぶらあげはとうふやにあります。 | aburaage wa toufuya ni arimasu. | Frittierter Tofu gibt es im Tofuladen. |
+| p_item_place#13 | もちはおかし屋にあります。 | もちはおかしやにあります。 | mochi wa okashiya ni arimasu. | Reiskuchen gibt es im Süßwarenladen. |
+| p_item_place#14 | お茶は茶屋にあります。 | おちゃはちゃやにあります。 | ocha wa chaya ni arimasu. | Tee gibt es im Teehaus. |
+| p_item_place#15 | 桃はくだもの屋にあります。 | ももはくだものやにあります。 | momo wa kudamonoya ni arimasu. | Pfirsiche gibt es im Obstladen. |
+| p_item_place#16 | 卵は農家にあります。 | たまごはのうかにあります。 | tamago wa nouka ni arimasu. | Eier gibt es auf dem Bauernhof. |
+| p_item_place#17 | 薬は薬屋にあります。 | くすりはくすりやにあります。 | kusuri wa kusuriya ni arimasu. | Medizin gibt es in der Apotheke. |
+| p_item_place#18 | 魚は魚屋にあります。 | さかなはさかなやにあります。 | sakana wa sakanaya ni arimasu. | Fische gibt es im Fischladen. |
+| p_item_place#19 | パンはパン屋にあります。 | パンはパンやにあります。 | pan wa pan'ya ni arimasu. | Brote gibt es in der Bäckerei. |
+| p_item_place#20 | 肉は肉屋にあります。 | にくはにくやにあります。 | niku wa nikuya ni arimasu. | Fleisch gibt es in der Metzgerei. |
+| p_item_place#21 | お酒は店にあります。 | おさけはみせにあります。 | osake wa mise ni arimasu. | Alkohol gibt es im Laden. |
+| p_item_place#22 | りんごはくだもの屋にあります。 | りんごはくだものやにあります。 | ringo wa kudamonoya ni arimasu. | Äpfel gibt es im Obstladen. |
 | p_place_shop#1 | 村にとうふ屋があります。 | むらにとうふやがあります。 | mura ni toufuya ga arimasu. | Im Dorf gibt es einen Tofuladen. |
 | p_place_shop#2 | 村におかし屋があります。 | むらにおかしやがあります。 | mura ni okashiya ga arimasu. | Im Dorf gibt es einen Süßwarenladen. |
 | p_place_shop#3 | 山に茶屋があります。 | やまにちゃやがあります。 | yama ni chaya ga arimasu. | Auf dem Berg gibt es ein Teehaus. |
@@ -137,3 +136,9 @@ Answer in a table: | ID | Verdict | Problem (Japanese or German) | Exact correct
 | p_dozo_item#12 | どうぞ。りんごです。 | どうぞ。りんごです。 | douzo. ringo desu. | Bitte sehr. Hier ist ein Apfel. |
 | p_part_wa_state#1 | 口は開いています。 | くちはあいています。 | kuchi wa aite imasu. | Der Mund ist offen. |
 | p_part_wa_state#2 | 口は閉じています。 | くちはとじています。 | kuchi wa tojite imasu. | Der Mund ist geschlossen. |
+| p_ani_place#1 | 魚は湖にいます。 | さかなはみずうみにいます。 | sakana wa mizuumi ni imasu. | Fische gibt es am See. |
+| p_ani_place#2 | 魚は浜辺にいます。 | さかなははまべにいます。 | sakana wa hamabe ni imasu. | Fische gibt es am Strand. |
+| p_ani_place#3 | 鳥は山にいます。 | とりはやまにいます。 | tori wa yama ni imasu. | Vögel gibt es auf dem Berg. |
+| p_ani_place#4 | 熊は森にいます。 | くまはもりにいます。 | kuma wa mori ni imasu. | Bären gibt es im Wald. |
+| p_ani_place#5 | 狼は森にいます。 | おおかみはもりにいます。 | ookami wa mori ni imasu. | Wölfe gibt es im Wald. |
+| p_ani_place#6 | 猫は村にいます。 | ねこはむらにいます。 | neko wa mura ni imasu. | Katzen gibt es im Dorf. |

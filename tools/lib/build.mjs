@@ -75,8 +75,12 @@ export function buildSentences({ patterns, byId, reviewedSentences = {} }) {
       out.push({
         id: `${p.id}#${i + 1}`, pattern: p.id, ch: Math.max(+p.ch, ...used.map(u => byId[u].ch)),
         jp, jpFull, romaji: romaji(jp), kana: reading(jp), de, words: used,
-        // reviewed only if the sentence text is exactly what a reviewer saw AND all its words and its pattern are reviewed
-        status: reviewedSentences[`${p.id}#${i + 1}`] === `${jpFull}|${de}` && p.status === 'reviewed' && used.every(u => byId[u].status === 'reviewed') ? 'reviewed' : 'draft',
+        // reviewed: the exact text was seen by an external reviewer AND all words and the pattern are reviewed; checked: Claude's own review of pattern and words; otherwise draft
+        status: (() => {
+          const rank = { draft: 0, checked: 1, reviewed: 2 }, all = [p.status || 'draft', ...used.map(u => byId[u].status || 'draft')], low = Math.min(...all.map(x => rank[x] ?? 0));
+          if (low === 2 && reviewedSentences[`${p.id}#${i + 1}`] === `${jpFull}|${de}`) return 'reviewed';
+          return low >= 1 ? 'checked' : 'draft';
+        })(),
       });
     });
   }

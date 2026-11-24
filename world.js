@@ -17,7 +17,7 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 
 /** the map screen (also registered as NODES.map) */
 export function mapNode() {
-  return { art: null, noBanner: true, widgetTop: true, title: '{地図|ちず}', titleDe: 'Die Karte – tippe auf einen Ort', lines: [],
+  return { art: null, noBanner: true, widgetTop: true, title: '{地図|ちず}', titleDe: 'Karte', lines: [],
     widget: host => {
       const box = document.createElement('div'); box.className = 'mapbox'; const cv = document.createElement('canvas'); drawMapArt(cv, places()); box.appendChild(cv);
       box.insertAdjacentHTML('beforeend', '<div class="lcd"></div>');
@@ -32,13 +32,13 @@ export function mapNode() {
       }
       host.appendChild(box);
     },
-    choices: [{ t: 'ばしょ クイズ', de: 'Orts-Quiz: Wo gibt es was?', fn: () => { startPlaceQuiz(); } }, { t: 'ノート', de: 'Notizbuch ansehen', fn: () => { A.openSheet(notebookSheet); } }, { t: '{妖怪図鑑|ようかいずかん}', de: 'Yokai-Dex', fn: () => { A.openSheet(hooks.dex); } }] };
+    choices: [{ t: 'ばしょ クイズ', de: 'Orts-Quiz', fn: () => { startPlaceQuiz(); } }, { t: 'ノート', de: 'Notizbuch', fn: () => { A.openSheet(notebookSheet); } }, { t: '{妖怪図鑑|ようかいずかん}', de: 'Yokai-Lexikon', fn: () => { A.openSheet(hooks.dex); } }] };
 }
 
 function placeNode(id) {
   const p = places().find(x => x.id === id), w = W(p.word);
   const things = [...p.items.map(i => ['item', i]), ...p.animals.map(i => ['animal', i])];
-  return { art: p.art, title: w.jp, titleDe: `${displayDe(w)} – ${w.deLoc}`, widgetTop: true,
+  return { art: p.art, title: w.jp, titleDe: displayDe(w), widgetTop: true,
     lines: [{ say: things.length ? 'Hier findest du:' : 'Hier gibt es nicht viel zu sehen.' }],
     widget: host => {
       hooks.extras?.(host, p);
@@ -50,7 +50,7 @@ function placeNode(id) {
         grid.appendChild(card);
       }
     },
-    choices: [{ t: '{地図|ちず}', de: 'Zurück zur Karte', go: 'map' }, { t: 'クイズ', de: 'Orts-Quiz', fn: () => { startPlaceQuiz(); } }] };
+    choices: [{ t: '{地図|ちず}', de: 'Karte', go: 'map' }, { t: 'クイズ', de: 'Orts-Quiz', fn: () => { startPlaceQuiz(); } }] };
 }
 
 // ---------------------------------------------------------------- hint quiz
@@ -90,14 +90,14 @@ export function startPlaceQuiz() {
   const finish = () => {
     const xp = st.ok * 3, gold = st.ok * 4; A.gain(xp, gold); A.save();
     A.setScreen(() => ({ art: 'board', noBanner: true, title: 'おつかれさま！', titleDe: 'Geschafft!', lines: [{ say: `${st.ok} von ${qs.length} richtig. +${xp} XP, +${gold} 円. Neue Hinweise stehen im Notizbuch.` }],
-      choices: [{ t: 'もう いちど', de: 'Noch ein Quiz', fn: () => { startPlaceQuiz(); } }, { t: '{地図|ちず}', de: 'Zur Karte', go: 'map' }] }), { replace: true });
+      choices: [{ t: 'もう いちど', de: 'Noch einmal', fn: () => { startPlaceQuiz(); } }, { t: '{地図|ちず}', de: 'Karte', go: 'map' }] }), { replace: true });
   };
   step();
 }
 
 export function notebookSheet(s) {
   const g = G(), hand = g.diaryFont !== 'normal';
-  s.innerHTML = `<h2>${A.lbl('ノート', 'Notizbuch: gelernte Hinweise')}</h2>`;
+  s.innerHTML = `<h2>${A.lbl('ノート', 'Notizbuch')}</h2>`;
   const row = document.createElement('div'); row.className = 'row'; row.style.marginBottom = '10px';
   A.btn(row, hand ? 'Schrift: Handschrift ✎' : 'Schrift: Normal', () => { g.diaryFont = hand ? 'normal' : 'hand'; A.save(); A.openSheet(notebookSheet); }, 'small'); s.appendChild(row);
   const page = document.createElement('div'); if (hand) page.className = 'hand'; s.appendChild(page);

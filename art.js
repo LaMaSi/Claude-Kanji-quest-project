@@ -7,7 +7,7 @@ function mk(canvas) {
   c.imageSmoothingEnabled = false;
   const g = {
     c,
-    on: '#d8d1bf', off: '#0b0d12',
+    on: '#cbc1af', off: '#0b0d12',
     px(x, y, v = 1) { c.fillStyle = v ? g.on : g.off; c.fillRect(x | 0, y | 0, 1, 1); },
     rect(x, y, w, h, v = 1) { c.fillStyle = v ? g.on : g.off; c.fillRect(x, y, w, h); },
     frame(x, y, w, h) { g.rect(x, y, w, 1); g.rect(x, y + h - 1, w, 1); g.rect(x, y, 1, h); g.rect(x + w - 1, y, 1, h); },

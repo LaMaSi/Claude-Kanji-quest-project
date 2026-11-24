@@ -47,7 +47,7 @@ export function drawKanji(host, ch, onDone, note = '') {
     c.strokeRect(0.5, 0.5, 108, 108); c.beginPath(); c.moveTo(54.5, 0); c.lineTo(54.5, 109); c.moveTo(0, 54.5); c.lineTo(109, 54.5); c.stroke(); c.setLineDash([]);
     c.lineCap = 'round'; c.lineJoin = 'round';
     targets.forEach((t, i) => { // faint full guide, finished strokes bright
-      c.lineWidth = i < idx ? 4.6 : 4; c.strokeStyle = i < idx ? '#d8d1bf' : '#222736'; c.stroke(t.path2d);
+      c.lineWidth = i < idx ? 4.6 : 4; c.strokeStyle = i < idx ? '#cbc1af' : '#222736'; c.stroke(t.path2d);
     });
     if (hint && idx < targets.length) { c.strokeStyle = '#8a6a34'; c.lineWidth = 4; c.setLineDash([5, 4]); c.stroke(targets[idx].path2d); c.setLineDash([]);
       const s = targets[idx].pts[0]; c.fillStyle = '#d29a3e'; c.beginPath(); c.arc(s[0], s[1], 3.2, 0, 7); c.fill(); }
@@ -115,7 +115,7 @@ export function playStrokeOrder(host, ch, onDone, label = 'Strichfolge') {
     c.strokeStyle = '#1e2230'; c.lineWidth = 0.6; c.setLineDash([2, 2]); c.strokeRect(0.5, 0.5, 108, 108); c.beginPath(); c.moveTo(54.5, 0); c.lineTo(54.5, 109); c.moveTo(0, 54.5); c.lineTo(109, 54.5); c.stroke(); c.setLineDash([]);
     c.lineCap = 'round'; c.lineJoin = 'round'; c.lineWidth = 4.6;
     items.forEach((it, i) => { c.strokeStyle = '#2a2f40'; c.lineWidth = 4; c.stroke(it.path2d); });
-    for (let i = 0; i < done; i++) { c.strokeStyle = '#d8d1bf'; c.lineWidth = 4.6; c.stroke(items[i].path2d); }
+    for (let i = 0; i < done; i++) { c.strokeStyle = '#cbc1af'; c.lineWidth = 4.6; c.stroke(items[i].path2d); }
     if (cur < items.length) { const it = items[cur]; c.strokeStyle = '#e0b060'; c.lineWidth = 4.6; c.setLineDash([it.len, it.len + 2]); c.lineDashOffset = it.len * (1 - t); c.stroke(it.path2d); c.setLineDash([]); }
     c.font = 'bold 7px sans-serif'; c.textAlign = 'center'; c.textBaseline = 'middle';
     for (let i = 0; i <= Math.min(cur, items.length - 1); i++) { if (i >= done && i !== cur) continue; const [x, y] = items[i].start; c.fillStyle = '#d29a3e'; c.beginPath(); c.arc(x - 4, y - 4, 4, 0, 7); c.fill(); c.fillStyle = '#0b0d12'; c.fillText(String(i + 1), x - 4, y - 3.6); }

@@ -981,7 +981,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Haare",
   "note": "Haupthaar. Im Deutschen oft Plural: „die Haare“."
  },
@@ -995,7 +995,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Augen",
   "subjPl": true
  },
@@ -1009,7 +1009,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Augenbrauen",
   "subjPl": true,
   "kanjiCommon": false
@@ -1024,7 +1024,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Nasen"
  },
  {
@@ -1037,7 +1037,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Münder"
  },
  {
@@ -1050,7 +1050,7 @@
   "tags": [
    "bodypart"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Gesichter"
  },
  {
@@ -1063,7 +1063,7 @@
   "tags": [
    "color"
   ],
-  "status": "draft",
+  "status": "checked",
   "mass": true,
   "deAdj": "braun",
   "note": "Als Haar-/Augenfarbe: 茶色 = braun."
@@ -1071,17 +1071,17 @@
  {
   "id": "kiniro",
   "pos": "noun",
-  "jp": "{金色|きんいろ}",
+  "jp": "{金髪|きんぱつ}",
   "de": "Gold",
   "gender": "n",
   "ch": 4,
   "tags": [
    "color"
   ],
-  "status": "draft",
+  "status": "checked",
   "mass": true,
   "deAdj": "blond",
-  "note": "Haarfarbe: blond (wörtlich „goldfarben“)."
+  "note": "Blondes Haar (wörtlich „goldenes Haar“). Nur für Haare."
  },
  {
   "id": "midori",
@@ -1093,7 +1093,7 @@
   "tags": [
    "color"
   ],
-  "status": "draft",
+  "status": "checked",
   "mass": true,
   "deAdj": "grün"
  },
@@ -1103,7 +1103,7 @@
   "jp": "まっすぐ",
   "de": "gerade",
   "ch": 4,
-  "status": "draft",
+  "status": "checked",
   "deAdj": "glatt",
   "na": true,
   "note": "na-Adjektiv. Bei Haaren: glatt."
@@ -1118,7 +1118,7 @@
   "tags": [
    "descriptor"
   ],
-  "status": "draft",
+  "status": "checked",
   "deAdj": "lockig",
   "pl": "Locken",
   "note": "Gelocktes Haar."
@@ -1144,7 +1144,7 @@
   "jp": "{長|なが}い",
   "de": "lang",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "mijikai",
@@ -1152,7 +1152,7 @@
   "jp": "{短|みじか}い",
   "de": "kurz",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "futoi",
@@ -1160,7 +1160,7 @@
   "jp": "{太|ふと}い",
   "de": "dick",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "hosoi",
@@ -1168,7 +1168,7 @@
   "jp": "{細|ほそ}い",
   "de": "dünn",
   "ch": 4,
-  "status": "draft",
+  "status": "checked",
   "deBy": {
    "me": "schmal",
    "mayuge": "dünn"
@@ -1181,7 +1181,7 @@
   "jp": "{丸|まる}い",
   "de": "rund",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "shikakui",
@@ -1189,7 +1189,7 @@
   "jp": "{四角|しかく}い",
   "de": "eckig",
   "ch": 4,
-  "status": "draft",
+  "status": "checked",
   "note": "Wörtlich „viereckig“."
  },
  {
@@ -1198,7 +1198,7 @@
   "jp": "{低|ひく}い",
   "de": "niedrig",
   "ch": 4,
-  "status": "draft",
+  "status": "checked",
   "deBy": {
    "hana": "flach"
   },
@@ -1213,7 +1213,7 @@
   "jp": "{黒|くろ}い",
   "de": "schwarz",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "shiroi",
@@ -1221,7 +1221,7 @@
   "jp": "{白|しろ}い",
   "de": "weiß",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "akai",
@@ -1229,7 +1229,7 @@
   "jp": "{赤|あか}い",
   "de": "rot",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "aoi",
@@ -1237,7 +1237,7 @@
   "jp": "{青|あお}い",
   "de": "blau",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "kiiroi",
@@ -1245,7 +1245,7 @@
   "jp": "{黄色|きいろ}い",
   "de": "gelb",
   "ch": 4,
-  "status": "draft"
+  "status": "checked"
  },
  {
   "id": "shatsu",
@@ -1257,7 +1257,7 @@
   "tags": [
    "clothes"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Hemden"
  },
  {
@@ -1270,7 +1270,7 @@
   "tags": [
    "clothes"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Hosen"
  },
  {
@@ -1283,7 +1283,7 @@
   "tags": [
    "clothes"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Röcke"
  },
  {
@@ -1296,7 +1296,7 @@
   "tags": [
    "clothes"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Mützen",
   "note": "Auch: Hut, Kappe."
  },
@@ -1310,7 +1310,7 @@
   "tags": [
    "clothes"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Schuhe",
   "subjPl": true
  },
@@ -1325,7 +1325,7 @@
    "animate",
    "animal"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Marderhunde",
   "kanjiCommon": false,
   "note": "Marderhund. In Japan ein Glücksbringer, der in Märchen seine Gestalt verwandeln kann."
@@ -1340,7 +1340,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Seen",
   "deLoc": "am See"
  },
@@ -1354,7 +1354,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Meere",
   "deLoc": "am Meer"
  },
@@ -1368,7 +1368,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Strände",
   "deLoc": "am Strand",
   "kanjiCommon": false
@@ -1383,7 +1383,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Kleinstädte",
   "deLoc": "in der Kleinstadt",
   "note": "町 ist eine Stadt kleiner als eine Großstadt."
@@ -1398,7 +1398,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Großstädte",
   "deLoc": "in der Großstadt",
   "note": "Auch: „die Stadt“ im Gegensatz zum Land."
@@ -1413,7 +1413,7 @@
   "tags": [
    "place"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Felder",
   "deLoc": "auf dem Feld",
   "note": "Gemüsefeld / Acker."
@@ -1429,7 +1429,7 @@
    "food",
    "item"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Pfirsiche"
  },
  {
@@ -1443,7 +1443,7 @@
    "food",
    "item"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Gurken"
  },
  {
@@ -1456,7 +1456,7 @@
   "tags": [
    "item"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Karten",
   "note": "Landkarte / Stadtplan."
  },
@@ -1471,7 +1471,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Tofuläden",
   "deLoc": "im Tofuladen"
  },
@@ -1486,7 +1486,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Süßwarenläden",
   "deLoc": "im Süßwarenladen"
  },
@@ -1501,7 +1501,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Teehäuser",
   "deLoc": "im Teehaus",
   "kanjiCommon": false
@@ -1517,7 +1517,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Obstläden",
   "deLoc": "im Obstladen"
  },
@@ -1532,7 +1532,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Bauernhöfe",
   "deLoc": "auf dem Bauernhof",
   "kanjiCommon": false
@@ -1548,7 +1548,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Apotheken",
   "deLoc": "in der Apotheke"
  },
@@ -1563,7 +1563,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Fischläden",
   "deLoc": "im Fischladen"
  },
@@ -1578,7 +1578,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Metzgereien",
   "deLoc": "in der Metzgerei"
  },
@@ -1593,7 +1593,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Bäckereien",
   "deLoc": "in der Bäckerei"
  },
@@ -1608,7 +1608,7 @@
    "place",
    "shop"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Häfen",
   "deLoc": "am Hafen"
  },
@@ -1623,7 +1623,7 @@
    "food",
    "item"
   ],
-  "status": "draft",
+  "status": "checked",
   "mass": true,
   "adj": "frittiert",
   "note": "Dünne, frittierte Tofuscheiben."
@@ -1639,7 +1639,7 @@
    "food",
    "item"
   ],
-  "status": "draft",
+  "status": "checked",
   "pl": "Reiskuchen",
   "note": "Klebriger Reiskuchen (餅)."
  },
@@ -1655,7 +1655,7 @@
   ],
   "mass": true,
   "deAdj": "lila",
-  "status": "draft",
+  "status": "checked",
   "note": "Lila/Violett."
  },
  {
@@ -1670,7 +1670,7 @@
   ],
   "mass": true,
   "deAdj": "pink",
-  "status": "draft",
+  "status": "checked",
   "note": "Lehnwort (ピンク). Auch: 桃色 (ももいろ)."
  },
  {
