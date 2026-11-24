@@ -5,11 +5,11 @@
 ## Colours
 | Token | Value | Use |
 |---|---|---|
-| `--bg` | `#15171d` | page (lifted black, not pitch black) |
-| `--panel` | `#1c1f27` | flat cards that are not tappable |
+| `--bg` | `#0b0d12` | page (dark, bedtime) |
+| `--panel` | `#12151d` | flat cards that are not tappable |
 | `--bubble` | `#2b2520` | speech bubbles, question box (warm brown-black) |
-| `--btn1/--btn2` | `#282d3a` / `#1e222d` | button gradient |
-| `--btnline` | `#454c63` | button rim |
+| `--btn1/--btn2` | `#1c202a` / `#141720` | button gradient |
+| `--btnline` | `#323850` | button rim |
 | `--fg` | `#c9bfad` | brightest colour: light, slightly brownish grey |
 | `--dim` | `#8d887e` | secondary text |
 | `--amber` | `#d29a3e` | accent: titles, primary buttons, markers |

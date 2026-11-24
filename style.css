@@ -1,5 +1,5 @@
 @font-face{font-family:"Klee One";src:url(assets/fonts/KleeOne-subset.woff2) format("woff2");font-display:swap}
-:root{--bg:#15171d;--panel:#1c1f27;--bubble:#2b2520;--line:#2d3240;--btn1:#282d3a;--btn2:#1e222d;--btnline:#454c63;--fg:#c9bfad;--dim:#8d887e;--amber:#d29a3e;--red:#b45a5a;--green:#6f9a78;--fs:1;
+:root{--bg:#0b0d12;--panel:#12151d;--bubble:#2b2520;--line:#232838;--btn1:#1c202a;--btn2:#141720;--btnline:#323850;--fg:#c9bfad;--dim:#8d887e;--amber:#d29a3e;--red:#b45a5a;--green:#6f9a78;--fs:1;
  --jp:"Noto Sans JP","Noto Sans CJK JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;--dock:76px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{font-size:calc(17px * var(--fs))}
@@ -169,8 +169,8 @@ div.pcard{background:var(--panel);border:1px solid var(--line);box-shadow:none}
 .kmsg{color:var(--dim)}
 
 /* everything you can tap is raised: gradient, lighter rim, a thick "floor" shadow, and it sinks when pressed */
-.btn,button.pcard,.chipw,.dbtn,.seg,.chip,.pmark,.nkc{background:linear-gradient(var(--btn1),var(--btn2));border:1px solid var(--btnline);box-shadow:0 3px 0 #0b0c10,inset 0 1px 0 rgba(255,255,255,.07)}
-.btn:active,button.pcard:active,.chipw:active,.dbtn:active,.chip:active,.pmark:active{transform:translateY(2px);box-shadow:0 1px 0 #0b0c10,inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(var(--btn2),var(--btn2))}
+.btn,button.pcard,.chipw,.dbtn,.seg,.chip,.pmark,.nkc{background:linear-gradient(var(--btn1),var(--btn2));border:1px solid var(--btnline);box-shadow:0 3px 0 #05060a,inset 0 1px 0 rgba(255,255,255,.07)}
+.btn:active,button.pcard:active,.chipw:active,.dbtn:active,.chip:active,.pmark:active{transform:translateY(2px);box-shadow:0 1px 0 #05060a,inset 0 1px 0 rgba(255,255,255,.04);background:linear-gradient(var(--btn2),var(--btn2))}
 .btn.ok,.pcard.ok{background:linear-gradient(#26382f,#1c2a23);border-color:var(--green)}
 .btn.no{background:linear-gradient(#3a2527,#2a1a1c);border-color:var(--red)}
 .btn.primary{background:linear-gradient(#34301f,#26231a);border-color:var(--amber);color:#e3b765}

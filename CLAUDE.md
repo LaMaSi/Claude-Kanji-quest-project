@@ -30,5 +30,5 @@
 - The owner cannot send files to ChatGPT any more: Claude reviews new content itself. Status `checked` = Claude's review; `reviewed` is reserved for an external review. List unsure items in `docs/REVIEW-LOG.md` and keep them `draft`.
 
 ## Visual style (see `docs/STYLE.md`)
-- Brightest colour is a light, slightly brownish grey (`--fg #c9bfad`), never pure white; the background is a lifted black (`--bg #15171d`).
+- Brightest colour is a light, slightly brownish grey (`--fg #c9bfad`), never pure white; the background is dark (`--bg #0b0d12`), buttons only slightly lighter than it.
 - **Speech bubbles / text boxes are flat, warm and have a tail. Everything tappable is raised** (gradient, rim, thick shadow, sinks when pressed). Never style a text box like a button.
