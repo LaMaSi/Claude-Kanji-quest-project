@@ -171,6 +171,8 @@ function draw(keep = false) {
   restoring = true; if (!keep) desiredY = 0; window.scrollTo(0, desiredY); setTimeout(() => { restoring = false; }, 80);   // toggles keep the reading position; new screens start at the top
 }
 const FS = [1, 1.15, 1.3];
+function tod() { const h = new Date().getHours(); document.body.dataset.tod = h >= 5 && h < 8 ? 'dawn' : h >= 8 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'dusk' : 'night'; }
+tod(); setInterval(tod, 600000);
 function renderStats() {
   $('#stats').innerHTML = `<span>HP <b>${G.hp}/${G.maxhp}</b></span><span><b>${G.gold}</b> 円</span><span>Lv <b>${G.lv}</b></span>`;
   document.querySelectorAll('#scriptsw button').forEach(b => { b.classList.toggle('on', b.dataset.m === em()); b.disabled = !!(curLock.kanji && b.dataset.m === 'kanji'); });

@@ -23,3 +23,10 @@ Rule of thumb: if you can tap it, it looks raised; if not, it is flat.
 
 ## To do
 Real illustrations for yokai and scenes (docs/SCENES.md), font pairing for the UI, small animations (button press, bubble pop-in), sound-free feedback (screen shake, glow).
+
+## v3 (0.16): dark lacquer and wood (wafū fantasy)
+Reference: owner's three mock-ups (scroll / classic RPG / wafū wood). Base = design 3 (wooden planks, ink-wash night sky), with design 2's selection cursor and glow.
+- **Tappable = wooden plank**: grain lines, gilt hairline, nail dots at the ends (`.btn`), pressed = sinks. Primary = amber-lit plank with a blinking ▶ cursor. Dock buttons are planks; the active script lights up amber.
+- **Text = lacquer panel** with a double frame (flat, tail kept). Pictures sit in a wooden frame with a flickering lantern glow in the corner.
+- **Atmosphere** (`body::before/after`): night sky, moon, pagoda, torii, ridge and cloud swirls as a very dark SVG behind the page; drifting fireflies; `data-tod` (night / dusk / dawn / day) only tints the sky glow. All motion stops with `prefers-reduced-motion`.
+- Not possible in code: the painted map and the detailed art of the mock-ups – these come from the owner's image tool (see docs/SCENES.md).
