@@ -179,3 +179,8 @@ div.pcard{background:var(--panel);border:1px solid var(--line);box-shadow:none}
 #dock{background:linear-gradient(transparent,var(--bg) 24%)}
 .edtop{background:var(--bg)}
 .chipw[style*="border-color"]{background:linear-gradient(#34301f,#26231a)}
+
+/* battle */
+#choices.g2{display:grid;grid-template-columns:1fr 1fr}#choices.g2 .wide{grid-column:1/-1}
+#stage.hit{animation:sh .3s}
+#stage .fx{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none}

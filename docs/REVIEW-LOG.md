@@ -51,3 +51,8 @@ Still `draft` (unsure, please check when an external review is possible): ウェ
 ## Kanji-Zauber (runes), 2026-11-24
 New `content/runes.json`: 10 lessons × 5 kanji (all with KanjiVG stroke data). Each rune has a bare German meaning and the reading as used in the game's own words (e.g. 食 = {食|た}べる). Checked by Claude against `words.json`; status `checked`.
 Unsure / simplified: 高 = "teuer" and 安 = "billig" (the kanji also mean "hoch" / "ruhig"; the game words only use the price meaning), 町 = "Kleinstadt" as in the word list, 緑 = "grün".
+
+## Battle screen v1 (0.13)
+New strings: こうげき Angriff · まほう Zauber · どうぐ Gegenstand (Item) · にげる Fliehen · 入力 Eingabe (Tippen / Tastatur) · 魔法の学校 Zauberschule · 森で たたかう Im Wald kämpfen · しょうり Sieg · まけた Besiegt · はずれ Daneben · まもった! (Baum-Zauber blocks) · おいしい! (item used).
+Spells: 火 Feuer, 水 Wasser, 日 Sonne (damage), 月 Mond (heals), 木 Baum (shield), 山 Berg (strong damage). Effects are game rules, not folklore. Spell names are the plain meanings of the kanji.
+Unsure: 道具 as "Gegenstand" (literal: tool); kana-only battle words are not yet in `content/` (they are UI labels, like the other menu labels).

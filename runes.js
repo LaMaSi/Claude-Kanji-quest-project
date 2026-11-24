@@ -25,6 +25,7 @@ export function runeHome() {
     widget: host => {
       host.innerHTML = '';
       A.btn(host, `${A.J('{五|いつ}つの {漢字|かんじ}')}<small>Fünf Kanji</small>`, () => fiveKanji(), 'primary');
+      A.btn(host, `${A.J('{魔法|まほう}の {学校|がっこう}')}<small>Zauberschule</small>`, () => A.spellSchool());
       for (const l of LESSONS) {
         const ok = unlocked(l.id), b = A.btn(host, `<span class="jp">${l.runes.map(r => r.c).join(' ')}</span><small>Lektion ${l.id} · ${ok ? stars(done(l.id)) : '🔒'}</small>`, () => lesson(l), done(l.id) ? 'ok' : '');
         b.disabled = !ok;

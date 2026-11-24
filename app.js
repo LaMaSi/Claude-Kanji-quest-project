@@ -8,6 +8,7 @@ import { drawPortrait, DEFAULT_LOOK } from './people.js';
 import { loadPeopleParts } from './aipeople.js';
 import { initWorld, mapNode, notebookSheet } from './world.js';
 import { initYokai, dexSheet } from './yokai.js';
+import { initBattle, startBattle, battleChooser, spellSchool } from './battle.js';
 import { initRunes, runeHome, fiveKanji, nextLesson } from './runes.js';
 import { initLearn, renderQuestion, startRound, dictSheet } from './learn.js';
 import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
@@ -15,7 +16,7 @@ import { drawKanji, playStrokeOrder, hasKanji } from './kanji.js';
 const $ = s => document.querySelector(s);
 const KEY = 'wolfsdorf.save.v2', OLD_KEY = 'wolfsdorf.save.v1';
 const DEFAULT = () => ({ ver: 2, mode: 'kanji', furi: true, help: true, gold: 300, hp: 20, maxhp: 20, xp: 0, lv: 1,
-  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, runes: {}, runeLessons: {}, avatar: null, notes: [], yokai: {}, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
+  inv: {}, q: { apple: 0, wolf: 0 }, flags: {}, kanji: {}, kanjiSeen: {}, runes: {}, runeLessons: {}, input: 'pick', spellsCast: {}, defeated: {}, avatar: null, notes: [], yokai: {}, pq: { done: 0, miss: 0 }, lefty: false, fs: 0, loc: 'village', reminder: { on: false, h: 21, m: 0 }, ...E.defaultLearner() });
 /** loads a save of any version; v1 (prototype) keeps the RPG fields and restarts the learning data */
 function loadSave() {
   try {
@@ -118,7 +119,7 @@ function draw(keep = false) {
   }
   const wg = $('#widget'); wg.innerHTML = ''; wg.className = n.widgetTop ? 'top' : '';
   if (n.widget) n.widget(wg);
-  const ch = $('#choices'); ch.innerHTML = '';
+  const ch = $('#choices'); ch.innerHTML = ''; ch.className = n.grid ? 'g2' : '';
   for (const c of n.choices || []) {
     const b = document.createElement('button'); b.className = 'btn' + (c.cls ? ' ' + c.cls : '');
     b.innerHTML = J(c.t) + (G.help && c.de ? `<small>${c.de}</small>` : '');
@@ -233,6 +234,7 @@ const NODES = {
       { t: '{店|みせ} へ いく', de: 'Zum Laden gehen', go: 'shop' },
       { t: '{酒場|さかば} へ いく', de: 'In die Taverne gehen', go: 'tavern' },
       { t: '{地図|ちず} を みる', de: 'Karte ansehen', go: 'map' },
+      { t: '{森|もり}で たたかう', de: 'Im Wald kämpfen', fn: () => battleChooser() },
       { t: '{掲示板|けいじばん} を みる', de: 'Schwarzes Brett ansehen', go: 'board' },
       { t: 'おばあさん と はなす', de: 'Mit der alten Frau sprechen', go: 'granny' },
       { t: '{家|いえ} へ かえる', de: 'Nach Hause zurückkehren', go: 'home' },
@@ -405,42 +407,6 @@ function giveApples() {
     choices: [{ t: 'もどる', de: 'Zurück', go: 'granny' }] }));
 }
 
-// ---------- battle (animal vocabulary) ----------
-function startBattle(foeId) {
-  see(ANIMALS);
-  const st = { foe: 3, round: 0, q: null, log: '', over: false };
-  const nextQ = () => { st.q = st.round % 3 === 2 ? numberQuestion() : E.makeWordQuestion(G, CONTENT, Math.random() < 0.6 ? foeId : ANIMALS[rnd(ANIMALS.length)], { poolIds: ANIMALS }); };
-  nextQ();
-  setScreen(() => ({
-    art: 'wolf', title: `${VOCAB[foeId].m} が あらわれた！`, titleDe: `Ein ${VOCAB[foeId].de.replace('der ', '')} erscheint!`,
-    lines: [{ say: `Gegner <span class="bar">${[...Array(3)].map((_, i) => `<i class="${i < st.foe ? 'f' : ''}"></i>`).join('')}</span> &nbsp; Du: ${G.hp}/${G.maxhp} HP` },
-      ...(st.log ? [{ say: st.log }] : [])],
-    widget: host => {
-      if (st.over) return;
-      const box = document.createElement('div'); host.appendChild(box);
-      askQuestion(box, st.q, ok => {
-        st.round++;
-        if (ok) { st.foe--; st.log = 'こうげき！ Treffer!'; } else { G.hp = Math.max(0, G.hp - 4); st.log = 'いたい！ Du verlierst 4 HP.'; }
-        if (st.foe <= 0) return win();
-        if (G.hp <= 0) return lose();
-        nextQ(); draw(true);
-      });
-    },
-    choices: [{ t: 'にげる', de: 'Fliehen', fn: () => { G.hp = Math.max(1, G.hp - 2); return 'village'; } }],
-  }), { confirm: 'Kampf verlassen?' });
-  function win() {
-    G.q.wolf = 2; gain(40, 200); save();
-    setScreen(() => ({ art: 'wolf', title: 'しょうり！', titleDe: 'Sieg!',
-      lines: [{ who: '{狩人|かりうど}', t: 'ありがとう！ {村|むら} は あんぜん です。', de: 'Danke! Das Dorf ist sicher.' }, { say: '+200 円, +40 XP' }, { say: `<div class="lore">${LORE_WOLF}</div>` }],
-      choices: [{ t: 'もどる', de: 'Zurück zum Dorf', go: 'village' }] }), { replace: true });
-  }
-  function lose() {
-    G.hp = 5; save();
-    setScreen(() => ({ art: 'home', title: 'まけた…', titleDe: 'Besiegt …',
-      lines: [{ say: 'Du erwachst zu Hause. Der Wolf ist verschwunden – für heute Nacht. Ruh dich aus und versuch es erneut.' }], choices: [{ t: 'もどる', de: 'Weiter', go: 'home' }] }), { replace: true });
-  }
-}
-
 // ---------- menu sheets ----------
 function menuSheet(s) {
   s.innerHTML = `<h2>${lbl('メニュー', 'Menü')}</h2>`;
@@ -548,7 +514,8 @@ setTimeout(() => applyReminder(false), 1500);   // re-register after app updates
 initWorld({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initYokai({ G: () => G, save, setScreen, go, navigateBack, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES, lbl, navigateBack });
-initRunes({ G: () => G, save, setScreen, navigateBack, gain, btn, J });
+initRunes({ G: () => G, save, setScreen, navigateBack, gain, btn, J, spellSchool });
+initBattle({ G: () => G, save, setScreen, navigateBack, go, gain, btn, J, see, redraw: () => draw(true) });
 initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder, runeHome, nextRune: nextLesson });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();

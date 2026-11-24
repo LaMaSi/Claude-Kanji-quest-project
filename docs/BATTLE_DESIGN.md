@@ -1,4 +1,4 @@
-# Battle system – design (v1 proposal, nothing built yet)
+# Battle system – design (v1 built in 0.13: Kampf with Angriff/Zauber/Gegenstand/Fliehen, typed romaji→kana input, Kanji-Zauber spells, Zauberschule; Gespräch (C) lives in the yokai request loop)
 
 Decisions so far: **C (talk to the creature) is a must**, **A (classic command battle)** next to it, **B (kanji spells) = the expert mode**. Calm, turn-based, bedtime-friendly.
 
