@@ -60,8 +60,8 @@ function lesson(l) {
         box.insertAdjacentHTML('beforeend', `<span class="jp big" style="font-size:3rem">${r.c}</span><div class="de" style="font-size:1.15rem;color:var(--fg)">${r.de}</div><div class="de"><span class="jp">${jpOf(r)}</span></div>`);
         const h = document.createElement('div'); box.appendChild(h);
         playStrokeOrder(h, r.c, () => { G().kanjiSeen[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 1); A.save(); next(); }, 'Strichfolge'); } }));
-    else if (s.t === 'write') show(() => head({ titleDe: `Lektion ${l.id} · ${i + 1}/${total()} · Aufschreiben`, lines: [{ say: `Schreibe: <b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
-      widget: host => drawKanji(host, r.c, ok => { if (ok) { G().kanji[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 3); A.save(); } next(); }, 'Zeichne den 1. Strich') }));
+    else if (s.t === 'write') show(() => (A.lock({ kanji: true }), head({ titleDe: `Lektion ${l.id} · ${i + 1}/${total()} · Aufschreiben`, lines: [{ say: `Schreibe: <b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
+      widget: host => drawKanji(host, r.c, ok => { if (ok) { G().kanji[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 3); A.save(); } next(); }, 'Zeichne den 1. Strich') })));
     else show(() => head({ widget: host => question(host, s, l, ok => { if (!ok) { st.miss++; rs(r.c).miss++; if (!s.again) steps.push({ t: s.t, r: s.r, again: true }); } else rs(r.c).s = Math.max(rs(r.c).s, 2); A.save(); next(); }) }));
   }
   function finish() {
@@ -113,7 +113,7 @@ export function fiveKanji() {
   const step = () => {
     if (i >= set.length) return end();
     const r = set[i], seen = G().kanjiSeen[r.c];
-    const draw = () => show(() => ({ art: null, noBanner: true, title: '{五|いつ}つの {漢字|かんじ}', titleDe: `Fünf Kanji · ${i + 1}/5`, lines: [{ say: `Schreibe: <b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
+    const draw = () => show(() => (A.lock({ kanji: true }), { art: null, noBanner: true, title: '{五|いつ}つの {漢字|かんじ}', titleDe: `Fünf Kanji · ${i + 1}/5`, lines: [{ say: `Schreibe: <b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
       widget: host => drawKanji(host, r.c, good => { if (good) { ok++; G().kanji[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 3); A.save(); } i++; step(); }, 'Zeichne den 1. Strich') }));
     if (seen) draw(); else show(() => ({ art: null, noBanner: true, title: '新しい漢字', titleDe: `Fünf Kanji · ${i + 1}/5 · Strichfolge`, lines: [{ say: `<b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
       widget: host => playStrokeOrder(host, r.c, () => { G().kanjiSeen[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 1); A.save(); draw(); }, 'Strichfolge'), choices: [] }));

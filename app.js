@@ -30,9 +30,12 @@ function loadSave() {
 let G = loadSave();
 if (G.avatar && G.avatar.mouth) G.avatar.mouth = { big: 'open', small: 'closed' }[G.avatar.mouth] ?? G.avatar.mouth;   // v0.8 saves used big/small
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(G)); } catch {} };
-const J = src => render(src, G.mode, G.furi);
+let curLock = {};                      // set by a screen while building: { kanji: true } = showing kanji would give the answer away
+const lock = o => { curLock = o || {}; };
+const em = () => (curLock.kanji && G.mode === 'kanji' ? 'kana' : G.mode);
+const J = src => render(src, em(), G.furi);
 /** like J, but every word can be tapped to see its translation (story lines) */
-const Jt = src => render(src, G.mode, G.furi, glossOf);
+const Jt = src => render(src, em(), G.furi, glossOf);
 const rnd = n => Math.floor(Math.random() * n);
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const see = ids => { for (const i of ids) if (CONTENT.byId[i]) E.ensureItem(G, i).exposed = 1; };
@@ -101,6 +104,7 @@ const withOrder = (host, k, next) => { if (hasKanji(k) && !G.kanjiSeen[k]) playS
 let desiredY = 0, restoring = false;
 window.addEventListener('scroll', () => { if (!restoring) desiredY = window.scrollY; }, { passive: true });
 function draw(keep = false) {
+  curLock = {};
   const n = screen();
   const stage = $('#stage'); stage.hidden = n.art === null;
   if (n.art !== null) drawScene($('#art'), n.art || 'village');
@@ -141,8 +145,9 @@ function draw(keep = false) {
 const FS = [1, 1.15, 1.3];
 function renderStats() {
   $('#stats').innerHTML = `<span>HP <b>${G.hp}/${G.maxhp}</b></span><span><b>${G.gold}</b> 円</span><span>Lv <b>${G.lv}</b></span>`;
-  document.querySelectorAll('#scriptsw button').forEach(b => b.classList.toggle('on', b.dataset.m === G.mode));
-  $('#bFuri').classList.toggle('off', G.mode !== 'kanji' || !G.furi);
+  document.querySelectorAll('#scriptsw button').forEach(b => { b.classList.toggle('on', b.dataset.m === em()); b.disabled = !!(curLock.kanji && b.dataset.m === 'kanji'); });
+  $('#bFuri').classList.toggle('off', em() !== 'kanji' || !G.furi); $('#bFuri').disabled = !!curLock.kanji;
+  $('#bTravel').textContent = G.loc === 'map' ? '⌂' : '🗺'; $('#bTravel').setAttribute('aria-label', G.loc === 'map' ? 'Dorf' : 'Karte');
   $('#bHelp').classList.toggle('off', !G.help);
   document.body.classList.toggle('lefty', !!G.lefty);
   $('#bBack').classList.toggle('off', navStack.length <= 1 && !sheetFn);
@@ -152,6 +157,13 @@ document.querySelectorAll('#scriptsw button').forEach(b => { b.onclick = () => {
 $('#bFuri').onclick = () => { G.furi = !G.furi; if (G.mode !== 'kanji') G.mode = 'kanji'; save(); draw(true); refreshSheet(); };
 $('#bHelp').onclick = () => { G.help = !G.help; save(); draw(true); refreshSheet(); };
 $('#bBack').onclick = navigateBack;
+/** quick travel: map from anywhere, village from the map (asks first when a lesson or fight is running) */
+$('#bTravel').onclick = () => {
+  const dest = G.loc === 'map' ? 'village' : 'map', top = navStack[navStack.length - 1];
+  if (sheetFn) closeSheet();
+  if (top?.confirm) { openSheet(s => { s.innerHTML = `<h2>${top.confirm}</h2><div class="de">Dein bisheriger Fortschritt bleibt gespeichert.</div>`; btn(s, 'Weitermachen', closeSheet, 'ok'); btn(s, 'Beenden', () => { closeSheet(); go(dest); }); }); return; }
+  go(dest);
+};
 $('#bMenu').onclick = () => openSheet(menuSheet);
 
 // ---------- tap a word to see its translation ----------
@@ -514,8 +526,8 @@ setTimeout(() => applyReminder(false), 1500);   // re-register after app updates
 initWorld({ G: () => G, save, setScreen, go, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initYokai({ G: () => G, save, setScreen, go, navigateBack, openSheet, closeSheet, btn, toast, gain, J, Jt, lbl, redraw: () => draw(true) });
 initPeople({ G: () => G, save, setScreen, redraw: () => draw(true), openSheet, closeSheet, btn, speak, J, Jt, gain, go, NODES, lbl, navigateBack });
-initRunes({ G: () => G, save, setScreen, navigateBack, gain, btn, J, spellSchool });
-initBattle({ G: () => G, save, setScreen, navigateBack, go, gain, btn, J, see, redraw: () => draw(true) });
+initRunes({ G: () => G, save, setScreen, navigateBack, gain, btn, J, spellSchool, lock });
+initBattle({ G: () => G, save, setScreen, navigateBack, go, gain, btn, J, see, lock, redraw: () => draw(true) });
 initLearn({ G: () => G, save, setScreen, navigateBack, go, openSheet, closeSheet, btn, toast, speak, gain, lbl, refreshSheet, NODES, studySheet, withOrder, runeHome, nextRune: nextLesson });
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 await initScenes();

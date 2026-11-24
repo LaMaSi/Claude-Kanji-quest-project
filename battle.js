@@ -96,22 +96,23 @@ const hitFlash = () => { const s = document.querySelector('#stage'); if (s) { s.
 
 // ------------------------------------------------------------------ battle
 const bar = (hp, max) => `<span class="bar">${[...Array(10)].map((_, i) => `<i class="${i < Math.ceil(hp / max * 10) ? 'f' : ''}"></i>`).join('')}</span>`;
-const typedQuestion = (host, id, done) => {
-  const w = wordOf(id), want = toHira(speakText(w.jp));
+const typedQuestion = (host, ts, done) => {   // ts = { id, text, res } survives redraws (e.g. changing the Schriftwahl)
+  const id = ts.id, w = wordOf(id), want = toHira(speakText(w.jp));
   host.innerHTML = ''; const box = document.createElement('div'); box.className = 'q'; host.appendChild(box);
   const sp = spriteEl(id, 110); if (sp) box.appendChild(sp);
   box.insertAdjacentHTML('beforeend', '<div class="de">Wie heißt das auf Japanisch? Tippe es in Rōmaji.</div>');
   const inp = document.createElement('input'); inp.className = 'search'; inp.placeholder = 'z. B. ookami'; inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false; host.appendChild(inp);
   const pv = document.createElement('div'); pv.className = 'jp'; pv.style.cssText = 'text-align:center;min-height:2.4rem;color:var(--amber)'; host.appendChild(pv);
-  inp.oninput = () => { pv.textContent = toKana(inp.value); };
-  const go = () => {
-    const ans = toHira(toKana(inp.value, true)), ok = ans === want; inp.disabled = true; ok1.disabled = true;
-    E.recordAnswer(G(), id, ok); A.save();
+  inp.value = ts.text || ''; pv.textContent = toKana(inp.value);
+  inp.oninput = () => { ts.text = inp.value; pv.textContent = toKana(inp.value); };
+  const feedback = () => {
+    inp.disabled = true; ok1.disabled = true; const ok = ts.res === 'ok';
     const fb = document.createElement('div'); fb.className = 'kmsg'; fb.innerHTML = ok ? '✔ richtig' : `✘ <span class="jp">${A.J(w.jp)}</span> (${want})`; host.appendChild(fb);
-    if (ok) setTimeout(() => done(true), 650); else A.btn(host, 'Weiter ▸', () => done(false), 'primary');
+    if (ok) { if (!ts.fired) { ts.fired = 1; setTimeout(() => done(true), 650); } } else A.btn(host, 'Weiter ▸', () => { if (!ts.fired) { ts.fired = 1; done(false); } }, 'primary');
   };
+  const go = () => { const ok = toHira(toKana(inp.value, true)) === want; ts.res = ok ? 'ok' : 'no'; E.recordAnswer(G(), id, ok); A.save(); feedback(); };
   const ok1 = A.btn(host, 'OK', go, 'primary'); inp.onkeydown = e => { if (e.key === 'Enter' && !ok1.disabled) go(); };
-  setTimeout(() => inp.focus(), 50);
+  if (ts.res) feedback(); else setTimeout(() => inp.focus(), 50);
 };
 
 export function startBattle(foeId, { onWin } = {}) {
@@ -165,11 +166,11 @@ export function startBattle(foeId, { onWin } = {}) {
     const back = { t: 'もどる', de: 'Zurück', fn: () => { st.mode = 'menu'; } };
     if (st.mode === 'ask') {
       const typ = g.input === 'type';
-      return { ...base, widget: host => { if (typ) typedQuestion(host, st.pq.id, attackDone(true)); else renderQuestion(host, st.pq.q, attackDone(false)); }, choices: [back] };
+      return { ...base, widget: host => { if (typ) typedQuestion(host, st.pq, attackDone(true)); else renderQuestion(host, st.pq.q, attackDone(false)); }, choices: [back] };
     }
     if (st.mode === 'cast') {
-      const c = st.spell;
-      return { ...base, lines: [...base.lines.slice(0, 1), { say: `Schreibe: <b>${SPELLS[c].de}</b> – <span class="jp">${c}</span>` }],
+      const c = st.spell; A.lock({ kanji: true });
+      return { ...base, lines: [...base.lines.slice(0, 1), { say: `Schreibe: <b>${SPELLS[c].de}</b> – <span class="jp">${A.J(SPELLS[c].jp)}</span>` }],
         widget: host => drawKanji(host, c, ok => cast(c, ok), 'Zeichne den 1. Strich'), choices: [back] };
     }
     if (st.mode === 'spells') {
@@ -210,8 +211,8 @@ export function battleChooser() {
 /** Zauberschule: cast a spell outside of a fight (visual effect, the moon heals) */
 export function spellSchool() {
   let c = null, msg = '';
-  A.setScreen(() => ({ art: 'home', noBanner: !!c, title: '{魔法|まほう}の {学校|がっこう}', titleDe: 'Zauberschule',
-    lines: [{ say: c ? `Schreibe: <b>${SPELLS[c].de}</b> – <span class="jp">${c}</span>` : (msg || 'Schreibe ein Kanji, und der Zauber geschieht. Neue Zauber lernst du in Kanji-Zauber.') }],
+  A.setScreen(() => (c && A.lock({ kanji: true }), { art: 'home', noBanner: !!c, title: '{魔法|まほう}の {学校|がっこう}', titleDe: 'Zauberschule',
+    lines: [{ say: c ? `Schreibe: <b>${SPELLS[c].de}</b> – <span class="jp">${A.J(SPELLS[c].jp)}</span>` : (msg || 'Schreibe ein Kanji, und der Zauber geschieht. Neue Zauber lernst du in Kanji-Zauber.') }],
     widget: host => {
       if (c) { const cc = c; drawKanji(host, cc, ok => { c = null; msg = ok ? `${SPELLS[cc].de}!` : 'Der Zauber flackert nur schwach.'; const g = G();
           if (SPELLS[cc].heal) { g.hp = Math.min(g.maxhp, g.hp + Math.round(SPELLS[cc].heal * (ok ? 1 : .5))); msg += ` HP ${g.hp}/${g.maxhp}.`; }
