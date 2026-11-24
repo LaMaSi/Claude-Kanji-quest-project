@@ -44,7 +44,7 @@ function lesson(l) {
   const runes = l.runes, st = { miss: 0 }, steps = [];
   for (const r of runes) steps.push({ t: 'meet', r });
   const qs = [];
-  for (const r of runes) { qs.push({ t: 'meaning', r }); qs.push({ t: Math.random() < .5 ? 'glyph' : 'reading', r }); }
+  for (const r of runes) { qs.push({ t: 'meaning', r }); qs.push({ t: Math.random() < .5 ? 'glyph' : 'kana', r }); }
   steps.push(...shuffle(qs));
   for (const r of shuffle(runes)) steps.push({ t: 'write', r });
   let i = 0, started = false;
@@ -62,7 +62,7 @@ function lesson(l) {
         playStrokeOrder(h, r.c, () => { G().kanjiSeen[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 1); A.save(); next(); }, 'Strichfolge'); } }));
     else if (s.t === 'write') show(() => head({ titleDe: `Lektion ${l.id} · ${i + 1}/${total()} · Aufschreiben`, lines: [{ say: `Schreibe: <b>${r.de}</b> – <span class="jp">${jpOf(r)}</span>` }],
       widget: host => drawKanji(host, r.c, ok => { if (ok) { G().kanji[r.c] = 1; rs(r.c).s = Math.max(rs(r.c).s, 3); A.save(); } next(); }, 'Zeichne den 1. Strich') }));
-    else show(() => head({ widget: host => question(host, s, l, ok => { if (!ok) { st.miss++; rs(r.c).miss++; if (!s.again) steps.push({ ...s, again: true }); } else rs(r.c).s = Math.max(rs(r.c).s, 2); A.save(); next(); }) }));
+    else show(() => head({ widget: host => question(host, s, l, ok => { if (!ok) { st.miss++; rs(r.c).miss++; if (!s.again) steps.push({ t: s.t, r: s.r, again: true }); } else rs(r.c).s = Math.max(rs(r.c).s, 2); A.save(); next(); }) }));
   }
   function finish() {
     const n = st.miss <= 1 ? 3 : st.miss <= 3 ? 2 : 1, first = !done(l.id);
@@ -77,21 +77,32 @@ function lesson(l) {
   run();
 }
 
-/** multiple-choice question about one rune */
+/** plain kana of a reading markup, shown through the script switch (no kanji inside, so it never gives the answer away) */
+const kanaOf = r => A.J(r.jp.replace(/\{[^|}]+\|([^}]+)\}/g, '$1'));
+const kanaKey = r => r.jp.replace(/\{[^|}]+\|([^}]+)\}/g, '$1');
+/** multiple-choice question about one rune. Options are drawn once per step (s.o) and the answer is remembered (s.chosen),
+ *  so redrawing the screen (e.g. changing the Schriftwahl) neither reshuffles nor loses the correct answer. */
 function question(host, s, l, done) {
-  const r = s.r, pool = ALL.filter(x => x.c !== r.c), near = l.runes.filter(x => x.c !== r.c);
-  const others = n => shuffle([...pick(near, 2, () => false), ...pick(pool, 6, x => near.includes(x))]).slice(0, n);
-  let prompt, opts;
-  if (s.t === 'meaning') { prompt = `<span class="jp big" style="font-size:4rem">${r.c}</span><div class="de">Was bedeutet das?</div>`; opts = [r, ...others(3)].map(x => ({ x, html: x.de })); }
-  else if (s.t === 'glyph') { prompt = `<div style="font-size:1.4rem;color:var(--fg)">${r.de}</div><div class="de">Welches Zeichen ist das?</div>`; opts = [r, ...others(3)].map(x => ({ x, html: `<span class="jp" style="font-size:2rem">${x.c}</span>` })); }
-  else { prompt = `<span class="jp big" style="font-size:4rem">${r.c}</span><div class="de">Wie liest man das? (in diesem Wort)</div>`; opts = [r, ...others(3)].map(x => ({ x, html: `<span class="jp">${jpOf(x)}</span>` })); }
+  const r = s.r;
+  if (!s.o) {
+    const pool = ALL.filter(x => x.c !== r.c && (s.t !== 'kana' || kanaKey(x) !== kanaKey(r))), near = pool.filter(x => l.runes.includes(x));
+    const others = shuffle([...pick(near, 2, () => false), ...pick(pool, 6, x => near.includes(x))]).slice(0, 3);
+    s.o = shuffle([r, ...others]);
+  }
+  const prompt = { meaning: `<span class="jp big" style="font-size:4rem">${r.c}</span><div class="de">Was bedeutet das?</div>`,
+    glyph: `<div style="font-size:1.4rem;color:var(--fg)">${r.de}</div><div class="de">Welches Zeichen ist das?</div>`,
+    kana: `<span class="jp big" style="font-size:2.4rem">${kanaOf(r)}</span><div class="de">Welches Kanji gehört in dieses Wort?</div>` }[s.t];
+  const html = x => (s.t === 'meaning' ? x.de : `<span class="jp" style="font-size:2rem">${x.c}</span>`);
   host.innerHTML = ''; const box = document.createElement('div'); box.className = 'q'; box.innerHTML = prompt; host.appendChild(box);
   const wrap = document.createElement('div'); wrap.className = 'opts'; host.appendChild(wrap);
-  const btns = shuffle(opts).map(o => { const b = A.btn(wrap, o.html, () => { const ok = o.x === r; btns.forEach(x => x.disabled = true); b.classList.add(ok ? 'ok' : 'no'); fb(ok); }); return b; });
-  function fb(ok) {
+  const btns = s.o.map(x => { const b = A.btn(wrap, html(x), () => { if (s.chosen) return; s.chosen = x; show(); }); return b; });
+  function show() {
+    const ok = s.chosen === r;
+    btns.forEach((b, i) => { b.disabled = true; if (s.o[i] === s.chosen) b.classList.add(ok ? 'ok' : 'no'); if (!ok && s.o[i] === r) b.classList.add('ok'); });
     const m = document.createElement('div'); m.className = 'kmsg'; m.innerHTML = ok ? '✔ richtig' : `✘ <span class="jp">${r.c}</span> = ${r.de} · <span class="jp">${jpOf(r)}</span>`; host.appendChild(m);
-    if (ok) setTimeout(() => done(true), 600); else A.btn(host, 'Weiter ▸', () => done(false), 'primary');
+    if (ok) { if (!s.fired) { s.fired = 1; setTimeout(() => done(true), 600); } } else A.btn(host, 'Weiter ▸', () => { if (!s.fired) { s.fired = 1; done(false); } }, 'primary');
   }
+  if (s.chosen) show();
 }
 
 // ------------------------------------------------------------------ five random kanji
